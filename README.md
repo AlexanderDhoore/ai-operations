@@ -16,11 +16,11 @@ and keep the scope small enough that you can make the game work end to end. By
 the end of the course, people should be able to join the same game from
 separate browsers and affect a shared game state.
 
-## Topics we may explore
+## Topics we will explore
 
 We begin by building a small version of the game on your own computer with
-VS Code Chat and the Mechatronics LLM cluster. As the course develops, we may
-explore topics such as:
+VS Code Chat and the Mechatronics LLM cluster. As the course develops, we will
+explore:
 
 - Collaborating through GitHub, pull requests, and AI-assisted code review.
 - Checking changes with tests and GitHub Actions.
@@ -28,10 +28,10 @@ explore topics such as:
 - Using logs, metrics, and dashboards to understand a running application.
 - Integrating an AI capability into the game itself.
 
-These are examples, not a fixed sequence or a complete list of requirements.
-Each new assignment will explain what applies at that stage. You will use
-official documentation, your AI assistant, experiments, and discussions with
-other students to work out the implementation.
+The order is flexible, and this list is not exhaustive. Each new assignment
+will explain what applies at that stage. You will use official documentation,
+your AI assistant, experiments, and discussions with other students to work
+out the implementation.
 
 ## What you are responsible for
 
