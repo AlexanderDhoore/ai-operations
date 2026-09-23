@@ -190,10 +190,15 @@ gh auth setup-git
 gh auth status
 ```
 
+Your output should show your GitHub account and `https` as the Git operations
+protocol. The token appears only in masked form:
+
+<a href="assets/04-github-auth-status.png"><img src="assets/04-github-auth-status.png" alt="Successful GitHub CLI authentication status showing the account, HTTPS Git protocol, and a masked token" width="768"></a>
+
 `gh auth setup-git` configures Git to ask GitHub CLI for credentials when
 cloning or pushing over HTTPS, so you will not have to paste the token for
 each Git command. `gh auth status` checks which GitHub account is logged in
-and whether its credential works; it does not display the token by default.
+and whether its credential works; it does not reveal the full token by default.
 Do not run `gh auth status --show-token` or paste the token into an agent
 prompt. Some account-wide `gh` commands may not work with a token limited
 to one repository. In the next step, you will test access to *your* repository
