@@ -87,7 +87,7 @@ git push -u origin main
 If your branch has a different name, use that name instead of `main`. Refresh
 the GitHub repository page. You should see your game files and your commit.
 
-<a href="assets/04-game-on-github.png"><img src="assets/04-game-on-github.png" alt="A private game repository showing its first commit, files, and README on GitHub" width="880"></a>
+<a href="assets/04-game-on-github.png"><img src="assets/04-game-on-github.png" alt="A private game repository showing its first commit and file list on GitHub" width="880"></a>
 
 ## Give the server access to this repository—not your whole account
 
