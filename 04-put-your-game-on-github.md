@@ -150,34 +150,70 @@ new token in the server's terminal in the next step.
 
 <a href="assets/04-token-copy-reminder.png"><img src="assets/04-token-copy-reminder.png" alt="GitHub reminds you to copy the new token now because it will not be shown again; the token itself is not visible" width="800"></a>
 
-## Authenticate GitHub on your Linux server
+## Install GitHub CLI and authenticate on your Linux server
 
 In your **Remote SSH** VS Code window, open a terminal. The terminal should
-be on your assigned Linux server, not on your laptop. Check that Git and
-GitHub CLI (`gh`) are available:
+be on your assigned Linux server, not on your laptop. Git is already
+installed there, but GitHub CLI (`gh`) is not. Git records and transfers
+commits; `gh` helps you authenticate to GitHub and use its online features.
+You do not need to reinstall Git.
 
-```text
-git --version
+<a href="assets/04-git-installed-gh-missing.png"><img src="assets/04-git-installed-gh-missing.png" alt="Server terminal showing that Git is installed but the gh command is not found" width="332"></a>
+
+Install GitHub CLI from its [official Debian package repository](https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian).
+You are logged in as `root`, so these commands do not need `sudo`. Run them
+in the **server's** terminal:
+
+```bash
+apt update
+apt install -y curl ca-certificates
+install -d -m 755 /etc/apt/keyrings
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg -o /etc/apt/keyrings/githubcli-archive-keyring.gpg
+chmod a+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
+printf 'deb [arch=%s signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main\n' \
+  "$(dpkg --print-architecture)" > /etc/apt/sources.list.d/github-cli.list
+apt update
+apt install -y gh
 gh --version
 ```
 
-Enter your token without putting its value in the command or shell history:
+The first two commands prepare the download tool. The next four add GitHub
+CLI's signing key and package source, so `apt` can verify and install its
+package. The final `apt` commands install `gh`; `gh --version` confirms it
+is available.
+
+Now paste the token you copied from GitHub. This reads it without displaying
+it or putting its value in your shell history:
 
 ```bash
 read -rsp 'GitHub token: ' aiops_pat; echo
 printf '%s\n' "$aiops_pat" | gh auth login --hostname github.com --git-protocol https --with-token
 unset aiops_pat
+```
+
+Press Enter after pasting the token. `gh auth login` reads it from standard
+input and saves the GitHub credential on the server for later use. `unset`
+removes the temporary shell variable; it does not log you out.
+
+Finally, connect Git's HTTPS authentication to GitHub CLI and check the
+login:
+
+```bash
 gh auth setup-git
 gh auth status
 ```
 
-The hidden input does not show your token as you paste it. GitHub CLI keeps
-the credential on the server so Git and your agent can use it later. Do not
-run `gh auth status --show-token` or paste the token into an agent prompt.
-GitHub CLI notes that fine-grained tokens can behave unexpectedly with
-commands that try to inspect your *whole account*; here we will test access
-to the selected repository directly. See the
-[GitHub CLI authentication guide](https://cli.github.com/manual/gh_auth_login).
+`gh auth setup-git` configures Git to ask GitHub CLI for credentials when
+cloning or pushing over HTTPS, so you will not have to paste the token for
+each Git command. `gh auth status` checks which GitHub account is logged in
+and whether its credential works; it does not display the token by default.
+Do not run `gh auth status --show-token` or paste the token into an agent
+prompt. Some account-wide `gh` commands may not work with a token limited
+to one repository. In the next step, you will test access to *your* repository
+by cloning it. See GitHub CLI's documentation for
+[`gh auth login`](https://cli.github.com/manual/gh_auth_login),
+[`gh auth setup-git`](https://cli.github.com/manual/gh_auth_setup-git), and
+[`gh auth status`](https://cli.github.com/manual/gh_auth_status).
 
 ## Clone the game on the server
 
