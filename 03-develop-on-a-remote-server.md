@@ -22,6 +22,20 @@ learn to deploy your game with Docker. You don't have to set that up yet.
 
 ## Connect for the first time
 
+**SSH (Secure Shell)** lets you log in to another computer from a terminal.
+The commands you type then run on that computer, not on your laptop. SSH
+encrypts the connection and checks that you are allowed to log in. We use it
+here to reach your server and set up remote access; later, VS Code will use
+SSH to open a workspace on that same server. See the
+[OpenSSH manual](https://man.openbsd.org/ssh) if you want to explore what else
+SSH can do.
+
+For this first connection, Tailscale is not set up yet. While you are on the
+campus **devbit** Wi-Fi, a temporary network route lets you reach your server
+at its assigned IP address. The teacher will remove that Wi-Fi route later;
+the next section gives you another way in before that happens. You will log
+in as `root`, the Linux administrator, so think before running commands.
+
 Connect your laptop to the **devbit** Wi-Fi network. The teacher will send you
 your server's IP address and unique root password privately through Teams.
 Open a terminal on your laptop—PowerShell or Command Prompt is fine on
@@ -38,20 +52,29 @@ were assigned. Keep the password out of chat, screenshots, and project files.
 
 ![First SSH login to the assigned Debian server](assets/03-first-ssh.png)
 
-**SSH** gives you an encrypted terminal session on another computer. For
-this first connection you use its campus-network IP and the password from
-your teacher. That Wi-Fi route is only for initial setup and will be removed
-later.
-
 ## Add your server to your own Tailscale network
 
-[Tailscale](https://tailscale.com/docs/features/tailscale-ssh) creates a
-private network, called a *tailnet*, between devices signed in to your
-account. Tailscale is already installed on your assigned server. Create your
-own Tailscale account; the email shown in these example screenshots belongs
-to the teacher's demonstration account, not to the class.
+Your first SSH connection works only while your laptop can reach the campus
+network. To work from home or elsewhere, your laptop and server need a private
+way to find and contact each other. Making the server's SSH port public on the
+internet is not necessary. [Tailscale](https://tailscale.com/docs/concepts/what-is-tailscale)
+is VPN software that connects devices in a private network called a *tailnet*.
+Traffic between them is encrypted, and access is controlled by the tailnet's
+members and rules. Each device gets a private Tailscale address; its MagicDNS
+feature also gives the device a name. You can keep using these when you switch
+between campus, home, and other networks.
 
-In the **server's** SSH terminal, run:
+In this assignment, you will add both your server and laptop to **your own**
+tailnet. That lets you reach the server from other networks without opening
+SSH to the public internet. Once this works, the teacher can remove the
+special devbit Wi-Fi access to the student servers without cutting off your
+access. Tailscale is already installed on your assigned server. Create your
+own account; the email shown in these example screenshots belongs to the
+teacher's demonstration account, not to the class.
+
+In the **server's** SSH terminal, run the following to connect it to your
+tailnet and enable [Tailscale SSH](https://tailscale.com/docs/features/tailscale-ssh)
+for connections from that private network:
 
 ```text
 tailscale up --ssh
