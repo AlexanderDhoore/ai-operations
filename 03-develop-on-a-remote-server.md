@@ -135,7 +135,7 @@ server's ordinary password-based SSH path. You can read more about how this
 works, including troubleshooting, in the
 [Tailscale SSH documentation](https://tailscale.com/docs/features/tailscale-ssh).
 
-Once this works, you can normally reach your server from home or another
+Once this works, you can reach your server from home or another
 network too, as long as both devices are online in your tailnet. The initial
 devbit Wi-Fi route is no longer needed for everyday work.
 
