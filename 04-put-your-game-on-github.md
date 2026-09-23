@@ -34,7 +34,8 @@ selecting **Create repository**, GitHub shows an empty repository with a
 <a href="assets/04-create-private-repository.png"><img src="assets/04-create-private-repository.png" alt="Creating a GitHub repository with Private selected" width="780"></a>
 
 If your game is *already* in a GitHub repository under your account, use that
-repository instead. Do not create a second one just for this assignment.
+repository instead of creating a second one. Check that it is
+[private](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
 
 ## Put your game on GitHub from your laptop
 
@@ -60,8 +61,16 @@ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
 cd YOUR-REPOSITORY
 ```
 
+Git may ask you to sign in for a private HTTPS repository; see GitHub's
+[authentication guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)
+if you need it.
+
 The new folder is your *local clone*. Copy your existing game's files into
 it. Run the following Git commands from inside this folder.
+
+The *staging area* holds changes selected for your next commit: `git add`
+puts files there, and `git commit` records them. Git calls the GitHub
+repository `origin` in this clone; `main` is the branch you will push.
 
 Before the first commit, add a `.gitignore` appropriate for your game's
 technology. It should exclude generated files and local configuration that
