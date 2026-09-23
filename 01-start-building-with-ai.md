@@ -35,8 +35,7 @@ By the end of this first stage, you should be able to show:
 
 - VS Code Chat making a request to the Mechatronics model.
 - Your game idea, a running browser prototype, and how to start it again.
-- A brief explanation of your technology choices and what your code does so
-  far, including one decision you checked or changed after an AI suggestion.
+- A brief explanation of your technology choices.
 
 The prototype can be rough. Make one small part work and understand it.
 GitHub, pull requests, remote development, and deployment will be introduced
