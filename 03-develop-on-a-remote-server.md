@@ -131,10 +131,9 @@ tailscale status
 This second SSH route is different from the first: it goes through your
 tailnet rather than the campus IP. With `--ssh`, Tailscale handles SSH access
 to its own address according to your tailnet's policy, rather than using the
-server's ordinary password-based SSH path. A new tailnet's default policy
-allows access to your own device as `root`, but may ask you to confirm your
-identity in a browser. If access is denied, ask for help rather than changing
-security rules at random. See the [Tailscale SSH documentation](https://tailscale.com/docs/features/tailscale-ssh).
+server's ordinary password-based SSH path. You can read more about how this
+works, including troubleshooting, in the
+[Tailscale SSH documentation](https://tailscale.com/docs/features/tailscale-ssh).
 
 Once this works, you can normally reach your server from home or another
 network too, as long as both devices are online in your tailnet. The initial
