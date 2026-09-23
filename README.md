@@ -52,6 +52,7 @@ understand what you built?**
 
 - [01 — Start building with VS Code Chat](01-start-building-with-ai.md)
 - [02 — Add web search to your AI assistant](02-add-web-search.md)
+- [03 — Develop on a remote Linux server](03-develop-on-a-remote-server.md)
 
 Later assignments will appear here when their requirements are introduced in
 class.
