@@ -91,14 +91,21 @@ the GitHub repository page. You should see your game files and your commit.
 
 ## Give the server access to this repository—not your whole account
 
-The server needs to clone and push your game, and your agent needs to do the
-same work from the remote VS Code window. Logging the server into your entire
-GitHub account would give it access to much more than this game. Instead,
-create a **fine-grained personal access token** limited to this one
-repository. The token is a credential: anyone who can use it can perform the
-actions you allow. Restricting its repository and permissions limits what a
-mistake or a compromised server can affect; it does not make the token secret
-from an agent that can run commands as you on that server.
+Your game is now in a private repository on GitHub. Connecting VS Code to
+your Linux server does not automatically give that server access to the
+repository. To clone the game and later push changes, commands on the server
+need to authenticate to GitHub.
+
+You will create a **fine-grained personal access token** in your GitHub
+account and give it to GitHub CLI on the server. When the server contacts
+GitHub, the token proves it is acting with your permission. Your Qwen agent
+does not have a separate GitHub account: its commands run on the server, so
+it can use the server's GitHub access too.
+
+We will limit the token to your game repository and selected actions. That
+lets you work on this project from the server without giving it access to
+your other private repositories. Treat the token like a password: anyone
+who obtains it can use the permissions you granted until you revoke it.
 
 On GitHub, open your profile menu and choose **Settings**.
 
