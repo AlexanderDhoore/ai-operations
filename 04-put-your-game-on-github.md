@@ -160,27 +160,15 @@ You do not need to reinstall Git.
 
 <a href="assets/04-git-installed-gh-missing.png"><img src="assets/04-git-installed-gh-missing.png" alt="Server terminal showing that Git is installed but the gh command is not found" width="332"></a>
 
-Install GitHub CLI from its [official Debian package repository](https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian).
-You are logged in as `root`, so these commands do not need `sudo`. Run them
-in the **server's** terminal:
+GitHub CLI has an [official website](https://cli.github.com/) with current
+[Debian installation instructions](https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian).
+Follow the commands in that guide in your **server's** terminal. You are
+already logged in as `root`, so omit `sudo` wherever the guide uses it.
+When the installation finishes, check that `gh` is available:
 
 ```bash
-apt update
-apt install -y curl ca-certificates
-install -d -m 755 /etc/apt/keyrings
-curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg -o /etc/apt/keyrings/githubcli-archive-keyring.gpg
-chmod a+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
-printf 'deb [arch=%s signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main\n' \
-  "$(dpkg --print-architecture)" > /etc/apt/sources.list.d/github-cli.list
-apt update
-apt install -y gh
 gh --version
 ```
-
-The first two commands prepare the download tool. The next four add GitHub
-CLI's signing key and package source, so `apt` can verify and install its
-package. The final `apt` commands install `gh`; `gh --version` confirms it
-is available.
 
 Now paste the token you copied from GitHub. This reads it without displaying
 it or putting its value in your shell history:
