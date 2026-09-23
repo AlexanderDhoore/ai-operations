@@ -162,9 +162,8 @@ You do not need to reinstall Git.
 
 GitHub CLI has an [official website](https://cli.github.com/) with current
 [Debian installation instructions](https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian).
-Follow the commands in that guide in your **server's** terminal. You are
-already logged in as `root`, so omit `sudo` wherever the guide uses it.
-When the installation finishes, check that `gh` is available:
+Follow the commands in that guide in your **server's** terminal. When the
+installation finishes, check that `gh` is available:
 
 ```bash
 gh --version
