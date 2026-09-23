@@ -1,5 +1,7 @@
 # AI Operations
 
+![Students building a shared browser game with AI, deployment, and monitoring](assets/ai-operations-banner.png)
+
 > **You have to understand what you're building.**
 
 In this course, you will design, build, and operate a browser-based multiplayer
@@ -56,7 +58,7 @@ understand what you built?**
 
 ## Assignments
 
-- [01 — Start building with an AI assistant](01-start-building-with-ai.md)
+- [01 — Start building with VS Code Chat](01-start-building-with-ai.md)
 
 Later assignments will appear here when their requirements are introduced in
 class.

@@ -1,12 +1,12 @@
-# 01 — Start building with an AI assistant
+# 01 — Start building with VS Code Chat
 
-Your first task is to get an AI coding assistant working with the Mechatronics
-LLM cluster and begin your game on your own computer. You can use **Pi** or
-**VS Code Copilot Chat**. Both can use the cluster's Qwen model. Follow the
-[Mechatronics LLM guide](https://docs.mechatronics.be/llm/) for account access,
-a personal API key, and the current setup instructions for your chosen tool.
-The guide is behind the Mechatronics login; ask in class if your account or
-invitation is not ready.
+<img src="assets/vscode-stable.png" alt="Visual Studio Code icon" width="72">
+
+Your first task is to set up **VS Code Copilot Chat** on your own computer,
+connect it to the Mechatronics LLM cluster's Qwen model, and begin your game.
+Follow the [Mechatronics LLM guide](https://docs.mechatronics.be/llm/) to create
+your personal API key and complete the VS Code Copilot Chat setup. The guide
+is behind the Mechatronics login; ask in class if you cannot access it.
 
 Keep your API key private. It belongs in your tool's private configuration,
 never in project files, screenshots, or a Git repository. Your assistant can
@@ -33,7 +33,7 @@ development environment later in the course.
 
 By the end of this first stage, you should be able to show:
 
-- Your chosen assistant making a request to the Mechatronics model.
+- VS Code Chat making a request to the Mechatronics model.
 - Your game idea, a running browser prototype, and how to start it again.
 - A brief explanation of your technology choices and what your code does so
   far, including one decision you checked or changed after an AI suggestion.
