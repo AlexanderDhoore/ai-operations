@@ -115,8 +115,8 @@ Replace `XX` with your assigned number. `ping` checks that the name resolves
 and the machine responds; stop a continuously running ping with `Ctrl+C`.
 The machine name works through Tailscale's
 [MagicDNS](https://tailscale.com/docs/features/magicdns). If the short name
-does not resolve, check that Tailscale is connected on both devices and try
-the server's full `.ts.net` name from the **Machines** page.
+does not resolve, run `tailscale status` on your laptop to check that Tailscale
+is connected and logged in.
 
 ![The laptop reaches the server by its Tailscale machine name](assets/03-tailnet-ping.png)
 
