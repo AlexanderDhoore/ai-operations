@@ -247,15 +247,27 @@ For example:
 > relevant checks, then show me which files changed and explain the change.
 > Do not commit or push yet.
 
-Inspect the change and try the game or relevant tests. Ask questions if you
-do not understand what changed. When you are satisfied, tell the agent:
+Here Qwen describes a small change and reports what it checked. Open the
+changed file to inspect the actual edit; the agent's summary is not a
+substitute for reviewing the code. In VS Code, **Keep** accepts the edit,
+but does not commit or push it. See VS Code's
+[guide to reviewing agent changes](https://code.visualstudio.com/docs/agents/run/review-code-edits)
+if you need help opening the diff.
+
+<a href="assets/04-qwen-game-improvement.png"><img src="assets/04-qwen-game-improvement.png" alt="Qwen describes a small browser-game improvement, with one changed file ready for review in VS Code" width="800"></a>
+
+Try the game or run relevant tests yourself. Ask questions if you do not
+understand what changed. When you are satisfied, tell the agent:
 
 > Commit the changes with a clear message and push the commit to `origin`.
 
-Refresh GitHub and find the new commit. The commit was made on the **server**,
-then pushed to GitHub; it has not automatically appeared in the game folder
-on your laptop. Before you edit the laptop copy again, pull the new commit
-there with `git pull`.
+Refresh GitHub and find the new commit:
+
+<a href="assets/04-qwen-commit-on-github.png"><img src="assets/04-qwen-commit-on-github.png" alt="A new browser-game improvement commit appearing on GitHub" width="602"></a>
+
+The commit was made on the **server**, then pushed to GitHub; it has not
+automatically appeared in the game folder on your laptop. Before you edit
+the laptop copy again, pull the new commit there with `git pull`.
 
 ## Be ready to show
 
