@@ -6,6 +6,8 @@ this assignment; moving the code through GitHub comes next.
 
 ## Why work on a server?
 
+<img src="assets/03-linux-server.png" alt="Tux the Linux penguin in a server room" align="right" width="320">
+
 A remote development environment gives everyone a consistent Debian system.
 It also separates your AI coding agent's file and command access from your
 personal laptop. That does not make every command safe—you still need to
