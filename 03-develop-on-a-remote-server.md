@@ -158,8 +158,7 @@ you do not need it for this first connection.
 
 VS Code opens a new window. If asked which platform the remote host uses,
 select **Linux**. If asked to confirm the SSH host, make sure you are
-connecting to your assigned machine before continuing. If Tailscale asks for
-browser verification, complete that prompt as well.
+connecting to your assigned machine before continuing.
 
 ![Selecting Linux as the remote platform](assets/03-vscode-select-linux.png)
 
