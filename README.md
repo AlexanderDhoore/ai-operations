@@ -16,28 +16,20 @@ and keep the scope small enough that you can make the game work end to end. By
 the end of the course, people should be able to join the same game from
 separate browsers and affect a shared game state.
 
-## How the course develops
+## Topics we may explore
 
-We will add requirements as the semester progresses. The broad path is:
+We begin by building a small version of the game on your own computer with
+VS Code Chat and the Mechatronics LLM cluster. As the course develops, we may
+explore topics such as:
 
-1. **Build with an AI assistant.** Set up access to the Mechatronics LLM
-   cluster and begin a small playable version on your own computer.
-2. **Collaborate through GitHub.** Keep the project in a repository, make
-   reviewable changes through pull requests, and use your assistant to help
-   review them.
-3. **Check changes automatically.** Add useful tests and GitHub Actions so
-   pull requests get feedback before they are merged.
-4. **Work in a consistent environment.** Move development to a provided LXC
-   container and understand how it differs from your own computer.
-5. **Deploy reliably.** Run the game on a separate production container, then
-   automate deployment with carefully scoped credentials.
-6. **Operate what you built.** Inspect logs, metrics, and dashboards; use
-   monitoring to notice and diagnose problems.
-7. **Integrate AI.** In the later part of the course, explore an AI capability
-   within the game itself.
+- Collaborating through GitHub, pull requests, and AI-assisted code review.
+- Checking changes with tests and GitHub Actions.
+- Developing in a consistent remote environment and deploying the game.
+- Using logs, metrics, and dashboards to understand a running application.
+- Integrating an AI capability into the game itself.
 
-These are the themes, not a fixed recipe or a choice of tools on your behalf.
-Each new assignment will define the requirement for that stage. You will use
+These are examples, not a fixed sequence or a complete list of requirements.
+Each new assignment will explain what applies at that stage. You will use
 official documentation, your AI assistant, experiments, and discussions with
 other students to work out the implementation.
 
