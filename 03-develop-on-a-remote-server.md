@@ -40,7 +40,7 @@ were assigned. Keep the password out of chat, screenshots, and project files.
 
 **SSH** gives you an encrypted terminal session on another computer. For
 this first connection you use its campus-network IP and the password from
-your teacher. That Wi-Fi route is only for initial setup and may be removed
+your teacher. That Wi-Fi route is only for initial setup and will be removed
 later.
 
 ## Add your server to your own Tailscale network
