@@ -24,6 +24,8 @@ agent's tools, not replacing its model or setting up an MCP server. See
 [VS Code's explanation of agent tools](https://code.visualstudio.com/docs/agents/concepts/tools)
 for the broader picture.
 
+![Sequence diagram with VS Code Chat, the Qwen LLM server, and Tavily search showing an ordinary answer and a web-search tool call](assets/02-agent-tool-flow.svg)
+
 ## Install the VS Code extension
 
 In the VS Code window where you use the Mechatronics model, open **Extensions**

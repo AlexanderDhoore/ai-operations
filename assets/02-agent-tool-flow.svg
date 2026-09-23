@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 980" role="img" aria-labelledby="title description">
+  <title id="title">How VS Code Chat uses Qwen and Tavily</title>
+  <desc id="description">Three columns show VS Code Chat, the Qwen LLM server, and Tavily search. In ordinary chat, VS Code sends a question to Qwen and receives an answer. With web search, Qwen requests a tool call, VS Code queries Tavily, returns the search results to Qwen, and receives an answer with sources.</desc>
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#0875c9"/>
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#7450bb"/>
+    </marker>
+    <marker id="arrow-teal" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#098d80"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="980" fill="#ffffff"/>
+  <text x="600" y="31" text-anchor="middle" fill="#172033" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">How an agent uses web search</text>
+
+  <rect x="28" y="170" width="1144" height="180" rx="20" fill="#f8fafc" stroke="#dce5ef"/>
+  <rect x="28" y="378" width="1144" height="505" rx="20" fill="#f7fbff" stroke="#dce5ef"/>
+  <text x="52" y="201" fill="#526177" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">Ordinary chat</text>
+  <text x="52" y="411" fill="#526177" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">Chat with the websearch tool</text>
+
+  <line x1="190" y1="143" x2="190" y2="872" stroke="#a9cce7" stroke-width="2" stroke-dasharray="6 8"/>
+  <line x1="600" y1="143" x2="600" y2="872" stroke="#c5b2e1" stroke-width="2" stroke-dasharray="6 8"/>
+  <line x1="1010" y1="143" x2="1010" y2="872" stroke="#a9d9d1" stroke-width="2" stroke-dasharray="6 8"/>
+
+  <rect x="40" y="53" width="300" height="90" rx="18" fill="#eaf4ff" stroke="#a9cce7" stroke-width="2"/>
+  <circle cx="85" cy="98" r="27" fill="#0875c9"/>
+  <rect x="69" y="83" width="32" height="24" rx="3" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <line x1="65" y1="111" x2="105" y2="111" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <text x="128" y="94" fill="#164b76" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">VS Code Chat</text>
+  <text x="128" y="119" fill="#526177" font-family="Arial, Helvetica, sans-serif" font-size="16">Agent and its tools</text>
+
+  <rect x="450" y="53" width="300" height="90" rx="18" fill="#f2edfb" stroke="#c5b2e1" stroke-width="2"/>
+  <circle cx="495" cy="98" r="27" fill="#7450bb"/>
+  <rect x="480" y="82" width="30" height="11" rx="2" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+  <rect x="480" y="100" width="30" height="11" rx="2" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+  <circle cx="485" cy="87.5" r="1.5" fill="#ffffff"/>
+  <circle cx="485" cy="105.5" r="1.5" fill="#ffffff"/>
+  <text x="538" y="94" fill="#4e3682" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Qwen</text>
+  <text x="538" y="119" fill="#526177" font-family="Arial, Helvetica, sans-serif" font-size="16">LLM server</text>
+
+  <rect x="860" y="53" width="300" height="90" rx="18" fill="#eaf8f5" stroke="#a9d9d1" stroke-width="2"/>
+  <circle cx="905" cy="98" r="27" fill="#098d80"/>
+  <circle cx="901" cy="94" r="11" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <line x1="909" y1="102" x2="919" y2="112" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <text x="948" y="94" fill="#08685f" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">Tavily</text>
+  <text x="948" y="119" fill="#526177" font-family="Arial, Helvetica, sans-serif" font-size="16">Search engine</text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="18" text-anchor="middle">
+    <text x="395" y="232" fill="#164b76">1. Send the user's question</text>
+    <line x1="190" y1="247" x2="592" y2="247" stroke="#0875c9" stroke-width="3" marker-end="url(#arrow-blue)"/>
+
+    <text x="395" y="292" fill="#4e3682">2. Return an answer</text>
+    <line x1="600" y1="307" x2="198" y2="307" stroke="#7450bb" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#arrow-purple)"/>
+
+    <text x="395" y="442" fill="#164b76">3. Send question and available tools</text>
+    <line x1="190" y1="457" x2="592" y2="457" stroke="#0875c9" stroke-width="3" marker-end="url(#arrow-blue)"/>
+
+    <text x="395" y="517" fill="#4e3682">4. Request websearch(query)</text>
+    <line x1="600" y1="532" x2="198" y2="532" stroke="#7450bb" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#arrow-purple)"/>
+
+    <text x="600" y="592" fill="#164b76">5. Call the search engine</text>
+    <line x1="190" y1="607" x2="1002" y2="607" stroke="#0875c9" stroke-width="3" marker-end="url(#arrow-blue)"/>
+
+    <text x="600" y="667" fill="#08685f">6. Return results and source URLs</text>
+    <line x1="1010" y1="682" x2="198" y2="682" stroke="#098d80" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#arrow-teal)"/>
+
+    <text x="395" y="742" fill="#164b76">7. Return the tool result</text>
+    <line x1="190" y1="757" x2="592" y2="757" stroke="#0875c9" stroke-width="3" marker-end="url(#arrow-blue)"/>
+
+    <text x="395" y="817" fill="#4e3682">8. Return an answer with sources</text>
+    <line x1="600" y1="832" x2="198" y2="832" stroke="#7450bb" stroke-width="3" stroke-dasharray="9 6" marker-end="url(#arrow-purple)"/>
+  </g>
+
+  <rect x="130" y="908" width="940" height="48" rx="13" fill="#edf4fb"/>
+  <text x="600" y="939" text-anchor="middle" fill="#35465c" font-family="Arial, Helvetica, sans-serif" font-size="18">Qwen requests the tool call; VS Code runs it; Tavily supplies search results.</text>
+</svg>
