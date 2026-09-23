@@ -263,7 +263,7 @@ understand what changed. When you are satisfied, tell the agent:
 
 Refresh GitHub and find the new commit:
 
-<a href="assets/04-qwen-commit-on-github.png"><img src="assets/04-qwen-commit-on-github.png" alt="A new browser-game improvement commit appearing on GitHub" width="602"></a>
+<a href="assets/04-github-commits-after-qwen-change.png"><img src="assets/04-github-commits-after-qwen-change.png" alt="GitHub's Commits page showing the new browser-game improvement commit on main" width="761"></a>
 
 The commit was made on the **server**, then pushed to GitHub; it has not
 automatically appeared in the game folder on your laptop. Before you edit
