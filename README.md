@@ -1,6 +1,6 @@
 # AI Operations
 
-> **You have to understand what you're building.**
+> **Course slogan:** You have to understand what you're building.
 
 ![Students building a shared browser game with AI, deployment, and monitoring](assets/ai-operations-banner.png)
 
