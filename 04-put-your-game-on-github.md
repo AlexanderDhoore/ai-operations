@@ -36,11 +36,19 @@ selecting **Create repository**, GitHub shows an empty repository with a
 If your game is *already* in a GitHub repository under your account, use that
 repository instead. Do not create a second one just for this assignment.
 
-## Put your existing game in a laptop clone
+## Put your game on GitHub from your laptop
 
-On the empty repository page, select **HTTPS** in **Quick setup** and copy the
-repository URL. Open a terminal on your **laptop** and clone it, replacing the
-example URL with your own:
+If your game is already on GitHub, check that its latest code is there and
+continue to the next section. If your game already has a `.git` directory,
+keep using that local repository rather than making a second clone. Follow
+GitHub's
+[instructions for pushing an existing repository](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github),
+then check that your files appear on GitHub.
+
+If your game is not yet tracked by Git, use the empty repository you just
+created. On its **Quick setup** page, select **HTTPS** and copy the repository
+URL. Open a terminal on your **laptop** and clone it, replacing the example
+URL with your own:
 
 <a href="assets/04-empty-private-repository.png"><img src="assets/04-empty-private-repository.png" alt="An empty private GitHub repository showing Quick setup" width="960"></a>
 
@@ -49,15 +57,11 @@ used below unless you have already set up GitHub SSH keys on your laptop.
 
 ```text
 git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
+cd YOUR-REPOSITORY
 ```
 
 The new folder is your *local clone*. Copy your existing game's files into
-that folder, then open the folder in VS Code. If the old game folder already
-contains a `.git` directory, do not copy that directory into the clone: it is
-Git history, not game code. Alternatively, if you already use Git locally but
-have not published the repository, follow GitHub's
-[instructions for pushing an existing repository](https://docs.github.com/en/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
-instead of cloning and copying the files.
+it. Run the following Git commands from inside this folder.
 
 Before the first commit, add a `.gitignore` appropriate for your game's
 technology. It should exclude generated files and local configuration that
@@ -82,8 +86,6 @@ git push -u origin main
 
 If your branch has a different name, use that name instead of `main`. Refresh
 the GitHub repository page. You should see your game files and your commit.
-If your game was already on GitHub, verify that its current code is there and
-continue.
 
 <a href="assets/04-game-on-github.png"><img src="assets/04-game-on-github.png" alt="A private game repository showing its first commit, files, and README on GitHub" width="880"></a>
 
