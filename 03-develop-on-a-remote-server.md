@@ -30,11 +30,10 @@ SSH to open a workspace on that same server. See the
 [OpenSSH manual](https://man.openbsd.org/ssh) if you want to explore what else
 SSH can do.
 
-For this first connection, Tailscale is not set up yet. While you are on the
-campus **devbit** Wi-Fi, a temporary network route lets you reach your server
-at its assigned IP address. The teacher will remove that Wi-Fi route later;
-the next section gives you another way in before that happens. You will log
-in as `root`, the Linux administrator, so think before running commands.
+For this first connection, the campus **devbit** Wi-Fi lets your laptop reach
+your server at its assigned IP address. The teacher will remove this temporary
+access later. You will log in as `root`, the Linux administrator, so think
+before running commands.
 
 Connect your laptop to the **devbit** Wi-Fi network. The teacher will send you
 your server's IP address and unique root password privately through Teams.
