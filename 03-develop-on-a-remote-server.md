@@ -18,7 +18,7 @@ laptop is off, which will matter when we explore longer-running processes.
 Your assigned environment is technically an **LXC container**: an isolated
 Linux system running on a larger server. You can treat it as your development
 server for now. Later you will get a *separate*, clean production server and
-learn to deploy your game with Docker. Do not set that up yet.
+learn to deploy your game with Docker. You don't have to set that up yet.
 
 ## Connect for the first time
 
