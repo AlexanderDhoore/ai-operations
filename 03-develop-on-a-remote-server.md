@@ -86,9 +86,9 @@ Tailscale account, then select **Connect device**.
 ![Tailscale prints a device-login URL in the server terminal](assets/03-tailscale-up.png)
 
 <p>
-  <a href="assets/03-tailscale-login.png"><img src="assets/03-tailscale-login.png" alt="Tailscale sign-in screen" width="220"></a>
-  <a href="assets/03-tailscale-connect-device.png"><img src="assets/03-tailscale-connect-device.png" alt="Confirm connecting the server to the tailnet" width="220"></a>
-  <a href="assets/03-tailscale-login-successful.png"><img src="assets/03-tailscale-login-successful.png" alt="Successful Tailscale device login" width="220"></a>
+  <a href="assets/03-tailscale-login.png"><img src="assets/03-tailscale-login.png" alt="Tailscale sign-in screen" width="300"></a>
+  <a href="assets/03-tailscale-connect-device.png"><img src="assets/03-tailscale-connect-device.png" alt="Confirm connecting the server to the tailnet" width="300"></a>
+  <a href="assets/03-tailscale-login-successful.png"><img src="assets/03-tailscale-login-successful.png" alt="Successful Tailscale device login" width="300"></a>
 </p>
 
 Open the Tailscale console's **Machines** page. Your server should appear
