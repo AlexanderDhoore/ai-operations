@@ -181,8 +181,9 @@ window is displayed on your laptop.
 ## Check where your AI assistant is working
 
 Open VS Code Chat and select the Mechatronics Qwen model you used in the first
-two assignments. In our walkthrough, the existing VS Code model setup worked
-in the remote window without configuring Qwen again. Ask the agent something
+two assignments. Your Qwen model configuration belongs to VS Code on your
+laptop, not to the remote server. It remains available when you open a Remote
+SSH window, so you do not need to configure Qwen again. Ask the agent something
 like:
 
 > Tell me about the machine and folder you can access right now. Look around,
