@@ -1,8 +1,8 @@
 # AI Operations
 
-![Students building a shared browser game with AI, deployment, and monitoring](assets/ai-operations-banner.png)
-
 > **You have to understand what you're building.**
+
+![Students building a shared browser game with AI, deployment, and monitoring](assets/ai-operations-banner.png)
 
 In this course, you will design, build, and operate a browser-based multiplayer
 game. Your game is the project that connects the whole semester: you will first
