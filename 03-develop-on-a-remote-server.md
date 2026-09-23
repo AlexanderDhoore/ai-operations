@@ -189,10 +189,9 @@ like:
 > Tell me about the machine and folder you can access right now. Look around,
 > but do not change anything.
 
-Check its answer against the remote status in VS Code and what you saw in the
-terminal. An agent may infer details incorrectly; a plausible answer is not
-proof. If Qwen is missing from the model picker, check your VS Code Chat
-configuration and ask the teacher for help.
+Notice that your Qwen agent can now access the Linux server instead of your
+laptop's local workspace. VS Code still runs on your laptop, but the files and
+terminal the agent works with are on the server.
 
 ![Qwen inspecting the remote development environment in VS Code Chat](assets/03-vscode-qwen-check.png)
 
