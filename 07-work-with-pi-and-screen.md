@@ -196,7 +196,7 @@ For the first request, ask Pi:
 
 Here Pi reads the existing memory and project instructions:
 
-![Pi reads MEMORY.md and the AGENTS.md resource after the project-state question](assets/07-pi-memory-read.png)
+<a href="assets/07-pi-memory-read.png"><img src="assets/07-pi-memory-read.png" alt="Pi reads MEMORY.md and the AGENTS.md resource after the project-state question" width="620"></a>
 
 Look at the file reads and answer. Does it recover the state you recorded? If something is missing, discuss it and have the agent
 update the memory. An answer from Qwen also confirms that the model connection
@@ -206,7 +206,7 @@ Now try the same GitHub skill from
 [Assignment 06](06-teach-your-agent-a-skill.md). In Pi, explicit invocation uses
 `/skill:` before the skill name. Type `/skill:` to find the existing skill:
 
-![Pi offers skill:github-workflow in its command picker](assets/07-pi-skill-picker.png)
+<a href="assets/07-pi-skill-picker.png"><img src="assets/07-pi-skill-picker.png" alt="Pi offers skill:github-workflow in its command picker" width="460"></a>
 
 Then ask for a review:
 
@@ -218,7 +218,7 @@ Do not change files, stage, commit or push yet.
 The next screenshot shows the skill loaded and the agent starting its Git
 review. Check the resulting review as well as the loading indication.
 
-![Pi loads the github-workflow skill and begins inspecting the repository state](assets/07-pi-skill-loaded.png)
+<a href="assets/07-pi-skill-loaded.png"><img src="assets/07-pi-skill-loaded.png" alt="Pi loads the github-workflow skill and begins inspecting the repository state" width="780"></a>
 
 The invocation is different from VS Code's `/github-workflow`. The
 `SKILL.md` file is the same. If the skill is missing, check the working
@@ -273,7 +273,7 @@ The session may be **Detached**, meaning Screen has no terminal attached, or
 **Attached**, meaning it still has a terminal connection. Our walkthrough
 showed this second case:
 
-![Screen lists game-agent as Attached on the demonstration server](assets/07-screen-attached.png)
+<a href="assets/07-screen-attached.png"><img src="assets/07-screen-attached.png" alt="Screen lists game-agent as Attached on the demonstration server" width="740"></a>
 
 **Attached does not mean the task has failed.** An old terminal may still be
 connected. VS Code can also preserve terminal processes across reconnections,
