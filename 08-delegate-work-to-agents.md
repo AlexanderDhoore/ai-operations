@@ -109,7 +109,7 @@ Give your controller this prompt:
 > Help me add the Assignment 08 delegation workflow to this game, following
 > this guide and its linked reference files:
 >
-> https://raw.githubusercontent.com/AlexanderDhoore/ai-operations/main/resources/workers/README.md
+> https://raw.githubusercontent.com/AlexanderDhoore/ai-operations/refs/heads/main/resources/workers/README.md
 >
 > Read the guide and linked files, then inspect our project and explain your
 > plan before making changes.
