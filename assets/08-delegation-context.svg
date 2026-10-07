@@ -12,12 +12,12 @@
 <text x="947" y="160" text-anchor="middle" font-size="24" fill="#237d70" font-weight="700">Worker A · its own context</text>
 <text x="947" y="195" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">Project instructions + assigned task</text>
 <text x="947" y="228" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">Its own model requests and tool results</text>
-<text x="947" y="279" text-anchor="middle" font-size="20" fill="#237d70" font-weight="700">Reset button</text>
+<text x="947" y="279" text-anchor="middle" font-size="20" fill="#237d70" font-weight="700">Task: add a reset button</text>
 <rect x="730" y="355" width="435" height="190" rx="12" fill="#e8f4ef" stroke="#237d70"/>
 <text x="947" y="390" text-anchor="middle" font-size="24" fill="#237d70" font-weight="700">Worker B · its own context</text>
 <text x="947" y="425" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">Project instructions + assigned task</text>
 <text x="947" y="458" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">Its own model requests and tool results</text>
-<text x="947" y="509" text-anchor="middle" font-size="20" fill="#237d70" font-weight="700">Help page</text>
+<text x="947" y="509" text-anchor="middle" font-size="20" fill="#237d70" font-weight="700">Task: create a help page</text>
 <path d="M375 240 L730 190" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#blue)"/>
 <text x="552" y="176" text-anchor="middle" font-size="18" fill="#2563a5" font-weight="700">Task A</text>
 <path d="M730 266 L375 298" fill="none" stroke="#237d70" stroke-width="2.5" marker-end="url(#teal)"/>
