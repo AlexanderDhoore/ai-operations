@@ -140,7 +140,7 @@ pi --provider vives --model qwen3.8-27b --thinking medium
 If Pi asks, check the path and select **Trust** for your game folder.
 You do not need to trust its parent folder.
 
-![Pi asks whether to trust the existing AmazingBrowserGame project folder](assets/07-pi-project-trust.png)
+<a href="assets/07-pi-project-trust.png"><img src="assets/screenshots/07-pi-project-trust.png" alt="Pi asks whether to trust the existing AmazingBrowserGame project folder" width="984"></a>
 
 Pi runs with your Linux user's permissions. The game folder and project trust
 do not restrict its file access. See [Pi's permission model](https://pi.dev/docs/latest/security).
@@ -151,7 +151,7 @@ Pi's startup information shows `AGENTS.md` under **Context**, `github-workflow`
 under **Skills**, and Qwen in the footer. Press **Ctrl+O** if these details are
 collapsed. This confirms discovery, before using the skill's full instructions.
 
-![Pi startup lists AGENTS.md and the github-workflow skill in the existing game, with Qwen selected](assets/07-pi-project-resources.png)
+<a href="assets/07-pi-project-resources.png"><img src="assets/screenshots/07-pi-project-resources.png" alt="Pi startup lists AGENTS.md and the github-workflow skill in the existing game, with Qwen selected" width="804"></a>
 
 Ask Pi:
 
@@ -161,7 +161,7 @@ Ask Pi:
 
 Here it reads the existing memory and instructions:
 
-<a href="assets/07-pi-memory-read.png"><img src="assets/07-pi-memory-read.png" alt="Pi reads MEMORY.md and the AGENTS.md resource after the project-state question" width="620"></a>
+<a href="assets/07-pi-memory-read.png"><img src="assets/screenshots/07-pi-memory-read.png" alt="Pi reads MEMORY.md and the AGENTS.md resource after the project-state question" width="534"></a>
 
 Check the answer against your recorded state. Discuss anything missing and
 have Pi update the memory.
@@ -169,7 +169,7 @@ have Pi update the memory.
 Now reuse the GitHub skill from [Assignment 06](06-teach-your-agent-a-skill.md).
 Type `/skill:` to find it:
 
-<a href="assets/07-pi-skill-picker.png"><img src="assets/07-pi-skill-picker.png" alt="Pi offers skill:github-workflow in its command picker" width="460"></a>
+<a href="assets/07-pi-skill-picker.png"><img src="assets/screenshots/07-pi-skill-picker.png" alt="Pi offers skill:github-workflow in its command picker" width="404"></a>
 
 ```text
 /skill:github-workflow Review the current Git state and explain what work is pending.
@@ -178,7 +178,7 @@ Do not change files, stage, commit or push yet.
 
 Pi shows the loaded skill and begins the review:
 
-<a href="assets/07-pi-skill-loaded.png"><img src="assets/07-pi-skill-loaded.png" alt="Pi loads the github-workflow skill and begins inspecting the repository state" width="780"></a>
+<a href="assets/07-pi-skill-loaded.png"><img src="assets/screenshots/07-pi-skill-loaded.png" alt="Pi loads the github-workflow skill and begins inspecting the repository state" width="659"></a>
 
 The command differs from VS Code's `/github-workflow`, but `SKILL.md` is the
 same. Check that it was loaded and review the result. If it is missing, check
@@ -201,7 +201,7 @@ While Pi works, **close the terminal**:
 - **VS Code Remote SSH:** use the terminal's trash-can button, **Kill Terminal**.
   The panel's **X** only hides the view.
 
-<a href="assets/07-vscode-kill-terminal.png"><img src="assets/07-vscode-kill-terminal.png" alt="VS Code terminal trash-can button with the Kill (Del) tooltip" width="440"></a>
+<a href="assets/07-vscode-kill-terminal.png"><img src="assets/screenshots/07-vscode-kill-terminal.png" alt="VS Code terminal trash-can button with the Kill (Del) tooltip" width="385"></a>
 
 Close the outer terminal without exiting Pi or its Screen shell. The task can
 continue on the server, even if you shut down your laptop.
@@ -226,7 +226,7 @@ screen -d -r game-agent
 Our walkthrough still showed **Attached**, meaning an old terminal connection
 remained. **Detached** means no terminal is attached:
 
-<a href="assets/07-screen-attached.png"><img src="assets/07-screen-attached.png" alt="Screen lists game-agent as Attached on the demonstration server" width="740"></a>
+<a href="assets/07-screen-attached.png"><img src="assets/screenshots/07-screen-attached.png" alt="Screen lists game-agent as Attached on the demonstration server" width="624"></a>
 
 `-d -r` handles both states by disconnecting the old terminal if necessary and
 attaching here. Use it for your own session. A plain `-r` refuses an Attached

@@ -13,7 +13,7 @@ never in project files, screenshots, or a Git repository. Your assistant can
 read and run things with the permissions of your own computer account, so
 check what it proposes before you run or accept it.
 
-![A first conversation with Qwen in VS Code Chat](assets/01-vscode-chat-first-message.png)
+<a href="assets/01-vscode-chat-first-message.png"><img src="assets/screenshots/01-vscode-chat-first-message.png" alt="A first conversation with Qwen in VS Code Chat" width="525"></a>
 
 ## Build the first slice
 

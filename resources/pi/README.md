@@ -83,7 +83,7 @@ prompt appears. A blank entry leaves an existing key unchanged.
 
 The walkthrough shows the hidden prompt and confirmation, with no key visible:
 
-![The terminal confirms that the Pi API key was saved privately without showing its value](../../assets/07-pi-key-saved.png)
+<a href="../../assets/07-pi-key-saved.png"><img src="../../assets/screenshots/07-pi-key-saved.png" alt="The terminal confirms that the Pi API key was saved privately without showing its value" width="645"></a>
 
 The subshell discards the temporary variable when it exits. The key persists
 in the private file, so future Pi sessions can read it. The file is plain

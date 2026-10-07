@@ -49,7 +49,7 @@ should end up at a Debian shell with a prompt resembling
 `root@ai-operations-XX:~#`. Check that the machine name matches the one you
 were assigned. Keep the password out of chat, screenshots, and project files.
 
-![First SSH login to the assigned Debian server](assets/03-first-ssh.png)
+<a href="assets/03-first-ssh.png"><img src="assets/screenshots/03-first-ssh.png" alt="First SSH login to the assigned Debian server" width="924"></a>
 
 ## Add your server to your own Tailscale network
 
@@ -83,19 +83,19 @@ Open the login URL printed in *your* terminal. Do not reuse the URL in the
 screenshot. Each setup generates its own login link. Sign in to your own
 Tailscale account, then select **Connect device**.
 
-![Tailscale prints a device-login URL in the server terminal](assets/03-tailscale-up.png)
+<a href="assets/03-tailscale-up.png"><img src="assets/screenshots/03-tailscale-up.png" alt="Tailscale prints a device-login URL in the server terminal" width="484"></a>
 
 <p>
-  <a href="assets/03-tailscale-login.png"><img src="assets/03-tailscale-login.png" alt="Tailscale sign-in screen" width="330"></a>
-  <a href="assets/03-tailscale-connect-device.png"><img src="assets/03-tailscale-connect-device.png" alt="Confirm connecting the server to the tailnet" width="330"></a>
-  <a href="assets/03-tailscale-login-successful.png"><img src="assets/03-tailscale-login-successful.png" alt="Successful Tailscale device login" width="330"></a>
+  <a href="assets/03-tailscale-login.png"><img src="assets/screenshots/03-tailscale-login.png" alt="Tailscale sign-in screen" width="405"></a>
+  <a href="assets/03-tailscale-connect-device.png"><img src="assets/screenshots/03-tailscale-connect-device.png" alt="Confirm connecting the server to the tailnet" width="525"></a>
+  <a href="assets/03-tailscale-login-successful.png"><img src="assets/screenshots/03-tailscale-login-successful.png" alt="Successful Tailscale device login" width="525"></a>
 </p>
 
 Open the Tailscale console's **Machines** page. Your server should appear
 there under a name such as `ai-operations-XX`. Use the name shown in *your*
 account, which may differ from the example.
 
-![The server listed among Tailscale machines](assets/03-tailscale-machine.png)
+<a href="assets/03-tailscale-machine.png"><img src="assets/screenshots/03-tailscale-machine.png" alt="The server listed among Tailscale machines" width="215"></a>
 
 Install [Tailscale on your laptop](https://tailscale.com/download) too, and
 sign in to the **same account**. Both devices must be connected to your
@@ -118,7 +118,7 @@ The machine name works through Tailscale's
 does not resolve, run `tailscale status` on your laptop to check that Tailscale
 is connected and logged in.
 
-![The laptop reaches the server by its Tailscale machine name](assets/03-tailnet-ping.png)
+<a href="assets/03-tailnet-ping.png"><img src="assets/screenshots/03-tailnet-ping.png" alt="The laptop reaches the server by its Tailscale machine name" width="954"></a>
 
 After SSH connects, run this **on the server** to see its Tailscale status:
 
@@ -126,7 +126,7 @@ After SSH connects, run this **on the server** to see its Tailscale status:
 tailscale status
 ```
 
-![SSH to the Tailscale name and the server's tailscale status](assets/03-tailnet-ssh-status.png)
+<a href="assets/03-tailnet-ssh-status.png"><img src="assets/screenshots/03-tailnet-ssh-status.png" alt="SSH to the Tailscale name and the server's tailscale status" width="844"></a>
 
 This second SSH route is different from the first: it goes through your
 tailnet rather than the campus IP. With `--ssh`, Tailscale handles SSH access
@@ -146,31 +146,31 @@ left and choose **Connect to Host...**. If you do not see **Remote - SSH**,
 install that VS Code extension first. Microsoft's
 [Remote SSH guide](https://code.visualstudio.com/docs/remote/ssh) covers it.
 
-![The remote connection button in VS Code](assets/03-vscode-remote-button.png)
+<a href="assets/03-vscode-remote-button.png"><img src="assets/screenshots/03-vscode-remote-button.png" alt="The remote connection button in VS Code" width="205"></a>
 
-![Connect to Host in the remote connection menu](assets/03-vscode-connect-to-host.png)
+<a href="assets/03-vscode-connect-to-host.png"><img src="assets/screenshots/03-vscode-connect-to-host.png" alt="Connect to Host in the remote connection menu" width="565"></a>
 
 Enter `root@ai-operations-XX`, using the **same Tailscale name** that worked
 in your laptop terminal, and press Enter. **Add New SSH Host...** is optional.
 You do not need it for this first connection.
 
-![Entering the Tailscale machine name in VS Code](assets/03-vscode-host-name.png)
+<a href="assets/03-vscode-host-name.png"><img src="assets/screenshots/03-vscode-host-name.png" alt="Entering the Tailscale machine name in VS Code" width="565"></a>
 
 VS Code opens a new window. If asked which platform the remote host uses,
 select **Linux**. If asked to confirm the SSH host, make sure you are
 connecting to your assigned machine before continuing.
 
-![Selecting Linux as the remote platform](assets/03-vscode-select-linux.png)
+<a href="assets/03-vscode-select-linux.png"><img src="assets/screenshots/03-vscode-select-linux.png" alt="Selecting Linux as the remote platform" width="765"></a>
 
-![Confirming the SSH host in VS Code](assets/03-vscode-ssh-confirm.png)
+<a href="assets/03-vscode-ssh-confirm.png"><img src="assets/screenshots/03-vscode-ssh-confirm.png" alt="Confirming the SSH host in VS Code" width="765"></a>
 
 VS Code may take a moment to set up its remote server. Wait for **Opening
 Remote...** to finish. The bottom-left status should then show something like
 **SSH: ai-operations-XX**.
 
-![VS Code opening the remote connection](assets/03-vscode-opening-remote.png)
+<a href="assets/03-vscode-opening-remote.png"><img src="assets/screenshots/03-vscode-opening-remote.png" alt="VS Code opening the remote connection" width="189"></a>
 
-![VS Code showing the connected SSH host](assets/03-vscode-connected.png)
+<a href="assets/03-vscode-connected.png"><img src="assets/screenshots/03-vscode-connected.png" alt="VS Code showing the connected SSH host" width="204"></a>
 
 Choose **Open Folder** and open `/root` on the server. When VS Code asks
 whether you trust this folder, accept it: this is your assigned development
@@ -192,7 +192,7 @@ Notice that your Qwen agent can now access the Linux server instead of your
 laptop's local workspace. VS Code still runs on your laptop, but the files and
 terminal the agent works with are on the server.
 
-![Qwen inspecting the remote development environment in VS Code Chat](assets/03-vscode-qwen-check.png)
+<a href="assets/03-vscode-qwen-check.png"><img src="assets/screenshots/03-vscode-qwen-check.png" alt="Qwen inspecting the remote development environment in VS Code Chat" width="615"></a>
 
 Be ready to show your server in Tailscale's **Machines** page, a terminal SSH
 connection using its Tailscale name, and a VS Code window showing **SSH:

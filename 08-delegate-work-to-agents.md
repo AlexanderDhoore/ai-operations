@@ -151,7 +151,7 @@ mechanical steps. The agent helps build the system that delegates its work.
 In VS Code, you can select `/delegate-work` to invoke the skill explicitly,
 or ask the controller to use it in your own words:
 
-<a href="assets/08-delegation-skill-picker.png"><img src="assets/08-delegation-skill-picker.png" alt="VS Code offers the delegate-work skill in the chat command picker" width="640"></a>
+<a href="assets/08-delegation-skill-picker.png"><img src="assets/screenshots/08-delegation-skill-picker.png" alt="VS Code offers the delegate-work skill in the chat command picker" width="645"></a>
 
 ## Delegate through conversation
 
@@ -178,7 +178,7 @@ instructions each time.
 
 Here the controller reads the skill after a short request:
 
-<a href="assets/08-delegate-through-chat.png"><img src="assets/08-delegate-through-chat.png" alt="A short request to delegate a reset button and help page leads the controller to read the game, memory and delegate-work skill" width="820"></a>
+<a href="assets/08-delegate-through-chat.png"><img src="assets/screenshots/08-delegate-through-chat.png" alt="A short request to delegate a reset button and help page leads the controller to read the game, memory and delegate-work skill" width="814"></a>
 
 The controller reports what it started and returns to the chat. You can close
 your laptop as in Assignment 07. The workers continue their assigned tasks on

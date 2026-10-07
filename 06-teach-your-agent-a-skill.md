@@ -181,12 +181,12 @@ it produces.
 After creation, open the file. VS Code may display the nested directories
 as one compact path, as it does in our walkthrough:
 
-![The github-workflow skill directory in the remote game repository](assets/06-github-skill-folder.png)
+<a href="assets/06-github-skill-folder.png"><img src="assets/screenshots/06-github-skill-folder.png" alt="The github-workflow skill directory in the remote game repository" width="394"></a>
 
 The beginning of the generated file shows its metadata and the start of
 the procedure:
 
-![The beginning of SKILL.md with its name, description and workflow introduction](assets/06-github-skill-file.png)
+<a href="assets/06-github-skill-file.png"><img src="assets/screenshots/06-github-skill-file.png" alt="The beginning of SKILL.md with its name, description and workflow introduction" width="626"></a>
 
 Read the complete file, not just the visible beginning. Does it capture what
 you discussed? Would its description help the agent recognize a GitHub task?
@@ -199,7 +199,7 @@ Save the file and open **New Chat** in the same game workspace, with Qwen in
 Agent mode. Type `/` and look for `github-workflow` in the command picker.
 Typing the start of its name filters the list:
 
-![VS Code's slash-command picker showing github-workflow and its description](assets/06-github-skill-picker.png)
+<a href="assets/06-github-skill-picker.png"><img src="assets/screenshots/06-github-skill-picker.png" alt="VS Code's slash-command picker showing github-workflow and its description" width="590"></a>
 
 Select it and add a task:
 
@@ -237,7 +237,7 @@ Now the skill's description should help the model recognize its relevance.
 In our fresh-chat walkthrough, the agent chose `github-workflow` without us
 naming it. VS Code showed the skill being read:
 
-![VS Code showing Read skill github-workflow after the agent selected it automatically](assets/06-github-skill-read.png)
+<a href="assets/06-github-skill-read.png"><img src="assets/screenshots/06-github-skill-read.png" alt="VS Code showing Read skill github-workflow after the agent selected it automatically" width="266"></a>
 
 Look for this loading activity or instruction references in your own chat,
 as well as the answer. A sensible Git review alone does not prove the skill

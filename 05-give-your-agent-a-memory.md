@@ -35,7 +35,7 @@ Open the context indicator in your VS Code Chat session and inspect the
 with space used by system instructions, tool definitions and messages, plus
 space reserved for the response:
 
-![VS Code Session Info showing 21.9K of 131K tokens and the context breakdown](assets/05-context-window.png)
+<a href="assets/05-context-window.png"><img src="assets/screenshots/05-context-window.png" alt="VS Code Session Info showing 21.9K of 131K tokens and the context breakdown" width="305"></a>
 
 Notice the space used by tool definitions. Our course configuration divides
 the budget into **96K tokens for input and 32K reserved for output**:
@@ -109,7 +109,7 @@ Connect VS Code to your assigned server as in Assignment 03. Open your game's
 repository folder itself, rather than its parent `/root`. The screenshot uses
 the teacher's game folder. Use your own:
 
-![Opening the game repository as the remote VS Code workspace](assets/05-open-project-folder.png)
+<a href="assets/05-open-project-folder.png"><img src="assets/screenshots/05-open-project-folder.png" alt="Opening the game repository as the remote VS Code workspace" width="791"></a>
 
 Discuss the plan, collaboration rules and useful project information with
 your agent. Have it write and maintain both files, then review the content
@@ -137,7 +137,7 @@ Select your Mechatronics Qwen model in **Agent** mode. You can start with:
 <details>
 <summary>Our walkthrough used one possible set of headings</summary>
 
-![Asking Qwen to create the two memory files without changing game code](assets/05-create-memory-prompt.png)
+<a href="assets/05-create-memory-prompt.png"><img src="assets/screenshots/05-create-memory-prompt.png" alt="Asking Qwen to create the two memory files without changing game code" width="640"></a>
 
 </details>
 
@@ -145,7 +145,7 @@ Open both files and check that their contents match your project and what
 you agreed. Discuss anything inaccurate or missing with the agent and ask it
 to revise the files before continuing.
 
-![AGENTS.md and MEMORY.md beside the existing game files in Explorer](assets/05-memory-files.png)
+<a href="assets/05-memory-files.png"><img src="assets/screenshots/05-memory-files.png" alt="AGENTS.md and MEMORY.md beside the existing game files in Explorer" width="381"></a>
 
 A minimal `AGENTS.md` can look like this. Preserve useful existing instructions:
 
@@ -247,14 +247,14 @@ In our fresh-chat walkthrough, the agent referred to the instruction in
 <details>
 <summary>Our agent identifies the project instruction in the new chat</summary>
 
-![The fresh-chat agent refers to AGENTS.md and its instruction to read MEMORY.md first](assets/05-new-chat-instructions.png)
+<a href="assets/05-new-chat-instructions.png"><img src="assets/screenshots/05-new-chat-instructions.png" alt="The fresh-chat agent refers to AGENTS.md and its instruction to read MEMORY.md first" width="560"></a>
 
 </details>
 
 The visible tool activity then shows it reading `MEMORY.md`, followed by the
 project README and game source:
 
-![The new chat reads MEMORY.md and inspects the project without receiving the old conversation](assets/05-new-chat-reads-memory.png)
+<a href="assets/05-new-chat-reads-memory.png"><img src="assets/screenshots/05-new-chat-reads-memory.png" alt="The new chat reads MEMORY.md and inspects the project without receiving the old conversation" width="580"></a>
 
 Compare its answer with your memory file. The new chat can find your working
 record because `AGENTS.md` explains where to look, even though the old

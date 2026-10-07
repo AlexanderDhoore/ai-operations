@@ -31,7 +31,7 @@ will add your existing game files from your laptop in the next step. After
 selecting **Create repository**, GitHub shows an empty repository with a
 **Quick setup** section.
 
-<a href="assets/04-create-private-repository.png"><img src="assets/04-create-private-repository.png" alt="Creating a GitHub repository with Private selected" width="780"></a>
+<a href="assets/04-create-private-repository.png"><img src="assets/screenshots/04-create-private-repository.png" alt="Creating a GitHub repository with Private selected" width="805"></a>
 
 If your game is *already* in a GitHub repository under your account, use that
 repository instead of creating a second one. Check that it is
@@ -51,7 +51,7 @@ created. On its **Quick setup** page, select **HTTPS** and copy the repository
 URL. Open a terminal on your **laptop** and clone it, replacing the example
 URL with your own:
 
-<a href="assets/04-empty-private-repository.png"><img src="assets/04-empty-private-repository.png" alt="An empty private GitHub repository showing Quick setup" width="960"></a>
+<a href="assets/04-empty-private-repository.png"><img src="assets/screenshots/04-empty-private-repository.png" alt="An empty private GitHub repository showing Quick setup" width="985"></a>
 
 The example screenshot has **SSH** selected. Switch to **HTTPS** for the URL
 used below unless you have already set up GitHub SSH keys on your laptop.
@@ -96,7 +96,7 @@ git push -u origin main
 If your branch has a different name, use that name instead of `main`. Refresh
 the GitHub repository page. You should see your game files and your commit.
 
-<a href="assets/04-private-repository-file-list.png"><img src="assets/04-private-repository-file-list.png" alt="A private game repository showing its first commit and file list on GitHub" width="880"></a>
+<a href="assets/04-private-repository-file-list.png"><img src="assets/screenshots/04-private-repository-file-list.png" alt="A private game repository showing its first commit and file list on GitHub" width="904"></a>
 
 ## Give the server access to this repository—not your whole account
 
@@ -118,14 +118,14 @@ who obtains it can use the permissions you granted until you revoke it.
 
 On GitHub, open your profile menu and choose **Settings**.
 
-<a href="assets/04-github-profile-settings.png"><img src="assets/04-github-profile-settings.png" alt="GitHub profile menu with Settings selected" width="300"></a>
+<a href="assets/04-github-profile-settings.png"><img src="assets/screenshots/04-github-profile-settings.png" alt="GitHub profile menu with Settings selected" width="324"></a>
 
 In the settings sidebar, open **Developer settings → Personal access tokens →
 Fine-grained tokens**, then choose **Generate new token**.
 
 <p>
-  <a href="assets/04-github-developer-settings.png"><img src="assets/04-github-developer-settings.png" alt="Developer settings in the GitHub settings sidebar" width="330"></a>
-  <a href="assets/04-github-fine-grained-tokens.png"><img src="assets/04-github-fine-grained-tokens.png" alt="Fine-grained tokens under Personal access tokens" width="330"></a>
+  <a href="assets/04-github-developer-settings.png"><img src="assets/screenshots/04-github-developer-settings.png" alt="Developer settings in the GitHub settings sidebar" width="355"></a>
+  <a href="assets/04-github-fine-grained-tokens.png"><img src="assets/screenshots/04-github-fine-grained-tokens.png" alt="Fine-grained tokens under Personal access tokens" width="325"></a>
 </p>
 
 Give the token a name such as `ai-operations-server`, select your own account
@@ -133,7 +133,7 @@ as the **Resource owner**, and choose **No expiration** or an expiration date
 you prefer. Set **Repository access** to **Only select repositories** and
 select *only your game repository*.
 
-<a href="assets/04-token-repository-access.png"><img src="assets/04-token-repository-access.png" alt="Fine-grained token named ai-operations-server, scoped to one game repository, with No expiration selected" width="720"></a>
+<a href="assets/04-token-repository-access.png"><img src="assets/screenshots/04-token-repository-access.png" alt="Fine-grained token named ai-operations-server, scoped to one game repository, with No expiration selected" width="805"></a>
 
 Under **Repository permissions**, set:
 
@@ -143,7 +143,7 @@ Under **Repository permissions**, set:
 - **Actions: Read and write** — inspect and trigger GitHub Actions runs later.
 - **Workflows: Read and write** — add or change workflow files later.
 
-<a href="assets/04-token-permissions.png"><img src="assets/04-token-permissions.png" alt="Fine-grained token permissions with Actions, Contents, Pull requests, and Workflows set to read and write" width="800"></a>
+<a href="assets/04-token-permissions.png"><img src="assets/screenshots/04-token-permissions.png" alt="Fine-grained token permissions with Actions, Contents, Pull requests, and Workflows set to read and write" width="824"></a>
 
 GitHub adds **Metadata: Read-only** automatically. We are preparing for later
 pull-request and CI/CD assignments, but this assignment does not ask you to
@@ -157,7 +157,7 @@ value again. Keep it out of chat, screenshots, your game files, and your Git
 history. If you expose it, revoke it and create a new one. You will enter the
 new token in the server's terminal in the next step.
 
-<a href="assets/04-token-copy-reminder.png"><img src="assets/04-token-copy-reminder.png" alt="GitHub reminds you to copy the new token now because it will not be shown again. The token itself is not visible" width="800"></a>
+<a href="assets/04-token-copy-reminder.png"><img src="assets/screenshots/04-token-copy-reminder.png" alt="GitHub reminds you to copy the new token now because it will not be shown again. The token itself is not visible" width="824"></a>
 
 ## Install GitHub CLI and authenticate on your Linux server
 
@@ -167,7 +167,7 @@ installed there, but GitHub CLI (`gh`) is not. Git records and transfers
 commits. `gh` helps you authenticate to GitHub and use its online features.
 You do not need to reinstall Git.
 
-<a href="assets/04-git-installed-gh-missing.png"><img src="assets/04-git-installed-gh-missing.png" alt="Server terminal showing that Git is installed but the gh command is not found" width="332"></a>
+<a href="assets/04-git-installed-gh-missing.png"><img src="assets/screenshots/04-git-installed-gh-missing.png" alt="Server terminal showing that Git is installed but the gh command is not found" width="356"></a>
 
 GitHub CLI has an [official website](https://cli.github.com/) with current
 [Debian installation instructions](https://github.com/cli/cli/blob/trunk/docs/install_linux.md#debian).
@@ -202,7 +202,7 @@ gh auth status
 Your output should show your GitHub account and `https` as the Git operations
 protocol. The token appears only in masked form:
 
-<a href="assets/04-github-auth-status.png"><img src="assets/04-github-auth-status.png" alt="Successful GitHub CLI authentication status showing the account, HTTPS Git protocol, and a masked token" width="768"></a>
+<a href="assets/04-github-auth-status.png"><img src="assets/screenshots/04-github-auth-status.png" alt="Successful GitHub CLI authentication status showing the account, HTTPS Git protocol, and a masked token" width="792"></a>
 
 `gh auth setup-git` configures Git to ask GitHub CLI for credentials when
 cloning or pushing over HTTPS, so you will not have to paste the token for
@@ -263,7 +263,7 @@ but does not commit or push it. See VS Code's
 [guide to reviewing agent changes](https://code.visualstudio.com/docs/agents/run/review-code-edits)
 if you need help opening the diff.
 
-<a href="assets/04-qwen-game-improvement.png"><img src="assets/04-qwen-game-improvement.png" alt="Qwen describes a small browser-game improvement, with one changed file ready for review in VS Code" width="800"></a>
+<a href="assets/04-qwen-game-improvement.png"><img src="assets/screenshots/04-qwen-game-improvement.png" alt="Qwen describes a small browser-game improvement, with one changed file ready for review in VS Code" width="825"></a>
 
 Try the game or run relevant tests yourself. Ask questions if you do not
 understand what changed. When you are satisfied, tell the agent:
@@ -272,7 +272,7 @@ understand what changed. When you are satisfied, tell the agent:
 
 Refresh GitHub and find the new commit:
 
-<a href="assets/04-github-commits-after-qwen-change.png"><img src="assets/04-github-commits-after-qwen-change.png" alt="GitHub's Commits page showing the new browser-game improvement commit on main" width="761"></a>
+<a href="assets/04-github-commits-after-qwen-change.png"><img src="assets/screenshots/04-github-commits-after-qwen-change.png" alt="GitHub's Commits page showing the new browser-game improvement commit on main" width="604"></a>
 
 The commit was made on the **server**, then pushed to GitHub. It has not
 automatically appeared in the game folder on your laptop. Before you edit
