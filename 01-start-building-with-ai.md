@@ -1,6 +1,6 @@
 # 01 — Start building with VS Code Chat
 
-<img src="assets/vscode-stable.png" alt="Visual Studio Code icon" width="72">
+<img src="assets/vscode-stable.png" alt="Visual Studio Code icon" width="72" align="right">
 
 Your first task is to set up **VS Code Copilot Chat** on your own computer,
 connect it to the Mechatronics LLM cluster's Qwen model, and begin your game.
