@@ -173,15 +173,13 @@ Once you agree on the features, asking the controller to delegate can be short:
 > Delegate the work. Check that the workers started, then come back to me
 > without waiting for them to finish.
 
-The screenshot deliberately uses a very short request to demonstrate the
-workflow. For your own game, have that feature conversation first. The skill
-then tells the controller how to turn your agreement into task files, commit
-the plan and start separate workers. You do not need to repeat those procedural
-instructions each time.
+The skill tells the controller how to turn your agreement into task files,
+commit the plan and start separate workers. You do not need to repeat those
+procedural instructions each time.
 
-Here the controller reads the skill after a short request:
+Here the controller reads the project files and loads the delegation skill:
 
-<a href="assets/08-delegate-through-chat.png"><img src="assets/screenshots/08-delegate-through-chat.png" alt="A short request to delegate a reset button and help page leads the controller to read the game, memory and delegate-work skill" width="814"></a>
+<a href="assets/08-controller-reads-skill.png"><img src="assets/screenshots/08-controller-reads-skill.png" alt="The controller reads index.html, MEMORY.md and the delegate-work skill before preparing worker tasks" width="725"></a>
 
 **The controller should check that the workers started, then return to you.**
 It should not keep polling until their work is finished. If it does, steer it
