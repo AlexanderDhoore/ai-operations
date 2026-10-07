@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 980" role="img" aria-labelledby="title desc">
+<title id="title">Another harness, the same project and model</title>
+<desc id="desc">VS Code Chat with Remote SSH and terminal-based Pi are alternative harnesses. Both use the same project files and school Qwen model. In the Pi route, the laptop is an SSH display, Pi and tools run inside Screen on the development LXC, and model requests cross the network to a separate Qwen server. Project instructions and skills remain in the game repository.</desc>
+<defs>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#2563a5" stroke-width="1.6"/></marker>
+<marker id="purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#7950a7" stroke-width="1.6"/></marker>
+<marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#237d70" stroke-width="1.6"/></marker>
+</defs>
+<rect width="1200" height="980" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="600" y="49" font-size="31" fill="#172033" font-weight="700" text-anchor="middle">Another harness, the same project and model</text>
+<text x="600" y="83" font-size="20" fill="#526177" font-weight="400" text-anchor="middle">The interface changes. Your recorded project knowledge comes with you.</text>
+<rect x="40" y="114" width="510" height="103" rx="12" fill="#eaf4ff" stroke="#c8d4e3"/>
+<text x="295" y="155" font-size="25" fill="#2563a5" font-weight="700" text-anchor="middle">VS Code Chat</text>
+<text x="295" y="188" font-size="18" fill="#526177" font-weight="400" text-anchor="middle">Remote SSH workspace · previous assignments</text>
+<path d="M295 218 L295 247" fill="none" stroke="#237d70" stroke-width="2" marker-end="url(#teal)"/>
+<rect x="650" y="114" width="510" height="103" rx="12" fill="#e8f4ef" stroke="#c8d4e3"/>
+<text x="905" y="155" font-size="25" fill="#237d70" font-weight="700" text-anchor="middle">Pi</text>
+<text x="905" y="188" font-size="18" fill="#526177" font-weight="400" text-anchor="middle">Terminal on your LXC · this assignment</text>
+<path d="M905 218 L905 247" fill="none" stroke="#237d70" stroke-width="2" marker-end="url(#teal)"/>
+<text x="600" y="171" font-size="21" fill="#526177" font-weight="400" text-anchor="middle">or</text>
+<rect x="40" y="255" width="1120" height="82" rx="12" fill="#f8fafc" stroke="#c8d4e3"/>
+<text x="600" y="286" font-size="22" fill="#172033" font-weight="700" text-anchor="middle">Both use the same Qwen model and game repository</text>
+<text x="600" y="317" font-size="20" fill="#237d70" font-weight="400" text-anchor="middle">Game code   ·   AGENTS.md   ·   MEMORY.md   ·   .agents/skills/</text>
+<text x="40" y="390" font-size="16" fill="#526177" font-weight="700" text-anchor="start">WHERE PI RUNS</text>
+<path d="M195 384 L1160 384" fill="none" stroke="#c8d4e3" stroke-width="2"/>
+<rect x="40" y="417" width="236" height="257" rx="12" fill="#eaf4ff" stroke="#c8d4e3"/>
+<text x="158" y="457" font-size="25" fill="#2563a5" font-weight="700" text-anchor="middle">Your laptop</text>
+<rect x="69" y="482" width="178" height="89" rx="12" fill="#ffffff" stroke="#c8d4e3"/>
+<text x="158" y="520" font-size="23" fill="#2563a5" font-weight="700" text-anchor="middle">&gt;_ terminal</text>
+<text x="158" y="551" font-size="18" fill="#526177" font-weight="400" text-anchor="middle">Input and display</text>
+<text x="158" y="611" font-size="20" fill="#172033" font-weight="400" text-anchor="middle">Closing it ends</text>
+<text x="158" y="640" font-size="20" fill="#172033" font-weight="400" text-anchor="middle">your connection.</text>
+<rect x="401" y="417" width="394" height="449" rx="12" fill="#e8f4ef" stroke="#c8d4e3"/>
+<text x="598" y="457" font-size="25" fill="#237d70" font-weight="700" text-anchor="middle">Development LXC</text>
+<rect x="424" y="482" width="348" height="142" rx="12" fill="#ffffff" stroke="#237d70"/>
+<text x="598" y="513" font-size="20" fill="#237d70" font-weight="700" text-anchor="middle">GNU Screen session</text>
+<rect x="446" y="533" width="304" height="70" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+<text x="598" y="562" font-size="23" fill="#2563a5" font-weight="700" text-anchor="middle">Pi + its tools</text>
+<text x="598" y="588" font-size="18" fill="#526177" font-weight="400" text-anchor="middle">A process on this server</text>
+<path d="M598 625 L598 686" fill="none" stroke="#237d70" stroke-width="2" marker-end="url(#teal)"/>
+<text x="615" y="663" font-size="16" fill="#237d70" font-weight="400" text-anchor="start">Read, edit, run checks</text>
+<rect x="424" y="696" width="348" height="143" rx="12" fill="#ffffff" stroke="#237d70"/>
+<text x="598" y="729" font-size="22" fill="#172033" font-weight="700" text-anchor="middle">Your existing game folder</text>
+<text x="598" y="763" font-size="18" fill="#172033" font-weight="400" text-anchor="middle">Code + AGENTS.md + MEMORY.md</text>
+<text x="598" y="794" font-size="18" fill="#237d70" font-weight="400" text-anchor="middle">.agents/skills/github-workflow/</text>
+<text x="598" y="820" font-size="18" fill="#237d70" font-weight="400" text-anchor="middle">SKILL.md</text>
+<rect x="928" y="417" width="232" height="257" rx="12" fill="#f2edfb" stroke="#c8d4e3"/>
+<text x="1044" y="457" font-size="25" fill="#7950a7" font-weight="700" text-anchor="middle">Model server</text>
+<rect x="951" y="492" width="186" height="80" rx="12" fill="#ffffff" stroke="#c8d4e3"/>
+<text x="1044" y="540" font-size="30" fill="#7950a7" font-weight="700" text-anchor="middle">Qwen</text>
+<text x="1044" y="611" font-size="20" fill="#172033" font-weight="400" text-anchor="middle">Responses and</text>
+<text x="1044" y="640" font-size="20" fill="#172033" font-weight="400" text-anchor="middle">tool calls</text>
+<text x="338" y="518" font-size="19" fill="#2563a5" font-weight="700" text-anchor="middle">SSH</text>
+<path d="M282 534 L395 534" fill="none" stroke="#2563a5" stroke-width="2" marker-end="url(#blue)"/>
+<path d="M395 563 L282 563" fill="none" stroke="#2563a5" stroke-width="2" marker-end="url(#blue)"/>
+<text x="861" y="515" font-size="18" fill="#2563a5" font-weight="400" text-anchor="middle">API request</text>
+<path d="M801 530 L922 530" fill="none" stroke="#2563a5" stroke-width="2" marker-end="url(#blue)"/>
+<path d="M922 559 L801 559" fill="none" stroke="#7950a7" stroke-width="2" marker-end="url(#purple)"/>
+<text x="861" y="586" font-size="18" fill="#7950a7" font-weight="400" text-anchor="middle">Response</text>
+<text x="1044" y="736" font-size="18" fill="#526177" font-weight="400" text-anchor="middle">Qwen is not installed</text>
+<text x="1044" y="763" font-size="18" fill="#526177" font-weight="400" text-anchor="middle">in your game LXC.</text>
+<rect x="40" y="896" width="1120" height="56" rx="12" fill="#f8fafc" stroke="#c8d4e3"/>
+<text x="600" y="931" font-size="22" fill="#172033" font-weight="700" text-anchor="middle">The laptop can disconnect while Pi continues the agreed task on the LXC.</text>
+</g>
+</svg>

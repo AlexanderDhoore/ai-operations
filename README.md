@@ -56,6 +56,7 @@ understand what you built?**
 - [04 — Put your game on GitHub](04-put-your-game-on-github.md)
 - [05 — Give your agent a memory](05-give-your-agent-a-memory.md)
 - [06 — Teach your agent a skill](06-teach-your-agent-a-skill.md)
+- [07 — Work with Pi in a persistent terminal](07-work-with-pi-and-screen.md)
 
 Later assignments will appear here when their requirements are introduced in
 class.
