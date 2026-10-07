@@ -211,7 +211,7 @@ Do not change files, stage, commit or push yet.
 This is **explicit invocation**: you choose the procedure. Inspect any skill
 loading indication or file-read activity and the resulting review. Compare
 the actions with the skill instructions and the answer from your first chat.
-Loading a skill gives guidance; you still need to check what the agent does.
+Loading a skill gives guidance. You still need to check what the agent does.
 The agent might identify the new skill file itself as an untracked change.
 
 If it is missing from the picker, check the saved path and metadata. Open the

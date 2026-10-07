@@ -53,7 +53,7 @@ URL with your own:
 
 <a href="assets/04-empty-private-repository.png"><img src="assets/04-empty-private-repository.png" alt="An empty private GitHub repository showing Quick setup" width="960"></a>
 
-The example screenshot has **SSH** selected; switch to **HTTPS** for the URL
+The example screenshot has **SSH** selected. Switch to **HTTPS** for the URL
 used below unless you have already set up GitHub SSH keys on your laptop.
 
 ```text
@@ -61,7 +61,7 @@ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
 cd YOUR-REPOSITORY
 ```
 
-Git may ask you to sign in for a private HTTPS repository; see GitHub's
+Git may ask you to sign in for a private HTTPS repository. See GitHub's
 [authentication guide](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)
 if you need it.
 
@@ -70,7 +70,7 @@ it. Run the following Git commands from inside this folder.
 
 The *staging area* holds changes selected for your next commit: `git add`
 puts files there, and `git commit` records them. Git calls the GitHub
-repository `origin` in this clone; `main` is the branch you will push.
+repository `origin` in this clone. `main` is the branch you will push.
 
 Before the first commit, add a `.gitignore` appropriate for your game's
 technology. It should exclude generated files and local configuration that
@@ -137,7 +137,7 @@ select *only your game repository*.
 
 Under **Repository permissions**, set:
 
-- **Contents: Read and write** — clone and push code; later, merge pull
+- **Contents: Read and write** — clone and push code, and later merge pull
   requests.
 - **Pull requests: Read and write** — create and manage pull requests later.
 - **Actions: Read and write** — inspect and trigger GitHub Actions runs later.
@@ -157,14 +157,14 @@ value again. Keep it out of chat, screenshots, your game files, and your Git
 history. If you expose it, revoke it and create a new one. You will enter the
 new token in the server's terminal in the next step.
 
-<a href="assets/04-token-copy-reminder.png"><img src="assets/04-token-copy-reminder.png" alt="GitHub reminds you to copy the new token now because it will not be shown again; the token itself is not visible" width="800"></a>
+<a href="assets/04-token-copy-reminder.png"><img src="assets/04-token-copy-reminder.png" alt="GitHub reminds you to copy the new token now because it will not be shown again. The token itself is not visible" width="800"></a>
 
 ## Install GitHub CLI and authenticate on your Linux server
 
 In your **Remote SSH** VS Code window, open a terminal. The terminal should
 be on your assigned Linux server, not on your laptop. Git is already
 installed there, but GitHub CLI (`gh`) is not. Git records and transfers
-commits; `gh` helps you authenticate to GitHub and use its online features.
+commits. `gh` helps you authenticate to GitHub and use its online features.
 You do not need to reinstall Git.
 
 <a href="assets/04-git-installed-gh-missing.png"><img src="assets/04-git-installed-gh-missing.png" alt="Server terminal showing that Git is installed but the gh command is not found" width="332"></a>
@@ -189,7 +189,7 @@ unset aiops_pat
 
 Press Enter after pasting the token. `gh auth login` reads it from standard
 input and saves the GitHub credential on the server for later use. `unset`
-removes the temporary shell variable; it does not log you out.
+removes the temporary shell variable. It does not log you out.
 
 Finally, connect Git's HTTPS authentication to GitHub CLI and check the
 login:
@@ -207,7 +207,7 @@ protocol. The token appears only in masked form:
 `gh auth setup-git` configures Git to ask GitHub CLI for credentials when
 cloning or pushing over HTTPS, so you will not have to paste the token for
 each Git command. `gh auth status` checks which GitHub account is logged in
-and whether its credential works; it does not reveal the full token by default.
+and whether its credential works. It does not reveal the full token by default.
 Do not run `gh auth status --show-token` or paste the token into an agent
 prompt. Some account-wide `gh` commands may not work with a token limited
 to one repository. In the next step, you will test access to *your* repository
@@ -243,7 +243,7 @@ git config user.email
 If either is missing, set your own name and an email associated with your
 GitHub account (or your GitHub no-reply address) using `git config --global
 user.name "YOUR NAME"` and `git config --global user.email "YOUR EMAIL"`.
-This name and email label your commits; the token controls permission to push
+This name and email label your commits. The token controls permission to push
 them. They are different settings.
 
 ## Let Qwen make and push a change
@@ -257,7 +257,7 @@ For example:
 > Do not commit or push yet.
 
 Here Qwen describes a small change and reports what it checked. Open the
-changed file to inspect the actual edit; the agent's summary is not a
+changed file to inspect the actual edit. The agent's summary is not a
 substitute for reviewing the code. In VS Code, **Keep** accepts the edit,
 but does not commit or push it. See VS Code's
 [guide to reviewing agent changes](https://code.visualstudio.com/docs/agents/run/review-code-edits)
@@ -274,7 +274,7 @@ Refresh GitHub and find the new commit:
 
 <a href="assets/04-github-commits-after-qwen-change.png"><img src="assets/04-github-commits-after-qwen-change.png" alt="GitHub's Commits page showing the new browser-game improvement commit on main" width="761"></a>
 
-The commit was made on the **server**, then pushed to GitHub; it has not
+The commit was made on the **server**, then pushed to GitHub. It has not
 automatically appeared in the game folder on your laptop. Before you edit
 the laptop copy again, pull the new commit there with `git pull`.
 

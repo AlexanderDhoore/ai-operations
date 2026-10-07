@@ -2,7 +2,7 @@
 
 You began building your game on your own computer. Now you will connect VS
 Code to a Linux server assigned to you. Your game can stay on your laptop for
-this assignment; moving the code through GitHub comes next.
+this assignment. Moving the code through GitHub comes next.
 
 ## Why work on a server?
 
@@ -25,7 +25,7 @@ learn to deploy your game with Docker. You don't have to set that up yet.
 **SSH (Secure Shell)** lets you log in to another computer from a terminal.
 The commands you type then run on that computer, not on your laptop. SSH
 encrypts the connection and checks that you are allowed to log in. We use it
-here to reach your server and set up remote access; later, VS Code will use
+here to reach your server and set up remote access. Later, VS Code will use
 SSH to open a workspace on that same server. See the
 [OpenSSH manual](https://man.openbsd.org/ssh) if you want to explore what else
 SSH can do.
@@ -59,7 +59,7 @@ way to find and contact each other. Making the server's SSH port public on the
 internet is not necessary. [Tailscale](https://tailscale.com/docs/concepts/what-is-tailscale)
 is VPN software that connects devices in a private network called a *tailnet*.
 Traffic between them is encrypted, and access is controlled by the tailnet's
-members and rules. Each device gets a private Tailscale address; its MagicDNS
+members and rules. Each device gets a private Tailscale address. Its MagicDNS
 feature also gives the device a name. You can keep using these when you switch
 between campus, home, and other networks.
 
@@ -68,7 +68,7 @@ tailnet. That lets you reach the server from other networks without opening
 SSH to the public internet. Once this works, the teacher can remove the
 special devbit Wi-Fi access to the student servers without cutting off your
 access. Tailscale is already installed on your assigned server. Create your
-own account; the email shown in these example screenshots belongs to the
+own account. The email shown in these example screenshots belongs to the
 teacher's demonstration account, not to the class.
 
 In the **server's** SSH terminal, run the following to connect it to your
@@ -80,7 +80,7 @@ tailscale up --ssh
 ```
 
 Open the login URL printed in *your* terminal. Do not reuse the URL in the
-screenshot; each setup generates its own login link. Sign in to your own
+screenshot. Each setup generates its own login link. Sign in to your own
 Tailscale account, then select **Connect device**.
 
 ![Tailscale prints a device-login URL in the server terminal](assets/03-tailscale-up.png)
@@ -112,7 +112,7 @@ ssh root@ai-operations-XX
 ```
 
 Replace `XX` with your assigned number. `ping` checks that the name resolves
-and the machine responds; stop a continuously running ping with `Ctrl+C`.
+and the machine responds. Stop a continuously running ping with `Ctrl+C`.
 The machine name works through Tailscale's
 [MagicDNS](https://tailscale.com/docs/features/magicdns). If the short name
 does not resolve, run `tailscale status` on your laptop to check that Tailscale
@@ -143,7 +143,7 @@ devbit Wi-Fi route is no longer needed for everyday work.
 
 In VS Code on your laptop, use the remote connection button at the bottom
 left and choose **Connect to Host...**. If you do not see **Remote - SSH**,
-install that VS Code extension first; Microsoft's
+install that VS Code extension first. Microsoft's
 [Remote SSH guide](https://code.visualstudio.com/docs/remote/ssh) covers it.
 
 ![The remote connection button in VS Code](assets/03-vscode-remote-button.png)
@@ -151,8 +151,8 @@ install that VS Code extension first; Microsoft's
 ![Connect to Host in the remote connection menu](assets/03-vscode-connect-to-host.png)
 
 Enter `root@ai-operations-XX`, using the **same Tailscale name** that worked
-in your laptop terminal, and press Enter. **Add New SSH Host...** is optional;
-you do not need it for this first connection.
+in your laptop terminal, and press Enter. **Add New SSH Host...** is optional.
+You do not need it for this first connection.
 
 ![Entering the Tailscale machine name in VS Code](assets/03-vscode-host-name.png)
 

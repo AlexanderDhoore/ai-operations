@@ -3,7 +3,7 @@
 This public guide is for the student and their VS Code agent. It supplies the
 course-specific setup for Assignment 07, "Work with Pi in a persistent terminal".
 Use it on the student's assigned Debian development server, as the same Linux
-user who owns the game. The agent prepares the tools and configuration; the
+user who owns the game. The agent prepares the tools and configuration. The
 student supplies their personal API key privately.
 
 The [model template](models.example.json) contains no API key. When reading
@@ -14,7 +14,7 @@ this guide through a Raw URL, resolve the template link relative to that URL.
 Check the host, working directory, existing Pi installation and GNU Screen.
 Preserve the game files and any existing Pi configuration. If Pi is missing,
 follow the current [official Linux installation instructions](https://pi.dev/docs/latest/quickstart#1-install-pi).
-The official installer is an option even if Node.js is not installed; use the
+The official installer is an option even if Node.js is not installed. Use the
 prerequisites for the installation method you choose. Do not install a second
 copy over a working setup or upgrade unrelated software.
 
@@ -44,9 +44,9 @@ Pi reads user model configuration from `~/.pi/agent/models.json`. Use the
 - Leave the `apiKey` field as the command reference in the template. Do not
   substitute a student's secret into the public template or any game file.
 
-The provider is named `vives`; its model is `qwen3.8-27b`. The API endpoint is
-`https://api.llm.mechatronics.be/v1`. This connects to the school model server;
-it does not download Qwen into the student's LXC.
+The provider is named `vives`. Its model is `qwen3.8-27b`. The API endpoint is
+`https://api.llm.mechatronics.be/v1`. This connects to the school model server.
+It does not download Qwen into the student's LXC.
 
 The `apiKey` value starts with `!`, which tells Pi to run a credential command
 and use its output as the key. Here, Pi reads a private file under the user's
@@ -57,7 +57,7 @@ in a previous SSH session. See [Pi's endpoint configuration](https://pi.dev/docs
 
 Create a personal key for Pi using the school's LiteLLM portal, as introduced
 in [Assignment 01](../../01-start-building-with-ai.md). The portal can still
-require a browser login; the agent does not need access to it. Keep your
+require a browser login. The agent does not need access to it. Keep your
 existing VS Code key/configuration intact.
 
 Run the following block **yourself in a Bash terminal on your development
@@ -76,14 +76,14 @@ prompt appears. A blank entry leaves an existing key unchanged.
     chmod 600 "$HOME/.config/ai-operations/vives-llm-key"
     printf 'Pi API key saved privately.\n'
   else
-    printf 'No key saved; any existing key is unchanged.\n'
+    printf 'No key saved. Any existing key is unchanged.\n'
   fi
 )
 ```
 
 The subshell discards the temporary variable when it exits. The key persists
 in the private file, so future Pi sessions can read it. The file is plain
-text protected by Linux permissions; it is outside the game repository.
+text protected by Linux permissions. It is outside the game repository.
 Do not display its contents, run the key-reading command in chat, or include
 the key in screenshots. The agent can check whether the file exists and is
 non-empty without reading its value.
@@ -105,7 +105,7 @@ as the Linux user running it. See [Pi's security explanation](https://pi.dev/doc
 If authentication fails, check the endpoint, model, Linux user and whether
 the private key file is present. The student can inspect key validity in the
 portal. Never diagnose authentication by printing the key. Starting Pi and
-receiving an answer is the actual connection test; valid JSON alone is not.
+receiving an answer is the actual connection test. Valid JSON alone is not.
 
 ## Configuration provenance
 
@@ -118,5 +118,5 @@ embedded key.
 For maintainers, the source is `mechatronics-docs/docs/llm.md`, under
 "Pi coding harness". When the school endpoint or Pi configuration changes,
 compare this template with that source and verify it against the installed
-Pi version. The assignment's setup prompt links to a fixed Git revision;
-update that link when intentionally changing the setup resources.
+Pi version. The assignment's setup prompt links to a fixed Git revision.
+Update that link when intentionally changing the setup resources.

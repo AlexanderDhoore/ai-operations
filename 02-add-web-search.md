@@ -10,7 +10,7 @@ game you are building.
 Qwen is the language model that reasons about your request and writes a reply.
 VS Code Chat hosts the agent and gives it access to **tools**: capabilities
 such as reading files, running commands, or retrieving information. The model
-can request a tool call; VS Code runs the tool and returns its result so the
+can request a tool call. VS Code runs the tool and returns its result so the
 model can continue. You can inspect those calls and may be asked to approve
 them.
 
@@ -57,7 +57,7 @@ screenshot as a pricing promise. You do not need a paid plan for this exercise.
 ## Create your Tavily API key
 
 Once you reach Tavily's **Getting started** page, open **Manage keys**. Create
-a key for VS Code; a name such as `vscode` and the **Development** key type are
+a key for VS Code. A name such as `vscode` and the **Development** key type are
 fine. Copy the key when it is shown.
 
 [![Tavily Getting started page with Manage keys](assets/02-tavily-getting-started.png)](assets/02-tavily-getting-started.png)
@@ -103,8 +103,8 @@ into the chat message.
 
 During our test, VS Code also requested a separate GitHub sign-in. If you see
 that prompt, follow VS Code's authorization screen using your own GitHub
-account. This is separate from your Tavily key and your Mechatronics LLM key;
-it does not change the Qwen model you selected. The prompts you see may vary.
+account. This is separate from your Tavily key and your Mechatronics LLM key.
+It does not change the Qwen model you selected. The prompts you see may vary.
 
 Look for an actual **Searching the web** tool call and source links in the
 reply. A convincing answer alone does not prove the agent searched.

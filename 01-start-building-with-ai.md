@@ -6,7 +6,7 @@ Your first task is to set up **VS Code Copilot Chat** on your own computer,
 connect it to the Mechatronics LLM cluster's Qwen model, and begin your game.
 Follow the [Mechatronics LLM guide](https://docs.mechatronics.be/llm/) to create
 your personal API key and complete the VS Code Copilot Chat setup. The guide
-is behind the Mechatronics login; ask in class if you cannot access it.
+is behind the Mechatronics login. Ask in class if you cannot access it.
 
 Keep your API key private. It belongs in your tool's private configuration,
 never in project files, screenshots, or a Git repository. Your assistant can
@@ -20,15 +20,15 @@ check what it proposes before you run or accept it.
 Choose a multiplayer game idea that you can explain in a few sentences.
 Research a possible frontend and backend, then choose the smallest version
 that you can run in a browser. Work with your assistant to create that first
-playable slice. A screen that responds to a player's action is a good start;
-two connected players sharing state is the direction you will build toward,
+playable slice. A screen that responds to a player's action is a good start.
+Two connected players sharing state is the direction you will build toward,
 not a requirement to finish in this first class.
 
 Start by asking the assistant to discuss your idea and the likely architecture
 before it writes code. Then give it one small task at a time. Run what it
 builds, inspect the changes, and ask it to explain anything you cannot yet
 explain yourself. If you encounter setup or dependency problems on your own
-computer, work through them and note what happened; we will revisit the
+computer, work through them and note what happened. We will revisit the
 development environment later in the course.
 
 ## Be ready to show

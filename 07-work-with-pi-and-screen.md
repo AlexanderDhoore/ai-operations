@@ -7,8 +7,8 @@ working on the task while you are disconnected. Later, you reconnect to the
 same session and review the result.
 
 You will keep the game, Qwen model, memory files and GitHub skill from the
-previous assignments. Your VS Code agent will help prepare the new tools;
-you will start Pi yourself and decide what work it should do.
+previous assignments. Your VS Code agent will help prepare the new tools.
+You will start Pi yourself and decide what work it should do.
 
 ## Understand what runs where
 
@@ -19,7 +19,7 @@ the laptop does not shut down the server.
 An **AI model** and a **coding harness** are different parts of the system.
 Qwen generates responses and tool calls. The harness builds requests, runs
 tools, manages the conversation and presents the result. VS Code Chat has
-been your harness so far; Pi provides another one through a terminal.
+been your harness so far. Pi provides another one through a terminal.
 
 ![VS Code and Pi as alternative harnesses using the same game repository and Qwen model, with Pi running on the development server](assets/07-harness-and-server.svg)
 
@@ -98,7 +98,7 @@ Give your existing agent this prompt:
 Review the agent's explanation and any setup problems. The goal is a working
 installation you can explain. Then follow the guide's
 [private key-entry step](resources/pi/README.md#3-student-enter-the-key-privately)
-in your server terminal. The key goes into a private file outside the game;
+in your server terminal. The key goes into a private file outside the game.
 Pi's configuration tells it how to read that file when sending requests.
 Do not put a real key into the example JSON or a chat message.
 
@@ -126,7 +126,7 @@ remain available.
 ## Start the session yourself
 
 Use a terminal on your development server. The terminal inside your VS Code
-Remote SSH window is suitable; an ordinary SSH connection works too. Check:
+Remote SSH window is suitable. An ordinary SSH connection works too. Check:
 
 ```bash
 hostname
@@ -158,7 +158,7 @@ pi --provider vives --model qwen3.8-27b --thinking medium
 
 On first use, Pi may ask whether to trust project resources. Check that it is
 your game and review what will load. Pi runs commands with your Linux user's
-permissions; starting it in a game directory does not restrict it to that
+permissions. Starting it in a game directory does not restrict it to that
 directory. Project trust does not provide that restriction either. Keep the
 work within your development environment. See [Pi's permission model](https://pi.dev/docs/latest/security).
 
@@ -184,12 +184,12 @@ Now try the same GitHub skill from
 Do not change files, stage, commit or push yet.
 ```
 
-The invocation is different from VS Code's `/github-workflow`; the
+The invocation is different from VS Code's `/github-workflow`. The
 `SKILL.md` file is the same. If the skill is missing, check the working
 directory, startup diagnostics and project trust, then use `/reload` after
 fixing discovery. The [Pi skills guide](https://pi.dev/docs/latest/skills)
 describes these controls. A good Git answer alone does not prove the skill
-was read; inspect the visible activity too.
+was read. Inspect the visible activity too.
 
 ## Give Pi a task, then disconnect
 
@@ -206,7 +206,7 @@ bounded plan. For example:
 
 While Pi is working, press **Ctrl+A**, release the keys, then press **d**.
 This is Screen's **detach** command. It returns you to the surrounding server
-shell; it does not stop Pi. Do not use `exit` or interrupt Pi to detach.
+shell. It does not stop Pi. Do not use `exit` or interrupt Pi to detach.
 
 Run `screen -ls` again. The `game-agent` session should be listed as
 **Detached**. You can now close the SSH connection or the VS Code remote
@@ -221,12 +221,12 @@ screen -r game-agent
 You should return to the existing Pi session. The task may still be running,
 may have finished, or may be waiting for a decision. Read what happened and
 inspect the actual changes. A very short task might finish before you
-disconnect; you can still observe that the session survives, and repeat the
+disconnect. You can still observe that the session survives, and repeat the
 experiment during another useful task.
 
 If you see **Attached**, another terminal may still own the session. Detach
 there first. After an interrupted connection, `screen -d -r game-agent`
-detaches the old terminal and attaches here; use it only for your own session.
+detaches the old terminal and attaches here. Use it only for your own session.
 If no session exists, check the server/user and whether Screen or the
 server stopped. Starting a new session does not demonstrate that the old
 process survived.
@@ -245,7 +245,7 @@ the surrounding shell to confirm.
 
 Pi also saves conversation sessions that can be reopened with
 `pi --continue` from the same project. That starts a Pi process with saved
-history; Screen reattachment reconnects to a process that remained alive.
+history. Screen reattachment reconnects to a process that remained alive.
 Neither is the same as another harness reading `MEMORY.md`. See Pi's
 [session quickstart](https://pi.dev/docs/latest/quickstart#continue-later).
 

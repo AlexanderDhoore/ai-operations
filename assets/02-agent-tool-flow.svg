@@ -75,5 +75,5 @@
   </g>
 
   <rect x="130" y="908" width="940" height="48" rx="13" fill="#edf4fb"/>
-  <text x="600" y="939" text-anchor="middle" fill="#35465c" font-family="Arial, Helvetica, sans-serif" font-size="18">Qwen requests the tool call; VS Code runs it; Tavily supplies search results.</text>
+  <text x="600" y="939" text-anchor="middle" fill="#35465c" font-family="Arial, Helvetica, sans-serif" font-size="18">Qwen requests the tool call. VS Code runs it. Tavily supplies search results.</text>
 </svg>
