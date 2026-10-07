@@ -274,9 +274,14 @@ database or a 3D engine to justify a skill. Start by discussing the recurring
 task and the desired outcome. Have the agent propose a description, write
 the procedure and link relevant project documentation. Try it and refine it
 together. Avoid copying the same rules into several competing files.
+Ask the agent to give each additional skill its own folder at
+`.agents/skills/<skill-name>/SKILL.md`, with a matching `name` in its metadata.
 
 The `SKILL.md` format is shared across compatible agents, but discovery and
 available tools vary. We will reuse this idea with Pi in the next assignment.
+
+Before finishing, ask your agent to update `MEMORY.md` with what you learned
+and what should happen next, then review the update together.
 
 ## Be ready to discuss
 
