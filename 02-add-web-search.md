@@ -62,7 +62,7 @@ fine. Copy the key when it is shown.
 
 <a href="assets/02-tavily-getting-started.png"><img src="assets/screenshots/02-tavily-getting-started.png" alt="Tavily Getting started page with Manage keys" width="875"></a>
 
-<a href="assets/02-create-tavily-key.png"><img src="assets/screenshots/02-create-tavily-key.png" alt="Creating a Tavily development API key named vscode" width="554"></a>
+<a href="assets/02-create-tavily-key.png"><img src="assets/screenshots/02-create-tavily-key.png" alt="Creating a Tavily development API key named vscode" width="404"></a>
 
 <a href="assets/02-tavily-key-list.png"><img src="assets/screenshots/02-tavily-key-list.png" alt="Tavily API-key list with the copy button and masked keys" width="874"></a>
 
