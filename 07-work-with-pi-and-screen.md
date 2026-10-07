@@ -64,268 +64,188 @@ magically available in Pi. Before switching, ask your VS Code agent to bring
 
 ## Let your VS Code agent prepare Pi and Screen
 
-Open the game through VS Code Remote SSH, on your assigned development
-server. Use Qwen in Agent mode. We provide a public
-[setup guide](resources/pi/README.md) and
-[model template](resources/pi/models.example.json), so the agent can read
-the configuration without logging in to the school's documentation website.
+Open the game through VS Code Remote SSH on your assigned server, with Qwen
+in Agent mode. The public [setup guide](resources/pi/README.md) and
+[model template](resources/pi/models.example.json) let the agent prepare Pi
+without logging in to the school's documentation website. Give it this prompt:
 
-Give your existing agent this prompt:
-
-> Prepare this development server so I can use Pi with the school's Qwen
-> model inside GNU Screen, following this public setup guide:
+> Prepare this development server for Pi with the school's Qwen model and
+> GNU Screen, following this guide and its linked model template:
 >
 > https://raw.githubusercontent.com/AlexanderDhoore/ai-operations/main/resources/pi/README.md
 >
-> Read that guide and its linked model template. Inspect the host, current
-> project directory and existing tools/configuration. Explain the setup
-> briefly, then install the missing tools using their official instructions
-> and configure the VIVES provider as described in the guide.
+> Inspect the host and existing setup, explain the changes, then install only
+> missing tools and configure the VIVES provider. Preserve existing settings,
+> providers and game files, including AGENTS.md, MEMORY.md and .agents/skills.
 >
-> Preserve existing Pi providers/settings and all game files. Keep AGENTS.md,
-> MEMORY.md and .agents/skills in their current locations. Verify that Pi
-> and screen are available in a new login shell, and validate the configuration
-> without displaying existing credentials.
+> Verify Pi and screen in a new login shell and validate the configuration
+> without displaying credentials. Do not read private key files or ask for
+> secrets in chat. Tell me when to do the guide's private key-entry step myself.
 >
-> Do not ask me to paste an API key into chat, read a private key file or print
-> secret values. Tell me when to perform the guide's private key-entry step
-> myself. Leave the actual key out of project files.
->
-> Summarize what changed and the versions installed. Do not change game code,
-> commit, push, start background agents or launch Pi for me. I will start the
-> screen session and Pi myself in the next steps.
+> Summarize the changes and installed versions. Do not change game code,
+> commit, push or launch Pi. I will start Screen and Pi myself.
 
-Review the agent's explanation and any setup problems. The goal is a working
-installation you can explain. Then follow the guide's
+Review the result, then follow the guide's
 [private key-entry step](resources/pi/README.md#3-student-enter-the-key-privately)
-in your server terminal. The key goes into a private file outside the game.
-Pi's configuration tells it how to read that file when sending requests.
-Do not put a real key into the example JSON or a chat message.
-
-Once setup is complete, let the VS Code agent finish its work. Use one agent
-at a time on this game for this exercise.
+in your server terminal. The key stays outside the game and chat.
+Let the VS Code agent finish before switching to Pi.
 
 ## What Screen keeps alive
 
-An ordinary SSH terminal is tied to a connection. **Screen** gives you a
-server-side terminal session that you can attach to and detach from. Programs
-inside it can keep running when you close the terminal or disconnect SSH.
-By default, Screen detaches automatically when its terminal connection is
-lost. Later, you attach a new terminal to the same session. See the
+**Screen** provides a server-side terminal session. When its terminal connection
+is lost, Screen detaches automatically by default. Programs inside it keep
+running, and you can attach a new terminal later. See the
 [GNU Screen manual](https://www.gnu.org/software/screen/manual/html_node/Detach.html).
 
 ![Close the laptop terminal, let Pi continue on the LXC, then reconnect to the same Screen session](assets/07-screen-session.svg)
 
-The middle panel is the important one: the display connection has gone away,
-but Screen and Pi are still on the development server. A task can continue
-and finish there. Pi may then wait for your next message.
-
-This does not keep the server alive through a reboot, recover a crashed
-process or create new tasks forever. We are preserving a running session
-while your laptop is away. Your server and its connection to the model must
-remain available.
+In the middle panel, your display connection is gone, but Pi remains on the
+LXC. It can finish the task and then wait for you. The server and model
+connection must stay available. Screen does not recover crashes, survive a
+server reboot or make the agent invent new tasks forever.
 
 ## Start the session yourself
 
-Use a terminal on your development server. The terminal inside your VS Code
-Remote SSH window is suitable. An ordinary SSH connection works too. Check
-that you are on your assigned server:
+In your VS Code Remote SSH terminal or an ordinary SSH connection, check the
+server and any existing Screen sessions:
 
 ```bash
 hostname
-```
-
-First see whether you already have a Screen session:
-
-```bash
 screen -ls
 ```
 
-On a first run, “No Sockets found” simply means there are no sessions. Create
-one named `game-agent`. If that session already exists, use the
-[reconnect instructions](#reconnect-to-the-existing-session) instead of
-creating another with the same name:
+If `game-agent` already exists, [reattach to it](#reconnect-to-the-existing-session).
+Otherwise, create it (“No Sockets found” means there are no sessions):
 
 ```bash
 screen -S game-agent
 ```
 
-If Screen shows an introductory page, press Enter. You are now in a shell
-inside Screen. **Move into your existing game repository before starting Pi.**
-Replace `~/YOUR-GAME` with the actual path to your game:
+Press Enter if Screen shows a welcome page. Inside Screen, **move into your
+existing game repository**. Replace `~/YOUR-GAME` with its actual path, such
+as `/root/AmazingBrowserGame` in our walkthrough:
 
 ```bash
 cd ~/YOUR-GAME
 pwd
 ```
 
-In our walkthrough, the folder is `/root/AmazingBrowserGame`. Yours may have
-a different name or location. Check that `cd` succeeded and `pwd` shows the
-game folder containing `AGENTS.md`, `MEMORY.md` and `.agents/skills/`.
-Then start Pi from that folder:
+Check that `cd` succeeded and `pwd` shows the game folder containing your
+memory and skills. Then start Pi:
 
 ```bash
 pi --provider vives --model qwen3.8-27b --thinking medium
 ```
 
-On first use, Pi may ask whether to trust project resources. Check the path
-and select **Trust** for your game folder. You do not need to trust its parent
-folder, such as `/root`.
+If Pi asks, check the path and select **Trust** for your game folder.
+You do not need to trust its parent folder.
 
 ![Pi asks whether to trust the existing AmazingBrowserGame project folder](assets/07-pi-project-trust.png)
 
-Pi runs commands with your Linux user's permissions. Starting it in a game
-directory does not restrict it to that directory. Project trust does not provide that restriction either. Keep the
-work within your development environment. See [Pi's permission model](https://pi.dev/docs/latest/security).
+Pi runs with your Linux user's permissions. The game folder and project trust
+do not restrict its file access. See [Pi's permission model](https://pi.dev/docs/latest/security).
 
 ## Recover the goal and try your skill
 
-Inspect Pi's startup information. In our walkthrough, it lists `AGENTS.md`
-under **Context** and `github-workflow` under **Skills**, with Qwen selected
-in the footer. Press **Ctrl+O** if the startup resources are collapsed.
-This shows that Pi discovered the files we created in the previous assignments.
-The skill listing alone does not mean its full instructions have been used.
+Pi's startup information shows `AGENTS.md` under **Context**, `github-workflow`
+under **Skills**, and Qwen in the footer. Press **Ctrl+O** if these details are
+collapsed. This confirms discovery, before using the skill's full instructions.
 
 ![Pi startup lists AGENTS.md and the github-workflow skill in the existing game, with Qwen selected](assets/07-pi-project-resources.png)
 
-For the first request, ask Pi:
+Ask Pi:
 
 > What is our current goal, what progress has been made, and what should we
 > do next? Use this project's instructions and memory. Do not change anything
 > yet. If the files do not establish something, say so.
 
-Here Pi reads the existing memory and project instructions:
+Here it reads the existing memory and instructions:
 
 <a href="assets/07-pi-memory-read.png"><img src="assets/07-pi-memory-read.png" alt="Pi reads MEMORY.md and the AGENTS.md resource after the project-state question" width="620"></a>
 
-Look at the file reads and answer. Does it recover the state you recorded? If something is missing, discuss it and have the agent
-update the memory. An answer from Qwen also confirms that the model connection
-works.
+Check the answer against your recorded state. Discuss anything missing and
+have Pi update the memory.
 
-Now try the same GitHub skill from
-[Assignment 06](06-teach-your-agent-a-skill.md). In Pi, explicit invocation uses
-`/skill:` before the skill name. Type `/skill:` to find the existing skill:
+Now reuse the GitHub skill from [Assignment 06](06-teach-your-agent-a-skill.md).
+Type `/skill:` to find it:
 
 <a href="assets/07-pi-skill-picker.png"><img src="assets/07-pi-skill-picker.png" alt="Pi offers skill:github-workflow in its command picker" width="460"></a>
-
-Then ask for a review:
 
 ```text
 /skill:github-workflow Review the current Git state and explain what work is pending.
 Do not change files, stage, commit or push yet.
 ```
 
-The next screenshot shows the skill loaded and the agent starting its Git
-review. Check the resulting review as well as the loading indication.
+Pi shows the loaded skill and begins the review:
 
 <a href="assets/07-pi-skill-loaded.png"><img src="assets/07-pi-skill-loaded.png" alt="Pi loads the github-workflow skill and begins inspecting the repository state" width="780"></a>
 
-The invocation is different from VS Code's `/github-workflow`. The
-`SKILL.md` file is the same. If the skill is missing, check the working
-directory, startup diagnostics and project trust, then use `/reload` after
-fixing discovery. The [Pi skills guide](https://pi.dev/docs/latest/skills)
-describes these controls. A good Git answer alone does not prove the skill
-was read. Inspect the visible activity too.
+The command differs from VS Code's `/github-workflow`, but `SKILL.md` is the
+same. Check that it was loaded and review the result. If it is missing, check
+the project directory and trust, then `/reload`. See the
+[Pi skills guide](https://pi.dev/docs/latest/skills).
 
 ## Give Pi a task, then disconnect
 
-Choose a small, real improvement to your game: fix a bug, improve a control
-or clarify a part of the interface. Discuss the intended behavior, agree on
-a plan and have Pi record it in `MEMORY.md`. Then ask it to carry out that
-bounded plan. For example:
+Choose a small game improvement, discuss the intended behavior and have Pi
+record the agreed plan in `MEMORY.md`. Then ask it to execute that plan:
 
-> Implement the improvement we just agreed on. Follow the plan in MEMORY.md,
-> use appropriate existing checks and keep memory updated after meaningful
-> progress. Stay within the agreed scope. If you cannot continue without a
-> decision from me, explain what is missing and wait. When finished, summarize
-> the changes and checks. Do not commit or push yet.
+> Implement the improvement we agreed on. Follow MEMORY.md, run relevant
+> checks and keep memory updated. Stay within the agreed scope. If blocked,
+> explain what you need and wait. Summarize the changes and checks when done.
+> Do not commit or push yet.
 
-While Pi is working, **close the terminal you are using to reach it**:
+While Pi works, **close the terminal**:
 
-- **Windows Terminal or PowerShell with SSH:** close the terminal tab or
-  window containing that SSH connection.
+- **Windows Terminal or PowerShell with SSH:** close that terminal tab or window.
 - **VS Code Remote SSH:** use the terminal's trash-can button, **Kill Terminal**.
-  The panel's **X** only hides the view. See VS Code's
-  [terminal controls](https://code.visualstudio.com/docs/terminal/basics#managing-terminals).
+  The panel's **X** only hides the view.
 
 <a href="assets/07-vscode-kill-terminal.png"><img src="assets/07-vscode-kill-terminal.png" alt="VS Code terminal trash-can button with the Kill (Del) tooltip" width="440"></a>
 
-You are closing the outer terminal connection while Pi runs inside Screen on
-the server. Do not exit Pi or type `exit` in the Screen shell for this step.
-You can also disconnect your laptop or shut it down while the server works.
+Close the outer terminal without exiting Pi or its Screen shell. The task can
+continue on the server, even if you shut down your laptop.
 
 ## Reconnect to the existing session
 
-Open a **new terminal** and reconnect to the same server as the same Linux
-user. From Windows Terminal or PowerShell, use your assigned server name:
+Open a new terminal and reconnect as the same user to the same server.
+From Windows Terminal or PowerShell, replace `XX` with your assigned number:
 
 ```powershell
 ssh root@ai-operations-XX
 ```
 
-Replace `XX` with your assigned number. In VS Code, reopen your Remote SSH
-workspace and choose **Terminal > New Terminal** instead. Once you are back
-on the server, inspect the existing sessions:
+In VS Code, reopen your Remote SSH workspace and choose **Terminal > New
+Terminal** instead. On the server, find your session and reattach:
 
 ```bash
 screen -ls
-```
-
-The session may be **Detached**, meaning Screen has no terminal attached, or
-**Attached**, meaning it still has a terminal connection. Our walkthrough
-showed this second case:
-
-<a href="assets/07-screen-attached.png"><img src="assets/07-screen-attached.png" alt="Screen lists game-agent as Attached on the demonstration server" width="740"></a>
-
-**Attached does not mean the task has failed.** An old terminal may still be
-connected. VS Code can also preserve terminal processes across reconnections,
-so hiding a panel or closing a window is not proof that its terminal ended.
-See [VS Code's persistent sessions](https://code.visualstudio.com/docs/terminal/advanced#persistent-sessions).
-
-Take over your existing session with:
-
-```bash
 screen -d -r game-agent
 ```
 
-Here, `-d` disconnects the previous terminal if needed, and `-r` reattaches
-here. This works for both states. Use it for your own session, since it takes
-the display away from any other terminal attached to it. The Pi process stays
-running. The [Screen invocation reference](https://www.gnu.org/software/screen/manual/html_node/Invoking-Screen.html)
-describes these options.
+Our walkthrough still showed **Attached**, meaning an old terminal connection
+remained. **Detached** means no terminal is attached:
 
-A plain `screen -r game-agent` works when the session is **Detached**. If it
-is still **Attached**, it can report “There is no screen to be resumed matching
-game-agent.” That message is about the attachment state. Use `-d -r` as above.
-If several sessions share the name, use the full identifier from `screen -ls`,
-such as `13199.game-agent`, in place of `game-agent`.
+<a href="assets/07-screen-attached.png"><img src="assets/07-screen-attached.png" alt="Screen lists game-agent as Attached on the demonstration server" width="740"></a>
 
-You should return to the existing Pi conversation in the original game
-folder. The task may still be running, may have finished, or may be waiting
-for a decision. Read what happened and inspect the actual changes. A short
-task might finish before you close the terminal. You can still see that the
-session survives, and repeat the experiment during another useful task.
+`-d -r` handles both states by disconnecting the old terminal if necessary and
+attaching here. Use it for your own session. A plain `-r` refuses an Attached
+session, which can happen when VS Code preserves its terminal. See the
+[Screen options](https://www.gnu.org/software/screen/manual/html_node/Invoking-Screen.html).
 
-If no session exists, check the server/user and whether Screen or the server
-stopped. Starting a new session does not demonstrate that the old one survived.
+You return to the same Pi conversation. The task may be running, finished or
+waiting for your input. Inspect what happened and the actual changes. If no
+session is listed, check the server/user and whether Screen or the server
+stopped before creating another.
 
 ## Finish the work and know when to stop
 
-Review Pi's changes and check the game. Discuss problems, let it fix them,
-and ask it to update `MEMORY.md` with the outcome and next step. When ready,
-use your GitHub workflow to review the agreed files, commit and push. Check
-the result on GitHub as in Assignment 04.
+Review the changes and check the game. Have Pi fix any problems and update
+`MEMORY.md` with the outcome and next step. When ready, use your GitHub skill
+to review, commit and push the work, then check it on GitHub.
 
-To leave Pi available for later, close the outer terminal again. When you
-are finished with the session, exit Pi with **Ctrl+C twice**, then run `exit` in
-the Screen shell. That closes this Screen session. Use `screen -ls` from
-the surrounding shell to confirm.
-
-Pi also saves conversation sessions that can be reopened with
-`pi --continue` from the same project. That starts a Pi process with saved
-history. Screen reattachment reconnects to a process that remained alive.
-Neither is the same as another harness reading `MEMORY.md`. See Pi's
-[session quickstart](https://pi.dev/docs/latest/quickstart#continue-later).
+Close the outer terminal to leave Pi available. To end the session instead,
+exit Pi with **Ctrl+C twice**, then run `exit` in the Screen shell.
 
 ## Be ready to discuss
 
