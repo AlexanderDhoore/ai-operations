@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+  <title id="title">Your application provides the context</title>
+  <desc id="desc">A player's browser sends a question to the game backend on the development server. The backend holds the private API key and conversation history. Its SDK sends messages to the school API, which serves Qwen. The answer returns through the backend to the browser. The first exercise uses a terminal script in place of the game backend.</desc>
+  <defs>
+    <marker id="out" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#2563a5" stroke-width="1.6"/></marker>
+    <marker id="back" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#237d70" stroke-width="1.6"/></marker>
+  </defs>
+  <rect width="1200" height="600" fill="white"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+    <text x="600" y="46" text-anchor="middle" font-size="30" font-weight="700">Your application provides the context</text>
+    <text x="600" y="81" text-anchor="middle" font-size="20" fill="#526177">The SDK carries requests. Qwen generates the answer.</text>
+    <rect x="25" y="126" width="285" height="358" rx="12" fill="#f8fafc" stroke="#c8d4e3"/>
+    <rect x="330" y="126" width="430" height="358" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+    <rect x="800" y="126" width="375" height="358" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+    <text x="167" y="165" text-anchor="middle" font-size="23" font-weight="700">Player's computer</text>
+    <text x="545" y="165" text-anchor="middle" font-size="23" font-weight="700" fill="#2563a5">Your development server</text>
+    <text x="988" y="165" text-anchor="middle" font-size="23" font-weight="700" fill="#237d70">School model service</text>
+    <rect x="49" y="220" width="233" height="176" rx="10" fill="white" stroke="#c8d4e3"/>
+    <text x="166" y="256" text-anchor="middle" font-size="24" font-weight="700">Browser chat</text>
+    <text x="166" y="297" text-anchor="middle" font-size="20">Ask a question</text>
+    <text x="166" y="329" text-anchor="middle" font-size="20">Read the answer</text>
+    <text x="166" y="372" text-anchor="middle" font-size="18" fill="#526177">No model API key here</text>
+    <rect x="379" y="206" width="332" height="207" rx="10" fill="white" stroke="#2563a5"/>
+    <text x="545" y="242" text-anchor="middle" font-size="24" font-weight="700" fill="#2563a5">Game backend + SDK</text>
+    <text x="545" y="282" text-anchor="middle" font-size="20">Game instructions</text>
+    <text x="545" y="314" text-anchor="middle" font-size="20">This conversation's history</text>
+    <text x="545" y="346" text-anchor="middle" font-size="20">New player message</text>
+    <text x="545" y="389" text-anchor="middle" font-size="18" fill="#526177">API key stays private</text>
+    <rect x="839" y="206" width="298" height="75" rx="10" fill="white" stroke="#237d70"/>
+    <text x="988" y="237" text-anchor="middle" font-size="23" font-weight="700" fill="#237d70">OpenAI-compatible API</text>
+    <text x="988" y="264" text-anchor="middle" font-size="18">School endpoint</text>
+    <path d="M988 282 L988 323" fill="none" stroke="#237d70" stroke-width="2.5" marker-start="url(#back)" marker-end="url(#back)"/>
+    <rect x="839" y="325" width="298" height="88" rx="10" fill="white" stroke="#237d70"/>
+    <text x="988" y="363" text-anchor="middle" font-size="25" font-weight="700" fill="#237d70">Qwen</text>
+    <text x="988" y="390" text-anchor="middle" font-size="18">Generates a response</text>
+    <path d="M283 282 L377 282" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#out)"/>
+    <text x="330" y="269" text-anchor="middle" font-size="16" fill="#2563a5">Question</text>
+    <path d="M377 351 L283 351" fill="none" stroke="#237d70" stroke-width="2.5" marker-end="url(#back)"/>
+    <text x="330" y="374" text-anchor="middle" font-size="16" fill="#237d70">Answer</text>
+    <path d="M712 238 L837 238" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#out)"/>
+    <text x="775" y="222" text-anchor="middle" font-size="16" fill="#2563a5">Messages</text>
+    <path d="M837 267 L790 267 L790 379 L712 379" fill="none" stroke="#237d70" stroke-width="2.5" marker-end="url(#back)"/>
+    <text x="750" y="402" text-anchor="middle" font-size="16" fill="#237d70">Answer</text>
+    <text x="545" y="451" text-anchor="middle" font-size="18" fill="#2563a5">Your code assembles each request</text>
+    <text x="988" y="451" text-anchor="middle" font-size="18" fill="#237d70">The model stays on the cluster</text>
+    <rect x="25" y="509" width="1150" height="62" rx="12" fill="#f8fafc" stroke="#c8d4e3"/>
+    <text x="600" y="547" text-anchor="middle" font-size="21">First explore this with a terminal script. Then connect your game's interface.</text>
+  </g>
+</svg>

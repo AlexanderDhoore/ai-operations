@@ -6,9 +6,9 @@
 
 In this course, you will design, build, and operate a browser-based multiplayer
 game. Your game is the project that connects the whole semester: you will first
-use AI to help write software, then develop the practices needed to keep that
-software understandable, testable, deployable, and observable. Later, you will
-also explore how to integrate AI into the application itself.
+use AI to help write software, then explore how to integrate AI into the game
+itself. Along the way, you will develop the practices needed to keep that
+software understandable, testable, deployable, and observable.
 
 You choose the game and the technologies. There is no prescribed frontend,
 backend, language, or framework. Research your options, explain your choices,
@@ -58,6 +58,7 @@ understand what you built?**
 - [06 — Teach your agent a skill](06-teach-your-agent-a-skill.md)
 - [07 — Work with Pi in a persistent terminal](07-work-with-pi-and-screen.md)
 - [08 — Delegate work to coding agents](08-delegate-work-to-agents.md)
+- [09 — Add an AI chat to your game](09-add-an-ai-chat-to-your-game.md)
 
 Later assignments will appear here when their requirements are introduced in
 class.

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 650" role="img" aria-labelledby="title desc">
+  <title id="title">A follow-up request includes the earlier exchange</title>
+  <desc id="desc">Request one contains the game instructions and a question about Moon Gate. Qwen answers that three amber shards are needed. The application saves that answer. Request two sends the instructions, first question, first answer and new question, Are they used up? Qwen can understand the follow-up because the prior exchange is included.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#2563a5" stroke-width="1.6"/></marker></defs>
+  <rect width="1200" height="650" fill="white"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+    <text x="600" y="45" text-anchor="middle" font-size="30" font-weight="700">A follow-up request includes the earlier exchange</text>
+    <text x="600" y="80" text-anchor="middle" font-size="20" fill="#526177">Your application keeps the messages and sends them again.</text>
+    <rect x="30" y="120" width="470" height="268" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="55" y="159" font-size="24" font-weight="700" fill="#2563a5">Request 1</text>
+    <rect x="52" y="183" width="426" height="82" rx="8" fill="white" stroke="#c8d4e3"/>
+    <text x="68" y="210" font-size="16" font-weight="700" fill="#526177">SYSTEM</text>
+    <text x="68" y="240" font-size="19">Game instructions and rules</text>
+    <rect x="52" y="280" width="426" height="82" rx="8" fill="white" stroke="#2563a5"/>
+    <text x="68" y="307" font-size="16" font-weight="700" fill="#2563a5">USER</text>
+    <text x="68" y="337" font-size="19">How do I open Moon Gate?</text>
+    <path d="M265 390 L265 423" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="52" y="426" width="426" height="93" rx="8" fill="#e8f4ef" stroke="#237d70"/>
+    <text x="68" y="454" font-size="16" font-weight="700" fill="#237d70">ASSISTANT RESPONSE</text>
+    <text x="68" y="488" font-size="20">You need 3 amber shards.</text>
+    <rect x="700" y="120" width="470" height="424" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="725" y="159" font-size="24" font-weight="700" fill="#2563a5">Request 2</text>
+    <rect x="722" y="183" width="426" height="72" rx="8" fill="white" stroke="#c8d4e3"/>
+    <text x="738" y="208" font-size="16" font-weight="700" fill="#526177">SYSTEM</text>
+    <text x="738" y="235" font-size="19">Same game instructions and rules</text>
+    <rect x="722" y="269" width="426" height="72" rx="8" fill="white" stroke="#c8d4e3"/>
+    <text x="738" y="294" font-size="16" font-weight="700" fill="#526177">USER · EARLIER</text>
+    <text x="738" y="321" font-size="19">How do I open Moon Gate?</text>
+    <rect x="722" y="355" width="426" height="72" rx="8" fill="#e8f4ef" stroke="#237d70"/>
+    <text x="738" y="380" font-size="16" font-weight="700" fill="#237d70">ASSISTANT · SAVED ANSWER</text>
+    <text x="738" y="407" font-size="19">You need 3 amber shards.</text>
+    <rect x="722" y="441" width="426" height="79" rx="8" fill="white" stroke="#2563a5" stroke-width="2"/>
+    <text x="738" y="468" font-size="16" font-weight="700" fill="#2563a5">USER · NEW FOLLOW-UP</text>
+    <text x="738" y="498" font-size="20">Are they used up?</text>
+    <path d="M479 471 L582 471 L582 391 L720 391" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="600" y="288" text-anchor="middle" font-size="18" fill="#2563a5">Your code</text>
+    <text x="600" y="315" text-anchor="middle" font-size="18" fill="#2563a5">saves and</text>
+    <text x="600" y="342" text-anchor="middle" font-size="18" fill="#2563a5">resends context</text>
+    <rect x="30" y="574" width="1140" height="50" rx="12" fill="#f8fafc" stroke="#c8d4e3"/>
+    <text x="600" y="606" text-anchor="middle" font-size="21">The model receives the earlier conversation because your application includes it.</text>
+  </g>
+</svg>
