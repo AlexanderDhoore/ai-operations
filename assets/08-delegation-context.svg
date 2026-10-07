@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 635" role="img" aria-labelledby="title desc"><title id="title">Delegate work, keep separate contexts</title><desc id="desc">A controller with its own conversation sends task A and task B to workers with separate contexts. Each worker uses project instructions, its assigned task and its own tool history. Reports and code changes return for controller review. Model requests still consume tokens.</desc><defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#2563a5" stroke-width="1.6"/></marker><marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#237d70" stroke-width="1.6"/></marker></defs><rect width="1200" height="635" fill="white"/><g font-family="Arial, Helvetica, sans-serif">
+<text x="600" y="45" text-anchor="middle" font-size="30" fill="#172033" font-weight="700">Delegate work, keep separate contexts</text>
+<text x="600" y="78" text-anchor="middle" font-size="20" fill="#526177" font-weight="400">The controller coordinates. Each worker handles a bounded task.</text>
+<rect x="35" y="190" width="340" height="280" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+<text x="205" y="229" text-anchor="middle" font-size="26" fill="#2563a5" font-weight="700">Controller</text>
+<text x="205" y="266" text-anchor="middle" font-size="20" fill="#172033" font-weight="400">Your conversation and plan</text>
+<rect x="58" y="290" width="294" height="94" rx="12" fill="white" stroke="#c8d4e3"/>
+<text x="205" y="323" text-anchor="middle" font-size="18" fill="#172033" font-weight="400">Choose tasks · explain scope</text>
+<text x="205" y="354" text-anchor="middle" font-size="18" fill="#172033" font-weight="400">Review changes · combine work</text>
+<text x="205" y="425" text-anchor="middle" font-size="20" fill="#2563a5" font-weight="700">Keeps the overall goal</text>
+<rect x="730" y="125" width="435" height="190" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+<text x="947" y="160" text-anchor="middle" font-size="24" fill="#237d70" font-weight="700">Worker A · its own context</text>
+<text x="947" y="195" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">Project instructions + assigned task</text>
+<text x="947" y="228" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">Its own model requests and tool results</text>
+<text x="947" y="279" text-anchor="middle" font-size="20" fill="#237d70" font-weight="700">Reset button</text>
+<rect x="730" y="355" width="435" height="190" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+<text x="947" y="390" text-anchor="middle" font-size="24" fill="#237d70" font-weight="700">Worker B · its own context</text>
+<text x="947" y="425" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">Project instructions + assigned task</text>
+<text x="947" y="458" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">Its own model requests and tool results</text>
+<text x="947" y="509" text-anchor="middle" font-size="20" fill="#237d70" font-weight="700">Help page</text>
+<path d="M375 240 L730 190" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#blue)"/>
+<text x="552" y="176" text-anchor="middle" font-size="18" fill="#2563a5" font-weight="700">Task A</text>
+<path d="M730 266 L375 298" fill="none" stroke="#237d70" stroke-width="2.5" marker-end="url(#teal)"/>
+<text x="552" y="262" text-anchor="middle" font-size="17" fill="#237d70" font-weight="400">Report + changes</text>
+<path d="M375 366 L730 398" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#blue)"/>
+<text x="552" y="369" text-anchor="middle" font-size="18" fill="#2563a5" font-weight="700">Task B</text>
+<path d="M730 481 L375 425" fill="none" stroke="#237d70" stroke-width="2.5" marker-end="url(#teal)"/>
+<text x="552" y="507" text-anchor="middle" font-size="17" fill="#237d70" font-weight="400">Report + changes</text>
+<rect x="35" y="563" width="1130" height="48" rx="12" fill="#f8fafc" stroke="#c8d4e3"/>
+<text x="600" y="594" text-anchor="middle" font-size="21" fill="#172033" font-weight="400">Separate contexts limit chat growth. All agents still use tokens.</text>
+</g></svg>

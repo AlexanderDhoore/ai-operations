@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc"><title id="title">Separate workspaces, one reviewed result</title><desc id="desc">On the development LXC, the controller uses the primary game checkout on an integration branch. Two Screen sessions run Pi workers in separate Git worktrees from the same base commit. Worker A changes index.html and worker B creates help.html. Their reports stay in the primary checkout .workers directory. The controller reviews, tests, commits and merges before testing the combined game. Workers continue if the laptop disconnects, then exit.</desc><defs><marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#2563a5" stroke-width="1.6"/></marker><marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#237d70" stroke-width="1.6"/></marker></defs><rect width="1200" height="800" fill="white"/><g font-family="Arial, Helvetica, sans-serif">
+<text x="600" y="45" text-anchor="middle" font-size="30" fill="#172033" font-weight="700">Separate workspaces, one reviewed result</text>
+<text x="600" y="80" text-anchor="middle" font-size="20" fill="#526177" font-weight="400">All workspaces below live on your development server.</text>
+<rect x="35" y="115" width="340" height="505" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+<text x="205" y="154" text-anchor="middle" font-size="25" fill="#2563a5" font-weight="700">Controller workspace</text>
+<text x="205" y="192" text-anchor="middle" font-size="23" fill="#172033" font-weight="700">YOUR-GAME/</text>
+<text x="205" y="224" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">branch: work/delegation</text>
+<rect x="57" y="250" width="296" height="111" rx="12" fill="white" stroke="#c8d4e3"/>
+<text x="205" y="280" text-anchor="middle" font-size="18" fill="#172033" font-weight="400">AGENTS.md + MEMORY.md</text>
+<text x="205" y="309" text-anchor="middle" font-size="18" fill="#172033" font-weight="400">.agents/skills/ + scripts/</text>
+<text x="205" y="338" text-anchor="middle" font-size="18" fill="#172033" font-weight="400">Committed game files</text>
+<rect x="57" y="390" width="296" height="124" rx="12" fill="white" stroke="#c8d4e3"/>
+<text x="205" y="422" text-anchor="middle" font-size="18" fill="#2563a5" font-weight="700">.workers/reset/ and help/</text>
+<text x="205" y="454" text-anchor="middle" font-size="18" fill="#172033" font-weight="400">Task files · output · status</text>
+<text x="205" y="485" text-anchor="middle" font-size="17" fill="#526177" font-weight="400">Local records, kept out of Git</text>
+<text x="205" y="556" text-anchor="middle" font-size="18" fill="#172033" font-weight="400">The controller may disconnect.</text>
+<text x="205" y="586" text-anchor="middle" font-size="18" fill="#172033" font-weight="400">Integration waits for its return.</text>
+<rect x="690" y="115" width="475" height="225" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+<text x="927" y="152" text-anchor="middle" font-size="24" fill="#237d70" font-weight="700">Screen session → Pi worker A</text>
+<text x="927" y="191" text-anchor="middle" font-size="20" fill="#172033" font-weight="700">YOUR-GAME-workers/reset/</text>
+<text x="927" y="226" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">branch: worker/reset</text>
+<text x="927" y="261" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">Changes index.html + runs checks</text>
+<text x="927" y="303" text-anchor="middle" font-size="19" fill="#237d70" font-weight="700">Reports the result, then exits</text>
+<rect x="690" y="390" width="475" height="225" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+<text x="927" y="427" text-anchor="middle" font-size="24" fill="#237d70" font-weight="700">Screen session → Pi worker B</text>
+<text x="927" y="466" text-anchor="middle" font-size="20" fill="#172033" font-weight="700">YOUR-GAME-workers/help/</text>
+<text x="927" y="501" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">branch: worker/help</text>
+<text x="927" y="536" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">Changes help.html + runs checks</text>
+<text x="927" y="578" text-anchor="middle" font-size="19" fill="#237d70" font-weight="700">Reports the result, then exits</text>
+<path d="M375 190 L690 190" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#blue)"/>
+<text x="532" y="167" text-anchor="middle" font-size="18" fill="#2563a5" font-weight="700">Same base commit</text>
+<path d="M375 330 L495 330 L495 463 L690 463" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#blue)"/>
+<text x="554" y="433" text-anchor="middle" font-size="18" fill="#2563a5" font-weight="700">Separate files</text>
+<path d="M927 615 L927 667" fill="none" stroke="#237d70" stroke-width="2.5" marker-end="url(#teal)"/>
+<path d="M1165 225 L1184 225 L1184 657 L1050 657 L1050 667" fill="none" stroke="#237d70" stroke-width="2.5" marker-end="url(#teal)"/>
+<path d="M205 620 L205 667" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#blue)"/>
+<rect x="35" y="675" width="1130" height="94" rx="12" fill="#f2edfb" stroke="#7950a7"/>
+<text x="600" y="711" text-anchor="middle" font-size="24" fill="#7950a7" font-weight="700">Controller: review → check → commit → merge → test together</text>
+<text x="600" y="745" text-anchor="middle" font-size="19" fill="#172033" font-weight="400">Only accepted changes enter the integrated game. The controller updates central memory.</text>
+</g></svg>
