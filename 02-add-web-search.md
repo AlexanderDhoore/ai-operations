@@ -36,7 +36,7 @@ and search for **Web Search for Copilot**.
 Check that the extension is published by **Microsoft**, then install it.
 You can also open its [VS Code Marketplace page](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-websearchforcopilot).
 
-<a href="assets/02-extension-listing.png"><img src="assets/screenshots/02-extension-listing.png" alt="The Web Search for Copilot extension by Microsoft" width="665"></a>
+<a href="assets/02-extension-listing.png"><img src="assets/screenshots/02-extension-listing.png" alt="The Web Search for Copilot extension by Microsoft" width="484"></a>
 
 ## Create a free Tavily account
 
