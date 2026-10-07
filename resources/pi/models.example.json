@@ -1,0 +1,30 @@
+{
+  "providers": {
+    "vives": {
+      "baseUrl": "https://api.llm.mechatronics.be/v1",
+      "api": "openai-completions",
+      "apiKey": "!cat \"$HOME/.config/ai-operations/vives-llm-key\"",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": true,
+        "maxTokensField": "max_tokens",
+        "thinkingFormat": "reasoning_effort"
+      },
+      "models": [
+        {
+          "id": "qwen3.8-27b",
+          "name": "Qwen3.8 27B",
+          "reasoning": true,
+          "input": ["text", "image"],
+          "contextWindow": 131072,
+          "maxTokens": 32768,
+          "thinkingLevelMap": {
+            "low": "low",
+            "medium": "medium",
+            "xhigh": "xhigh"
+          }
+        }
+      ]
+    }
+  }
+}
