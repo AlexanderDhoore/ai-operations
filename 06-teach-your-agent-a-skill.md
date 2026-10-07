@@ -197,6 +197,10 @@ does not use. This first skill needs no scripts or extra dependencies.
 
 Save the file and open **New Chat** in the same game workspace, with Qwen in
 Agent mode. Type `/` and look for `github-workflow` in the command picker.
+Typing the start of its name filters the list:
+
+![VS Code's slash-command picker showing github-workflow and its description](assets/06-github-skill-picker.png)
+
 Select it and add a task:
 
 ```text
@@ -230,8 +234,14 @@ skill file or mention its name. Ask:
 > Do not change files, stage, commit or push yet.
 
 Now the skill's description should help the model recognize its relevance.
-Look for actual loading or instruction references as well as the answer.
-A sensible Git review alone does not prove the skill was used.
+In our fresh-chat walkthrough, the agent chose `github-workflow` without us
+naming it. VS Code showed the skill being read:
+
+![VS Code showing Read skill github-workflow after the agent selected it automatically](assets/06-github-skill-read.png)
+
+Look for this loading activity or instruction references in your own chat,
+as well as the answer. A sensible Git review alone does not prove the skill
+was used.
 
 Automatic selection is not guaranteed. If it does not happen, discuss the
 description with your agent. “Help with GitHub” is vague. “Review local
