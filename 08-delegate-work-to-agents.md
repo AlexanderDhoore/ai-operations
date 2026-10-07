@@ -163,13 +163,12 @@ function and a settings screen instead.
 **Discuss each feature with the controller before delegating it.** Explain the
 behavior you want, talk through important edge cases and agree on what a good
 result looks like. Let the controller help identify dependencies between the
-tasks. For example, should reset clear the score, restart the current round,
-or reset the whole multiplayer session? Resolve that before a worker starts.
+tasks and resolve unclear requirements before a worker starts.
 
 Once you agree on the features, asking the controller to delegate can be short:
 
-> Delegate the two features we agreed on. Check that the workers started,
-> then come back to me without waiting for them to finish.
+> Please implement the tasks we agreed on through delegation. Check that the
+> workers started, then come back to me without waiting for them to finish.
 
 The skill tells the controller how to turn your agreement into task files,
 commit the plan and start separate workers. You do not need to repeat those
@@ -196,12 +195,13 @@ you return.
 For a glimpse underneath, the controller uses commands such as:
 
 ```bash
-bash scripts/worker.sh start reset .workers/tasks/reset.md
-bash scripts/worker.sh status reset
-bash scripts/worker.sh result reset
+bash scripts/worker.sh start TASK-ID .workers/tasks/TASK-ID.md
+bash scripts/worker.sh status TASK-ID
+bash scripts/worker.sh result TASK-ID
 ```
 
-These are examples of the controller's actions, not commands you need to type.
+The controller replaces `TASK-ID` with each task's actual ID and uses its task
+file. These illustrate its actions, not commands you need to type.
 
 ## Check progress and bring the work together
 
@@ -220,10 +220,11 @@ accepted work, merging and checking the combined game. It also tells the
 controller to update project memory. **A worker finishing does not mean its
 code is correct.** Review is part of the controller's job.
 
-Try the combined game yourself against the behavior you agreed on. For the
-example tasks, does reset work as intended, and can you reach the help page?
+Try the combined game yourself. Do the changes behave as agreed? Do the
+features work together, and does the existing functionality still work?
 When satisfied, ask the controller to publish through your GitHub workflow
-and clean up the finished worker worktrees. You stay in charge of what gets accepted and published.
+and clean up the finished worker worktrees. You stay in charge of what gets
+accepted and published.
 
 ## What could come next?
 
