@@ -126,6 +126,8 @@ Give your controller this prompt:
 > you may make the local plan commits needed to launch them. When I ask you
 > to review and integrate their work, you may make the corresponding local
 > commits and merges. Pushing or merging main still needs my request.
+> Delegation means launch the workers, briefly verify they started, then
+> return to me without waiting for completion. Include this in the skill.
 > Preserve our normal collaboration rules outside delegated tasks.
 >
 > Check the Bash syntax and installed Pi options. Work on an integration
@@ -168,7 +170,8 @@ clearer assignment.
 Once you agree on the features, asking the controller to delegate can be short:
 
 > Add a reset button to my game and a helpful page explaining the rules.
-> Delegate the work.
+> Delegate the work. Check that the workers started, then come back to me
+> without waiting for them to finish.
 
 The screenshot deliberately uses a very short request to demonstrate the
 workflow. For your own game, have that feature conversation first. The skill
@@ -180,9 +183,20 @@ Here the controller reads the skill after a short request:
 
 <a href="assets/08-delegate-through-chat.png"><img src="assets/screenshots/08-delegate-through-chat.png" alt="A short request to delegate a reset button and help page leads the controller to read the game, memory and delegate-work skill" width="814"></a>
 
-The controller reports what it started and returns to the chat. You can close
-your laptop as in Assignment 07. The workers continue their assigned tasks on
-the server, then exit. Their results remain available when you return.
+**The controller should check that the workers started, then return to you.**
+It should not keep polling until their work is finished. If it does, steer it
+with a message:
+
+> Leave the workers running. Check briefly that they started, then return to
+> me without waiting for them to finish.
+
+In VS Code, type this while the controller is working and choose
+**Steer with Message** from the Send dropdown. A queued message waits until
+the current request finishes. See [VS Code's steering guide](https://code.visualstudio.com/docs/agents/guides/get-agent-back-on-track).
+
+You can close your laptop as in Assignment 07. The workers continue their
+assigned tasks on the server, then exit. Their results remain available when
+you return.
 
 For a glimpse underneath, the controller uses commands such as:
 
@@ -196,7 +210,7 @@ These are examples of the controller's actions, not commands you need to type.
 
 ## Check progress and bring the work together
 
-Reconnect to the game and ask:
+When you want an update, ask in the same chat, or reconnect to the game later:
 
 > How are our workers getting on?
 

@@ -33,10 +33,16 @@ integration start when requested, not automatically after a status check.
 3. Choose unique job IDs. Use `bash scripts/worker.sh start ID TASK.md` twice
    from the same committed base, without changing HEAD between starts. The
    script creates each worker branch/worktree and starts Pi inside Screen.
-   Report IDs and paths, then return to the user. Do not wait in a polling loop.
+   Briefly inspect each job's status and named Screen session to confirm startup.
+   A saved running status alone is not a live health check. If a worker already
+   exited, report its outcome. Report IDs, paths and observed state, then end
+   your turn and return to the user. Do not poll, sleep, follow logs continuously
+   or wait for completion notifications. Leave running workers alone. If startup
+   is uncertain or failed, report that instead of waiting for the task to finish.
 4. When asked for progress, use `status ID` and `result ID`. The output log
    contains Pi's text output, while sessions/ contains its detailed session
-   records. A finished process is not proof of completed or correct work.
+   records. Report the current observation and return, without waiting for running
+   workers to finish. A finished process is not proof of completed or correct work.
 5. Inspect each task, report and actual worktree changes, including untracked
    files. Run suitable checks. Fix problems in the worker's worktree only once
    that worker has stopped. If the fix is substantial, agree a follow-up task

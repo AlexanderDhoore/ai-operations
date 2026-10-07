@@ -51,7 +51,11 @@ bash scripts/worker.sh result reset
 The controller runs these on the development server, in the primary game checkout,
 through its terminal tool or SSH. Students ask it to delegate work and check
 progress rather than running the commands themselves. `start` returns after
-launching, not after Pi finishes. Use different IDs for different runs.
+launching, not after Pi finishes. The controller should briefly check startup,
+report each job's observed state, then return to the user. Record this in the
+delegation skill. Do not keep polling or wait for completion notifications.
+A later progress request is another brief inspection, not a wait for completion.
+Use different IDs for different runs.
 
 ## What the script does
 
