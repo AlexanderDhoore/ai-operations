@@ -75,7 +75,7 @@ Give your existing agent this prompt:
 > Prepare this development server so I can use Pi with the school's Qwen
 > model inside GNU Screen, following this public setup guide:
 >
-> https://raw.githubusercontent.com/AlexanderDhoore/ai-operations/7ea66782468c7a4477bf88345bffaa68adc877c8/resources/pi/README.md
+> https://raw.githubusercontent.com/AlexanderDhoore/ai-operations/730fa0c6aa774f1e647b72fec3c5898fd2d179c6/resources/pi/README.md
 >
 > Read that guide and its linked model template. Inspect the host, current
 > project directory and existing tools/configuration. Explain the setup
