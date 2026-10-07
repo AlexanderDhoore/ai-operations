@@ -245,7 +245,7 @@ Review the changes and check the game. Have Pi fix any problems and update
 to review, commit and push the work, then check it on GitHub.
 
 Close the outer terminal to leave Pi available. To end the session instead,
-exit Pi with **Ctrl+C twice**, then run `exit` in the Screen shell.
+type `/quit` in Pi, then run `exit` in the Screen shell.
 
 ## Be ready to discuss
 
