@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1070" role="img" aria-labelledby="title desc">
+<title id="title">Skills extend the tool-call loop</title>
+<desc id="desc">Three lanes distinguish project skill files, VS Code and Qwen. VS Code discovers metadata and sends a catalog to Qwen. Qwen requests a skill read. VS Code reads the selected file and supplies its instructions in the next model request. The model then follows the procedure. Explicit user invocation is an alternative way to select a skill.</desc>
+<defs>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#2563a5" stroke-width="1.6"/></marker>
+<marker id="purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#7950a7" stroke-width="1.6"/></marker>
+<marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#237d70" stroke-width="1.6"/></marker>
+</defs>
+<rect width="1200" height="1070" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="600" y="46" font-size="31" fill="#172033" font-weight="700" text-anchor="middle">Skills extend the tool-call loop</text>
+<text x="600" y="80" font-size="20" fill="#526177" font-weight="400" text-anchor="middle">A catalog first. Detailed instructions when needed.</text>
+<rect x="60" y="111" width="260" height="86" rx="12" fill="#e8f4ef" stroke="#c8d4e3"/>
+<text x="190" y="146" font-size="24" fill="#172033" font-weight="700" text-anchor="middle">Project skill files</text>
+<text x="190" y="176" font-size="17" fill="#526177" font-weight="400" text-anchor="middle">On your development LXC</text>
+<path d="M190 198 L190 912" fill="none" stroke="#c8d4e3" stroke-width="2" stroke-dasharray="7 7"/>
+<rect x="450" y="111" width="300" height="86" rx="12" fill="#eaf4ff" stroke="#c8d4e3"/>
+<text x="600" y="146" font-size="24" fill="#172033" font-weight="700" text-anchor="middle">VS Code</text>
+<text x="600" y="176" font-size="17" fill="#526177" font-weight="400" text-anchor="middle">Agent host and tools</text>
+<path d="M600 198 L600 912" fill="none" stroke="#c8d4e3" stroke-width="2" stroke-dasharray="7 7"/>
+<rect x="880" y="111" width="260" height="86" rx="12" fill="#f2edfb" stroke="#c8d4e3"/>
+<text x="1010" y="146" font-size="24" fill="#172033" font-weight="700" text-anchor="middle">Qwen</text>
+<text x="1010" y="176" font-size="17" fill="#526177" font-weight="400" text-anchor="middle">Model server</text>
+<path d="M1010 198 L1010 912" fill="none" stroke="#c8d4e3" stroke-width="2" stroke-dasharray="7 7"/>
+<circle cx="31" cy="239" r="14" fill="#f1f5f9"/>
+<text x="31" y="244" font-size="16" fill="#526177" font-weight="700" text-anchor="middle">1</text>
+<text x="395" y="230" font-size="19" fill="#172033" font-weight="400" text-anchor="middle">Read skill metadata</text>
+<path d="M594 245 L196 245" fill="none" stroke="#2563a5" stroke-width="2" marker-end="url(#blue)"/>
+<text x="395" y="282" font-size="18" fill="#237d70" font-weight="400" text-anchor="middle">Names, descriptions, locations</text>
+<path d="M196 297 L594 297" fill="none" stroke="#237d70" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#teal)"/>
+<circle cx="31" cy="355" r="14" fill="#f1f5f9"/>
+<text x="31" y="360" font-size="16" fill="#526177" font-weight="700" text-anchor="middle">2</text>
+<text x="805" y="347" font-size="20" fill="#172033" font-weight="700" text-anchor="middle">Request + skill catalog</text>
+<path d="M606 365 L1004 365" fill="none" stroke="#2563a5" stroke-width="2" marker-end="url(#blue)"/>
+<text x="805" y="393" font-size="17" fill="#526177" font-weight="400" text-anchor="middle">Instructions, tools and chat included</text>
+<rect x="871" y="415" width="278" height="58" rx="12" fill="#f2edfb" stroke="#c8d4e3"/>
+<text x="1010" y="450" font-size="20" fill="#7950a7" font-weight="700" text-anchor="middle">Select a relevant skill</text>
+<circle cx="31" cy="516" r="14" fill="#f1f5f9"/>
+<text x="31" y="521" font-size="16" fill="#526177" font-weight="700" text-anchor="middle">3</text>
+<text x="805" y="508" font-size="20" fill="#172033" font-weight="400" text-anchor="middle">Tool call: read SKILL.md</text>
+<path d="M1004 526 L606 526" fill="none" stroke="#7950a7" stroke-width="2" marker-end="url(#purple)"/>
+<circle cx="31" cy="584" r="14" fill="#f1f5f9"/>
+<text x="31" y="589" font-size="16" fill="#526177" font-weight="700" text-anchor="middle">4</text>
+<text x="395" y="576" font-size="18" fill="#172033" font-weight="400" text-anchor="middle">Read github-workflow/SKILL.md</text>
+<path d="M594 594 L196 594" fill="none" stroke="#2563a5" stroke-width="2" marker-end="url(#blue)"/>
+<text x="395" y="635" font-size="18" fill="#237d70" font-weight="400" text-anchor="middle">Full Markdown instructions</text>
+<path d="M196 653 L594 653" fill="none" stroke="#237d70" stroke-width="2" stroke-dasharray="7 7" marker-end="url(#teal)"/>
+<circle cx="31" cy="713" r="14" fill="#f1f5f9"/>
+<text x="31" y="718" font-size="16" fill="#526177" font-weight="700" text-anchor="middle">5</text>
+<text x="805" y="705" font-size="20" fill="#172033" font-weight="700" text-anchor="middle">Next request + tool result</text>
+<path d="M606 723 L1004 723" fill="none" stroke="#2563a5" stroke-width="2" marker-end="url(#blue)"/>
+<rect x="871" y="752" width="278" height="72" rx="12" fill="#f2edfb" stroke="#c8d4e3"/>
+<text x="1010" y="782" font-size="20" fill="#7950a7" font-weight="700" text-anchor="middle">Follow the loaded</text>
+<text x="1010" y="808" font-size="20" fill="#7950a7" font-weight="700" text-anchor="middle">GitHub procedure</text>
+<rect x="60" y="755" width="260" height="78" rx="12" fill="#e8f4ef" stroke="#c8d4e3"/>
+<text x="190" y="788" font-size="19" fill="#237d70" font-weight="700" text-anchor="middle">Other skill bodies</text>
+<text x="190" y="814" font-size="19" fill="#237d70" font-weight="400" text-anchor="middle">stay on disk.</text>
+<circle cx="31" cy="869" r="14" fill="#f1f5f9"/>
+<text x="31" y="874" font-size="16" fill="#526177" font-weight="700" text-anchor="middle">6</text>
+<text x="805" y="861" font-size="19" fill="#172033" font-weight="400" text-anchor="middle">Response or further tool calls</text>
+<path d="M1004 879 L606 879" fill="none" stroke="#7950a7" stroke-width="2" marker-end="url(#purple)"/>
+<rect x="40" y="939" width="1120" height="103" rx="12" fill="#f8fafc" stroke="#c8d4e3"/>
+<text x="64" y="971" font-size="22" fill="#172033" font-weight="700" text-anchor="start">You can also choose the skill</text>
+<text x="1136" y="971" font-size="22" fill="#2563a5" font-weight="700" text-anchor="end">/github-workflow …</text>
+<text x="64" y="1007" font-size="19" fill="#526177" font-weight="400" text-anchor="start">Explicit invocation selects the skill; its instructions still need to enter context.</text>
+</g>
+</svg>

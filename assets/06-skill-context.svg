@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 930" role="img" aria-labelledby="title desc">
+<title id="title">Load the procedure, keep the same context budget</title>
+<desc id="desc">Three equal-sized context windows show the same base request and skill catalog. The second adds one selected skill body. The third adds a reference file. Remaining space shrinks; the output reserve does not change. Unused skill bodies stay on disk. Proportions are illustrative, not measured token counts.</desc>
+<defs>
+<marker id="blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#2563a5" stroke-width="1.6"/></marker>
+<marker id="purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#7950a7" stroke-width="1.6"/></marker>
+<marker id="teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#237d70" stroke-width="1.6"/></marker>
+</defs>
+<rect width="1200" height="930" fill="white"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="600" y="47" font-size="29" fill="#172033" font-weight="700" text-anchor="middle">Load the procedure, keep the same context budget</text>
+<text x="600" y="83" font-size="19" fill="#526177" font-weight="400" text-anchor="middle">Illustrative proportions, not measured token counts.</text>
+<text x="40" y="134" font-size="15" fill="#526177" font-weight="700" text-anchor="start">INPUT: INSTRUCTIONS, TOOLS, CHAT AND LOADED MATERIAL</text>
+<text x="1020" y="134" font-size="15" fill="#526177" font-weight="700" text-anchor="middle">OUTPUT</text>
+<path d="M40 145 L870 145" fill="none" stroke="#c8d4e3" stroke-width="2"/>
+<path d="M890 145 L1160 145" fill="none" stroke="#c8d4e3" stroke-width="2"/>
+<text x="40" y="185" font-size="23" fill="#172033" font-weight="700" text-anchor="start">1. A new task: the catalog is available</text>
+<rect x="40" y="205" width="1120" height="74" rx="0" fill="#f8fafc" stroke="#c8d4e3"/>
+<rect x="40" y="205" width="280" height="74" rx="0" fill="#d9eaff" stroke="#ffffff"/>
+<text x="180.0" y="248" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Base request</text>
+<rect x="320" y="205" width="90" height="74" rx="0" fill="#a8dacc" stroke="#ffffff"/>
+<text x="365.0" y="236" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Skill</text>
+<text x="365.0" y="260" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">catalog</text>
+<rect x="410" y="205" width="470" height="74" rx="0" fill="#f8fafc" stroke="#ffffff"/>
+<text x="645.0" y="248" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Room to grow</text>
+<rect x="880" y="205" width="280" height="74" rx="0" fill="#fff0cf" stroke="#ffffff"/>
+<text x="1020.0" y="248" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Response reserve</text>
+<text x="40" y="309" font-size="19" fill="#526177" font-weight="400" text-anchor="start">Names and descriptions help the model find relevant skills.</text>
+<text x="40" y="367" font-size="23" fill="#172033" font-weight="700" text-anchor="start">2. One skill selected: its instructions enter context</text>
+<rect x="40" y="387" width="1120" height="74" rx="0" fill="#f8fafc" stroke="#c8d4e3"/>
+<rect x="40" y="387" width="280" height="74" rx="0" fill="#d9eaff" stroke="#ffffff"/>
+<text x="180.0" y="430" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Base request</text>
+<rect x="320" y="387" width="90" height="74" rx="0" fill="#a8dacc" stroke="#ffffff"/>
+<text x="365.0" y="418" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Skill</text>
+<text x="365.0" y="442" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">catalog</text>
+<rect x="410" y="387" width="195" height="74" rx="0" fill="#e3d7f4" stroke="#ffffff"/>
+<text x="507.5" y="418" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">github-workflow</text>
+<text x="507.5" y="442" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">instructions</text>
+<rect x="605" y="387" width="275" height="74" rx="0" fill="#f8fafc" stroke="#ffffff"/>
+<text x="742.5" y="430" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Room to grow</text>
+<rect x="880" y="387" width="280" height="74" rx="0" fill="#fff0cf" stroke="#ffffff"/>
+<text x="1020.0" y="430" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Response reserve</text>
+<text x="40" y="491" font-size="19" fill="#526177" font-weight="400" text-anchor="start">Loading SKILL.md adds its body; the catalog is still present.</text>
+<text x="40" y="549" font-size="23" fill="#172033" font-weight="700" text-anchor="start">3. A detail needed: a referenced file is read too</text>
+<rect x="40" y="569" width="1120" height="74" rx="0" fill="#f8fafc" stroke="#c8d4e3"/>
+<rect x="40" y="569" width="280" height="74" rx="0" fill="#d9eaff" stroke="#ffffff"/>
+<text x="180.0" y="612" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Base request</text>
+<rect x="320" y="569" width="90" height="74" rx="0" fill="#a8dacc" stroke="#ffffff"/>
+<text x="365.0" y="600" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Skill</text>
+<text x="365.0" y="624" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">catalog</text>
+<rect x="410" y="569" width="195" height="74" rx="0" fill="#e3d7f4" stroke="#ffffff"/>
+<text x="507.5" y="600" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">github-workflow</text>
+<text x="507.5" y="624" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">instructions</text>
+<rect x="605" y="569" width="135" height="74" rx="0" fill="#f3d8be" stroke="#ffffff"/>
+<text x="672.5" y="600" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Reference</text>
+<text x="672.5" y="624" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">contents</text>
+<rect x="740" y="569" width="140" height="74" rx="0" fill="#f8fafc" stroke="#ffffff"/>
+<text x="810.0" y="612" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Room left</text>
+<rect x="880" y="569" width="280" height="74" rx="0" fill="#fff0cf" stroke="#ffffff"/>
+<text x="1020.0" y="612" font-size="17" fill="#172033" font-weight="400" text-anchor="middle">Response reserve</text>
+<text x="40" y="673" font-size="19" fill="#526177" font-weight="400" text-anchor="start">For example, a longer testing guide linked from the skill.</text>
+<rect x="40" y="718" width="542" height="121" rx="12" fill="#e8f4ef" stroke="#c8d4e3"/>
+<text x="62" y="751" font-size="22" fill="#237d70" font-weight="700" text-anchor="start">Outside context: the unused manuals</text>
+<text x="62" y="784" font-size="18" fill="#526177" font-weight="400" text-anchor="start">Having 100 skills does not load 100 full bodies.</text>
+<text x="62" y="810" font-size="18" fill="#526177" font-weight="400" text-anchor="start">The unselected instructions remain on disk.</text>
+<rect x="600" y="718" width="560" height="121" rx="12" fill="#f2edfb" stroke="#c8d4e3"/>
+<text x="622" y="751" font-size="22" fill="#7950a7" font-weight="700" text-anchor="start">Inside context: everything that was loaded</text>
+<text x="622" y="784" font-size="18" fill="#526177" font-weight="400" text-anchor="start">Metadata, instructions and references all cost tokens.</text>
+<text x="622" y="810" font-size="18" fill="#526177" font-weight="400" text-anchor="start">The skill does not increase the window or train Qwen.</text>
+<text x="600" y="879" font-size="18" fill="#526177" font-weight="400" text-anchor="middle">Only skill-related additions are shown. Messages and other tool results also use space.</text>
+<text x="600" y="908" font-size="18" fill="#526177" font-weight="400" text-anchor="middle">Context management and compaction still apply, as in Assignment 05.</text>
+</g>
+</svg>
