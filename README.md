@@ -54,6 +54,7 @@ understand what you built?**
 - [02 — Add web search to your AI assistant](02-add-web-search.md)
 - [03 — Develop on a remote Linux server](03-develop-on-a-remote-server.md)
 - [04 — Put your game on GitHub](04-put-your-game-on-github.md)
+- [05 — Give your agent a memory](05-give-your-agent-a-memory.md)
 
 Later assignments will appear here when their requirements are introduced in
 class.
