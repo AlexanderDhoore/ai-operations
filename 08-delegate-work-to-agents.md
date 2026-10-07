@@ -21,8 +21,8 @@ Coding harnesses such as [Codex](https://learn.chatgpt.com/docs/agent-configurat
 [VS Code](https://code.visualstudio.com/docs/agents/run/subagents) and
 [Claude Code](https://code.claude.com/docs/en/sub-agents) offer subagent workflows.
 Their details differ, including which context is passed along, available tools
-and whether tasks run in parallel. Delegation is a harness feature, not a
-special ability that only one model has.
+and whether tasks run in parallel. The harness coordinates the agents. In this
+assignment, we build that coordination ourselves with a skill and a small script.
 
 ![The controller sends bounded tasks to two workers with separate contexts and receives reports and code changes for review](assets/08-delegation-context.svg)
 
@@ -61,11 +61,9 @@ one, try using a more capable GPT or Claude model as your controller.** Let it
 plan the tasks, review the results and integrate the changes, while the
 lower-cost Qwen workers do the implementation.
 
-This is a useful orchestration pattern: use a stronger model where its judgment
-adds value, and delegate suitable work to a cheaper model. Worker requests go
-to the school endpoint instead of using your subscription allowance. Planning
-and reviewing still use that allowance. Compare how well your controller
-divides the work and catches problems in the workers' results.
+Worker requests go to the school endpoint instead of using your subscription
+allowance. Planning and reviewing still use that allowance. Compare how well
+your controller divides the work and catches problems in the workers' results.
 
 ## Give each worker its own files
 
@@ -83,7 +81,8 @@ There are **three working directories, one for each agent**:
 
 All three belong to the same Git repository and share its history. Each agent
 has its own checked-out files. The controller reviews and combines the workers'
-changes in the original game folder.
+changes in the original game folder. The integration branch is where you
+combine and test their work before bringing it into `main`.
 
 ![One primary checkout for controller integration, two separate worker worktrees on the LXC, and review before merging both branches](assets/08-worktrees-and-review.svg)
 
@@ -164,14 +163,13 @@ function and a settings screen instead.
 **Discuss each feature with the controller before delegating it.** Explain the
 behavior you want, talk through important edge cases and agree on what a good
 result looks like. Let the controller help identify dependencies between the
-tasks. For a more complex game, this conversation gives each worker a much
-clearer assignment.
+tasks. For example, should reset clear the score, restart the current round,
+or reset the whole multiplayer session? Resolve that before a worker starts.
 
 Once you agree on the features, asking the controller to delegate can be short:
 
-> Add a reset button to my game and a helpful page explaining the rules.
-> Delegate the work. Check that the workers started, then come back to me
-> without waiting for them to finish.
+> Delegate the two features we agreed on. Check that the workers started,
+> then come back to me without waiting for them to finish.
 
 The skill tells the controller how to turn your agreement into task files,
 commit the plan and start separate workers. You do not need to repeat those
@@ -181,9 +179,8 @@ Here the controller reads the project files and loads the delegation skill:
 
 <a href="assets/08-controller-reads-skill.png"><img src="assets/screenshots/08-controller-reads-skill.png" alt="The controller reads index.html, MEMORY.md and the delegate-work skill before preparing worker tasks" width="725"></a>
 
-**The controller should check that the workers started, then return to you.**
-It should not keep polling until their work is finished. If it does, steer it
-with a message:
+**Delegating should leave you free to continue the conversation or disconnect.**
+If the controller keeps waiting for the workers to finish, steer it:
 
 > Leave the workers running. Check briefly that they started, then return to
 > me without waiting for them to finish.
@@ -212,8 +209,9 @@ When you want an update, ask in the same chat, or reconnect to the game later:
 
 > How are our workers getting on?
 
-The controller checks the saved records, even in a fresh chat. When the work
-is ready, continue the conversation:
+The controller checks the saved records, even in a fresh chat. Worker changes
+stay in their separate worktrees, so they will not appear in your original game
+until integrated. When the work is ready, ask:
 
 > Review their work, fix any issues and merge the changes into our integration branch.
 
@@ -222,10 +220,10 @@ accepted work, merging and checking the combined game. It also tells the
 controller to update project memory. **A worker finishing does not mean its
 code is correct.** Review is part of the controller's job.
 
-Try the game yourself and discuss the result. Does reset work? Can you reach
-the help page, and does it explain the actual behavior? When satisfied, ask
-the controller to publish through your GitHub workflow and clean up the finished
-worker worktrees. You stay in charge of what gets accepted and published.
+Try the combined game yourself against the behavior you agreed on. For the
+example tasks, does reset work as intended, and can you reach the help page?
+When satisfied, ask the controller to publish through your GitHub workflow
+and clean up the finished worker worktrees. You stay in charge of what gets accepted and published.
 
 ## What could come next?
 

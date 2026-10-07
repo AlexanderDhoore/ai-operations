@@ -19,10 +19,12 @@ integration start when requested, not automatically after a status check.
 1. Turn the user's requested improvements into two bounded tasks and acceptance
    checks. Help the user discuss expected behavior, important edge cases and
    dependencies before delegating. Use what was already agreed without making
-   them repeat it. Clarify missing requirements, or proceed if the scope is clear. Prefer
-   separate files or modules. Record the agreed plan in MEMORY.md and clarify
-   any shared interfaces. Preserve unrelated changes. Workers must not edit
-   central memory, instructions, skills or launcher code.
+   them repeat it. Clarify missing requirements, or proceed if the scope is clear.
+   Prefer separate files or modules. Record the agreed plan in MEMORY.md and clarify
+   any shared interfaces, including integration work you will do after the
+   workers finish, such as linking a new help page from the game. Preserve
+   unrelated changes. Workers must not edit central memory, instructions,
+   skills or launcher code.
 2. Verify setup is committed and use the integration branch in the primary
    checkout, creating it if needed. Review and commit any agreed plan updates
    within the user's authorization, then verify a clean checkout. Preserve
