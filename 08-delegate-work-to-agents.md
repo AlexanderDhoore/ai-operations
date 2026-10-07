@@ -104,11 +104,15 @@ work from Assignment 07. Let your controller read the
 [worker setup guide](resources/workers/README.md) and its linked reference files.
 The reference is deliberately small enough to inspect and adapt.
 
-Give your controller this prompt, together with the guide's URL or contents:
+Give your controller this prompt:
 
-> Help me add the Assignment 08 delegation workflow to this game. Read the
-> worker setup guide and linked files, then inspect our project and explain
-> your plan before making changes.
+> Help me add the Assignment 08 delegation workflow to this game, following
+> this guide and its linked reference files:
+>
+> https://raw.githubusercontent.com/AlexanderDhoore/ai-operations/main/resources/workers/README.md
+>
+> Read the guide and linked files, then inspect our project and explain your
+> plan before making changes.
 >
 > Adapt the reference launcher into scripts/worker.sh, the worker role into
 > scripts/worker-role.md, and the delegation skill into
