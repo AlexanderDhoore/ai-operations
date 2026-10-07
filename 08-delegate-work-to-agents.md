@@ -74,8 +74,16 @@ A **Git worktree** gives a branch its own checked-out directory while sharing
 the repository's history. Each worker gets one branch and one worktree.
 See the [Git worktree documentation](https://git-scm.com/docs/git-worktree).
 
-The controller keeps the original game folder and uses an integration branch
-there. No extra controller worktree is needed for this exercise.
+There are **three working directories, one for each agent**:
+
+- **Controller:** the original game folder, on the integration branch
+  `work/delegation`. This is the repository's original worktree.
+- **Worker A:** an additional worktree, on its own worker branch.
+- **Worker B:** another additional worktree, on a different worker branch.
+
+All three belong to the same Git repository and share its history. Each agent
+has its own checked-out files. The controller reviews and combines the workers'
+changes in the original game folder.
 
 ![One primary checkout for controller integration, two separate worker worktrees on the LXC, and review before merging both branches](assets/08-worktrees-and-review.svg)
 
