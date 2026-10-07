@@ -27,6 +27,12 @@ tasks**: workers follow `scripts/worker-role.md`, report instead of editing
 central memory, and leave commits and integration to the controller. Preserve
 the normal collaboration rules for other work. No second memory system is needed.
 
+Finish setup on an integration branch: check the script and installed Pi options,
+review the changes, update memory and make the local setup commit authorized by
+the assignment prompt. Verify a clean checkout and ignored runtime files before
+reporting that setup is ready. Preserve unrelated changes and report any blocker.
+After agreeing on worker tasks, commit any new plan updates before launching too.
+
 The supplied script intentionally has only three commands:
 
 ```bash
@@ -35,9 +41,10 @@ bash scripts/worker.sh status reset
 bash scripts/worker.sh result reset
 ```
 
-Run them on the development server, in the primary game checkout. The controller
-can issue them through its terminal tool or SSH. `start` returns after launching,
-not after Pi finishes. Use different IDs for different runs.
+The controller runs these on the development server, in the primary game checkout,
+through its terminal tool or SSH. Students ask it to delegate work and check
+progress rather than running the commands themselves. `start` returns after
+launching, not after Pi finishes. Use different IDs for different runs.
 
 ## What the script does
 

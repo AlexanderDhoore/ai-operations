@@ -124,9 +124,16 @@ Give your controller this prompt:
 > memory, commit or push. The controller reviews, commits and integrates.
 > Preserve our normal collaboration rules outside delegated tasks.
 >
-> Explain how to start a worker, inspect its progress and retrieve its result.
-> Check the Bash syntax and installed Pi options. Do not launch workers,
-> change game behavior or publish anything yet.
+> Check the Bash syntax and installed Pi options. Work on an integration
+> branch such as work/delegation. Review the setup changes, update project
+> memory and commit the files belonging to this setup. You are authorized to
+> make that local commit. Preserve unrelated work and explain any blocker
+> rather than committing or discarding it.
+>
+> Verify that the setup is committed, runtime files are ignored and the
+> checkout is clean, ready for us to agree on worker tasks. Summarize what
+> changed and how I can ask you to delegate work or check progress. Do not
+> launch workers, change game behavior, push or merge main yet.
 
 Review the files with the agent. Ask it to walk you through the command that
 starts Pi. **`--print` means a non-interactive run**, not a read-only run:
@@ -136,6 +143,11 @@ the task, saves output and returns immediately. See [Pi's CLI modes](https://pi.
 This combines the previous lessons: instructions and memory describe the
 project, a skill teaches a repeatable workflow, and a script handles the
 mechanical steps. The agent helps build the system that delegates its work.
+
+In VS Code, you can select `/delegate-work` to invoke the skill explicitly,
+or ask the controller to use it in your own words:
+
+<a href="assets/08-delegation-skill-picker.png"><img src="assets/08-delegation-skill-picker.png" alt="VS Code offers the delegate-work skill in the chat command picker" width="640"></a>
 
 ## Agree on two tasks
 
@@ -161,30 +173,35 @@ Check the behavior you can test and report any untested parts.
 The controller handles commits and central memory. Follow the worker role.
 ```
 
-Have the controller review and commit the setup and agreed project state,
-then create an integration branch such as `work/delegation`. Worktrees start
-from a commit, so uncommitted game changes will not appear in the workers.
-Task files and run logs stay local and ignored.
+The setup is already committed on the integration branch. Recording the new
+plan may have changed `MEMORY.md`, so the controller must commit those agreed
+updates before launching. Worktrees start from a commit, so uncommitted changes
+will not appear in the workers. Task files and run logs stay local and ignored.
 
 ## Delegate, then leave the workers to work
 
 Ask your controller:
 
-> Use our delegation skill to start the two agreed tasks from the same commit.
+> Use our delegation skill to start the two agreed tasks. Review and commit
+> our agreed plan updates first, then verify the checkout is clean. You are
+> authorized to make that local commit. Start both workers from the same commit.
 > Give each worker a different ID and its own worktree. Report the IDs,
 > branches and result locations, then return to me without waiting for completion.
 > Do not push or merge anything yet.
 
-Underneath, the controller runs commands like these in the game folder:
+**You talk to the controller. It runs the commands for you.** For example,
+these are the commands it can use to start a task and later inspect it:
 
 ```bash
 bash scripts/worker.sh start reset .workers/tasks/reset.md
-bash scripts/worker.sh start help .workers/tasks/help.md
+bash scripts/worker.sh status reset
+bash scripts/worker.sh result reset
 ```
 
-Use your actual IDs and task filenames. The launcher creates the worktrees in
-a sibling folder such as `YOUR-GAME-workers/` and starts a named Screen session
-for each worker. There is no need to open Pi interactively yourself.
+These examples explain what happens underneath. You do not need to type them
+yourself. The controller chooses the IDs and task files for both workers. The
+launcher creates their worktrees in a sibling folder such as
+`YOUR-GAME-workers/` and starts a named Screen session for each worker.
 
 You can close the controller and terminal as in Assignment 07. The workers
 continue their assigned tasks on the server, then exit. They do not invent
@@ -192,17 +209,15 @@ new tasks while you are away. Their task files, output and changes remain.
 
 ## Return, review and integrate
 
-Reconnect to the game folder and ask the controller to inspect the existing
-jobs. A fresh chat can use the saved records instead of starting duplicates:
+Reconnect to the game folder and ask your controller:
 
-```bash
-bash scripts/worker.sh status reset
-bash scripts/worker.sh result reset
-```
+> Check our existing worker tasks. Which are still running, which have
+> finished, and did either report a blocker? Summarize the results so far.
+> Inspect the saved records without starting new workers or changing files.
 
-Repeat for the other ID. A finished Screen session may disappear because Pi
-exited normally. The records under `.workers/ID/` remain. An empty output log
-while Pi is working does not by itself indicate failure.
+A fresh chat can use the records under `.workers/ID/` too. A finished Screen
+session may disappear because Pi exited normally, while the records remain.
+An empty output log while Pi is working does not by itself indicate failure.
 
 **A finished process is not an approved change.** Read the report and inspect
 the actual diff and any new files. A worker may have stopped with a question,

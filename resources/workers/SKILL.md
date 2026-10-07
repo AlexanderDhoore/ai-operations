@@ -8,13 +8,18 @@ description: Split agreed game improvements into two independent Pi worker tasks
 Use the server's existing Pi/Qwen setup and scripts/worker.sh. Run commands in
 the game's primary checkout. Inspect existing .workers records before launching
 anything, so a fresh chat does not duplicate work.
+The user talks to you to delegate work and inspect progress. Run the launcher
+commands yourself through your terminal tool or SSH, then explain the result.
 
 1. Discuss two bounded tasks and acceptance checks with the user. Prefer
    separate files or modules. Record the agreed plan in MEMORY.md and clarify
    any shared interfaces. Preserve unrelated changes. Workers must not edit
    central memory, instructions, skills or launcher code.
-2. Review and commit the setup and agreed project state before starting.
-   Create an integration branch in the primary checkout. In .workers/tasks/,
+2. Verify setup is committed and use the integration branch in the primary
+   checkout, creating it if needed. Review and commit any agreed plan updates
+   within the user's authorization, then verify a clean checkout. Preserve
+   unrelated work and report blockers rather than committing or discarding it.
+   In .workers/tasks/,
    write one task file per worker with the goal, scope, acceptance checks and
    relevant project context. Task files represent work the user agreed to.
 3. Choose unique job IDs. Use `bash scripts/worker.sh start ID TASK.md` twice
