@@ -157,15 +157,24 @@ or ask the controller to use it in your own words:
 
 Choose two small improvements that can be worked on independently. A reset
 button and a help page are one example. Your game might benefit from a scoring
-function and a settings screen instead. Tell the controller what you want:
+function and a settings screen instead.
+
+**Discuss each feature with the controller before delegating it.** Explain the
+behavior you want, talk through important edge cases and agree on what a good
+result looks like. Let the controller help identify dependencies between the
+tasks. For a more complex game, this conversation gives each worker a much
+clearer assignment.
+
+Once you agree on the features, asking the controller to delegate can be short:
 
 > Add a reset button to my game and a helpful page explaining the rules.
 > Delegate the work.
 
-That is enough to start the conversation. Discuss any questions about the
-features, just as you normally would. The delegation skill tells the controller
-how to prepare task files, commit the agreed plan and start separate workers.
-You do not need to repeat those instructions each time.
+The screenshot deliberately uses a very short request to demonstrate the
+workflow. For your own game, have that feature conversation first. The skill
+then tells the controller how to turn your agreement into task files, commit
+the plan and start separate workers. You do not need to repeat those procedural
+instructions each time.
 
 Here the controller reads the skill after a short request:
 

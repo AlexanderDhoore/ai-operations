@@ -17,7 +17,9 @@ unresolved scope. A progress question only inspects existing jobs. Review and
 integration start when requested, not automatically after a status check.
 
 1. Turn the user's requested improvements into two bounded tasks and acceptance
-   checks. Clarify what is missing, or proceed if the request is clear. Prefer
+   checks. Help the user discuss expected behavior, important edge cases and
+   dependencies before delegating. Use what was already agreed without making
+   them repeat it. Clarify missing requirements, or proceed if the scope is clear. Prefer
    separate files or modules. Record the agreed plan in MEMORY.md and clarify
    any shared interfaces. Preserve unrelated changes. Workers must not edit
    central memory, instructions, skills or launcher code.
