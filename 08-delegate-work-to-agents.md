@@ -209,9 +209,13 @@ When you want an update, ask in the same chat, or reconnect to the game later:
 
 > How are our workers getting on?
 
-The controller checks the saved records, even in a fresh chat. Worker changes
-stay in their separate worktrees, so they will not appear in your original game
-until integrated. When the work is ready, ask:
+The controller checks the saved records, even in a fresh chat. Here is an
+example status report, with both workers finished and awaiting review:
+
+<a href="assets/08-worker-status.png"><img src="assets/screenshots/08-worker-status.png" alt="The controller reports two finished workers whose changes still require review" width="874"></a>
+
+Worker changes stay in their separate worktrees, so they will not appear in
+your original game until integrated. When the work is ready, ask:
 
 > Review their work, fix any issues and merge the changes into our integration branch.
 
