@@ -27,6 +27,13 @@ tasks**: workers follow `scripts/worker-role.md`, report instead of editing
 central memory, and leave commits and integration to the controller. Preserve
 the normal collaboration rules for other work. No second memory system is needed.
 
+Record the agreement from the assignment's setup prompt: a request to delegate
+agreed tasks authorizes the necessary local plan commits. A request to review
+and integrate authorizes the corresponding local commits and merges. Pushing
+or merging main still requires the user's request. With that agreement and the
+skill in place, students can use short, ordinary requests rather than repeat
+the workflow. A question about progress only calls for inspection.
+
 Finish setup on an integration branch: check the script and installed Pi options,
 review the changes, update memory and make the local setup commit authorized by
 the assignment prompt. Verify a clean checkout and ignored runtime files before

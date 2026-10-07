@@ -122,6 +122,10 @@ Give your controller this prompt:
 > Reconcile AGENTS.md and our GitHub skill with this workflow. Workers execute
 > tasks we already agreed on, report separately, and do not update central
 > memory, commit or push. The controller reviews, commits and integrates.
+> Record this working agreement: when I ask you to delegate agreed tasks,
+> you may make the local plan commits needed to launch them. When I ask you
+> to review and integrate their work, you may make the corresponding local
+> commits and merges. Pushing or merging main still needs my request.
 > Preserve our normal collaboration rules outside delegated tasks.
 >
 > Check the Bash syntax and installed Pi options. Work on an integration
@@ -149,48 +153,29 @@ or ask the controller to use it in your own words:
 
 <a href="assets/08-delegation-skill-picker.png"><img src="assets/08-delegation-skill-picker.png" alt="VS Code offers the delegate-work skill in the chat command picker" width="640"></a>
 
-## Agree on two tasks
+## Delegate through conversation
 
-Choose two useful improvements with your controller. For example:
+Choose two small improvements that can be worked on independently. A reset
+button and a help page are one example. Your game might benefit from a scoring
+function and a settings screen instead. Tell the controller what you want:
 
-- A reset button and a separate help page explaining the rules.
-- One backend endpoint and an unrelated visual improvement.
-- A scoring function and an independent settings screen.
+> Add a reset button to my game and a helpful page explaining the rules.
+> Delegate the work.
 
-If one feature depends on an interface the other worker has not designed yet,
-agree that interface first or choose a different pair. Keep the first tasks small.
+That is enough to start the conversation. Discuss any questions about the
+features, just as you normally would. The delegation skill tells the controller
+how to prepare task files, commit the agreed plan and start separate workers.
+You do not need to repeat those instructions each time.
 
-Ask the controller to record the plan in memory and write two local task files
-under `.workers/tasks/`. Each should give the goal, files or area to change,
-expected behavior, relevant context and checks. For example:
+Here the controller reads the skill after a short request:
 
-```text
-Task: add a reset button to the star game.
-Change index.html only. Reset returns the counter to zero, including when
-already at zero. Collecting stars still works afterwards. Preserve the
-existing animation and make the button usable by keyboard.
-Check the behavior you can test and report any untested parts.
-The controller handles commits and central memory. Follow the worker role.
-```
+<a href="assets/08-delegate-through-chat.png"><img src="assets/08-delegate-through-chat.png" alt="A short request to delegate a reset button and help page leads the controller to read the game, memory and delegate-work skill" width="820"></a>
 
-The setup is already committed on the integration branch. Recording the new
-plan may have changed `MEMORY.md`, so the controller must commit those agreed
-updates before launching. Worktrees start from a commit, so uncommitted changes
-will not appear in the workers. Task files and run logs stay local and ignored.
+The controller reports what it started and returns to the chat. You can close
+your laptop as in Assignment 07. The workers continue their assigned tasks on
+the server, then exit. Their results remain available when you return.
 
-## Delegate, then leave the workers to work
-
-Ask your controller:
-
-> Use our delegation skill to start the two agreed tasks. Review and commit
-> our agreed plan updates first, then verify the checkout is clean. You are
-> authorized to make that local commit. Start both workers from the same commit.
-> Give each worker a different ID and its own worktree. Report the IDs,
-> branches and result locations, then return to me without waiting for completion.
-> Do not push or merge anything yet.
-
-**You talk to the controller. It runs the commands for you.** For example,
-these are the commands it can use to start a task and later inspect it:
+For a glimpse underneath, the controller uses commands such as:
 
 ```bash
 bash scripts/worker.sh start reset .workers/tasks/reset.md
@@ -198,51 +183,28 @@ bash scripts/worker.sh status reset
 bash scripts/worker.sh result reset
 ```
 
-These examples explain what happens underneath. You do not need to type them
-yourself. The controller chooses the IDs and task files for both workers. The
-launcher creates their worktrees in a sibling folder such as
-`YOUR-GAME-workers/` and starts a named Screen session for each worker.
+These are examples of the controller's actions, not commands you need to type.
 
-You can close the controller and terminal as in Assignment 07. The workers
-continue their assigned tasks on the server, then exit. They do not invent
-new tasks while you are away. Their task files, output and changes remain.
+## Check progress and bring the work together
 
-## Return, review and integrate
+Reconnect to the game and ask:
 
-Reconnect to the game folder and ask your controller:
+> How are our workers getting on?
 
-> Check our existing worker tasks. Which are still running, which have
-> finished, and did either report a blocker? Summarize the results so far.
-> Inspect the saved records without starting new workers or changing files.
+The controller checks the saved records, even in a fresh chat. When the work
+is ready, continue the conversation:
 
-A fresh chat can use the records under `.workers/ID/` too. A finished Screen
-session may disappear because Pi exited normally, while the records remain.
-An empty output log while Pi is working does not by itself indicate failure.
+> Review their work, fix any issues and merge the changes into our integration branch.
 
-**A finished process is not an approved change.** Read the report and inspect
-the actual diff and any new files. A worker may have stopped with a question,
-missed a requirement or reported checks it could not run.
+The skill covers inspecting the actual changes, running checks, committing the
+accepted work, merging and checking the combined game. It also tells the
+controller to update project memory. **A worker finishing does not mean its
+code is correct.** Review is part of the controller's job.
 
-Ask your controller:
-
-> Review both tasks and their actual worktree changes, including new files.
-> Run suitable checks and resolve problems before accepting the work. Only
-> edit a worker's files after it has stopped. Explain any remaining limitations.
->
-> Commit the reviewed changes on their worker branches and merge the accepted
-> branches one at a time into our integration branch. You are authorized to
-> make these local commits and merges. Check the combined game as well.
-> Update project memory with the outcome and next step. Do not push or merge
-> main yet.
-
-Try the combined game yourself. For the reset/help example, check that the
-button works and that the help page is reachable and describes the actual
-behavior. A successful Git merge alone does not establish either.
-
-When satisfied, ask the controller to finish publishing through your agreed
-GitHub workflow. Keep the worker records until review is complete. Afterwards,
-let it remove clean, merged worktrees and their branches, preserving any
-unfinished work.
+Try the game yourself and discuss the result. Does reset work? Can you reach
+the help page, and does it explain the actual behavior? When satisfied, ask
+the controller to publish through your GitHub workflow and clean up the finished
+worker worktrees. You stay in charge of what gets accepted and published.
 
 ## What could come next?
 
