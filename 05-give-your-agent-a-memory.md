@@ -90,9 +90,10 @@ YOUR-GAME/
 ```
 
 `MEMORY.md` is the **changing working record**. It holds the goal, agreed plan,
-important decisions, progress and checks, and the next step. Update it when
-work changes. Replace stale statements rather than appending every exchange.
-Record what actually happened, including what remains untested.
+important decisions, progress and checks, and the next step. Ask your agent
+to keep it current as work changes, replacing stale information rather than
+appending every exchange. It should record what actually happened, including
+what remains untested.
 
 `AGENTS.md` holds the **stable collaboration instructions**. It tells the agent
 where memory lives, when to read it, and how to maintain it. Stable does not
@@ -110,7 +111,12 @@ the teacher's game folder. Use your own:
 
 ![Opening the game repository as the remote VS Code workspace](assets/05-open-project-folder.png)
 
-Select your Mechatronics Qwen model in **Agent** mode. Ask:
+Discuss the plan, collaboration rules and useful project information with
+your agent. Have it write and maintain both files, then review the content
+yourself. You do not need to write the Markdown by hand or follow a fixed set
+of headings.
+
+Select your Mechatronics Qwen model in **Agent** mode. You can start with:
 
 > I want to introduce a simple memory system for this project. Inspect the
 > project, then create two Markdown files at the repository root: AGENTS.md
@@ -121,21 +127,23 @@ Select your Mechatronics Qwen model in **Agent** mode. Ask:
 > and update memory after meaningful progress or changed decisions. Keep
 > these collaboration instructions separate from changing task status.
 >
-> MEMORY.md should contain: Goal, Agreed plan, Decisions, Progress and checks,
-> and Next step. Use only facts you can establish from the project or our
-> conversation. Mark anything unknown rather than inventing it.
+> In MEMORY.md, capture our current goal, agreed plan, important decisions,
+> progress, checks and next step where relevant. Choose a simple structure
+> that fits this project. Use only facts you can establish from the project
+> or our conversation. Mark anything unknown rather than inventing it.
 >
 > Keep both files concise. Do not change game code, commit, or push.
 
 <details>
-<summary>Our setup prompt in VS Code</summary>
+<summary>Our walkthrough used one possible set of headings</summary>
 
 ![Asking Qwen to create the two memory files without changing game code](assets/05-create-memory-prompt.png)
 
 </details>
 
-Open both files and check that their contents match your project. Correct
-assumptions or invented plans before continuing.
+Open both files and check that their contents match your project and what
+you agreed. Discuss anything inaccurate or missing with the agent and ask it
+to revise the files before continuing.
 
 ![AGENTS.md and MEMORY.md beside the existing game files in Explorer](assets/05-memory-files.png)
 
@@ -155,8 +163,8 @@ A minimal `AGENTS.md` can look like this. Preserve useful existing instructions:
 - Ask before committing or pushing changes.
 ```
 
-Use the same five headings in `MEMORY.md`. Here is an example from a fictional
-game after some work on a restart button:
+Here is one possible `MEMORY.md` from a fictional game after some work on a
+restart button. The headings are an example, not a required template:
 
 ```markdown
 # Project memory
@@ -179,7 +187,8 @@ Two-player behavior has not been checked yet.
 Open two browser windows and check that both see the restarted round.
 ```
 
-Fill yours with your own project's facts. If no plan is agreed yet, say so.
+Ask your agent to organize your project's memory in a way that makes sense
+to both of you. Review the result. If no plan is agreed yet, it should say so.
 
 ## Use memory while doing real work
 
@@ -198,10 +207,11 @@ Once you agree, ask the agent to write the goal, plan and decisions into
 > relevant checks, then update memory with what changed, what was checked,
 > and what remains to do. Do not commit or push yet.
 
-Inspect the changes and try the game. Record any problems in memory, then
-continue through the plan in manageable steps. Before ending the chat, ask
-the agent to update `MEMORY.md` with the actual status and next step, or note
-that the work is complete. Keep it current throughout the work.
+Inspect the changes and try the game. Discuss the results and any problems
+with the agent, and have it update memory before continuing through the plan.
+Before ending the chat, ask it to update `MEMORY.md` with the actual status
+and next step, or note that the work is complete. Review its edits so the
+saved record reflects what you agreed and observed.
 
 ## How does a new chat find the memory?
 
