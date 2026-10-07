@@ -56,10 +56,16 @@ or [Claude Code](https://code.claude.com/docs/en/overview). Configure that clien
 server access and project instructions before using it. Ordinary chat access
 alone does not provide a server terminal.
 
-This allows a more capable model to focus on planning, review and integration,
-while school-hosted Qwen handles the delegated implementation. Worker requests
-go to the school endpoint. Planning and reviewing still use the controller's
-allowance. You do not need a paid subscription for this assignment.
+You do not need a paid subscription for this assignment. **If you already have
+one, try using a more capable GPT or Claude model as your controller.** Let it
+plan the tasks, review the results and integrate the changes, while the
+lower-cost Qwen workers do the implementation.
+
+This is a useful orchestration pattern: use a stronger model where its judgment
+adds value, and delegate suitable work to a cheaper model. Worker requests go
+to the school endpoint instead of using your subscription allowance. Planning
+and reviewing still use that allowance. Compare how well your controller
+divides the work and catches problems in the workers' results.
 
 ## Give each worker its own files
 
