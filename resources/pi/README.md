@@ -81,6 +81,10 @@ prompt appears. A blank entry leaves an existing key unchanged.
 )
 ```
 
+The walkthrough shows the hidden prompt and confirmation, with no key visible:
+
+![The terminal confirms that the Pi API key was saved privately without showing its value](../../assets/07-pi-key-saved.png)
+
 The subshell discards the temporary variable when it exits. The key persists
 in the private file, so future Pi sessions can read it. The file is plain
 text protected by Linux permissions. It is outside the game repository.
@@ -91,7 +95,15 @@ non-empty without reading its value.
 ## 4. Start from the game folder
 
 After the student has entered the key, follow Assignment 07 to start a
-`screen` session in the game directory, then run:
+`screen` session. Inside it, change into the existing game repository.
+Replace `~/YOUR-GAME` with its actual path and check that `cd` succeeds:
+
+```bash
+cd ~/YOUR-GAME
+pwd
+```
+
+Once `pwd` shows the game folder, start Pi:
 
 ```bash
 pi --provider vives --model qwen3.8-27b --thinking medium
@@ -118,5 +130,6 @@ embedded key.
 For maintainers, the source is `mechatronics-docs/docs/llm.md`, under
 "Pi coding harness". When the school endpoint or Pi configuration changes,
 compare this template with that source and verify it against the installed
-Pi version. The assignment's setup prompt links to a fixed Git revision.
-Update that link when intentionally changing the setup resources.
+Pi version. The assignment's setup prompt follows the `main` branch of this
+course repository. Keep this guide and the template in sync when updating
+that branch.
