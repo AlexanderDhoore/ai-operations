@@ -248,6 +248,8 @@ While Pi is working, **close the terminal you are using to reach it**:
   The panel's **X** only hides the view. See VS Code's
   [terminal controls](https://code.visualstudio.com/docs/terminal/basics#managing-terminals).
 
+<a href="assets/07-vscode-kill-terminal.png"><img src="assets/07-vscode-kill-terminal.png" alt="VS Code terminal trash-can button with the Kill (Del) tooltip" width="440"></a>
+
 You are closing the outer terminal connection while Pi runs inside Screen on
 the server. Do not exit Pi or type `exit` in the Screen shell for this step.
 You can also disconnect your laptop or shut it down while the server works.
