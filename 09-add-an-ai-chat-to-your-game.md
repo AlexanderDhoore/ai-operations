@@ -98,8 +98,14 @@ The timeout avoids waiting indefinitely, and
 `max_retries=0` keeps the experiment to one attempt per request.
 
 Try changing the question or a rule with your agent. Inspect the answer and
-point to the part of the request that supplied the information. The SDK does
-not automatically read your game files, `AGENTS.md` or `MEMORY.md`.
+point to the part of the request that supplied the information.
+
+The SDK is independent of coding harnesses such as VS Code Chat and Pi. It is
+a Python library that talks to the LLM inference server. Your application supplies
+the surrounding behavior, so you can build your own kind of harness. Here we
+start with a chatbot and extend it in later assignments. The SDK does not
+automatically read game files, `AGENTS.md` or `MEMORY.md`. Your code decides what
+information to send and what capabilities the assistant has.
 
 ## Extend the script into a conversation
 
