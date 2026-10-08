@@ -192,10 +192,13 @@ new images.
 To try this with your agent, have your script read a local image and encode it
 as a base64 data URL. The user message's `content` becomes a list with a `text`
 item and an `image_url` item containing that data URL, instead of just a string.
+See the [official OpenAI image-input documentation](https://developers.openai.com/api/docs/guides/images-vision?api-mode=chat)
+for Chat Completions examples, using our school endpoint and model.
+
 The school allows up to **four images** sharing a pixel budget large enough for one
 **4096×2160 image or four Full HD images**, with at most **40 MiB** of image
-files. The [SDK guide](resources/llm/README.md#optional-extensions) gives the exact
-formats and limits. Choose an image you are comfortable sending to the service.
+files. These are our school service's limits. Choose an image you are comfortable
+sending to the service.
 
 There are other useful implementation options too. **Text streaming** displays
 an answer as it arrives. **Async requests** let an asynchronous backend do other
