@@ -214,6 +214,10 @@ the first time might ask “What am I trying to achieve?” or “How do I move?
 then ask follow-up questions. The assistant should explain your game's rules,
 controls and objectives using the information you provide.
 
+Here is one example of the chat interface. Choose a layout that fits your game:
+
+<a href="assets/09-game-chat.png"><img src="assets/screenshots/09-game-chat.png" alt="An in-game chat page with a question field, Send button and link back to the game" width="665"></a>
+
 Build this feature together with your coding agent, adapting it to your own game.
 **A text chat with conversation history is enough. Vision and structured output
 remain optional.**
