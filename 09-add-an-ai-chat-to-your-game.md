@@ -207,7 +207,7 @@ Your coding agent can help you decide whether either fits your application.
 
 ## Build a chat that explains your game to players
 
-<a href="assets/09-game-chat.png"><img src="assets/screenshots/09-game-chat.png" alt="An example in-game chat page with a question field, Send button and link back to the game" align="right" width="300"></a>
+<a href="assets/09-game-chat.png"><img src="assets/screenshots/09-game-chat.png" alt="An example in-game chat page with a question field, Send button and link back to the game" align="right" width="400"></a>
 
 The terminal script let you explore requests and conversation history. Your task
 now is to use those ideas to build an **in-game explanation chat**: a place in
