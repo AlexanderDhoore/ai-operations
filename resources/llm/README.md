@@ -50,7 +50,8 @@ When integrating the feature, use the game's normal dependency management.
 
 Start with [request.py](request.py), placed as `experiments/llm/chat.py` in the
 game. Explain its contents and check its syntax. The student will run it after
-loading their credential privately. This is the only complete script supplied.
+loading their credential privately. This is the only complete script supplied
+for Assignment 09.
 When the student reaches the conversation exercise, help them extend that same
 script with history and explain the changes. Build later extensions together
 from the concepts in the assignment and the SDK documentation.

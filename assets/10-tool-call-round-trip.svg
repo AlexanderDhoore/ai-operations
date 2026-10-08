@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">The application runs the tool</title>
+  <desc id="desc">The application sends a player question and a tool definition to Qwen. Qwen returns a request for get_player_state. The application checks the call, selects the current player's data and runs its own function. A second model request includes the tool request and result. Qwen then answers using those facts. Further calls repeat the exchange within an application-controlled budget.</desc>
+  <defs>
+    <marker id="request" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#2563a5" stroke-width="1.6"/></marker>
+    <marker id="response" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L9 5 L1 9" fill="none" stroke="#237d70" stroke-width="1.6"/></marker>
+  </defs>
+  <rect width="1200" height="720" fill="white"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+    <text x="600" y="43" text-anchor="middle" font-size="30" font-weight="700">The application runs the tool</text>
+    <text x="600" y="78" text-anchor="middle" font-size="20" fill="#526177">A tool result becomes context for the next model request.</text>
+    <rect x="55" y="108" width="440" height="68" rx="10" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="275" y="137" text-anchor="middle" font-size="24" font-weight="700" fill="#2563a5">Your application + SDK</text>
+    <text x="275" y="162" text-anchor="middle" font-size="17">Development server</text>
+    <rect x="805" y="108" width="340" height="68" rx="10" fill="#e8f4ef" stroke="#237d70"/>
+    <text x="975" y="137" text-anchor="middle" font-size="24" font-weight="700" fill="#237d70">Qwen through the API</text>
+    <text x="975" y="162" text-anchor="middle" font-size="17">School model service</text>
+    <path d="M275 177 L275 627 M975 177 L975 627" fill="none" stroke="#c8d4e3" stroke-width="2" stroke-dasharray="6 6"/>
+    <path d="M276 230 L973 230" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#request)"/>
+    <text x="625" y="214" text-anchor="middle" font-size="21" fill="#2563a5">1. Send question + tool definition</text>
+    <path d="M974 299 L277 299" fill="none" stroke="#237d70" stroke-width="2.5" marker-end="url(#response)"/>
+    <text x="625" y="283" text-anchor="middle" font-size="21" fill="#237d70">2. Receive get_player_state with arguments {}</text>
+    <rect x="55" y="331" width="440" height="115" rx="10" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="275" y="363" text-anchor="middle" font-size="22" font-weight="700" fill="#2563a5">3. Check and run your function</text>
+    <text x="275" y="395" text-anchor="middle" font-size="19">Use the trusted player identity</text>
+    <text x="275" y="424" text-anchor="middle" font-size="19">Read only that player's permitted data</text>
+    <text x="740" y="379" text-anchor="middle" font-size="19" fill="#526177">This step runs in your application.</text>
+    <text x="740" y="409" text-anchor="middle" font-size="19" fill="#526177">You decide what data leaves the server.</text>
+    <path d="M276 508 L973 508" fill="none" stroke="#2563a5" stroke-width="2.5" marker-end="url(#request)"/>
+    <text x="625" y="492" text-anchor="middle" font-size="21" fill="#2563a5">4. Send the call and its result with the context</text>
+    <path d="M974 589 L277 589" fill="none" stroke="#237d70" stroke-width="2.5" marker-end="url(#response)"/>
+    <text x="625" y="573" text-anchor="middle" font-size="21" fill="#237d70">5. Receive an answer using the returned facts</text>
+    <rect x="55" y="645" width="1090" height="50" rx="10" fill="#f8fafc" stroke="#c8d4e3"/>
+    <text x="600" y="677" text-anchor="middle" font-size="20">Another tool request can repeat the exchange. Your application limits how long it continues.</text>
+  </g>
+</svg>

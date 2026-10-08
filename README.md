@@ -59,6 +59,7 @@ understand what you built?**
 - [07 — Work with Pi in a persistent terminal](07-work-with-pi-and-screen.md)
 - [08 — Delegate work to coding agents](08-delegate-work-to-agents.md)
 - [09 — Add an AI chat to your game](09-add-an-ai-chat-to-your-game.md)
+- [10 — Give your game assistant tools](10-give-your-game-assistant-tools.md)
 
 Later assignments will appear here when their requirements are introduced in
 class.
