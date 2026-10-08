@@ -205,10 +205,18 @@ an answer as it arrives. **Async requests** let an asynchronous backend do other
 work while waiting for the model. Async does not make the model itself faster.
 Your coding agent can help you decide whether either fits your application.
 
-## Now build the explanation chat in your game
+## Build a chat that explains your game to players
 
-Use what you learned to add the chat to your browser game. **A text chat with
-conversation history is enough. Vision and structured output remain optional.**
+The terminal script let you explore requests and conversation history. Your task
+now is to use those ideas to build an **in-game explanation chat**: a place in
+your browser game where players can ask how the game works. Someone playing for
+the first time might ask “What am I trying to achieve?” or “How do I move?” and
+then ask follow-up questions. The assistant should explain your game's rules,
+controls and objectives using the information you provide.
+
+Build this feature together with your coding agent, adapting it to your own game.
+**A text chat with conversation history is enough. Vision and structured output
+remain optional.**
 
 Discuss the feature with your coding agent before implementing it. Where should
 the chat appear? What should it explain? Work together on a system prompt that
