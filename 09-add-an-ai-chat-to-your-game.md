@@ -121,7 +121,8 @@ Ask your coding agent:
 > instructions and earlier user and assistant messages, and let me stop with
 > /quit. Show me where the history is stored and how each request changes.
 
-The central change looks like this, inside the client context from above:
+Your agent may structure the code differently. The central change will look
+something like this, inside the client context from above:
 
 ```python
 messages = [{"role": "system", "content": "Your game instructions and rules..."}]
