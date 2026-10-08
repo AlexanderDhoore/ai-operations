@@ -121,38 +121,21 @@ Ask your coding agent:
 > instructions and earlier user and assistant messages, and let me stop with
 > /quit. Show me where the history is stored and how each request changes.
 
-Your agent may structure the code differently. The central change will look
-something like this, inside the client context from above:
+Your agent may structure the code differently. What matters is the context sent
+with each request. For example, the messages for a follow-up might look like this:
 
 ```python
-messages = [{"role": "system", "content": "Your game instructions and rules..."}]
-
-while True:
-    question = input("You: ").strip()
-    if question == "/quit":
-        break
-    if not question:
-        continue
-
-    pending = messages + [{"role": "user", "content": question}]
-    response = client.chat.completions.create(
-        model="qwen3.8-27b",
-        messages=pending,
-        reasoning_effort="low",
-        max_tokens=2048,
-    )
-    choice = response.choices[0]
-    if choice.finish_reason != "stop" or not choice.message.content:
-        print("The answer was incomplete. Try again.")
-        continue
-    answer = choice.message.content
-    print("Assistant:", answer)
-    messages = pending + [{"role": "assistant", "content": answer}]
+messages = [
+    {"role": "system", "content": "Your game instructions and rules..."},
+    {"role": "user", "content": "How do I open Moon Gate?"},
+    {"role": "assistant", "content": "You need 3 amber shards."},
+    {"role": "user", "content": "Are they used up?"},
+]
 ```
 
-Keep your actual game instructions in the first message. The complete
-[conversation example](resources/llm/conversation.py) also handles a failed
-request and leaving the terminal. Failed turns do not enter the saved history.
+Keep your actual game instructions in the first message. Build the conversation
+loop with your agent, then inspect how it collects input, saves successful turns
+and handles a failed request without saving an incomplete reply.
 
 Ask a question, then a follow-up such as “Are they used up?” Discuss how the
 previous messages make that question understandable. To check the history more
@@ -160,7 +143,7 @@ clearly, tell it a name for your character, then ask it to recall that name.
 Restart the script and ask again without supplying the name. The model has only
 what you send in that new conversation. See the [conversation context guide](https://developers.openai.com/api/docs/guides/conversation-state).
 
-This script keeps history in a Python list until it exits. A web application
+Your script can keep history in a Python list until it exits. A web application
 needs a separate history for each user's conversation. Longer conversations
 also fill the context and use more input tokens. Work with your agent to keep
 history bounded while retaining the game instructions. We do not need a
@@ -192,11 +175,10 @@ Your interface could display `answer` as the reply and turn `suggested_questions
 into clickable buttons. Clicking one sends another user message. This connects
 structured output to something useful in the chat interface.
 
-In [the structured-output example](resources/llm/structured.py), the request adds
-`response_format` with a JSON Schema describing those two fields. Your Python
-code then parses the returned text with `json.loads()` and checks the fields
-before using them. Read the example with your agent. A schema helps with the
-structure. It does not prove the answer is true. See the
+To try this with your agent, add `response_format` to the request with a JSON
+Schema describing those two fields. Your Python code can parse the returned text
+with `json.loads()` and check the fields before using them. A schema helps with
+the structure. It does not prove the answer is true. See the
 [structured output guide](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=chat).
 
 ### Include an image in a question
@@ -207,12 +189,12 @@ the visible interface. That does not give it access to the running game or to
 information outside the image. We are using image understanding, not generating
 new images.
 
-The [vision example](resources/llm/vision.py) reads a local image, encodes it as
-a base64 data URL. The user message's `content` becomes a list with a `text`
+To try this with your agent, have your script read a local image and encode it
+as a base64 data URL. The user message's `content` becomes a list with a `text`
 item and an `image_url` item containing that data URL, instead of just a string.
 The school allows up to **four images** sharing a pixel budget large enough for one
 **4096×2160 image or four Full HD images**, with at most **40 MiB** of image
-files. The [SDK guide](resources/llm/README.md#optional-examples) gives the exact
+files. The [SDK guide](resources/llm/README.md#optional-extensions) gives the exact
 formats and limits. Choose an image you are comfortable sending to the service.
 
 There are other useful implementation options too. **Text streaming** displays

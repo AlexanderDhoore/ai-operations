@@ -5,7 +5,7 @@ This public guide supplies the school-specific setup for
 it without access to the protected Mechatronics website. It is a reference for
 small SDK experiments and later integration into the student's existing game.
 
-The Python examples use only the ordinary OpenAI SDK and the standard library.
+Use only the ordinary OpenAI SDK and the standard library for the Python experiment.
 Students using another language should adapt the same request/history pattern
 with an appropriate SDK, such as the [official JavaScript/TypeScript SDK](https://developers.openai.com/api/docs/libraries).
 They do not need to replace their backend or add a Python service. A browser-only
@@ -50,10 +50,10 @@ When integrating the feature, use the game's normal dependency management.
 
 Start with [request.py](request.py), placed as `experiments/llm/chat.py` in the
 game. Explain its contents and check its syntax. The student will run it after
-loading their credential privately. Later, extend that same script with history.
-[conversation.py](conversation.py) is a complete reference for that second stage.
-The separate reference files let you compare the two stages. They are not a
-requirement to maintain two chat implementations in the game.
+loading their credential privately. This is the only complete script supplied.
+When the student reaches the conversation exercise, help them extend that same
+script with history and explain the changes. Build later extensions together
+from the concepts in the assignment and the SDK documentation.
 
 When reading this guide through a Raw URL, resolve the file links relative to
 that URL. Keep setup and program errors separate: a missing virtual environment,
@@ -88,15 +88,17 @@ A missing `VIVES_LLM_API_KEY` error means this process has not received the key.
 An HTTP authentication error needs a valid personal key with model access.
 The school portal still requires the student's browser login to manage keys.
 
-## Optional examples
+## Optional extensions
 
-These are small independent demonstrations. Copy/adapt them only when trying
-that extension, and run them in the same activated environment with the key set.
+If the student chooses an extension, help them build it into their experiment.
+Neither extension is required for the final game chat.
 
-- [structured.py](structured.py) returns an `answer` and `suggested_questions`
-  using JSON Schema. A game UI could turn the questions into follow-up buttons.
-- [vision.py](vision.py) sends one local image with a question. Run it as
-  `python vision.py PATH-TO-IMAGE` from the directory where you placed it.
+- Structured output uses `response_format` with `type: "json_schema"` and a
+  `json_schema` object containing `name`, `strict: true` and the schema. An
+  `answer` and `suggested_questions` could support a reply with follow-up buttons.
+  Parse and check the returned data before using it.
+- Image input places a `text` item and an `image_url` item in the user message's
+  `content` list. Encode a local image as a base64 data URL for the image item.
 
 Image input is supported, not image generation. Requests may include up to
 **four images** sharing **8,847,360 effective pixels**, equivalent to one
@@ -104,19 +106,18 @@ Image input is supported, not image generation. Requests may include up to
 for at least 65,536 pixels. Total decoded image files may occupy at most **40 MiB**.
 Use single-frame JPEG, PNG or WebP files embedded as **base64 data URLs**.
 Remote image URLs are not supported. Oversized inputs are rejected rather than
-resized automatically. The vision example checks file size and lets the endpoint
-validate dimensions and the actual image format.
+resized automatically. Check images against these limits when building the extension.
 
 ## Keep the application simple
 
-The terminal conversation stores messages in memory until it exits. In a web
+The terminal conversation can store messages in memory until it exits. In a web
 application, isolate each user's conversation on the backend. Keep trusted game
 instructions separate from player messages. For longer use, bound the retained
 history while preserving the instructions. No database or automatic summarizer
 is required for this assignment.
 
-The examples stop on incomplete single answers and keep failed turns out of
-conversation history. Let the game show a useful error if the model is unavailable.
+The starter stops on an incomplete answer. When extending it, keep failed turns
+out of conversation history and show a useful error if the model is unavailable.
 An output limit also covers thinking, so a tiny limit can produce no visible text.
 Check `finish_reason` before using the answer. A valid JSON object still needs
 field checks, and a schema does not establish that an answer is factually correct.
@@ -137,6 +138,6 @@ chat shell access or connect it to the development agent's skills and credential
 - [Image input](https://developers.openai.com/api/docs/guides/images-vision?api-mode=chat)
 - [School guide](https://docs.mechatronics.be/llm/) (browser login required)
 
-The examples were prepared with Python 3.13 and OpenAI SDK 3.26.0. Keep their
+The starter was prepared with Python 3.13 and OpenAI SDK 3.26.0. Keep its
 connection details aligned with the school guide when the service changes.
 See [verification notes](VALIDATION.md) for the live checks and their limits.
