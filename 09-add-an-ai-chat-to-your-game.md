@@ -44,7 +44,7 @@ coding agent the [public SDK guide](resources/llm/README.md):
 > Help me start the Assignment 09 SDK experiment in this game, following this
 > guide and its linked request.py example:
 >
-> https://raw.githubusercontent.com/AlexanderDhoore/ai-operations/refs/heads/work/09-in-game-chat/resources/llm/README.md
+> https://raw.githubusercontent.com/AlexanderDhoore/ai-operations/main/resources/llm/README.md
 >
 > Inspect our project and prepare an isolated environment for a small script
 > at experiments/llm/chat.py. Explain the code and how to run it. Preserve our
