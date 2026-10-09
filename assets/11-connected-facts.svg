@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 208" role="img" aria-labelledby="title desc">
+  <title id="title">Follow the connections</title>
+  <desc id="desc">Mira is a character who belongs to the River Guild. The River Guild is a faction that controls the city of Eastport. Following both relationships answers which city is controlled by Mira's guild.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#526177" stroke-width="1.8"/></marker>
+  </defs>
+  <rect width="900" height="208" fill="white"/>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle" fill="#172033">
+    <text x="450" y="36" font-size="27" font-weight="700">Follow the connections</text>
+    <rect x="20" y="78" width="200" height="105" rx="14" fill="#eaf4ff" stroke="#2563a5" stroke-width="1.5"/>
+    <text x="120" y="121" font-size="25" font-weight="700" fill="#2563a5">Mira</text>
+    <text x="120" y="154" font-size="20">Character</text>
+    <path d="M222 135H340" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="285" y="114" font-size="19" fill="#526177">belongs to</text>
+    <rect x="350" y="78" width="200" height="105" rx="14" fill="#f2edfc" stroke="#8270b4" stroke-width="1.5"/>
+    <text x="450" y="121" font-size="25" font-weight="700" fill="#7260a4">River Guild</text>
+    <text x="450" y="154" font-size="20">Faction</text>
+    <path d="M552 135H670" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="615" y="114" font-size="19" fill="#526177">controls</text>
+    <rect x="680" y="78" width="200" height="105" rx="14" fill="#e8f4ef" stroke="#237d70" stroke-width="1.5"/>
+    <text x="780" y="121" font-size="25" font-weight="700" fill="#237d70">Eastport</text>
+    <text x="780" y="154" font-size="20">City</text>
+  </g>
+</svg>

@@ -167,9 +167,48 @@ does not prove that a feature or rule does not exist. If it misses an answer tha
 is present, inspect the query and returned matches together. Improve the wording
 or matching where needed, and try again through the chat.
 
-You now have a game assistant that can consult its own documentation and combine
-it with current game state. Keep improving the documents as your game evolves.
-Review the changes with your coding agent and publish them through your existing
-GitHub workflow.
+## Optional: other ways to organize and find information
+
+Markdown is a convenient starting point. Different kinds of questions can benefit
+from different ways of organizing and searching information. These are ideas to
+explore with your coding agent, not extra requirements for this assignment.
+
+**SQL databases: filter and compare structured facts.** Imagine a player asking,
+“Which healing items cost fewer than 20 coins?” Item names, categories and prices
+fit naturally in a table. Your backend can filter those rows, join related tables
+or calculate a total. Expose a tool such as `find_items(category, max_price)` and
+let your code run the query. Use your game's existing database, or consider
+[SQLite](https://www.sqlite.org/about.html), which runs inside the application
+without a separate database server.
+
+**Full-text search: find passages in a bigger collection.** Your Markdown files
+can stay as the source while a search index helps locate matching sections.
+[SQLite FTS5](https://www.sqlite.org/fts5.html) provides indexed word matching,
+ranked results and short snippets. It could replace the simple keyword matching
+behind `search_docs` while keeping the tool's interface. The index needs refreshing
+when documents change. This illustrates two separate choices: where you store the
+text and how you search it.
+
+**Knowledge graphs: follow connections between facts.** Represent characters,
+factions and places as entities with named relationships. A question such as
+“Which city is controlled by Mira's guild?” can follow two connections:
+
+<img src="assets/11-connected-facts.svg" alt="Mira belongs to the River Guild, and the River Guild controls Eastport" width="760">
+
+You choose which relationships matter and keep them accurate. For a small game,
+these connections could live in JSON or SQL tables. A dedicated graph database
+is another option. [Neo4j's introduction](https://neo4j.com/docs/getting-started/graph-database/)
+shows how nodes, relationships and properties work. A graph organizes connected
+facts, it does not automatically turn a folder of prose into reliable knowledge.
+
+In every case, the assistant still requests a limited tool and receives selected
+results. Your backend handles the query and player permissions. You can combine
+these approaches, for example Markdown explanations alongside item tables. Choose
+them for questions your game actually needs to answer.
+
+## Review your work
+
+Keep improving the documents as your game evolves. Review the changes with your
+coding agent and publish them through your existing GitHub workflow.
 
 Ask your coding agent to update the project memory with what you learned, what now works and what should happen next.

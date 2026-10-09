@@ -21,6 +21,9 @@ game chat with tools that search and read approved Markdown help, rules and lore
 It uses simple keyword search and selected sections, with traceable sources and
 player access checks. Theory and diagrams lead directly into game integration,
 without a separate starter script or terminal experiment.
+A short optional section introduces SQL queries, full-text indexing and knowledge
+graphs as alternative ways to organize and retrieve information. No additional
+implementation or infrastructure is required.
 
 It focuses on document lookup through custom tools. MCP, RAG theory, embeddings
 and vector databases are reserved for dedicated later assignments.
