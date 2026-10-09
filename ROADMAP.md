@@ -8,8 +8,9 @@ student requirements. Later topics and assignment numbers can still change.
 ## Current status
 
 Assignments **01–11 are published on main**. See the [assignment list](README.md#assignments).
-Walkthrough feedback and screenshots for 10 and 11 are still pending. After those
-are incorporated, course authoring will pause until the instructor resumes it.
+The game-chat screenshot for Assignment 10 is included. Assignment 11 screenshots
+and any remaining walkthrough feedback are pending. After those are incorporated,
+course authoring will pause until the instructor resumes it.
 Assignment 12's direction is agreed, but it has not been written. Production
 infrastructure is also deferred.
 

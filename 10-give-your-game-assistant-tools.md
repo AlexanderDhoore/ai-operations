@@ -169,11 +169,14 @@ information, not as an invitation to invent a value.
 
 ## Let your game chat inspect the player's situation
 
+<a href="assets/10-game-chat-score.png"><img src="assets/screenshots/10-game-chat-score.png" alt="A player asks how many stars they have, and the game assistant answers five" align="right" width="400"></a>
+
 Your task now is to extend the explanation chat from Assignment 09 with **at
 least one useful read-only capability backed by actual game state**. A player
 should be able to ask something that the rules alone cannot answer. Choose
 capabilities that fit your game, such as reading the player's status, visible
 surroundings or available resources.
+The example here shows a player asking about their current star count.
 
 Discuss those questions with your coding agent, then adapt the mechanism from
 the experiment to your existing backend. Keep the API key, argument checks and
