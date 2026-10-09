@@ -1,4 +1,4 @@
-# 11 — Let your game assistant look up documents
+# 11 — Give your assistant document lookup
 
 <img src="assets/moods/11-curious-library.svg" alt="An open book with a magnifying glass" align="right" width="112">
 

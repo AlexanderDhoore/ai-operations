@@ -60,7 +60,7 @@ understand what you built?**
 - [08 — Delegate work to coding agents](08-delegate-work-to-agents.md)
 - [09 — Add an AI chat to your game](09-add-an-ai-chat-to-your-game.md)
 - [10 — Give your game assistant tools](10-give-your-game-assistant-tools.md)
-- [11 — Let your game assistant look up documents](11-let-your-game-assistant-look-up-documents.md)
+- [11 — Give your assistant document lookup](11-let-your-game-assistant-look-up-documents.md)
 
 Later assignments will appear here when their requirements are introduced in
 class.
