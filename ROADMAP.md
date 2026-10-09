@@ -14,8 +14,9 @@ course authoring will pause until the instructor resumes it.
 Assignment 12's direction is agreed, but it has not been written. Production
 infrastructure is also deferred.
 
-Assignment 09 includes optional text streaming, with OpenAI SDK and FastAPI
-examples. Students adapt the HTTP streaming pattern to their existing stack.
+Assignment 09 puts game integration before its optional extensions, including
+text streaming with OpenAI SDK and FastAPI examples. Students adapt the HTTP
+streaming pattern to their existing stack.
 Streaming, structured output and image input remain optional.
 
 ## Published: Assignment 11 — Document lookup

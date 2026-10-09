@@ -91,8 +91,9 @@ The school portal still requires the student's browser login to manage keys.
 
 ## Optional extensions
 
-If the student chooses an extension, help them build it into their experiment.
-None of the extensions is required for the final game chat.
+First help the student integrate the required explanation chat into their game.
+After that, if they choose an extension, adapt it to their existing application.
+None of the extensions is required for the game chat.
 
 - Text streaming uses `stream=True` and reads new text from `delta.content`.
   Forward it through the existing backend and read the HTTP response incrementally

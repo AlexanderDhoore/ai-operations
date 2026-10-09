@@ -169,7 +169,7 @@ information, not as an invitation to invent a value.
 
 ## Let your game chat inspect the player's situation
 
-<a href="assets/10-game-chat-score.png"><img src="assets/screenshots/10-game-chat-score.png" alt="A player asks how many stars they have, and the game assistant answers five" align="right" width="400"></a>
+<a href="assets/10-game-chat-score.png"><img src="assets/screenshots/10-game-chat-score.png" alt="An in-game conversation where the player asks how many stars they have and the assistant answers 124" align="right" width="399"></a>
 
 Your task now is to extend the explanation chat from Assignment 09 with **at
 least one useful read-only capability backed by actual game state**. A player

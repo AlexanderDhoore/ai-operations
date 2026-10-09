@@ -8,10 +8,11 @@ You will still work with your coding agent, but the assistant inside your game
 will be a feature of your own application.
 
 Start with a small script so you can see what happens in a model request.
-Extend it into a conversation, explore some further possibilities, then use
-what you learned to build the game chat. Python is our example language. If
-your backend uses another language, ask your agent to translate the pattern
-with an appropriate SDK. Keep your existing game and technology choices.
+Extend it into a conversation, then use what you learned to build the game chat.
+Optional extensions at the end offer ideas for taking it further. Python is our
+example language. If your backend uses another language, ask your agent to
+translate the pattern with an appropriate SDK. Keep your existing game and
+technology choices.
 
 ## From a coding harness to an API
 
@@ -151,11 +152,52 @@ also fill the context and use more input tokens. Work with your agent to keep
 history bounded while retaining the game instructions. We do not need a
 database or automatic summarizer for this exercise.
 
+## Build a chat that explains your game to players
+
+<a href="assets/09-game-chat.png"><img src="assets/screenshots/09-game-chat.png" alt="An example in-game chat page with a question field, Send button and link back to the game" align="right" width="400"></a>
+
+The terminal script let you explore requests and conversation history. Your task
+now is to use those ideas to build an **in-game explanation chat**: a place in
+your browser game where players can ask how the game works. Someone playing for
+the first time might ask “What am I trying to achieve?” or “How do I move?” and
+then ask follow-up questions. The assistant should explain your game's rules,
+controls and objectives using the information you provide.
+
+Build this feature together with your coding agent, adapting it to your own game.
+**A text chat with conversation history is enough. Streaming, vision and
+structured output remain optional.**
+
+Discuss the feature with your coding agent before implementing it. Where should
+the chat appear? What should it explain? Work together on a system prompt that
+contains your game's rules, controls, goals and important terminology. It can
+contain a substantial amount of game information. Review that information
+against what the game actually does.
+
+Then ask the agent to integrate the feature into your existing application.
+If your game runs entirely in the browser, add a small backend for model requests.
+If it already has a backend, extend that one in its existing language. Adapt the
+request/history pattern from the script. Keep the key on the backend, preserve
+each user's own history and show a useful message when a request fails. Render
+model output as text or safely handled Markdown.
+
+The assistant knows the information you supply. It cannot inspect live game
+state or look up documents on its own yet. Have it say when a question needs
+information it does not have. Keep hidden game information out of its context.
+Later assignments will add deliberately restricted tools and document lookup.
+
+Play the game and try the chat. Discuss its answers with your coding agent,
+check that follow-up questions work and refine the instructions where needed.
+You should be able to explain where the model runs, what each request contains
+and where the application stores the conversation. Use your GitHub workflow
+to review and publish the changes when you are satisfied.
+
+Ask your coding agent to update the project memory with what you learned, what now works and what should happen next.
+
 ## Optional extensions
 
-Before building the game interface, explore a few other possibilities.
-**None of these extensions is required.** Try them with your coding agent if
-they would suit your game.
+Once your explanation chat works in the game, you can explore these ideas with
+your coding agent. **None of these extensions is required.** Choose what suits
+your game and adapt the examples to your existing application.
 
 ### Show the answer as it arrives
 
@@ -284,44 +326,3 @@ The school allows up to **four images** sharing a pixel budget large enough for 
 **4096×2160 image or four Full HD images**, with at most **40 MiB** of image
 files. These are our school service's limits. Choose an image you are comfortable
 sending to the service.
-
-## Build a chat that explains your game to players
-
-<a href="assets/09-game-chat.png"><img src="assets/screenshots/09-game-chat.png" alt="An example in-game chat page with a question field, Send button and link back to the game" align="right" width="400"></a>
-
-The terminal script let you explore requests and conversation history. Your task
-now is to use those ideas to build an **in-game explanation chat**: a place in
-your browser game where players can ask how the game works. Someone playing for
-the first time might ask “What am I trying to achieve?” or “How do I move?” and
-then ask follow-up questions. The assistant should explain your game's rules,
-controls and objectives using the information you provide.
-
-Build this feature together with your coding agent, adapting it to your own game.
-**A text chat with conversation history is enough. Streaming, vision and
-structured output remain optional.**
-
-Discuss the feature with your coding agent before implementing it. Where should
-the chat appear? What should it explain? Work together on a system prompt that
-contains your game's rules, controls, goals and important terminology. It can
-contain a substantial amount of game information. Review that information
-against what the game actually does.
-
-Then ask the agent to integrate the feature into your existing application.
-If your game runs entirely in the browser, add a small backend for model requests.
-If it already has a backend, extend that one in its existing language. Adapt the
-request/history pattern from the script. Keep the key on the backend, preserve
-each user's own history and show a useful message when a request fails. Render
-model output as text or safely handled Markdown.
-
-The assistant knows the information you supply. It cannot inspect live game
-state or look up documents on its own yet. Have it say when a question needs
-information it does not have. Keep hidden game information out of its context.
-Later assignments will add deliberately restricted tools and document lookup.
-
-Play the game and try the chat. Discuss its answers with your coding agent,
-check that follow-up questions work and refine the instructions where needed.
-You should be able to explain where the model runs, what each request contains
-and where the application stores the conversation. Use your GitHub workflow
-to review and publish the changes when you are satisfied.
-
-Ask your coding agent to update the project memory with what you learned, what now works and what should happen next.
