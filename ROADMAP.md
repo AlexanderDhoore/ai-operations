@@ -68,3 +68,8 @@ automating deployment. Exact assignment grouping after 12 remains open.
   Assignment 11. Timing, tooling and practical scope remain to be decided.
 
 The placement of the dedicated MCP and RAG assignments is still open.
+
+For additional course tools, use genuinely open-source editions that students can
+keep running without payment or trial expiry. A proprietary free tier or temporary
+educational license is not a substitute. Link the specific open-source edition
+and check that it supports the features used in the lesson.

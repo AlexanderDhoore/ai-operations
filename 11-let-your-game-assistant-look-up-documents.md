@@ -209,9 +209,12 @@ factions and places as entities with named relationships. A question such as
 
 You choose which relationships matter and keep them accurate. For a small game,
 these connections could live in JSON or SQL tables. A dedicated graph database
-is another option. [Neo4j's introduction](https://neo4j.com/docs/getting-started/graph-database/)
-shows how nodes, relationships and properties work. A graph organizes connected
-facts, it does not automatically turn a folder of prose into reliable knowledge.
+is another option. [Neo4j Community Edition](https://github.com/neo4j/neo4j) is
+open source under GPLv3 and free to self-host, with no trial expiry or paid
+subscription required. Choose Community Edition rather than an Enterprise trial
+or a hosted service. Its [graph introduction](https://neo4j.com/docs/getting-started/graph-database/)
+explains nodes, relationships and properties. A graph organizes connected facts,
+it does not automatically turn a folder of prose into reliable knowledge.
 
 In every case, the assistant still requests a limited tool and receives selected
 results. Your backend handles the query and player permissions. You can combine
