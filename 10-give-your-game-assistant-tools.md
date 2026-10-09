@@ -126,6 +126,7 @@ while the application controls execution and when to stop.
 Extend this experiment together with your coding agent. Add a read-only tool
 that accepts a **gate name** and returns its opening requirements from a small
 dictionary. For this fictional example, Moon Gate requires three amber shards.
+Set Alice's inventory back to two shards so we can check what she is missing.
 Have the tool return a useful error for an unknown gate name.
 
 Discuss the function, its description and argument schema before asking the
