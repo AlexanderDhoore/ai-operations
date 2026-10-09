@@ -192,6 +192,8 @@ state and explain how its result reached the model.
 
 ## Optional: make the chat part of gameplay
 
+<img src="assets/10-chat-gameplay.svg" alt="A player asks to equip a shield, the assistant requests an action, and the game checks ownership and rules before equipping it" align="right" width="320">
+
 Tools can also **change game state**. Perhaps a player asks the assistant to equip
 an item, move their character or offer a trade. The chat can become a way to play
 the game, not just ask about it. Discuss an idea that fits your game with your

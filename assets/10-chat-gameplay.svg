@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 330" role="img" aria-labelledby="title desc">
+  <title id="title">A conversation becomes a game action</title>
+  <desc id="desc">The player asks to equip a shield. The assistant requests an action. The game checks ownership and rules before equipping it, or explains why the action is unavailable.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#526177" stroke-width="1.8"/></marker>
+  </defs>
+  <rect width="360" height="330" fill="white"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+    <rect x="24" y="10" width="312" height="58" rx="16" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="180" y="46" text-anchor="middle" font-size="22" font-weight="700" fill="#2563a5">“Equip my shield”</text>
+    <path d="M180 69 V113" fill="none" stroke="#526177" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="58" y="78" width="244" height="23" fill="white"/>
+    <text x="180" y="95" text-anchor="middle" font-size="17" fill="#526177">Assistant requests an action</text>
+    <rect x="24" y="121" width="312" height="74" rx="12" fill="#fff5dc" stroke="#c2912b"/>
+    <text x="180" y="151" text-anchor="middle" font-size="22" font-weight="700">Your game checks</text>
+    <text x="180" y="178" text-anchor="middle" font-size="18" fill="#526177">Ownership + game rules</text>
+    <path d="M180 196 V232" fill="none" stroke="#526177" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="194" y="219" font-size="16" fill="#237d70">Allowed</text>
+    <rect x="24" y="240" width="312" height="56" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+    <path d="M48 251 L61 256 V267 Q61 278 48 285 Q35 278 35 267 V256 Z" fill="#b6dccc" stroke="#237d70" stroke-width="2"/>
+    <path d="M41 266 L46 271 L55 261" fill="none" stroke="#237d70" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="192" y="275" text-anchor="middle" font-size="22" font-weight="700" fill="#237d70">Shield equipped</text>
+    <text x="180" y="321" text-anchor="middle" font-size="16" fill="#526177">If blocked, explain why. Keep state unchanged.</text>
+  </g>
+</svg>
