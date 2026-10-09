@@ -41,8 +41,18 @@ Give the assistant two ordinary tools using the mechanism from Assignment 10:
 | `read_doc(id, section)` | The selected section's text, together with its source title and heading. |
 
 Search helps the assistant choose where to look. Reading supplies the passage
-it can use as evidence. For example, a question about crossing a river might
-produce a search result like this:
+it can use as evidence. For example, `game-docs/world.md` might contain:
+
+```markdown
+# World guide
+
+## Crossing the river
+
+The ferry leaves the east bank at dawn and costs two coins.
+At night, travellers can use the bridge north of the village.
+```
+
+A question about crossing the river might produce this search result:
 
 ```json
 {
@@ -55,9 +65,9 @@ produce a search result like this:
 ```
 
 The assistant can then request `read_doc` with `id: "world"` and
-`section: "river-crossing"`. The full section might explain the fare, departure
-time and an alternative route. Those details belong in the tool result, so the
-assistant can read them before answering. These names and mechanics are only an
+`section: "river-crossing"`, using the IDs returned by search. Reading supplies
+both sentences, including the alternative route missing from the preview. That
+is why it should read the section before answering. These mechanics are only an
 illustration. Use your own game's documentation.
 
 For this assignment, implement **simple keyword search**. Your backend can split
@@ -143,15 +153,17 @@ a selected section being read and an answer supported by that section. The
 first question is easiest to inspect in a fresh conversation, before old
 passages are already in the history.
 
-Edit a documented fact, then try again in a fresh chat. If your backend loads
+Change a lore detail or correct outdated help text, keeping the documentation
+consistent with your game. Try again in a fresh chat. If your backend loads
 documents at startup, restart it or use the reload mechanism your agent built.
 Make sure both search and reading use the updated content. The next answer
 should use the new fact without changing the model.
 
 Also ask about something your game does not document. The assistant should
-explain what it could not find, rather than invent a rule. If it misses an
-answer that is present, inspect the query and returned matches together. Improve
-the wording or matching where needed, and try again through the chat.
+explain what it could not find, rather than invent a rule. An empty search result
+does not prove that a feature or rule does not exist. If it misses an answer that
+is present, inspect the query and returned matches together. Improve the wording
+or matching where needed, and try again through the chat.
 
 You now have a game assistant that can consult its own documentation and combine
 it with current game state. Keep improving the documents as your game evolves.
