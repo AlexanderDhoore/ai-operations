@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">A little server at home in the clouds</title>
+  <path d="M27 70C35 28 83 17 120 26S187 64 177 107 154 175 106 179 14 142 27 70Z" fill="#eff0ff"/>
+  <g stroke="#29364d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <path d="M40 147C11 147 16 107 42 104 38 77 70 64 88 83 109 45 160 66 153 98 187 98 191 146 162 147Z" fill="white"/>
+    <rect x="66" y="84" width="73" height="32" rx="9" fill="#a99ae9"/>
+    <rect x="66" y="122" width="73" height="32" rx="9" fill="#70c6df"/>
+    <circle cx="80" cy="100" r="4" fill="#fff4c4" stroke="none"/>
+    <circle cx="80" cy="138" r="4" fill="#fff4c4" stroke="none"/>
+    <path d="M110 100H125M110 138H125" stroke="white" stroke-width="5"/>
+    <path d="M88 72Q100 56 114 71M95 61Q102 53 108 59" fill="none" stroke="#7e70c6" stroke-width="4"/>
+
+<path d="M48 41 Q50 49 58 51 Q50 53 48 61 Q46 53 38 51 Q46 49 48 41Z" fill="#ffca61" stroke="none"/><path d="M165 56 Q167 61 172 63 Q167 65 165 70 Q163 65 158 63 Q163 61 165 56Z" fill="#72bde5" stroke="none"/>
+  </g>
+</svg>

@@ -1,5 +1,7 @@
 # 07 — Work with Pi in a persistent terminal
 
+<img src="assets/moods/07-night-shift.svg" alt="A moon keeping a terminal company" align="right" width="112">
+
 Your agent is working on a game improvement, but you want to close your
 laptop. In this assignment, you will run **Pi**, a terminal coding agent,
 inside **GNU Screen** on your development server. The server can keep

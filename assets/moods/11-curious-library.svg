@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">An open book with a magnifying glass</title>
+  <path d="M27 70C35 28 83 17 120 26S187 64 177 107 154 175 106 179 14 142 27 70Z" fill="#f0edff"/>
+  <g stroke="#29364d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <path d="M99 65Q65 44 28 54V146Q66 137 99 158 130 138 169 146V54Q133 44 99 65Z" fill="#fff9e9"/>
+    <path d="M99 65V158" fill="none"/>
+    <path d="M41 76Q65 71 84 83M41 98Q65 93 84 105M41 120Q63 115 78 126" fill="none" stroke="#c3a5df" stroke-width="5"/>
+    <path d="M149 143L174 169" fill="none" stroke="#29364d" stroke-width="16"/>
+    <path d="M149 143L174 169" fill="none" stroke="#f4b969" stroke-width="10"/>
+    <circle cx="132" cy="122" r="34" fill="#9edbdb"/>
+    <path d="M116 110Q123 101 136 104" fill="none" stroke="white" stroke-width="6"/>
+    <path d="M116 132H145" fill="none" stroke="#58aeb5" stroke-width="4"/>
+
+<path d="M148 19 Q150 27 158 29 Q150 31 148 39 Q146 31 138 29 Q146 27 148 19Z" fill="#ffce71" stroke="none"/><path d="M27 161 Q29 166 34 168 Q29 170 27 175 Q25 170 20 168 Q25 166 27 161Z" fill="#69bdaa" stroke="none"/>
+  </g>
+</svg>

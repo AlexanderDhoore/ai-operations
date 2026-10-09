@@ -1,5 +1,7 @@
 # 11 — Let your game assistant look up documents
 
+<img src="assets/moods/11-curious-library.svg" alt="An open book with a magnifying glass" align="right" width="112">
+
 Your game chat can explain the rules you supplied in
 [Assignment 09](09-add-an-ai-chat-to-your-game.md) and inspect current game state
 through the tools from [Assignment 10](10-give-your-game-assistant-tools.md).

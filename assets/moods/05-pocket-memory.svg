@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">A colorful notebook holding a bright idea</title>
+  <path d="M27 70C35 28 83 17 120 26S187 64 177 107 154 175 106 179 14 142 27 70Z" fill="#fff3db"/>
+  <g stroke="#29364d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <path d="M52 55Q52 45 64 45H143V164H64Q52 164 52 152Z" fill="#a797e8"/>
+    <path d="M66 45V163" fill="none"/>
+    <path d="M113 45V80L124 72 135 80V45" fill="#ff9679"/>
+    <path d="M52 149Q52 141 64 141H143V164H64Q52 164 52 153" fill="#fffaf0"/>
+    <path d="M70 152H130" stroke="#d9cbbc" stroke-width="3"/>
+    <path d="M89 93C89 71 124 72 124 93 124 105 115 108 115 115H99C99 107 89 104 89 93Z" fill="#ffdc79"/>
+    <path d="M100 123H114M104 130H110" fill="none" stroke-width="4"/>
+    <path d="M77 85L72 83M139 86L145 83" stroke="#db9d43" stroke-width="4"/>
+
+<path d="M39 95 Q41 102 48 104 Q41 106 39 113 Q37 106 30 104 Q37 102 39 95Z" fill="#57bca2" stroke="none"/><path d="M157 26 Q159 32 165 34 Q159 36 157 42 Q155 36 149 34 Q155 32 157 26Z" fill="#ffca61" stroke="none"/>
+  </g>
+</svg>

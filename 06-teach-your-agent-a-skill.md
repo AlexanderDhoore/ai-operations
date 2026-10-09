@@ -1,5 +1,7 @@
 # 06 — Teach your agent a skill
 
+<img src="assets/moods/06-little-magic.svg" alt="A magic wand bringing a new skill to life" align="right" width="112">
+
 In [Assignment 05](05-give-your-agent-a-memory.md), you gave your agent
 instructions and a working memory. Now you will give it a reusable procedure:
 how you want to review changes, make a commit and push your work to GitHub.

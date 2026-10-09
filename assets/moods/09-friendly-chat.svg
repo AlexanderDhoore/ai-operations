@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">Two colorful chat bubbles saying hello</title>
+  <path d="M27 70C35 28 83 17 120 26S187 64 177 107 154 175 106 179 14 142 27 70Z" fill="#fff0e8"/>
+  <g stroke="#29364d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <path d="M99 81H151Q174 81 174 104V134Q174 154 154 154L157 174 132 154H99Q80 154 80 134V104Q80 81 99 81Z" fill="#ac9bea"/>
+    <path d="M46 42H107Q131 42 131 67V96Q131 118 107 118H74L44 141 48 118H46Q25 118 25 96V66Q25 42 46 42Z" fill="#ffce71"/>
+    <circle cx="59" cy="76" r="5" fill="#29364d" stroke="none"/><circle cx="97" cy="76" r="5" fill="#29364d" stroke="none"/>
+    <path d="M66 94Q78 105 90 94" fill="none" stroke-width="4"/>
+    <circle cx="115" cy="134" r="4" fill="white" stroke="none"/><circle cx="130" cy="134" r="4" fill="white" stroke="none"/><circle cx="145" cy="134" r="4" fill="white" stroke="none"/>
+
+<path d="M158 33 Q160 42 169 44 Q160 46 158 55 Q156 46 147 44 Q156 42 158 33Z" fill="#66b9b1" stroke="none"/><path d="M43 158 Q45 163 50 165 Q45 167 43 172 Q41 167 36 165 Q41 163 43 158Z" fill="#eda0ac" stroke="none"/>
+  </g>
+</svg>

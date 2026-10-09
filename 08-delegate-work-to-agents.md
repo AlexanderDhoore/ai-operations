@@ -1,5 +1,7 @@
 # 08 — Delegate work to coding agents
 
+<img src="assets/moods/08-helpful-crew.svg" alt="Three little robots sharing the work" align="right" width="112">
+
 Your game needs two improvements. Instead of asking one agent to do everything
 in sequence, you will let a **controller** divide the work between two
 **workers**. Both workers change code. The controller reviews their results,

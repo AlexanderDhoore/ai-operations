@@ -1,5 +1,7 @@
 # 09 — Add an AI chat to your game
 
+<img src="assets/moods/09-friendly-chat.svg" alt="Two colorful chat bubbles saying hello" align="right" width="112">
+
 So far, AI has helped you **build** your game. Now you will make it part of the
 game itself: a chat that explains the rules, controls and objectives to players.
 You will still work with your coding agent, but the assistant inside your game

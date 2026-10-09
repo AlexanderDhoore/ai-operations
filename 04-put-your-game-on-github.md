@@ -1,6 +1,6 @@
 # 04 — Put your game on GitHub
 
-<img src="assets/04-git-logo.webp" alt="Git logo" align="right" width="260">
+<img src="assets/04-git-logo.webp" alt="Git logo" align="right" width="140">
 
 Your game started on your laptop. In Assignment 03, you prepared a Linux server
 and opened it through VS Code Remote SSH. Now you will use Git and GitHub to

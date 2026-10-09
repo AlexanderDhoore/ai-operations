@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">A magic wand bringing a new skill to life</title>
+  <path d="M27 70C35 28 83 17 120 26S187 64 177 107 154 175 106 179 14 142 27 70Z" fill="#f4edff"/>
+  <g stroke="#29364d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <path d="M52 51H143Q154 51 154 66V140Q154 154 140 154H57Q44 154 44 141V65Q44 51 57 51Z" fill="#fff4d3"/>
+    <path d="M52 51Q38 51 38 66H68Q68 51 54 51M61 154Q76 154 76 140H44" fill="#ffd17c"/>
+    <path d="M88 81H131M86 102H116M87 123H109" stroke="#dcb778" stroke-width="5"/>
+    <path d="M73 159L145 78" stroke="#29364d" stroke-width="17"/>
+    <path d="M73 159L145 78" stroke="#9982e2" stroke-width="10"/>
+    <path d="M132 92L145 78" stroke="#fffaf1" stroke-width="10"/>
+
+<path d="M152 36 Q154 51 169 53 Q154 55 152 70 Q150 55 135 53 Q150 51 152 36Z" fill="#ffba55" stroke="none"/><path d="M171 86 Q173 93 180 95 Q173 97 171 104 Q169 97 162 95 Q169 93 171 86Z" fill="#68c6bc" stroke="none"/><path d="M103 22 Q105 27 110 29 Q105 31 103 36 Q101 31 96 29 Q101 27 103 22Z" fill="#ff947c" stroke="none"/>
+  </g>
+</svg>

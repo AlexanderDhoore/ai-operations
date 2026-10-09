@@ -1,5 +1,7 @@
 # 03 — Develop on a remote Linux server
 
+<img src="assets/moods/03-cloud-home.svg" alt="A little server at home in the clouds" align="right" width="112">
+
 You began building your game on your own computer. Now you will connect VS
 Code to a Linux server assigned to you. Your game can stay on your laptop for
 this assignment. Moving the code through GitHub comes next.

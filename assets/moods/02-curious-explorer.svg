@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">A curious magnifying glass exploring a little globe</title>
+  <path d="M27 70C35 28 83 17 120 26S187 64 177 107 154 175 106 179 14 142 27 70Z" fill="#eaf5ff"/>
+  <g stroke="#29364d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <circle cx="90" cy="88" r="53" fill="#7cc9ee"/>
+    <path d="M55 47L71 61 66 78 49 84 40 72M87 38L91 60 119 66 131 53M65 98L89 92 101 111 89 141 72 130Z" fill="#54bca3" stroke="none"/>
+    <path d="M127 139L154 167Q162 175 170 165Q175 160 168 153L140 127" fill="#ac9aef"/>
+    <circle cx="118" cy="116" r="36" fill="#fff5d6"/>
+    <circle cx="118" cy="116" r="25" fill="#b7e4f3" stroke="none"/>
+    <path d="M103 105Q109 98 119 99" fill="none" stroke="white" stroke-width="6"/>
+    <circle cx="111" cy="119" r="3" fill="#29364d" stroke="none"/>
+    <circle cx="127" cy="119" r="3" fill="#29364d" stroke="none"/>
+    <path d="M113 129Q119 133 125 128" fill="none" stroke-width="3"/>
+
+<path d="M158 36 Q160 44 168 46 Q160 48 158 56 Q156 48 148 46 Q156 44 158 36Z" fill="#ffca61" stroke="none"/><path d="M36 130 Q38 135 43 137 Q38 139 36 144 Q34 139 29 137 Q34 135 36 130Z" fill="#ff9978" stroke="none"/>
+  </g>
+</svg>

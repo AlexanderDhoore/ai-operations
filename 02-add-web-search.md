@@ -1,5 +1,7 @@
 # 02 — Add web search to your AI assistant
 
+<img src="assets/moods/02-curious-explorer.svg" alt="A curious magnifying glass exploring a globe" align="right" width="112">
+
 Your assistant can help you build the game, but it should not guess when you
 need current information. Give VS Code Chat a way to search for documentation
 and other sources. This adds search to your **coding assistant**, not to the

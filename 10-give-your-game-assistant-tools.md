@@ -1,5 +1,7 @@
 # 10 — Give your game assistant tools
 
+<img src="assets/moods/10-playful-tools.svg" alt="A game controller with a little wrench" align="right" width="112">
+
 Your [explanation chat](09-add-an-ai-chat-to-your-game.md) can describe the rules
 you give it. A player may also ask about their current situation: what they are
 carrying, where they are, or why an action is unavailable. Those answers need

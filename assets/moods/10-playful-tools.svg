@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">A game controller with a bright little wrench</title>
+  <path d="M27 70C35 28 83 17 120 26S187 64 177 107 154 175 106 179 14 142 27 70Z" fill="#e8f5fa"/>
+  <g stroke="#29364d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <path d="M62 90H136Q153 90 159 109L173 150Q179 173 161 177 149 180 131 157H66Q48 180 35 176 20 171 27 150L39 109Q45 90 62 90Z" fill="#8bd2c0"/>
+    <path d="M49 122H77M63 108V136" stroke="#29364d" stroke-width="8"/>
+    <circle cx="135" cy="116" r="7" fill="#ac92e3" stroke="none"/><circle cx="147" cy="132" r="7" fill="#ff956e" stroke="none"/>
+    <path d="M91 148H106" stroke="#50a993" stroke-width="4"/>
+    <path d="M92 95L131 56C125 36 139 21 153 26L142 38 145 48 156 51 169 38C175 53 162 68 147 66L109 108Q101 115 94 108 87 102 92 95Z" fill="#ffcd72"/>
+
+<path d="M48 37 Q50 47 60 49 Q50 51 48 61 Q46 51 36 49 Q46 47 48 37Z" fill="#ac9be6" stroke="none"/><path d="M176 88 Q178 93 183 95 Q178 97 176 102 Q174 97 169 95 Q174 93 176 88Z" fill="#ff9c7c" stroke="none"/>
+  </g>
+</svg>

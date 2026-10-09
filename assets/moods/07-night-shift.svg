@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">A moon keeping a cheerful terminal company</title>
+  <path d="M27 70C35 28 83 17 120 26S187 64 177 107 154 175 106 179 14 142 27 70Z" fill="#eeefff"/>
+  <g stroke="#29364d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+
+    <path d="M137 28C106 26 86 51 95 76 104 103 138 107 156 86 130 93 112 53 137 28Z" fill="#ffd97b"/>
+    <rect x="33" y="88" width="129" height="70" rx="12" fill="#60639c"/>
+    <path d="M57 111L70 121 57 131M82 132H103" fill="none" stroke="#b8f0dc" stroke-width="6"/>
+    <path d="M27 158H168L159 169H37Z" fill="#a6a9da"/>
+    <path d="M134 72Q140 76 144 70" fill="none" stroke-width="3"/>
+
+<path d="M52 42 Q54 49 61 51 Q54 53 52 60 Q50 53 43 51 Q50 49 52 42Z" fill="#ffcc72" stroke="none"/><path d="M173 39 Q175 43 179 45 Q175 47 173 51 Q171 47 167 45 Q171 43 173 39Z" fill="#ae9fe3" stroke="none"/><path d="M77 65 Q79 68 82 70 Q79 72 77 75 Q75 72 72 70 Q75 68 77 65Z" fill="#81cfc0" stroke="none"/>
+  </g>
+</svg>

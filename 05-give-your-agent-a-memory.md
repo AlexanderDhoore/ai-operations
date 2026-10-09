@@ -1,5 +1,7 @@
 # 05 — Give your agent a memory
 
+<img src="assets/moods/05-pocket-memory.svg" alt="A colorful notebook holding a bright idea" align="right" width="112">
+
 Your coding agent has helped you build a game, work on a Linux server, and
 use GitHub. But a long conversation is a fragile place to keep your project's
 plan. In this assignment, you will give the agent a small memory system:
