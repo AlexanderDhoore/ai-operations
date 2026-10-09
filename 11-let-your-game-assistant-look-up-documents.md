@@ -155,6 +155,11 @@ a selected section being read and an answer supported by that section. The
 first question is easiest to inspect in a fresh conversation, before old
 passages are already in the history.
 
+Here the game assistant explains how to play and names sections such as
+“How to play — Collect a star” and “Rules — Scoring” in its answer:
+
+<a href="assets/11-game-document-lookup.png"><img src="assets/screenshots/11-game-document-lookup.png" alt="The game assistant explains Collect the stars, with references to named help and rules sections" width="745"></a>
+
 Change a lore detail or correct outdated help text, keeping the documentation
 consistent with your game. Try again in a fresh chat. If your backend loads
 documents at startup, restart it or use the reload mechanism your agent built.
@@ -166,6 +171,13 @@ explain what it could not find, rather than invent a rule. An empty search resul
 does not prove that a feature or rule does not exist. If it misses an answer that
 is present, inspect the query and returned matches together. Improve the wording
 or matching where needed, and try again through the chat.
+
+## Review your work
+
+Keep improving the documents as your game evolves. Review the changes with your
+coding agent and publish them through your existing GitHub workflow.
+
+Ask your coding agent to update the project memory with what you learned, what now works and what should happen next.
 
 ## Optional: other ways to organize and find information
 
@@ -205,10 +217,3 @@ In every case, the assistant still requests a limited tool and receives selected
 results. Your backend handles the query and player permissions. You can combine
 these approaches, for example Markdown explanations alongside item tables. Choose
 them for questions your game actually needs to answer.
-
-## Review your work
-
-Keep improving the documents as your game evolves. Review the changes with your
-coding agent and publish them through your existing GitHub workflow.
-
-Ask your coding agent to update the project memory with what you learned, what now works and what should happen next.

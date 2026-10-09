@@ -190,6 +190,13 @@ return only information this player may see, and that unavailable data produces
 a useful explanation. You should be able to point to the function that read the
 state and explain how its result reached the model.
 
+## Review your work
+
+Review and publish your changes through your existing GitHub workflow. The next
+assignment will use tools again, this time to look up game documentation and lore.
+
+Ask your coding agent to update the project memory with what you learned, what now works and what should happen next.
+
 ## Optional: make the chat part of gameplay
 
 <img src="assets/10-chat-gameplay.svg" alt="A player asks to equip a shield, the assistant requests an action, and the game checks ownership and rules before equipping it" align="right" width="320">
@@ -206,10 +213,3 @@ when executing, report what actually happened and prevent a repeated request
 from applying the same action twice. For an action that spends scarce resources
 or cannot easily be undone, let the player confirm it before execution. The model
 requests the action, your game code decides whether it is allowed.
-
-## Review your work
-
-Review and publish your changes through your existing GitHub workflow. The next
-assignment will use tools again, this time to look up game documentation and lore.
-
-Ask your coding agent to update the project memory with what you learned, what now works and what should happen next.

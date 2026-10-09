@@ -232,6 +232,13 @@ When satisfied, ask the controller to publish through your GitHub workflow
 and clean up the finished worker worktrees. You stay in charge of what gets
 accepted and published.
 
+## Be ready to discuss
+
+Explain how you divided the work, where the controller and workers ran, what
+continued after disconnecting, and how you decided the changes were ready to
+combine. Discuss anything the controller caught during review and what you
+would change about your next pair of tasks.
+
 ## What could come next?
 
 We deliberately built a small, visible workflow. It has no automatic retries,
@@ -241,10 +248,3 @@ extensions such as [pi-subagents](https://github.com/fitchmultz/pi-subagents), o
 the experimental [Pi Durable library](https://github.com/earendil-works/pi/tree/main/packages/durable).
 Compare how they handle task lifetime, results and isolation before adopting one.
 You do not need to install them for this assignment.
-
-## Be ready to discuss
-
-Explain how you divided the work, where the controller and workers ran, what
-continued after disconnecting, and how you decided the changes were ready to
-combine. Discuss anything the controller caught during review and what you
-would change about your next pair of tasks.

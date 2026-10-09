@@ -7,12 +7,15 @@ student requirements. Later topics and assignment numbers can still change.
 
 ## Current status
 
-Assignments **01–11 are published on main**. See the [assignment list](README.md#assignments).
-The game-chat screenshot for Assignment 10 is included. Assignment 11 screenshots
-and any remaining walkthrough feedback are pending. After those are incorporated,
-course authoring will pause until the instructor resumes it.
-Assignment 12's direction is agreed, but it has not been written. Production
-infrastructure is also deferred.
+Assignments **01–11 are published on main and ready for the current teaching block**.
+See the [assignment list](README.md#assignments). The instructor's game-chat
+screenshots for tools and document lookup are included, and the final editorial
+and repository cleanup is complete. Required work and review come before optional
+extensions and further reading.
+
+**Course authoring is parked.** No screenshots or authoring tasks are outstanding.
+Resume when the instructor chooses to continue. Assignment 12's direction is
+agreed, but it has not been written. Production infrastructure is also deferred.
 
 Assignment 09 puts game integration before its optional extensions. Streaming,
 structured output and image input each have a short explanation, a diagram and
