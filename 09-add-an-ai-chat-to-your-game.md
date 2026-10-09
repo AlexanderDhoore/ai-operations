@@ -151,11 +151,94 @@ also fill the context and use more input tokens. Work with your agent to keep
 history bounded while retaining the game instructions. We do not need a
 database or automatic summarizer for this exercise.
 
-## Two further possibilities
+## Optional extensions
 
-Before building the game interface, look at two things the API can also do.
-**You do not have to implement either extension.** Use the small script if
-you want to experiment with them.
+Before building the game interface, explore a few other possibilities.
+**None of these extensions is required.** Try them with your coding agent if
+they would suit your game.
+
+### Show the answer as it arrives
+
+With **streaming**, players can start reading while the model is still generating
+the answer. It does not necessarily finish sooner, and there may still be a wait
+before the first text arrives. There are two connections to consider: the model
+streams to your backend, and your backend forwards text to the browser.
+
+In the OpenAI SDK, `stream=True` returns chunks. Each chunk's `delta.content`
+contains new text, when present. For an asynchronous Python backend, a helper
+could look like this:
+
+```python
+import os
+from openai import AsyncOpenAI
+
+async def answer_parts(messages):
+    async with AsyncOpenAI(
+        base_url="https://api.llm.mechatronics.be/v1",
+        api_key=os.environ["VIVES_LLM_API_KEY"],
+        timeout=60.0,
+        max_retries=0,
+    ) as client:
+        stream = await client.chat.completions.create(
+            model="qwen3.8-27b",
+            messages=messages,
+            reasoning_effort="low",
+            max_tokens=2048,
+            stream=True,
+        )
+        finish_reason = None
+        async with stream:
+            async for chunk in stream:
+                if not chunk.choices:
+                    continue
+                choice = chunk.choices[0]
+                if choice.delta.content:
+                    yield choice.delta.content
+                if choice.finish_reason:
+                    finish_reason = choice.finish_reason
+        if finish_reason != "stop":
+            raise RuntimeError("The answer did not finish normally.")
+```
+
+`yield` passes each piece to the caller. `AsyncOpenAI` lets the server do other
+work while waiting for the model. See the [SDK streaming guide](https://developers.openai.com/api/docs/guides/streaming-responses?api-mode=chat).
+
+**WebSockets are not required.** For example, FastAPI can forward these pieces
+in one HTTP response using `StreamingResponse`. This single-question illustration
+uses the helper above:
+
+```python
+from fastapi import FastAPI
+from fastapi.responses import StreamingResponse
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Question(BaseModel):
+    text: str
+
+@app.post("/chat")
+async def chat(question: Question):
+    messages = [
+        {"role": "system", "content": "Your actual game instructions and rules..."},
+        {"role": "user", "content": question.text},
+    ]
+    return StreamingResponse(answer_parts(messages), media_type="text/plain")
+```
+
+The browser sends a JSON question such as `{"text": "How do I play?"}` with
+`fetch()`, then reads `response.body` incrementally, decodes the text and appends
+it to the chat bubble. Calling
+`response.text()` waits for the whole answer. See the
+[FastAPI example](https://fastapi.tiangolo.com/advanced/custom-response/#streamingresponse)
+and [browser streaming guide](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#streaming_the_response_body).
+
+**Adapt this pattern to your own environment.** FastAPI is an example, not a
+required replacement for your backend. Ask your agent to connect streaming to
+your existing chat, including its per-user history and error handling. Accumulate
+the text and save the turn only after successful completion. The example raises
+an error if generation stops early. Have the browser show an interrupted reply
+as incomplete, since the server cannot take back text already sent.
 
 ### Return data the interface can use
 
@@ -202,11 +285,6 @@ The school allows up to **four images** sharing a pixel budget large enough for 
 files. These are our school service's limits. Choose an image you are comfortable
 sending to the service.
 
-There are other useful implementation options too. **Text streaming** displays
-an answer as it arrives. **Async requests** let an asynchronous backend do other
-work while waiting for the model. Async does not make the model itself faster.
-Your coding agent can help you decide whether either fits your application.
-
 ## Build a chat that explains your game to players
 
 <a href="assets/09-game-chat.png"><img src="assets/screenshots/09-game-chat.png" alt="An example in-game chat page with a question field, Send button and link back to the game" align="right" width="400"></a>
@@ -219,8 +297,8 @@ then ask follow-up questions. The assistant should explain your game's rules,
 controls and objectives using the information you provide.
 
 Build this feature together with your coding agent, adapting it to your own game.
-**A text chat with conversation history is enough. Vision and structured output
-remain optional.**
+**A text chat with conversation history is enough. Streaming, vision and
+structured output remain optional.**
 
 Discuss the feature with your coding agent before implementing it. Where should
 the chat appear? What should it explain? Work together on a system prompt that

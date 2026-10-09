@@ -34,3 +34,17 @@ The guide's alternative of installing Debian's matching `python3-venv` package
 was not exercised. No game UI or particular student's backend was built in this
 rehearsal. Image limits are documented from the school policy, the image test did
 not exhaust every boundary. Model wording can vary between runs.
+
+## Optional streaming examples
+
+On 2026-10-09, the two inline streaming examples were checked together locally
+with Python 3.13, OpenAI SDK 3.26.0 and FastAPI 0.143.0. A simulated upstream
+Chat Completions stream passed through the real SDK and FastAPI response.
+Text, including a Unicode character, was forwarded before upstream completion.
+Normal completion closed the response successfully. An output-limit finish and
+a missing finish reason raised an error instead of completing normally. The
+upstream stream was closed in each case.
+
+This verifies the example's SDK-to-HTTP-response behavior. It does not validate
+a student's browser, reverse proxy, conversation storage or live deployment.
+No school endpoint request was made for this local check.

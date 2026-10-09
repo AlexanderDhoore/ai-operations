@@ -92,8 +92,14 @@ The school portal still requires the student's browser login to manage keys.
 ## Optional extensions
 
 If the student chooses an extension, help them build it into their experiment.
-Neither extension is required for the final game chat.
+None of the extensions is required for the final game chat.
 
+- Text streaming uses `stream=True` and reads new text from `delta.content`.
+  Forward it through the existing backend and read the HTTP response incrementally
+  in the browser. WebSockets and a new framework are not required. The assignment
+  illustrates this with `AsyncOpenAI` and FastAPI, adapt it to the game's own stack.
+  Keep per-user history and save only successful complete turns. Show interrupted
+  replies as incomplete, and close the upstream stream when the client disconnects.
 - Structured output uses `response_format` with `type: "json_schema"` and a
   `json_schema` object containing `name`, `strict: true` and the schema. An
   `answer` and `suggested_questions` could support a reply with follow-up buttons.
