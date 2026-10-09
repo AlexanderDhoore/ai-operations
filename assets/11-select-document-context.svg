@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 452" role="img" aria-labelledby="title desc">
+  <title id="title">A whole collection, a little context</title>
+  <desc id="desc">Markdown documents stay in the game backend. Through tool calls the model searches for short matches, then requests a selected section. The backend sends that section into the conversation. Unread documents remain on the server.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#526177" stroke-width="1.7"/></marker>
+  </defs>
+  <rect width="1200" height="452" fill="white"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+    <text x="600" y="40" text-anchor="middle" font-size="30" font-weight="700">A whole collection, a little context</text>
+    <text x="600" y="76" text-anchor="middle" font-size="21" fill="#526177">The assistant chooses what to search and read through tool calls.</text>
+    <rect x="24" y="104" width="778" height="306" rx="16" fill="#f8fafc" stroke="#c8d4e3"/>
+    <text x="48" y="140" font-size="22" font-weight="700" fill="#526177">Your game backend</text>
+    <g fill="white" stroke="#9eb2c9" stroke-width="1.5">
+      <rect x="62" y="174" width="246" height="154" rx="8"/>
+      <rect x="54" y="182" width="246" height="154" rx="8"/>
+      <rect x="46" y="190" width="246" height="154" rx="8"/>
+    </g>
+    <text x="72" y="228" font-size="25" font-weight="700">Markdown files</text>
+    <text x="72" y="268" font-size="23" fill="#526177">Rules · Help · Lore</text>
+    <path d="M72 292 H254 M72 312 H215" stroke="#d5dfeb" stroke-width="5" stroke-linecap="round"/>
+    <text x="174" y="382" text-anchor="middle" font-size="20" fill="#526177">Unread text stays here</text>
+    <path d="M310 237 H372" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="386" y="162" width="382" height="99" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="577" y="200" text-anchor="middle" font-size="25" font-weight="700" fill="#2563a5">1. Search</text>
+    <text x="577" y="235" text-anchor="middle" font-size="22">Return short matching previews</text>
+    <path d="M577 262 V292" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="386" y="300" width="382" height="87" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="577" y="335" text-anchor="middle" font-size="25" font-weight="700" fill="#2563a5">2. Read a selected section</text>
+    <text x="577" y="369" text-anchor="middle" font-size="22">Return its text and source</text>
+    <path d="M769 343 H845" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="858" y="162" width="318" height="225" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+    <text x="1017" y="200" text-anchor="middle" font-size="25" font-weight="700" fill="#237d70">Model context</text>
+    <text x="1017" y="241" text-anchor="middle" font-size="22">Question + conversation</text>
+    <text x="1017" y="276" text-anchor="middle" font-size="22">Tool definitions + results</text>
+    <rect x="875" y="307" width="284" height="62" rx="8" fill="white" stroke="#237d70"/>
+    <text x="1017" y="346" text-anchor="middle" font-size="23" font-weight="700" fill="#237d70">The selected passage</text>
+    <text x="600" y="439" text-anchor="middle" font-size="20" fill="#526177">Only returned content enters the conversation, not the entire document collection.</text>
+  </g>
+</svg>

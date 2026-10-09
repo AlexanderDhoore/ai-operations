@@ -3,13 +3,16 @@
 This is an instructor planning note. Published assignments define the current
 student requirements. Later topics and assignment numbers can still change.
 
-## Next: Assignment 11 — Document lookup
+## Assignment 11 — Document lookup
 
 Extend the existing game assistant with tools that search and read approved local
 Markdown help, rules and lore. Build on Assignment 10's tool loop with a small,
 visible implementation, such as keyword search and reading selected sections.
 Keep sources traceable and access limited to documents the player may see.
-Discuss the exact experiment and integration requirements before authoring.
+Teach the theory first, then guide students directly through integration into
+their existing game chat. No separate starter script or terminal experiment.
+Use diagrams to explain selecting context, searching and reading sections, and
+combining documentation with live game state.
 
 Keep this assignment focused on document lookup through custom tools. It will
 not introduce MCP, RAG theory, embeddings or vector databases.

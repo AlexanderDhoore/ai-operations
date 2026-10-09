@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 302" role="img" aria-labelledby="title desc">
+  <title id="title">An answer can use documents and current state</title>
+  <desc id="desc">Document tools supply rules and lore. State tools supply current player facts. The assistant can combine both in an answer, keeping the source of each fact clear.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#526177" stroke-width="1.8"/></marker>
+  </defs>
+  <rect width="360" height="302" fill="white"/>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle" fill="#172033">
+    <rect x="18" y="16" width="153" height="103" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="94" y="57" font-size="21" font-weight="700" fill="#2563a5">Documents</text>
+    <text x="94" y="90" font-size="18">Rules + lore</text>
+    <rect x="189" y="16" width="153" height="103" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+    <text x="265" y="57" font-size="21" font-weight="700" fill="#237d70">State tools</text>
+    <text x="265" y="90" font-size="18">Current facts</text>
+    <path d="M94 120 V151 H180 M265 120 V151 H180 V181" fill="none" stroke="#526177" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="35" y="190" width="290" height="64" rx="12" fill="#f8fafc" stroke="#526177" stroke-width="1.5"/>
+    <text x="180" y="229" font-size="22" font-weight="700">One informed answer</text>
+    <text x="180" y="285" font-size="17" fill="#526177">Keep each fact tied to its source</text>
+  </g>
+</svg>
