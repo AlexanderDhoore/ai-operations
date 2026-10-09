@@ -148,7 +148,7 @@ have completely different mechanics.
 
 The coding agent helps build your application and may have broad development
 tools. The assistant inside your game receives only the functions your backend
-exposes. Keep these tools read-only. A tool for reading inventory needs no shell,
+exposes. Start with read-only tools. A tool for reading inventory needs no shell,
 arbitrary SQL or filesystem access.
 
 Read-only access can still reveal hidden information. Use the backend's trusted
@@ -161,19 +161,6 @@ not a login system.
 Earlier tool results in chat history are earlier observations. When a question
 needs current game state, fetch it again. Treat a failed lookup as missing
 information, not as an invitation to invent a value.
-
-## Where MCP fits
-
-**Model Context Protocol (MCP)** provides a common interface through which an
-AI application can discover and use tools and other context supplied by a server.
-It is useful when the same capabilities should be available to different clients.
-An MCP server can run locally or remotely. Your application still manages the
-model conversation and decides which capabilities it exposes to the model.
-
-Here, your backend already owns the game functions, so it can call them directly.
-You do not need to install an MCP server for this assignment. The
-[MCP architecture overview](https://modelcontextprotocol.io/docs/learn/architecture)
-explains how those pieces fit together if you want to explore further.
 
 ## Let your game chat inspect the player's situation
 
@@ -194,6 +181,23 @@ normal gameplay, ask again and inspect the fresh tool result. Check that the too
 return only information this player may see, and that unavailable data produces
 a useful explanation. You should be able to point to the function that read the
 state and explain how its result reached the model.
+
+## Optional: make the chat part of gameplay
+
+Tools can also **change game state**. Perhaps a player asks the assistant to equip
+an item, move their character or offer a trade. The chat can become a way to play
+the game, not just ask about it. Discuss an idea that fits your game with your
+coding agent and try one small action tool. The read-only integration above is
+sufficient for this assignment.
+
+Have the tool use your backend's normal game actions, with the same player
+permissions, costs and rules as a button in the game. Check the current state
+when executing, report what actually happened and prevent a repeated request
+from applying the same action twice. For an action that spends scarce resources
+or cannot easily be undone, let the player confirm it before execution. The model
+requests the action, your game code decides whether it is allowed.
+
+## Review your work
 
 Review and publish your changes through your existing GitHub workflow. The next
 assignment will use tools again, this time to look up game documentation and lore.

@@ -63,3 +63,5 @@ understand what you built?**
 
 Later assignments will appear here when their requirements are introduced in
 class.
+
+The [course roadmap](ROADMAP.md) records planned topics for later assignments.

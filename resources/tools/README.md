@@ -71,7 +71,14 @@ with their matching call IDs, so the model can use them in its answer.
 Later, adapt the mechanism to the student's existing game chat and backend
 language. Select useful state-reading capabilities for that game. Keep the API
 key and access checks on the backend, and keep each player's chat separate.
-No additional agent framework or MCP server is needed.
+No additional agent framework is needed.
+
+State-changing tools are an optional game extension after the read-only exercise.
+Discuss one action that makes the chat part of gameplay. Use existing backend game
+actions and enforce player permissions, costs and current-state checks there.
+Prevent duplicate execution and request player confirmation for consequential
+or irreversible actions. Return the actual outcome, not an assumed success.
+Keep the starter and required exercise read-only.
 
 The model can request zero, one or several calls. Process every returned call,
 even if a provider accepts a preference such as `parallel_tool_calls=False`.
