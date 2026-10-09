@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 304" role="img" aria-labelledby="title desc">
+  <title id="title">Your backend decides what the assistant may see</title>
+  <desc id="desc">The game assistant requests a tool. Backend code checks the player and permissions, then returns only player-visible data. Hidden information stays private.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#526177" stroke-width="1.8"/></marker>
+  </defs>
+  <rect width="360" height="304" fill="white"/>
+  <g font-family="Arial, Helvetica, sans-serif" text-anchor="middle" fill="#172033">
+    <rect x="30" y="12" width="300" height="52" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="180" y="45" font-size="21" font-weight="700" fill="#2563a5">The assistant requests</text>
+    <path d="M180 65 V96" stroke="#526177" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="30" y="102" width="300" height="76" rx="12" fill="#f8fafc" stroke="#526177" stroke-width="2"/>
+    <text x="180" y="132" font-size="22" font-weight="700">Your backend checks</text>
+    <text x="180" y="159" font-size="18" fill="#526177">Player + permissions</text>
+    <path d="M180 179 V210" stroke="#526177" stroke-width="2" marker-end="url(#arrow)"/>
+    <rect x="30" y="216" width="300" height="52" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+    <text x="180" y="249" font-size="21" font-weight="700" fill="#237d70">Only permitted data</text>
+    <text x="180" y="294" font-size="17" fill="#526177">Hidden information stays private</text>
+  </g>
+</svg>

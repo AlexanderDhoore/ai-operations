@@ -147,6 +147,8 @@ have completely different mechanics.
 
 ## Keep the game's boundaries in your code
 
+<img src="assets/10-game-tool-boundaries.svg" alt="The assistant requests a tool, the backend checks player permissions and returns only permitted data" align="right" width="320">
+
 The coding agent helps build your application and may have broad development
 tools. The assistant inside your game receives only the functions your backend
 exposes. Start with read-only tools. A tool for reading inventory needs no shell,
