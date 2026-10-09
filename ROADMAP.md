@@ -1,21 +1,28 @@
 # Course roadmap
 
+Updated 9 October 2026.
+
 This is an instructor planning note. Published assignments define the current
 student requirements. Later topics and assignment numbers can still change.
 
-## Assignment 11 — Document lookup
+## Current status
 
-Extend the existing game assistant with tools that search and read approved local
-Markdown help, rules and lore. Build on Assignment 10's tool loop with a small,
-visible implementation, such as keyword search and reading selected sections.
-Keep sources traceable and access limited to documents the player may see.
-Teach the theory first, then guide students directly through integration into
-their existing game chat. No separate starter script or terminal experiment.
-Use diagrams to explain selecting context, searching and reading sections, and
-combining documentation with live game state.
+Assignments **01–11 are published on main**. See the [assignment list](README.md#assignments).
+Walkthrough feedback and screenshots for 10 and 11 are still pending. After those
+are incorporated, course authoring will pause until the instructor resumes it.
+Assignment 12's direction is agreed, but it has not been written. Production
+infrastructure is also deferred.
 
-Keep this assignment focused on document lookup through custom tools. It will
-not introduce MCP, RAG theory, embeddings or vector databases.
+## Published: Assignment 11 — Document lookup
+
+[Assignment 11](11-let-your-game-assistant-look-up-documents.md) extends the existing
+game chat with tools that search and read approved Markdown help, rules and lore.
+It uses simple keyword search and selected sections, with traceable sources and
+player access checks. Theory and diagrams lead directly into game integration,
+without a separate starter script or terminal experiment.
+
+It focuses on document lookup through custom tools. MCP, RAG theory, embeddings
+and vector databases are reserved for dedicated later assignments.
 
 ## Agreed next: Assignment 12 — Automated tests and CI
 
@@ -38,13 +45,6 @@ Afterwards, teach Docker/Compose, a repeatable deployment to a separate producti
 host, then continuous deployment and Prometheus/Grafana monitoring if time allows.
 Resolve production access, configuration, secrets and persistent data before
 automating deployment. Exact assignment grouping after 12 remains open.
-
-## Current checkpoint
-
-Finish the instructor's walkthrough feedback and screenshots for Assignments 10
-and 11, then pause course authoring. The Assignment 12 direction is agreed, but
-writing it and provisioning production infrastructure are deferred until the
-instructor explicitly resumes the project.
 
 ## Dedicated assignments later
 
