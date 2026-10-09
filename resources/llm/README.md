@@ -98,7 +98,7 @@ None of the extensions is required for the game chat.
 - Text streaming uses `stream=True` and reads new text from `delta.content`.
   Forward it through the existing backend and read the HTTP response incrementally
   in the browser. WebSockets and a new framework are not required. The assignment
-  illustrates this with `AsyncOpenAI` and FastAPI, adapt it to the game's own stack.
+  links to SDK, FastAPI and browser examples. Adapt them to the game's own stack.
   Keep per-user history and save only successful complete turns. Show interrupted
   replies as incomplete, and close the upstream stream when the client disconnects.
 - Structured output uses `response_format` with `type: "json_schema"` and a

@@ -197,132 +197,84 @@ Ask your coding agent to update the project memory with what you learned, what n
 
 Once your explanation chat works in the game, you can explore these ideas with
 your coding agent. **None of these extensions is required.** Choose what suits
-your game and adapt the examples to your existing application.
+your game and adapt the examples to your existing application. Keep our school
+endpoint and model when adapting the official documentation's examples.
 
 ### Show the answer as it arrives
 
-With **streaming**, players can start reading while the model is still generating
-the answer. It does not necessarily finish sooner, and there may still be a wait
-before the first text arrives. There are two connections to consider: the model
-streams to your backend, and your backend forwards text to the browser.
+**Streaming** lets players start reading while the model is still generating.
+The reply grows piece by piece instead of appearing all at once. This can make
+chat feel more responsive, although it does not necessarily shorten generation
+or remove the wait before the first text arrives.
 
-In the OpenAI SDK, `stream=True` returns chunks. Each chunk's `delta.content`
-contains new text, when present. For an asynchronous Python backend, a helper
-could look like this:
+<img src="assets/09-streaming.svg" alt="Qwen sends text pieces through the backend to a browser chat whose answer grows as they arrive" width="760">
 
-```python
-import os
-from openai import AsyncOpenAI
+Add `stream=True` to your existing SDK request. It returns chunks, whose
+`delta.content` contains new text when present. Your backend forwards those pieces,
+and the browser appends them to the reply. **Both connections must stream.**
+FastAPI's `StreamingResponse` can send one HTTP response progressively. Browser
+`fetch()` can read `response.body` as it arrives. WebSockets are not required.
 
-async def answer_parts(messages):
-    async with AsyncOpenAI(
-        base_url="https://api.llm.mechatronics.be/v1",
-        api_key=os.environ["VIVES_LLM_API_KEY"],
-        timeout=60.0,
-        max_retries=0,
-    ) as client:
-        stream = await client.chat.completions.create(
-            model="qwen3.8-27b",
-            messages=messages,
-            reasoning_effort="low",
-            max_tokens=2048,
-            stream=True,
-        )
-        finish_reason = None
-        async with stream:
-            async for chunk in stream:
-                if not chunk.choices:
-                    continue
-                choice = chunk.choices[0]
-                if choice.delta.content:
-                    yield choice.delta.content
-                if choice.finish_reason:
-                    finish_reason = choice.finish_reason
-        if finish_reason != "stop":
-            raise RuntimeError("The answer did not finish normally.")
-```
+Ask your agent to adapt this to your existing stack. Save the complete answer in
+history only after success, and show interrupted replies as incomplete. Start
+with ordinary text before combining streaming with structured output.
 
-`yield` passes each piece to the caller. `AsyncOpenAI` lets the server do other
-work while waiting for the model. See the [SDK streaming guide](https://developers.openai.com/api/docs/guides/streaming-responses?api-mode=chat).
-
-**WebSockets are not required.** For example, FastAPI can forward these pieces
-in one HTTP response using `StreamingResponse`. This single-question illustration
-uses the helper above:
-
-```python
-from fastapi import FastAPI
-from fastapi.responses import StreamingResponse
-from pydantic import BaseModel
-
-app = FastAPI()
-
-class Question(BaseModel):
-    text: str
-
-@app.post("/chat")
-async def chat(question: Question):
-    messages = [
-        {"role": "system", "content": "Your actual game instructions and rules..."},
-        {"role": "user", "content": question.text},
-    ]
-    return StreamingResponse(answer_parts(messages), media_type="text/plain")
-```
-
-The browser sends a JSON question such as `{"text": "How do I play?"}` with
-`fetch()`, then reads `response.body` incrementally, decodes the text and appends
-it to the chat bubble. Calling
-`response.text()` waits for the whole answer. See the
-[FastAPI example](https://fastapi.tiangolo.com/advanced/custom-response/#streamingresponse)
-and [browser streaming guide](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#streaming_the_response_body).
-
-**Adapt this pattern to your own environment.** FastAPI is an example, not a
-required replacement for your backend. Ask your agent to connect streaming to
-your existing chat, including its per-user history and error handling. Accumulate
-the text and save the turn only after successful completion. The example raises
-an error if generation stops early. Have the browser show an interrupted reply
-as incomplete, since the server cannot take back text already sent.
+Implementation examples: [OpenAI streaming](https://developers.openai.com/api/docs/guides/streaming-responses?api-mode=chat),
+[FastAPI](https://fastapi.tiangolo.com/advanced/custom-response/#streamingresponse)
+and [browser streaming](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#streaming_the_response_body).
 
 ### Return data the interface can use
 
-A chat reply normally arrives as text. **Structured output** asks for an object
-with defined fields. A JSON Schema describes those fields and their types.
-For example:
+**Structured output** gives your application named fields instead of one free-form
+reply. You supply a **JSON Schema**, describing required fields and their types,
+through the request's `response_format`. For example, `answer` could be a string
+and `suggested_questions` a list of strings. This specifies the response's shape,
+not its wording.
+
+<img src="assets/09-structured-output.svg" alt="A schema defines an answer and suggested questions, Qwen returns JSON, and the interface displays a reply and follow-up buttons" width="760">
+
+A response might contain:
 
 ```json
 {
-  "answer": "The shards are not consumed when the gate opens.",
-  "suggested_questions": [
-    "How many shards do I need?",
-    "What happens if I do not have enough?"
-  ]
+  "answer": "You need three amber shards.",
+  "suggested_questions": ["Where can I find them?", "Are they used up?"]
 }
 ```
 
-Your interface could display `answer` as the reply and turn `suggested_questions`
-into clickable buttons. Clicking one sends another user message. This connects
-structured output to something useful in the chat interface.
+Your code parses the JSON and displays the answer. It can turn each suggested
+question into a button that sends the next user message. The application controls
+the layout, so it does not need to extract these pieces from a paragraph.
 
-To try this with your agent, add `response_format` to the request with a JSON
-Schema describing those two fields. Your Python code can parse the returned text
-with `json.loads()` and check the fields before using them. A schema helps with
-the structure. It does not prove the answer is true. See the
-[structured output guide](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=chat).
+Ask your agent to define the schema and handle incomplete or invalid responses
+before displaying them. Matching a schema does not prove that the answer is
+correct. **Requesting JSON in a prompt alone is not the same as supplying a schema.**
+See the [official structured-output guide](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=chat).
 
 ### Include an image in a question
 
-The school model also accepts **text and images in the same request**. This is
-multimodal input. For example, you could send a screenshot and ask it to describe
-the visible interface. That does not give it access to the running game or to
-information outside the image. We are using image understanding, not generating
-new images.
+**Multimodal input** combines text and images in one request. A player could send
+a screenshot and ask what a symbol means or where a menu is. The model can use
+visible shapes, colors and text alongside the game instructions. This is image
+understanding, not image generation or access to the running game.
 
-To try this with your agent, have your script read a local image and encode it
-as a base64 data URL. The user message's `content` becomes a list with a `text`
-item and an `image_url` item containing that data URL, instead of just a string.
-See the [official OpenAI image-input documentation](https://developers.openai.com/api/docs/guides/images-vision?api-mode=chat)
-for Chat Completions examples, using our school endpoint and model.
+<img src="assets/09-image-input.svg" alt="A screenshot and a question go to Qwen together, which answers about what is visible in the image" width="760">
 
-The school allows up to **four images** sharing a pixel budget large enough for one
-**4096×2160 image or four Full HD images**, with at most **40 MiB** of image
-files. These are our school service's limits. Choose an image you are comfortable
-sending to the service.
+Instead of a single string, the user message's `content` becomes a list:
+
+```python
+content = [
+    {"type": "text", "text": "What is visible in this screenshot?"},
+    {"type": "image_url", "image_url": {"url": data_url}},
+]
+```
+
+Here, `data_url` contains a local image encoded as base64, including its image-type
+prefix. The school endpoint requires embedded image data rather than remote image
+URLs. It accepts up to **four images** sharing a pixel budget equivalent to one
+**4096×2160 image or four Full HD images**, with at most **40 MiB** of image files.
+
+Choose images you are comfortable sending. Small text or ambiguous symbols can
+be misread, and hidden game state remains unknown. Ask your agent to adapt the
+[official image-input examples](https://developers.openai.com/api/docs/guides/images-vision?api-mode=chat)
+to our school endpoint and its limits.

@@ -37,7 +37,7 @@ not exhaust every boundary. Model wording can vary between runs.
 
 ## Optional streaming examples
 
-On 2026-10-09, the two inline streaming examples were checked together locally
+On 2026-10-09, the earlier two inline streaming examples were checked together locally
 with Python 3.13, OpenAI SDK 3.26.0 and FastAPI 0.143.0. A simulated upstream
 Chat Completions stream passed through the real SDK and FastAPI response.
 Text, including a Unicode character, was forwarded before upstream completion.
@@ -48,3 +48,7 @@ upstream stream was closed in each case.
 This verifies the example's SDK-to-HTTP-response behavior. It does not validate
 a student's browser, reverse proxy, conversation storage or live deployment.
 No school endpoint request was made for this local check.
+
+The lesson now keeps only the key streaming settings, a diagram and official
+implementation links. These checks cover an earlier authoring prototype,
+retained privately rather than supplied as a student solution.
