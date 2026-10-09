@@ -38,7 +38,7 @@ prompt, including the public setup guide:
 
 > Help me explore Assignment 10 using this guide and its linked one_tool.py:
 >
-> https://raw.githubusercontent.com/AlexanderDhoore/ai-operations/refs/heads/work/10-game-assistant-tools/resources/tools/README.md
+> https://raw.githubusercontent.com/AlexanderDhoore/ai-operations/refs/heads/main/resources/tools/README.md
 >
 > Prepare a fresh experiment at experiments/llm/tools.py. Check our existing
 > environment and preserve our game and earlier experiments. Explain the starter
