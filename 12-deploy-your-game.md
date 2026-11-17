@@ -56,8 +56,8 @@ build, backend and game documentation the application actually needs. The
 deployment must not depend on a separate development server or a bind mount of
 your development source folder. The HTTP service must listen on a reachable
 interface inside its container, usually `0.0.0.0`, rather than only `127.0.0.1`.
-Ask the agent to explain the host-to-container port mapping and use an appropriate
-restart policy, such as `unless-stopped`, for services that should stay running.
+Ask the agent to explain the host-to-container port mapping. At the end of this
+assignment, you will also configure and test automatic startup after a reboot.
 
 ## Separate configuration from code
 
@@ -109,6 +109,10 @@ docker compose logs --tail=50
 running in the background. `ps` shows their state, while logs help explain a
 failed startup. A running container alone does not prove the game works.
 See the [Compose up reference](https://docs.docker.com/reference/cli/docker/compose/up/).
+
+Remember: restarting an existing container does not rebuild its image. After
+changing code that is copied into the image, run `docker compose up -d --build`
+again to build and deploy the updated version.
 
 On your **laptop**, open `http://YOUR-DEVELOPMENT-SERVER:8080`, using its
 Tailscale name/address or reachable campus IP. Try two browser sessions as
@@ -196,12 +200,51 @@ the AI features. Browser requests must stay on the public HTTPS origin, includin
 secure WebSocket connections if your game uses them. Inspect failed requests
 in the browser and backend logs with your agent if something breaks.
 
+To narrow down a problem, first run `curl -i http://localhost:8080` in the
+**production server's** terminal and inspect `docker compose ps` and the logs.
+Then try the public URL in your browser. If the local service responds but the
+public route fails, inspect that route and its configuration. If the page loads
+but gameplay fails, inspect the browser's API/WebSocket requests and backend logs.
+
 Close your SSH session and check that the game remains available. To deliberately
 stop it later, reconnect and run `docker compose stop` in the production project
 folder. Start it again with `docker compose up -d`. Avoid `down -v` unless you
 intend to delete the project's Compose-managed volumes.
 
-## Review your deployment
+## Restart and review your deployment
+
+Your game should come back online when its production LXC reboots. On
+**development**, add this setting inside each Compose service that should keep
+running, such as the web server, backend and database:
+
+```yaml
+restart: always
+```
+
+Do not apply it to one-off tasks such as database migrations. Docker will restart
+these persistent services when they exit and when Docker starts again. A manually
+stopped container also returns after Docker restarts. See Docker's
+[restart policy documentation](https://docs.docker.com/engine/containers/start-containers-automatically/).
+
+Commit and push the change. In your **production project folder**, apply it:
+
+```bash
+git pull --ff-only
+docker compose up -d
+```
+
+Check that the game works, then confirm you are on your assigned **production
+LXC**, not development. Enable Docker at boot and reboot that LXC:
+
+```bash
+systemctl enable docker
+reboot
+```
+
+Your SSH connection will close. Wait for the server to return, then open your
+public game URL **without manually starting Compose**. Play again and check any
+data you expected to persist. If it does not recover, reconnect and inspect
+`systemctl status docker`, `docker compose ps` and the application logs.
 
 With your agent, record the build/start commands, required configuration names
 and persistence choices in your project's README. Keep secret values out.
