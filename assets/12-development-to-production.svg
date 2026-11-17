@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">One project, two environments</title>
+  <desc id="desc">On development, edit the game and test it with Compose. Push committed source and deployment files to GitHub, then clone them on production and build and run with Compose. Each server supplies its own private environment file. Secrets do not travel through GitHub.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#526177" stroke-width="1.7"/></marker>
+  </defs>
+  <rect width="1200" height="420" fill="white"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+    <text x="600" y="40" text-anchor="middle" font-size="30" font-weight="700">One project, two environments</text>
+    <text x="600" y="77" text-anchor="middle" font-size="21" fill="#526177">Commit the deployment instructions along with your game.</text>
+    <rect x="24" y="116" width="336" height="166" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="192" y="157" text-anchor="middle" font-size="25" font-weight="700" fill="#2563a5">Development LXC</text>
+    <text x="192" y="201" text-anchor="middle" font-size="23">Edit and review the game</text>
+    <text x="192" y="241" text-anchor="middle" font-size="23">Build and test with Compose</text>
+    <path d="M363 213 H424" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="394" y="190" text-anchor="middle" font-size="20" fill="#526177">push</text>
+    <rect x="438" y="116" width="324" height="166" rx="12" fill="#f8fafc" stroke="#9eb2c9"/>
+    <text x="600" y="157" text-anchor="middle" font-size="25" font-weight="700">Private GitHub repository</text>
+    <text x="600" y="201" text-anchor="middle" font-size="23">Game + Dockerfile(s)</text>
+    <text x="600" y="241" text-anchor="middle" font-size="23">Compose + .env.example</text>
+    <path d="M765 213 H826" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="796" y="190" text-anchor="middle" font-size="20" fill="#526177">clone</text>
+    <rect x="840" y="116" width="336" height="166" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+    <text x="1008" y="157" text-anchor="middle" font-size="25" font-weight="700" fill="#237d70">Production LXC</text>
+    <text x="1008" y="201" text-anchor="middle" font-size="23">Build and run with Compose</text>
+    <text x="1008" y="241" text-anchor="middle" font-size="23">Classmates play here</text>
+    <path d="M192 314 V289" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <path d="M1008 314 V289" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="57" y="322" width="270" height="52" rx="8" fill="#fff6df" stroke="#b28126"/>
+    <text x="192" y="355" text-anchor="middle" font-size="22">Private development .env</text>
+    <rect x="873" y="322" width="270" height="52" rx="8" fill="#fff6df" stroke="#b28126"/>
+    <text x="1008" y="355" text-anchor="middle" font-size="22">Private production .env</text>
+    <text x="600" y="353" text-anchor="middle" font-size="22" fill="#526177">Secret values stay out of Git.</text>
+  </g>
+</svg>

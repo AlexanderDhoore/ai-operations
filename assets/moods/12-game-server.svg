@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">A game controller beside a small server</title>
+  <path d="M25 77C22 38 66 17 107 24S182 55 179 105 143 179 96 177 17 127 25 77Z" fill="#e4f3ec"/>
+  <g stroke="#29364d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="85" y="39" width="85" height="115" rx="12" fill="#fff9e9"/>
+    <path d="M85 77H170M85 115H170" fill="none"/>
+    <path d="M100 58H130M100 96H130M100 135H130" stroke="#91b6db"/>
+    <circle cx="151" cy="58" r="5" fill="#69bdaa" stroke="none"/>
+    <circle cx="151" cy="96" r="5" fill="#69bdaa" stroke="none"/>
+    <circle cx="151" cy="135" r="5" fill="#f4b969" stroke="none"/>
+    <path d="M45 104H91Q105 105 113 126L121 153Q124 167 113 169 104 171 91 153H45Q32 172 21 168 12 165 16 151L24 126Q31 105 45 104Z" fill="#b7d9f5"/>
+    <path d="M42 122V142M32 132H52" fill="none"/>
+    <circle cx="89" cy="124" r="5" fill="#e77d83" stroke="none"/>
+    <circle cx="102" cy="137" r="5" fill="#f4b969" stroke="none"/>
+    <path d="M53 26Q55 34 63 36 55 38 53 46 51 38 43 36 51 34 53 26Z" fill="#ffce71" stroke="none"/>
+  </g>
+</svg>

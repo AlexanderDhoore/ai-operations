@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+  <title id="title">One public address for your whole game</title>
+  <desc id="desc">The browser uses https://ai-operations-XX.devbitapp.be. The school reverse proxy uses Authentik to require school login and forwards authenticated requests over HTTP to port 8080 of that student's production LXC. Compose services handle the frontend, API and WebSockets behind that entry point.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#526177" stroke-width="1.7"/></marker>
+  </defs>
+  <rect width="1200" height="460" fill="white"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+    <text x="600" y="40" text-anchor="middle" font-size="30" font-weight="700">One public address for your whole game</text>
+    <text x="600" y="78" text-anchor="middle" font-size="23" fill="#2563a5">https://ai-operations-XX.devbitapp.be</text>
+    <rect x="24" y="180" width="264" height="158" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="156" y="225" text-anchor="middle" font-size="25" font-weight="700" fill="#2563a5">Player's browser</text>
+    <text x="156" y="269" text-anchor="middle" font-size="23">Frontend, API</text>
+    <text x="156" y="307" text-anchor="middle" font-size="23">and WebSockets</text>
+    <path d="M292 260 H382" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="338" y="236" text-anchor="middle" font-size="21" fill="#526177">HTTPS</text>
+    <rect x="398" y="124" width="348" height="266" rx="12" fill="#f8fafc" stroke="#9eb2c9"/>
+    <text x="572" y="162" text-anchor="middle" font-size="21" fill="#526177">Managed by the school</text>
+    <text x="572" y="212" text-anchor="middle" font-size="25" font-weight="700">Reverse proxy</text>
+    <text x="572" y="249" text-anchor="middle" font-size="22">HTTPS and request routing</text>
+    <path d="M572 265 V289" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <rect x="430" y="301" width="284" height="62" rx="8" fill="#fff6df" stroke="#b28126"/>
+    <text x="572" y="339" text-anchor="middle" font-size="23">School login via Authentik</text>
+    <path d="M750 260 H841" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="795" y="236" text-anchor="middle" font-size="21" fill="#526177">HTTP</text>
+    <text x="795" y="294" text-anchor="middle" font-size="20" fill="#526177">port 8080</text>
+    <rect x="856" y="180" width="320" height="158" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+    <text x="1016" y="225" text-anchor="middle" font-size="25" font-weight="700" fill="#237d70">Your production LXC</text>
+    <text x="1016" y="269" text-anchor="middle" font-size="23">Your Compose services</text>
+    <text x="1016" y="307" text-anchor="middle" font-size="23">One published HTTP port</text>
+    <text x="600" y="435" text-anchor="middle" font-size="21" fill="#526177">Multiple internal containers are fine. The browser uses one public origin.</text>
+  </g>
+</svg>

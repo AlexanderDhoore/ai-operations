@@ -61,6 +61,7 @@ understand what you built?**
 - [09 — Add an AI chat to your game](09-add-an-ai-chat-to-your-game.md)
 - [10 — Give your game assistant tools](10-give-your-game-assistant-tools.md)
 - [11 — Give your assistant document lookup](11-let-your-game-assistant-look-up-documents.md)
+- [12 — Deploy your game](12-deploy-your-game.md)
 
 Later assignments will appear here when their requirements are introduced in
 class.
