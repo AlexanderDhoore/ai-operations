@@ -1,0 +1,226 @@
+# 13 — Automate your deployment
+
+<img src="assets/moods/13-deployment-loop.svg" alt="Two arrows connecting a code window and a game server" align="right" width="112">
+
+In [Assignment 12](12-deploy-your-game.md), you deployed your game manually.
+Now let **GitHub Actions** do that work whenever you push to `main`. You will
+finish by publishing a visible change and watching it reach your public game.
+
+Keep the working Dockerfiles, Compose configuration and production server.
+Build images on that server during deployment. We do not need an image registry,
+and a short interruption while containers are replaced is fine.
+
+## From a push to a running game
+
+**Continuous deployment (CD)** automatically deploys changes. **Continuous
+integration (CI)** checks changes through tasks such as building and testing.
+This assignment introduces deployment. Later, we will add tests and pull-request
+requirements so bad changes do not go straight into production.
+
+A **workflow** is a YAML file in `.github/workflows/`. An event, such as a push,
+triggers it. It contains **jobs**, each made of **steps**. A **runner** is the
+machine and agent software that execute those steps. Steps can run shell commands
+or reusable actions, such as checking out a repository.
+
+[![A development push triggers GitHub Actions. GitHub assigns the deployment job to a self-hosted runner on production, which checks out code, builds images and updates the game. Logs return to GitHub.](assets/13-deployment-workflow.svg)](assets/13-deployment-workflow.svg)
+
+We use a **self-hosted runner on your production LXC**, registered to your private
+game repository. GitHub coordinates the job, but the build and Docker commands
+run on your server. The runner connects outward to GitHub, so this does not
+require a new public SSH port. Later tests will use GitHub-hosted runners.
+
+## Prepare data and configuration for automation
+
+The runner will check out code into its own workspace, separate from the clone
+you used manually. Do not depend on files left in that workspace. It can be
+recreated, and [actions/checkout](https://github.com/actions/checkout) normally
+cleans untracked and ignored files, including a local `.env` or `./data` folder.
+Even when the path stays the same, its contents are not permanent storage.
+
+On **development**, review the deployment with your coding agent:
+
+> Prepare our Compose deployment to run from a GitHub Actions runner's checkout.
+> Explain where code, configuration and any persistent data belong. Keep our
+> existing production data and Compose project identity. Identify any bind mounts
+> that depend on the current repository path before changing anything.
+
+Choose storage according to your game:
+
+| Need | Suitable choice |
+| --- | --- |
+| Matches may reset and there is nothing to save | No persistent storage required. |
+| Docker should manage saved application files | A named volume, such as `game-data:/app/data`. |
+| You need a particular directory on the server | A bind mount with a stable absolute path outside the repository, such as `/srv/my-game/data:/app/data`. |
+
+The paths are examples. Use your application's actual data directory. Named
+volumes must also be declared in Compose's top-level `volumes` section. For a
+bind mount, create the host directory and set permissions for the user inside
+the application container. Neither choice automatically provides backups.
+See Docker's [volumes](https://docs.docker.com/engine/storage/volumes/) and
+[bind mounts](https://docs.docker.com/engine/storage/bind-mounts/) guides.
+
+[![The runner workspace holds replaceable code and build files. Application data stays in a named volume or a stable host directory outside the checkout. Actions supplies configuration at deployment time.](assets/13-code-config-data.svg)](assets/13-code-config-data.svg)
+
+Keep code and static game documentation in the image. If you already have saved
+data in a repository-relative folder, plan its transfer with your agent before
+switching mounts. A new empty volume does not import existing data automatically.
+
+Also preserve the **Compose project name**, which groups its containers, networks
+and volumes. On **production**, run `docker compose ls` and note the exact name
+of your existing game. Compose otherwise derives it from the directory name,
+which can differ in the runner. We will supply this name explicitly. Do not
+delete volumes or run `down -v` during deployment.
+
+## Register a production runner
+
+On **GitHub**, open your game repository's **Settings → Actions → Runners →
+New self-hosted runner**. Select **Linux / x64** for the supplied production LXC.
+GitHub displays current download and registration commands, including a temporary
+registration token. Keep that token out of chat, screenshots and Git.
+
+First, in your **production root SSH terminal**, create a dedicated runner account:
+
+```bash
+useradd --create-home --shell /bin/bash actions-runner
+usermod -aG docker actions-runner
+su - actions-runner
+```
+
+This is a first-time setup. If the account already exists, reuse it with your
+agent's help. Your shell now runs as `actions-runner` in its home directory.
+Docker group membership lets this account deploy, but also grants powerful,
+root-level control through Docker. Keep the repository private and run only
+trusted deployment workflows here. See Docker's [Linux permissions guide](https://docs.docker.com/engine/install/linux-postinstall/).
+Check that `docker ps` and `docker compose version` work in this account before
+continuing.
+
+In that **runner-account shell**, follow GitHub's **Download** and **Configure**
+commands. Use the suggested `actions-runner` installation folder, giving
+`/home/actions-runner/actions-runner`. During configuration, accept the default
+runner group and work folder, choose a recognizable runner name, and add the
+custom label **`production`**. The workflow will use that label.
+
+If configuration reports missing system libraries, have your agent follow the
+installer's dependency instructions as root, then retry registration as
+`actions-runner`.
+
+Do not leave `./run.sh` running in a terminal. After registration, return to
+your root shell with `exit`, then install and start the service:
+
+```bash
+cd /home/actions-runner/actions-runner
+./svc.sh install actions-runner
+./svc.sh start
+./svc.sh status
+```
+
+The service keeps the runner available after logout and starts it at boot.
+Check that GitHub lists it as **Idle**, with the `production` label. Installation
+details are in GitHub's [runner setup](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/add-runners)
+and [service guide](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/configure-the-application).
+
+## Supply deployment secrets
+
+On **GitHub**, open **Settings → Secrets and variables → Actions**. In the
+**Secrets** tab, add a repository secret named `VIVES_LLM_API_KEY`, using your
+production key. Adapt this and the workflow below to your game's existing names.
+Add any other required private settings the same way.
+
+In the **Variables** tab, add `COMPOSE_PROJECT_NAME` with the exact existing
+project name you noted on production. Ordinary settings, such as a public URL,
+can also be variables. Secrets are for sensitive values.
+
+The workflow passes these values to the Compose process. Your existing Compose
+`environment` mappings then pass the appropriate values to the application.
+There is no need to copy `.env` into the runner workspace. Keep `.env.example`
+as the list of required settings, and map every required setting in the workflow.
+GitHub does not automatically turn all repository secrets into environment variables.
+
+Never print secrets or the fully resolved Compose configuration in workflow logs.
+GitHub masks registered secrets, but masking is not a reason to log them.
+See [using secrets in GitHub Actions](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets).
+
+## Build your deployment workflow
+
+On **development**, ask your coding agent to create
+`.github/workflows/deploy.yml` using this starting point. Review and adapt it
+to your game before committing:
+
+```yaml
+name: Deploy game
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-deployment
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: [self-hosted, linux, x64, production]
+    timeout-minutes: 20
+    env:
+      COMPOSE_PROJECT_NAME: ${{ vars.COMPOSE_PROJECT_NAME }}
+    steps:
+      - name: Check out this commit
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Build and deploy
+        env:
+          VIVES_LLM_API_KEY: ${{ secrets.VIVES_LLM_API_KEY }}
+        run: |
+          : "${COMPOSE_PROJECT_NAME:?Set the COMPOSE_PROJECT_NAME repository variable}"
+          docker compose up -d --build --wait --wait-timeout 120
+          docker compose ps
+```
+
+The push trigger runs on `main`. `workflow_dispatch` adds a manual **Run workflow**
+button once the workflow is on the default branch. The job's `if` also prevents
+a manual run on another branch from deploying. Checkout retrieves the commit
+that triggered the run, using the job's GitHub token rather than your personal
+token from Assignment 12.
+
+`concurrency` prevents overlapping deployments without cancelling the active
+deployment. If several pushes arrive, a newer pending run can replace an older
+pending one. See GitHub's [concurrency guide](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-workflow-concurrency).
+
+Compose builds before replacing the changed containers, preserving their mounted
+data. `--wait` waits for services to be running, or healthy when they have health
+checks, with a 120-second limit. That still does not prove gameplay works. See
+the [Compose up reference](https://docs.docker.com/reference/cli/docker/compose/up/).
+
+The example assumes `compose.yaml` is at the repository root. Have your agent
+adjust the working directory, configuration and startup checks if your game
+needs it. Preserve the port 8080 mapping and `restart: always` settings from 12.
+
+## Follow a deployment and publish a change
+
+Commit and push the reviewed workflow to `main`. In your repository's **Actions**
+tab, open **Deploy game**, select the run and open its job. Expand the steps to
+see checkout, image build and deployment output. Read the logs even when the run
+succeeds. If it remains queued, check the runner is online and its labels match.
+If it fails, inspect the first failing step with your agent without sharing keys.
+
+Open your public game URL and play. Confirm that the existing application was
+updated and any saved data is still present. Once Actions owns deployment, avoid
+also deploying manually from the old production clone with potentially stale code.
+
+Now make a small, recognizable change on **development**, such as a heading or
+button color. Try it, review it, commit and push to `main`. Follow the new run,
+compare its commit with your push, then reload the public game and find the change.
+You should not need to SSH into production to deploy it.
+
+With your agent, document the workflow, required secret/variable names and storage
+choice in your project. Update the project memory. Be able to explain where the
+job runs, where its configuration comes from and how you know the new version is
+live. We now deploy automatically, but do not yet test automatically. That is
+the next improvement.

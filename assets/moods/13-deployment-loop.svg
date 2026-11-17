@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-labelledby="title">
+  <title id="title">Two arrows connecting a code window and a game server</title>
+  <path d="M25 77C22 38 66 17 107 24S182 55 179 105 143 179 96 177 17 127 25 77Z" fill="#eaf0ff"/>
+  <g stroke="#29364d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="21" y="48" width="83" height="68" rx="9" fill="#fff9e9"/>
+    <path d="M21 67H104" fill="none"/>
+    <path d="M45 80L35 90 45 100M78 80L88 90 78 100" fill="none" stroke="#6b93c8"/>
+    <path d="M67 78L56 103" fill="none" stroke="#6b93c8"/>
+    <rect x="113" y="88" width="66" height="76" rx="9" fill="#b9e2d6"/>
+    <path d="M113 126H179M124 108H147M124 146H147" fill="none"/>
+    <circle cx="165" cy="107" r="4" fill="#e89b55" stroke="none"/>
+    <circle cx="165" cy="145" r="4" fill="#fff9e9" stroke="none"/>
+    <path d="M112 40Q153 35 159 70M147 62L160 73 170 58" fill="none" stroke="#d18e3e"/>
+    <path d="M99 158Q57 174 45 136M35 148L44 133 59 141" fill="none" stroke="#5f9f92"/>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-labelledby="title desc">
+  <title id="title">GitHub coordinates, your server deploys</title>
+  <desc id="desc">A push from development to main triggers a workflow on GitHub. The production LXC's self-hosted runner receives the job, checks out the commit, builds images and updates the game using Compose. Job logs return to GitHub.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#526177" stroke-width="1.7"/></marker></defs>
+  <rect width="1200" height="480" fill="white"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#172033">
+    <text x="600" y="40" text-anchor="middle" font-size="30" font-weight="700">GitHub coordinates, your server deploys</text>
+    <text x="600" y="77" text-anchor="middle" font-size="21" fill="#526177">The deployment job runs on your production LXC.</text>
+    <rect x="24" y="180" width="260" height="158" rx="12" fill="#eaf4ff" stroke="#2563a5"/>
+    <text x="154" y="224" text-anchor="middle" font-size="25" font-weight="700" fill="#2563a5">Development</text>
+    <text x="154" y="267" text-anchor="middle" font-size="23">Review a change</text>
+    <text x="154" y="304" text-anchor="middle" font-size="23">Commit and push</text>
+    <path d="M288 260 H374" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="331" y="237" text-anchor="middle" font-size="20" fill="#526177">main</text>
+    <rect x="390" y="180" width="290" height="158" rx="12" fill="#f8fafc" stroke="#9eb2c9"/>
+    <text x="535" y="224" text-anchor="middle" font-size="25" font-weight="700">GitHub Actions</text>
+    <text x="535" y="267" text-anchor="middle" font-size="23">Trigger the workflow</text>
+    <text x="535" y="304" text-anchor="middle" font-size="23">Assign the job</text>
+    <path d="M684 260 H774" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="729" y="237" text-anchor="middle" font-size="20" fill="#526177">job</text>
+    <rect x="790" y="115" width="386" height="305" rx="12" fill="#e8f4ef" stroke="#237d70"/>
+    <text x="983" y="154" text-anchor="middle" font-size="25" font-weight="700" fill="#237d70">Production LXC</text>
+    <text x="983" y="202" text-anchor="middle" font-size="24" font-weight="700">Self-hosted runner</text>
+    <text x="983" y="241" text-anchor="middle" font-size="22">1. Check out the commit</text>
+    <text x="983" y="278" text-anchor="middle" font-size="22">2. Build Docker images</text>
+    <text x="983" y="315" text-anchor="middle" font-size="22">3. Update with Compose</text>
+    <rect x="827" y="343" width="312" height="53" rx="8" fill="white" stroke="#237d70"/>
+    <text x="983" y="377" text-anchor="middle" font-size="23" fill="#237d70">Your running game</text>
+    <path d="M786 370 H535 V344" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="658" y="402" text-anchor="middle" font-size="20" fill="#526177">Job status and logs</text>
+    <text x="600" y="459" text-anchor="middle" font-size="21" fill="#526177">The runner connects out to GitHub. No new public port is needed.</text>
+  </g>
+</svg>
