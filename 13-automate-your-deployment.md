@@ -89,7 +89,7 @@ on this runner, not pull requests from untrusted contributors.
 On **GitHub**, open your game repository's **Settings → Actions → Runners** and
 click **New self-hosted runner**.
 
-<a href="assets/13-new-self-hosted-runner.png"><img src="assets/13-new-self-hosted-runner.png" alt="GitHub's New self-hosted runner button" width="215"></a>
+<a href="assets/13-new-self-hosted-runner.png"><img src="assets/screenshots/13-new-self-hosted-runner.png" alt="GitHub's New self-hosted runner button" width="255"></a>
 
 Select **Linux / x64** for the supplied production LXC. GitHub displays the
 current download and registration commands. The registration command contains
@@ -133,12 +133,12 @@ cd /root/actions-runner
 ```
 
 The service keeps the runner available after logout and starts it at boot.
+<a href="assets/13-runner-online.png"><img src="assets/screenshots/13-runner-online.png" alt="GitHub Runners settings showing ai-operations-prod-01 with the default self-hosted, Linux and X64 labels and a green status dot" align="right" width="400"></a>
+
 Check that its status is **active (running)**. Then return to your repository's
 **Settings → Actions → Runners** on GitHub. Find your runner and confirm it is
 online and **Idle**, ready to accept a job. GitHub may display a green status
 dot instead of the word Idle. Your runner name may differ from the example below.
-
-<a href="assets/13-runner-online.png"><img src="assets/13-runner-online.png" alt="GitHub Runners settings showing ai-operations-prod-01 with the default self-hosted, Linux and X64 labels and a green status dot" width="637"></a>
 
 If startup fails, start with `./svc.sh status`.
 Additional runner diagnostics are in `_diag/`. Do not start another runner
