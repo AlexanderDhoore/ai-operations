@@ -210,7 +210,7 @@ in the browser and backend logs with your agent if something breaks.
 To narrow down a problem, first run `curl -i http://localhost:8080` in the
 **production server's** terminal and inspect `docker compose ps` and the logs.
 Then try the public URL in your browser. If the local service responds but the
-public route fails, report the URL and error to the teacher; the school manages
+public route fails, report the URL and error to the teacher. The school manages
 the proxy and login configuration. If the page loads
 but gameplay fails, inspect the browser's API/WebSocket requests and backend logs.
 
