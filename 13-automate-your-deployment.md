@@ -133,7 +133,13 @@ cd /root/actions-runner
 ```
 
 The service keeps the runner available after logout and starts it at boot.
-Check that its status is **active (running)** and GitHub lists it as **Idle**.
+Check that its status is **active (running)**. Then return to your repository's
+**Settings → Actions → Runners** on GitHub. Find your runner and confirm it is
+online and **Idle**, ready to accept a job. GitHub may display a green status
+dot instead of the word Idle. Your runner name may differ from the example below.
+
+<a href="assets/13-runner-online.png"><img src="assets/13-runner-online.png" alt="GitHub Runners settings showing ai-operations-prod-01 with the default self-hosted, Linux and X64 labels and a green status dot" width="637"></a>
+
 If startup fails, start with `./svc.sh status`.
 Additional runner diagnostics are in `_diag/`. Do not start another runner
 manually alongside the service.
