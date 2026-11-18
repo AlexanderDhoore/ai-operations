@@ -156,6 +156,8 @@ your game repository, with **Contents: Read-only** and the automatically include
 metadata access. Production only needs to clone the code for this assignment.
 Follow the same private token-entry procedure and `gh auth setup-git` step.
 
+<a href="assets/12-production-token-permissions.png"><img src="assets/screenshots/12-production-token-permissions.png" alt="Production GitHub token permissions with Contents and required Metadata both set to Read-only" width="760"></a>
+
 Clone the repository on **production**:
 
 ```text
@@ -189,6 +191,15 @@ Keep coding on development and transfer reviewed changes through GitHub.
 Production should run that committed version, rather than accumulating its
 own uncommitted code fixes.
 
+Check `hostname` to confirm this is production. For a compact service overview,
+you can also run:
+
+```bash
+docker compose ps --format "table {{.Service}}\t{{.Status}}\t{{.Ports}}"
+```
+
+<a href="assets/12-production-compose-status.png"><img src="assets/screenshots/12-production-compose-status.png" alt="The ai-operations-prod-01 hostname and a running game service publishing host port 8080" width="760"></a>
+
 ## Open your game to your classmates
 
 Your public address is **`https://ai-operations-XX.devbitapp.be`**, with your
@@ -206,6 +217,8 @@ Open the public URL, sign in and ask a classmate to join. Play together and try
 the AI features. Browser requests must stay on the public HTTPS origin, including
 secure WebSocket connections if your game uses them. Inspect failed requests
 in the browser and backend logs with your agent if something breaks.
+
+<a href="assets/12-public-game.png"><img src="assets/screenshots/12-public-game.png" alt="Collect the stars running through ai-operations-01.devbitapp.be in the browser" width="600"></a>
 
 To narrow down a problem, first run `curl -i http://localhost:8080` in the
 **production server's** terminal and inspect `docker compose ps` and the logs.
