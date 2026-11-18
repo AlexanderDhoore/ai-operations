@@ -154,6 +154,8 @@ On **GitHub**, open **Settings → Secrets and variables → Actions**. In the
 production key. Adapt this and the workflow below to your game's existing names.
 Add any other required private settings the same way.
 
+<a href="assets/13-repository-secret.png"><img src="assets/screenshots/13-repository-secret.png" alt="GitHub repository secrets listing VIVES_LLM_API_KEY without revealing its value" width="652"></a>
+
 In the **Variables** tab, add `COMPOSE_PROJECT_NAME` with the exact existing
 project name you noted on production. Ordinary settings, such as a public URL,
 can also be variables. Secrets are for sensitive values.
