@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 490" role="img" aria-labelledby="title desc">
   <title id="title">Replace code, preserve the data you need</title>
-  <desc id="desc">The runner checkout contains replaceable source code and build instructions. Compose builds images from that code and receives configuration through Actions secrets and variables. If the game needs persistent files, containers mount either named Docker volumes or stable host directories outside the checkout. Games without persistent data need neither.</desc>
+  <desc id="desc">The runner checkout contains replaceable source code, Compose configuration and build instructions. Compose builds images from that code and receives sensitive configuration through Actions secrets. If the game needs persistent files, containers mount either named Docker volumes or stable host directories outside the checkout. Games without persistent data need neither.</desc>
   <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#526177" stroke-width="1.7"/></marker></defs>
   <rect width="1200" height="490" fill="white"/>
   <g font-family="Arial, Helvetica, sans-serif" fill="#172033">
@@ -18,8 +18,8 @@
     <text x="652" y="236" text-anchor="middle" font-size="22">Read runtime configuration</text>
     <rect x="903" y="120" width="273" height="140" rx="12" fill="#fff6df" stroke="#b28126"/>
     <text x="1039" y="159" text-anchor="middle" font-size="25" font-weight="700">Configuration</text>
-    <text x="1039" y="200" text-anchor="middle" font-size="22">Actions secrets</text>
-    <text x="1039" y="236" text-anchor="middle" font-size="22">and variables</text>
+    <text x="1039" y="200" text-anchor="middle" font-size="22">Settings in Compose</text>
+    <text x="1039" y="236" text-anchor="middle" font-size="22">Secrets from Actions</text>
     <path d="M899 190 H814" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>
     <text x="855" y="169" text-anchor="middle" font-size="20" fill="#526177">supply</text>
     <path d="M652 266 V312" fill="none" stroke="#526177" stroke-width="2.5" marker-end="url(#arrow)"/>

@@ -66,7 +66,7 @@ the application container. Neither choice automatically provides backups.
 See Docker's [volumes](https://docs.docker.com/engine/storage/volumes/) and
 [bind mounts](https://docs.docker.com/engine/storage/bind-mounts/) guides.
 
-[![The runner workspace holds replaceable code and build files. Application data stays in a named volume or a stable host directory outside the checkout. Actions supplies configuration at deployment time.](assets/13-code-config-data.svg)](assets/13-code-config-data.svg)
+[![The runner workspace holds replaceable code, Compose configuration and build files. Application data stays in a named volume or a stable host directory outside the checkout. Actions supplies secrets at deployment time.](assets/13-code-config-data.svg)](assets/13-code-config-data.svg)
 
 Keep code and static game documentation in the image. If you already have saved
 data in a repository-relative folder, plan its transfer with your agent before
@@ -74,9 +74,17 @@ switching mounts. A new empty volume does not import existing data automatically
 
 Also preserve the **Compose project name**, which groups its containers, networks
 and volumes. On **production**, run `docker compose ls` and note the exact name
-of your existing game. Compose otherwise derives it from the directory name,
-which can differ in the runner. We will supply this name explicitly. Do not
-delete volumes or run `down -v` during deployment.
+of your existing game. On **development**, set that exact name in the top-level
+`name` field of `compose.yaml`, alongside `services`:
+
+```yaml
+name: amazingbrowsergame
+```
+
+Replace this example with your own existing project name. Commit it with your
+deployment changes so manual deployments and the runner use the same name,
+regardless of the checkout directory. Keep this ordinary configuration in Git.
+Do not delete volumes or run `down -v` during deployment.
 
 ## Register a production runner
 
@@ -156,11 +164,7 @@ Add any other required private settings the same way.
 
 <a href="assets/13-repository-secret.png"><img src="assets/screenshots/13-repository-secret.png" alt="GitHub repository secrets listing VIVES_LLM_API_KEY without revealing its value" width="652"></a>
 
-In the **Variables** tab, add `COMPOSE_PROJECT_NAME` with the exact existing
-project name you noted on production. Ordinary settings, such as a public URL,
-can also be variables. Secrets are for sensitive values.
-
-The workflow passes these values to the Compose process. Your existing Compose
+The workflow passes secrets to the Compose process. Your existing Compose
 `environment` mappings then pass the appropriate values to the application.
 There is no need to copy `.env` into the runner workspace. Keep `.env.example`
 as the list of required settings, and map every required setting in the workflow.
@@ -196,8 +200,6 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: self-hosted
     timeout-minutes: 20
-    env:
-      COMPOSE_PROJECT_NAME: ${{ vars.COMPOSE_PROJECT_NAME }}
     steps:
       - name: Check out this commit
         uses: actions/checkout@v6
@@ -208,7 +210,6 @@ jobs:
         env:
           VIVES_LLM_API_KEY: ${{ secrets.VIVES_LLM_API_KEY }}
         run: |
-          : "${COMPOSE_PROJECT_NAME:?Set the COMPOSE_PROJECT_NAME repository variable}"
           docker compose up -d --build --wait --wait-timeout 120
           docker compose ps
 ```
@@ -282,7 +283,7 @@ button color. Try it, review it, commit and push to `main`. Follow the new run,
 compare its commit with your push, then reload the public game and find the change.
 You should not need to SSH into production to deploy it.
 
-With your agent, document the workflow, required secret/variable names and storage
+With your agent, document the workflow, required secret names and storage
 choice in your project. Update the project memory. Be able to explain where the
 job runs, where its configuration comes from and how you know the new version is
 live. We now deploy automatically, but do not yet test automatically. That is
