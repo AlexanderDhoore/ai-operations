@@ -272,10 +272,17 @@ After it finishes, use `gh run view RUN_ID --log` for the full log, or
 Use the browser for live progress. [`gh run watch`](https://cli.github.com/manual/gh_run_watch)
 does not currently support our fine-grained tokens.
 
+If `gh run view` reports a `403` specifically for **check annotations**, it may
+still retrieve the run and workflow logs. Check those results separately. This
+token limitation does not itself mean deployment failed, and does not require
+a broader token.
+
 > Find the deployment for the commit I just pushed. Check its result and read
 > the logs with GitHub CLI. Explain what happened. If it failed, propose a fix
 > on development before changing anything. Do not connect to production or
 > print credentials.
+
+<a href="assets/13-agent-deployment-review.png"><img src="assets/screenshots/13-agent-deployment-review.png" alt="Qwen matches the pushed commit to a successful deployment and explains the checkout and build steps from the workflow logs" width="800"></a>
 
 These are **workflow logs**, not a continuous feed of your application's logs.
 If deployment succeeds but gameplay fails, inspect the browser requests and,
@@ -288,6 +295,8 @@ Now make a small, recognizable change on **development**, such as a heading or
 button color. Try it, review it, commit and push to `main`. Follow the new run,
 compare its commit with your push, then reload the public game and find the change.
 You should not need to SSH into production to deploy it.
+
+<a href="assets/13-visible-change-deployment.png"><img src="assets/screenshots/13-visible-change-deployment.png" alt="Qwen reports that the heading change deployed successfully and Compose recreated the game container" width="800"></a>
 
 With your agent, document the workflow, required secret names and storage
 choice in your project. Update the project memory. Be able to explain where the
