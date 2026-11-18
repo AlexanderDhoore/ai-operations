@@ -236,6 +236,8 @@ needs it. Preserve the port 8080 mapping and `restart: always` settings from 12.
 
 ## Follow a deployment and publish a change
 
+<a href="assets/13-deployment-success.png"><img src="assets/screenshots/13-deployment-success.png" alt="GitHub Actions run summary showing a successful Deploy game workflow triggered by a push to main, with the deploy job completed" align="right" width="400"></a>
+
 Commit and push the reviewed workflow to `main`. On **GitHub**:
 
 1. Open your repository's **Actions** tab and select **Deploy game**.
