@@ -301,7 +301,7 @@ button color. Try it, review it, commit and push to `main`. Follow the new run,
 compare its commit with your push, then reload the public game and find the change.
 You should not need to SSH into production to deploy it.
 
-<a href="assets/13-public-game-updated.png"><img src="assets/screenshots/13-public-game-updated.png" alt="The public game at ai-operations-01.devbitapp.be showing the new heading Collect the stars, automatically deployed" align="right" width="400"></a>
+<a href="assets/13-public-game-updated.png"><img src="assets/screenshots/13-public-game-updated.png" alt="The public game at ai-operations-01.devbitapp.be showing the new heading Collect the stars, automatically deployed" width="747"></a>
 
 With your agent, document the workflow, required secret names and storage
 choice in your project. Update the project memory. Be able to explain where the
