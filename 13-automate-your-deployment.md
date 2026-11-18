@@ -141,12 +141,13 @@ cd /root/actions-runner
 ```
 
 The service keeps the runner available after logout and starts it at boot.
+
 <a href="assets/13-runner-online.png"><img src="assets/screenshots/13-runner-online.png" alt="GitHub Runners settings showing ai-operations-prod-01 with the default self-hosted, Linux and X64 labels and a green status dot" align="right" width="400"></a>
 
 Check that its status is **active (running)**. Then return to your repository's
 **Settings → Actions → Runners** on GitHub. Find your runner and confirm it is
 online and **Idle**, ready to accept a job. GitHub may display a green status
-dot instead of the word Idle. Your runner name may differ from the example below.
+dot instead of the word Idle. Your runner name may differ from the screenshot.
 
 If startup fails, start with `./svc.sh status`.
 Additional runner diagnostics are in `_diag/`. Do not start another runner
@@ -251,6 +252,10 @@ If it fails, start with the first failing step rather than the final summary.
 Open your public game URL and play. Confirm that the game still works and any
 saved data is still present. Once Actions owns deployment, avoid also deploying
 manually from the old production clone with potentially stale code.
+
+If the image and service configuration are unchanged, Compose may keep the
+existing container running. That is expected. The visible change below will
+exercise deploying an updated image.
 
 ## Let your agent inspect the deployment
 
