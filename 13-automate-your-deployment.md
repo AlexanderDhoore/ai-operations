@@ -234,7 +234,7 @@ The example assumes `compose.yaml` is at the repository root. Have your agent
 adjust the working directory, configuration and startup checks if your game
 needs it. Preserve the port 8080 mapping and `restart: always` settings from 12.
 
-## Follow a deployment and publish a change
+## Follow your first deployment
 
 <a href="assets/13-deployment-success.png"><img src="assets/screenshots/13-deployment-success.png" alt="GitHub Actions run summary showing a successful Deploy game workflow triggered by a push to main, with the deploy job completed" align="right" width="400"></a>
 
@@ -247,6 +247,12 @@ Commit and push the reviewed workflow to `main`. On **GitHub**:
 
 If the run remains queued, check the runner is online in this repository's settings.
 If it fails, start with the first failing step rather than the final summary.
+
+Open your public game URL and play. Confirm that the game still works and any
+saved data is still present. Once Actions owns deployment, avoid also deploying
+manually from the old production clone with potentially stale code.
+
+## Let your agent inspect the deployment
 
 Your development agent can help through the GitHub CLI login from
 [Assignment 04](04-put-your-game-on-github.md). That token's **Actions: Read and write**
@@ -276,9 +282,7 @@ If deployment succeeds but gameplay fails, inspect the browser requests and,
 when needed, read the application's Docker logs yourself on production.
 See the [GitHub CLI run reference](https://cli.github.com/manual/gh_run_view).
 
-Open your public game URL and play. Confirm that the existing application was
-updated and any saved data is still present. Once Actions owns deployment, avoid
-also deploying manually from the old production clone with potentially stale code.
+## Publish a visible change
 
 Now make a small, recognizable change on **development**, such as a heading or
 button color. Try it, review it, commit and push to `main`. Follow the new run,
