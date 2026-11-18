@@ -115,8 +115,8 @@ export RUNNER_ALLOW_RUNASROOT=1
 
 Now run the **`./config.sh` registration command** from GitHub. Accept the default
 runner group and work folder, and choose a recognizable runner name. At the
-additional-labels prompt, type **`production`** and press Enter. The default
-labels are already included. Our workflow will require the extra label.
+additional-labels prompt, press Enter to skip. We only need one runner for this
+repository, so no custom labels are needed.
 
 If configuration reports missing system libraries, follow its dependency
 installation instructions as root, then retry the registration command. Your
@@ -133,8 +133,8 @@ cd /root/actions-runner
 ```
 
 The service keeps the runner available after logout and starts it at boot.
-Check that its status is **active (running)** and GitHub lists it as **Idle**,
-with the `production` label. If startup fails, start with `./svc.sh status`.
+Check that its status is **active (running)** and GitHub lists it as **Idle**.
+If startup fails, start with `./svc.sh status`.
 Additional runner diagnostics are in `_diag/`. Do not start another runner
 manually alongside the service.
 
@@ -186,7 +186,7 @@ concurrency:
 jobs:
   deploy:
     if: github.ref == 'refs/heads/main'
-    runs-on: [self-hosted, linux, x64, production]
+    runs-on: self-hosted
     timeout-minutes: 20
     env:
       COMPOSE_PROJECT_NAME: ${{ vars.COMPOSE_PROJECT_NAME }}
@@ -234,7 +234,7 @@ Commit and push the reviewed workflow to `main`. On **GitHub**:
 3. Open the **deploy** job. Expand **Check out this commit** and **Build and deploy**
    to read the checkout, image build and Compose output, even when they succeed.
 
-If the run remains queued, check the runner is online and its labels match.
+If the run remains queued, check the runner is online in this repository's settings.
 If it fails, start with the first failing step rather than the final summary.
 
 Your development agent can help through the GitHub CLI login from
