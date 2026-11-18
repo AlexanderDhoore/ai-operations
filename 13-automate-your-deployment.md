@@ -29,6 +29,12 @@ game repository. GitHub coordinates the job, but the build and Docker commands
 run on your server. The runner connects outward to GitHub, so this does not
 require a new public SSH port. Later tests will use GitHub-hosted runners.
 
+Keep your coding agent on **development**. You perform the production setup
+below in your own SSH terminal, with the agent helping explain commands when
+needed. It can inspect deployment results through GitHub without production SSH.
+However, permission to push code or edit workflows still gives it indirect control
+over production. Review changes before approving a push.
+
 ## Prepare data and configuration for automation
 
 The runner will check out code into its own workspace, separate from the clone
@@ -100,9 +106,9 @@ commands. Use the suggested `actions-runner` installation folder, giving
 runner group and work folder, choose a recognizable runner name, and add the
 custom label **`production`**. The workflow will use that label.
 
-If configuration reports missing system libraries, have your agent follow the
-installer's dependency instructions as root, then retry registration as
-`actions-runner`.
+If configuration reports missing system libraries, follow the installer's
+dependency instructions in your production root terminal, then retry registration
+as `actions-runner`. Your agent can help interpret the instructions.
 
 Do not leave `./run.sh` running in a terminal. After registration, return to
 your root shell with `exit`, then install and start the service:
@@ -204,11 +210,43 @@ needs it. Preserve the port 8080 mapping and `restart: always` settings from 12.
 
 ## Follow a deployment and publish a change
 
-Commit and push the reviewed workflow to `main`. In your repository's **Actions**
-tab, open **Deploy game**, select the run and open its job. Expand the steps to
-see checkout, image build and deployment output. Read the logs even when the run
-succeeds. If it remains queued, check the runner is online and its labels match.
-If it fails, inspect the first failing step with your agent without sharing keys.
+Commit and push the reviewed workflow to `main`. On **GitHub**:
+
+1. Open your repository's **Actions** tab and select **Deploy game**.
+2. Open the run for your pushed commit. Check its branch, commit and status.
+3. Open the **deploy** job. Expand **Check out this commit** and **Build and deploy**
+   to read the checkout, image build and Compose output, even when they succeed.
+
+If the run remains queued, check the runner is online and its labels match.
+If it fails, start with the first failing step rather than the final summary.
+
+Your development agent can help through the GitHub CLI login from
+[Assignment 04](04-put-your-game-on-github.md). That token's **Actions: Read and write**
+permission includes reading runs and logs. **Workflows: Read and write** allows
+pushing workflow changes. Do not copy the production token or create a broader
+token for this task.
+
+In your game's **development** terminal, list the runs:
+
+```bash
+gh run list --workflow deploy.yml --branch main --limit 5
+```
+
+Use the run ID from that list in `gh run view RUN_ID` to inspect its status.
+After it finishes, use `gh run view RUN_ID --log` for the full log, or
+`gh run view RUN_ID --log-failed` for failed steps. These commands show snapshots.
+Use the browser for live progress. [`gh run watch`](https://cli.github.com/manual/gh_run_watch)
+does not currently support our fine-grained tokens.
+
+> Find the deployment for the commit I just pushed. Check its result and read
+> the logs with GitHub CLI. Explain what happened. If it failed, propose a fix
+> on development before changing anything. Do not connect to production or
+> print credentials.
+
+These are **workflow logs**, not a continuous feed of your application's logs.
+If deployment succeeds but gameplay fails, inspect the browser requests and,
+when needed, read the application's Docker logs yourself on production.
+See the [GitHub CLI run reference](https://cli.github.com/manual/gh_run_view).
 
 Open your public game URL and play. Confirm that the existing application was
 updated and any saved data is still present. Once Actions owns deployment, avoid
