@@ -213,12 +213,12 @@ server**. Your containers do not need their own public certificates. School
 login protects this public route, not direct access to the backend's IP address,
 and it does not replace your game's own player/session logic.
 
+<a href="assets/12-public-game.png"><img src="assets/screenshots/12-public-game.png" alt="Collect the stars running through ai-operations-01.devbitapp.be in the browser" align="right" width="360"></a>
+
 Open the public URL, sign in and ask a classmate to join. Play together and try
 the AI features. Browser requests must stay on the public HTTPS origin, including
 secure WebSocket connections if your game uses them. Inspect failed requests
 in the browser and backend logs with your agent if something breaks.
-
-<a href="assets/12-public-game.png"><img src="assets/screenshots/12-public-game.png" alt="Collect the stars running through ai-operations-01.devbitapp.be in the browser" width="600"></a>
 
 To narrow down a problem, first run `curl -i http://localhost:8080` in the
 **production server's** terminal and inspect `docker compose ps` and the logs.
