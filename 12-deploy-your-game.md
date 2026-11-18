@@ -90,9 +90,11 @@ to the Compose command can provide the same values later in GitHub Actions.
 See Docker's [Compose variable guide](https://docs.docker.com/compose/how-tos/environment-variables/variable-interpolation/).
 
 Also decide what should survive a container being replaced. Saved accounts or
-scores may need a named [volume](https://docs.docker.com/engine/storage/volumes/).
-An in-memory match may intentionally reset. A volume preserves files, not a
-running process's memory. Do not add a database merely for this assignment.
+scores may need a named [volume](https://docs.docker.com/engine/storage/volumes/)
+or a [bind mount](https://docs.docker.com/engine/storage/bind-mounts/) to a stable
+directory outside the Git repository. If nothing needs saving, neither is
+required. An in-memory match may intentionally reset. Persistent storage preserves
+files, not a running process's memory. Do not add a database merely for this assignment.
 
 ## Run the containerized game
 
@@ -130,6 +132,10 @@ GitHub workflow. Confirm that `.env.example` is included and `.env` is not.
 The teacher supplies your production address and password privately. Your
 production server is named `ai-operations-prod-XX`, using your existing student
 number. Docker and Compose are already installed.
+
+Replace `XX`, `YOUR-PRODUCTION-IP` and the repository details in the examples
+with your assigned number, address and game repository. These are not literal
+hostnames or commands to copy unchanged.
 
 From your **laptop**, connect through the campus **devbit** network:
 
@@ -169,7 +175,8 @@ vi .env
 ```
 
 Fill in your actual values privately. You can also use VS Code's editor through
-Remote SSH. Supply the production website URL if your application needs one.
+Remote SSH. If your application needs its production website URL, use
+`https://ai-operations-XX.devbitapp.be` with your two-digit number.
 Then, from this same **production** folder:
 
 ```bash
@@ -203,7 +210,8 @@ in the browser and backend logs with your agent if something breaks.
 To narrow down a problem, first run `curl -i http://localhost:8080` in the
 **production server's** terminal and inspect `docker compose ps` and the logs.
 Then try the public URL in your browser. If the local service responds but the
-public route fails, inspect that route and its configuration. If the page loads
+public route fails, report the URL and error to the teacher; the school manages
+the proxy and login configuration. If the page loads
 but gameplay fails, inspect the browser's API/WebSocket requests and backend logs.
 
 Close your SSH session and check that the game remains available. To deliberately
@@ -230,7 +238,7 @@ Commit and push the change. In your **production project folder**, apply it:
 
 ```bash
 git pull --ff-only
-docker compose up -d
+docker compose up -d --build
 ```
 
 Check that the game works, then confirm you are on your assigned **production
