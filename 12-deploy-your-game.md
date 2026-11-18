@@ -149,14 +149,14 @@ follow [Assignment 03](03-develop-on-a-remote-server.md) to add this new machine
 to your own Tailscale network with `tailscale up --ssh`. You can then connect
 through its Tailscale name, including with VS Code Remote SSH.
 
+<a href="assets/12-production-token-permissions.png"><img src="assets/screenshots/12-production-token-permissions.png" alt="Production GitHub token permissions with Contents and required Metadata both set to Read-only" align="right" width="360"></a>
+
 On the **production server**, use the GitHub CLI authentication procedure from
 [Assignment 04](04-put-your-game-on-github.md#install-github-cli-and-authenticate-on-your-linux-server).
 Install `gh` if needed. Create a **separate fine-grained token** restricted to
 your game repository, with **Contents: Read-only** and the automatically included
 metadata access. Production only needs to clone the code for this assignment.
 Follow the same private token-entry procedure and `gh auth setup-git` step.
-
-<a href="assets/12-production-token-permissions.png"><img src="assets/screenshots/12-production-token-permissions.png" alt="Production GitHub token permissions with Contents and required Metadata both set to Read-only" width="760"></a>
 
 Clone the repository on **production**:
 
