@@ -33,7 +33,8 @@ Keep your coding agent on **development**. You perform the production setup
 below in your own SSH terminal, with the agent helping explain commands when
 needed. It can inspect deployment results through GitHub without production SSH.
 However, permission to push code or edit workflows still gives it indirect control
-over production. Review changes before approving a push.
+over production. Review changes before approving a push, including documentation
+or memory updates. Every push to `main` will trigger this deployment workflow.
 
 ## Prepare data and configuration for automation
 
@@ -79,50 +80,65 @@ delete volumes or run `down -v` during deployment.
 
 ## Register a production runner
 
-On **GitHub**, open your game repository's **Settings → Actions → Runners →
-New self-hosted runner**. Select **Linux / x64** for the supplied production LXC.
-GitHub displays current download and registration commands, including a temporary
-registration token. Keep that token out of chat, screenshots and Git.
+For this dedicated teaching LXC, run the runner as **root**, just like your
+manual deployment. No separate Linux account is needed. This gives workflows
+control over the whole LXC. Docker isolates the game containers, not the runner
+that manages them. Keep the repository private and only execute trusted workflows
+on this runner, not pull requests from untrusted contributors.
 
-First, in your **production root SSH terminal**, create a dedicated runner account:
+On **GitHub**, open your game repository's **Settings → Actions → Runners** and
+click **New self-hosted runner**.
+
+<a href="assets/13-new-self-hosted-runner.png"><img src="assets/13-new-self-hosted-runner.png" alt="GitHub's New self-hosted runner button" width="215"></a>
+
+Select **Linux / x64** for the supplied production LXC. GitHub displays the
+current download and registration commands. The registration command contains
+a temporary token. Paste it only into your production terminal, never into chat,
+screenshots or Git.
+
+In your **production root SSH terminal**, start from root's home directory:
 
 ```bash
-useradd --create-home --shell /bin/bash actions-runner
-usermod -aG docker actions-runner
-su - actions-runner
+cd /root
 ```
 
-This is a first-time setup. If the account already exists, reuse it with your
-agent's help. Your shell now runs as `actions-runner` in its home directory.
-Docker group membership lets this account deploy, but also grants powerful,
-root-level control through Docker. Keep the repository private and run only
-trusted deployment workflows here. See Docker's [Linux permissions guide](https://docs.docker.com/engine/install/linux-postinstall/).
-Check that `docker ps` and `docker compose version` work in this account before
-continuing.
+Follow GitHub's **Download** commands in order. They create and enter
+`actions-runner`, download the archive and extract it. Run the folder-creation
+step only once. Before continuing, `pwd` should show `/root/actions-runner`,
+where `config.sh` is now available.
 
-In that **runner-account shell**, follow GitHub's **Download** and **Configure**
-commands. Use the suggested `actions-runner` installation folder, giving
-`/home/actions-runner/actions-runner`. During configuration, accept the default
-runner group and work folder, choose a recognizable runner name, and add the
-custom label **`production`**. The workflow will use that label.
-
-If configuration reports missing system libraries, follow the installer's
-dependency instructions in your production root terminal, then retry registration
-as `actions-runner`. Your agent can help interpret the instructions.
-
-Do not leave `./run.sh` running in a terminal. After registration, return to
-your root shell with `exit`, then install and start the service:
+Allow configuration as root in this terminal:
 
 ```bash
-cd /home/actions-runner/actions-runner
-./svc.sh install actions-runner
+export RUNNER_ALLOW_RUNASROOT=1
+```
+
+Now run the **`./config.sh` registration command** from GitHub. Accept the default
+runner group and work folder, and choose a recognizable runner name. At the
+additional-labels prompt, type **`production`** and press Enter. The default
+labels are already included. Our workflow will require the extra label.
+
+If configuration reports missing system libraries, follow its dependency
+installation instructions as root, then retry the registration command. Your
+agent can help interpret errors without seeing the token.
+
+After registration, **skip GitHub's `./run.sh` command**. Install and start the
+background service instead, still as root:
+
+```bash
+cd /root/actions-runner
+./svc.sh install root
 ./svc.sh start
 ./svc.sh status
 ```
 
 The service keeps the runner available after logout and starts it at boot.
-Check that GitHub lists it as **Idle**, with the `production` label. Installation
-details are in GitHub's [runner setup](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/add-runners)
+Check that its status is **active (running)** and GitHub lists it as **Idle**,
+with the `production` label. If startup fails, start with `./svc.sh status`.
+Additional runner diagnostics are in `_diag/`. Do not start another runner
+manually alongside the service.
+
+Installation details are in GitHub's [runner setup](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/add-runners)
 and [service guide](https://docs.github.com/en/actions/how-tos/manage-runners/self-hosted-runners/configure-the-application).
 
 ## Supply deployment secrets
@@ -193,7 +209,8 @@ The push trigger runs on `main`. `workflow_dispatch` adds a manual **Run workflo
 button once the workflow is on the default branch. The job's `if` also prevents
 a manual run on another branch from deploying. Checkout retrieves the commit
 that triggered the run, using the job's GitHub token rather than your personal
-token from Assignment 12.
+token from Assignment 12. The workflow's `contents: read` permission is enough
+for checkout. Do not add your personal GitHub token as a deployment secret.
 
 `concurrency` prevents overlapping deployments without cancelling the active
 deployment. If several pushes arrive, a newer pending run can replace an older
