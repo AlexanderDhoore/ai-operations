@@ -21,10 +21,11 @@ separate browsers and affect a shared game state.
 
 An AI assistant can generate code and suggest commands, but you are the
 engineer responsible for the result. Be able to explain the application's
-architecture and your choices. Take one player action: what does the browser
-send, which backend modules handle it, and how does the player see the
-result? Use your architecture diagram and tests to show how you know it
-works. You do not need to memorize every line of code.
+architecture as a whole. Use your diagram to show what runs in the browser,
+what runs on the server, where game state lives, and how the AI assistant
+uses game data. Explain why you drew the module boundaries where you did
+and how your tests verify that the parts work together. You do not need
+to memorize every line of code.
 
 At the end of the semester, you will demonstrate your live game and defend
 your work in a conversation with the instructor. We should be able to inspect
@@ -57,10 +58,11 @@ understand what you built?**
 ### Deploy the game and test each change
 
 - [12 — Deploy your game](12-deploy-your-game.md)
-- [13 — Automate your deployment](13-automate-your-deployment.md)
+- [13 — CD: Automate your deployment](13-automate-your-deployment.md)
 - [14 — Test your backend](14-test-your-backend.md)
-- [15 — Continuous integration: test every pull request](15-test-every-pull-request.md)
+- [15 — CI: Test every pull request](15-test-every-pull-request.md)
 
 Assignment 15 is the final assignment. Use the remaining project time to
-finish your game and practise your demonstration. Pick a change from your
-repository and be ready to show what you tested and how it reached production.
+finish your game and practise your demonstration. Be ready to defend the
+architecture of your whole game, from how its components fit together to
+how you test and deploy the system.

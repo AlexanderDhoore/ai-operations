@@ -1,4 +1,4 @@
-# 13 — Automate your deployment
+# 13 — CD: Automate your deployment
 
 <img src="assets/moods/13-deployment-loop.svg" alt="Two arrows connecting a code window and a game server" align="right" width="112">
 
@@ -12,8 +12,11 @@ and a short interruption while containers are replaced is fine.
 
 ## From a push to a running game
 
-**Continuous deployment (CD)** automatically deploys changes. **Continuous
-integration (CI)** checks changes through tasks such as building and testing.
+With **continuous deployment (CD)**, a change that passes through your
+release workflow goes live without anyone logging in to deploy it by hand.
+Here, a push to `main` starts that workflow. **Continuous integration (CI)**
+answers a different question: when you bring changes together, do they still
+work? Automated builds and tests give you that feedback.
 Here you automate deployment first. In [Assignment 14](14-test-your-backend.md)
 you will write the backend tests. In [Assignment 15](15-test-every-pull-request.md)
 you will run them on pull requests and require a passing test job before deployment.

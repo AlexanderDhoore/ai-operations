@@ -1,4 +1,4 @@
-# 15 — Continuous integration: test every pull request
+# 15 — CI: Test every pull request
 
 <img src="assets/moods/15-checked-branch.svg" alt="A Git branch with a passing check" align="right" width="112">
 
@@ -279,6 +279,7 @@ Notice the `main` badge beside the commit and the line connecting the two
 green jobs. Unlike the earlier green PR, **this run deployed the game**.
 Open your public URL and verify the game works.
 
-This is the final assignment. Keep the PR, its test logs and the main run
-handy for your project demonstration: together they show which fault your
-suite caught, how you fixed it and which version reached your players.
+This is the final assignment. At your project demonstration, use your
+architecture diagram to explain the whole game. Your test suite and Actions
+runs support that explanation: they show which parts you verified together
+and how a tested version reaches your players.
