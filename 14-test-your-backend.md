@@ -165,39 +165,15 @@ illustrates this distinction.
 
 ### When should you replace a dependency?
 
-How would you test what your chat tells a player when the model times out?
-Waiting for the school cluster to fail is hardly a repeatable test. Instead,
-keep your chat code real and pass it a **test double** in place of the
-function that contacts the model. In the running game you pass the real
-function. In a test you choose what happens when the chat calls it.
+A **dependency** is something a module relies on, such as a clock, a
+database or a model service. In a unit test, keep the module itself real.
+Replace a dependency when using it would make the test slow or its outcome
+hard to control.
 
-```python
-from unittest.mock import Mock
-
-def answer(message, ask_model):
-    if not message.strip():
-        return "Enter a message."
-    try:
-        return ask_model(message)
-    except TimeoutError:
-        return "Please try again."
-
-def test_timeout_gives_the_player_a_retry_message():
-    slow_model = Mock(side_effect=TimeoutError())
-    assert answer("How do I play?", slow_model) == "Please try again."
-
-def test_blank_message_never_reaches_the_model():
-    model = Mock()
-    assert answer(" ", model) == "Enter a message."
-    model.assert_not_called()
-```
-
-The first double acts as a **stub**: it supplies a chosen outcome, here a
-timeout, and the test checks the result of the real `answer` function. The
-second acts as a **mock**: the test also checks an interaction. Even if the
-player sees the right message, contacting the model for blank input would
-still waste a request. Python's [Mock](https://docs.python.org/3/library/unittest.mock.html)
-can serve either role. Use the equivalent in your own language.
+A **stub** supplies an outcome: it can report a timeout so you can check
+what the player sees without waiting for the model service to fail. A
+**mock** lets you check an interaction instead: when a player submits an
+empty message, does the backend reject it without calling the service?
 
 ## Test how modules work together
 
