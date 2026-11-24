@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="436" viewBox="0 0 440 436" role="img" aria-labelledby="title desc">
+  <title id="title">Simple example: the instructor's game backend</title>
+  <desc id="desc">The browser sends chat and a score snapshot to the HTTP server. The server records the score in sessions and calls the chat service. Chat uses session history, model inference and tool dispatch. Tools read the session score or look up game documents.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 8 4 0 8Z" fill="#486271"/>
+    </marker>
+  </defs>
+  <rect width="440" height="436" rx="6" fill="#fff"/>
+  <g font-family="system-ui, sans-serif" fill="#203849">
+    <text x="220" y="29" text-anchor="middle" font-size="21" font-weight="700">Simple example</text>
+    <text x="220" y="51" text-anchor="middle" font-size="15">The instructor's game backend</text>
+    <g fill="none" stroke="#486271" stroke-width="1.8" marker-end="url(#arrow)">
+      <path d="M218 103V146"/><path d="M218 191V251"/><path d="M218 296V355"/>
+      <path d="M155 169H64V251"/><path d="M147 274H121"/>
+      <path d="M157 378H64V297"/><path d="M287 274H326"/><path d="M280 378H325"/>
+    </g>
+    <g stroke="#8296a0">
+      <rect x="161" y="66" width="114" height="37" rx="6" fill="#fae1ac"/>
+      <rect x="155" y="147" width="126" height="44" rx="6" fill="#daedf9"/>
+      <rect x="12" y="252" width="108" height="44" rx="6" fill="#e6e3f8"/>
+      <rect x="148" y="252" width="139" height="44" rx="6" fill="#c8eadf"/>
+      <rect x="327" y="252" width="106" height="44" rx="6" fill="#fae1ac"/>
+      <rect x="157" y="356" width="123" height="44" rx="6" fill="#daedf9"/>
+      <rect x="326" y="356" width="108" height="44" rx="6" fill="#e6e3f8"/>
+    </g>
+    <g text-anchor="middle" font-size="15" font-weight="650">
+      <text x="218" y="90">Browser</text><text x="218" y="175">server.py</text>
+      <text x="66" y="280">sessions.py</text><text x="218" y="280">chat_service.py</text>
+      <text x="380" y="280">School LLM</text><text x="218" y="384">game_tools.py</text>
+      <text x="380" y="383" font-size="13">documents.py</text>
+    </g>
+    <g font-size="14">
+      <text x="229" y="130">POST /chat</text><text x="229" y="225">question</text>
+      <text x="70" y="161">save score</text><text x="93" y="243">history</text>
+      <text x="289" y="243">inference</text><text x="229" y="329">tool call</text>
+      <text x="71" y="369">read score</text><text x="286" y="347">lookup</text>
+    </g>
+  </g>
+</svg>

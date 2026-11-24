@@ -245,11 +245,19 @@ working code and passing tests, not a broken commit for the next assignment.
 
 ## Explain your architecture
 
+<a href="assets/14-example-backend.svg"><img src="assets/14-example-backend.svg" alt="Simple example: the instructor's browser game sends chat requests to a backend with separate modules for chat, sessions, tools and documents" align="right" width="340"></a>
+
 Put an **Architecture** section in your game's top-level README, or link from
 there to a document in the repository. Include a **vector diagram** of your
 actual backend. Use the real module names and label the arrows with what is
 called or exchanged. A reader should be able to follow a frontend interaction
 through the public API, into the responsible modules and back to the browser.
+
+In the simple example on the right, follow the two arrows out of
+`game_tools.py`: a question about the player's score needs session state,
+while a question about the rules needs the document catalog. That distinction
+explains why those modules are separate. Draw the boundaries that make sense
+for **your** application, not the ones in the example.
 
 Alongside the diagram, explain each module's responsibility and interface.
 Document the public operations, including requests or messages, responses and
