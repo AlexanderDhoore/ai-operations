@@ -1,33 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 244" role="img" aria-labelledby="title desc">
-  <title id="title">One suite, two decisions</title>
-  <desc id="desc">On a pull request, hosted tests report whether the proposed change passes. Production does not run. After merge, a push to main tests the merged revision on GitHub. Only a passing result sends the deployment job to the production runner.</desc>
-  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#476171"/></marker></defs>
-  <rect width="820" height="244" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 470" role="img" aria-labelledby="title desc">
+  <title id="title">From a Git push to a running game</title>
+  <desc id="desc">Development pushes a Git branch to the repository on GitHub. GitHub Actions assigns the test job for pull requests and main to a fresh GitHub-hosted VM. Only a successful main run gets a deploy job on the runner service inside the production LXC. Each runner checks out code and returns logs and status to Actions. No image is transferred between runners.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10z" fill="#405a70"/></marker>
+  </defs>
+  <rect width="840" height="470" fill="#fff"/>
   <g font-family="system-ui, sans-serif" fill="#16324a">
-    <text x="20" y="32" font-size="22" font-weight="700">One suite, two decisions</text>
-    <g font-size="15" fill="#425a68">
-      <text x="20" y="65">GitHub event</text><text x="256" y="65">GitHub-hosted runner</text><text x="560" y="65">Outcome</text>
+    <text x="20" y="32" font-size="23" font-weight="700">From a Git push to a running game</text>
+    <rect x="20" y="54" width="230" height="101" rx="7" fill="#eee8f6"/>
+    <text x="36" y="84" font-size="19" font-weight="700">Development LXC</text>
+    <text x="36" y="113" font-size="16">Edit and commit</text>
+    <text x="36" y="136" font-size="16">Run the suite locally</text>
+    <path d="M250 104h141" fill="none" stroke="#405a70" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="320" y="93" text-anchor="middle" font-family="monospace" font-size="16">git push</text>
+    <rect x="400" y="54" width="420" height="101" rx="7" fill="#f9e8ac"/>
+    <text x="416" y="84" font-size="19" font-weight="700">GitHub repository</text>
+    <text x="416" y="113" font-size="16">A PR update or push to main triggers Actions.</text>
+    <text x="416" y="136" font-size="16">Actions assigns jobs and collects their logs.</text>
+    <g fill="none" stroke="#405a70" stroke-width="2" marker-end="url(#arrow)">
+      <path d="M463 155v21H205v57"/><path d="M630 155v78"/>
     </g>
-    <g stroke="#476171" stroke-width="2" fill="none" marker-end="url(#arrow)">
-      <path d="M198 110H245"/><path d="M198 194H245"/><path d="M460 110H549"/><path d="M460 194H549"/>
+    <g font-size="15" font-weight="600">
+      <text x="217" y="211">Test: PR or main</text>
+      <text x="642" y="211">Deploy: green main</text>
     </g>
-    <text x="472" y="185" font-size="13">if green</text>
-    <g>
-      <rect x="20" y="82" width="178" height="56" rx="6" fill="#eee8f6"/>
-      <rect x="20" y="166" width="178" height="56" rx="6" fill="#eee8f6"/>
-      <rect x="256" y="82" width="204" height="56" rx="6" fill="#b3ccef"/>
-      <rect x="256" y="166" width="204" height="56" rx="6" fill="#b3ccef"/>
-      <rect x="560" y="82" width="240" height="56" rx="6" fill="#f6df8d"/>
-      <rect x="560" y="166" width="240" height="56" rx="6" fill="#a3d9d6"/>
+    <rect x="20" y="242" width="385" height="175" rx="7" fill="#e8f1fa" stroke="#9cb9d1"/>
+    <rect x="435" y="242" width="385" height="175" rx="7" fill="#e6f3ed" stroke="#8bb4a5"/>
+    <text x="36" y="273" font-size="20" font-weight="700">Cloud VM</text>
+    <text x="451" y="273" font-size="20" font-weight="700">Production LXC</text>
+    <rect x="36" y="290" width="353" height="52" rx="5" fill="#b9d5ec"/>
+    <rect x="451" y="290" width="353" height="52" rx="5" fill="#acd8c8"/>
+    <text x="48" y="322" font-size="17" font-weight="700">GitHub-hosted runner</text>
+    <text x="463" y="322" font-size="17" font-weight="700">Self-hosted runner service</text>
+    <g font-size="16">
+      <text x="36" y="371">Check out code and run the test container.</text>
+      <text x="36" y="397">The VM is discarded after the job.</text>
+      <text x="451" y="371">Run Compose from the tested commit.</text>
+      <text x="451" y="397">The game stays online after the job.</text>
     </g>
-    <g font-size="16" font-weight="700">
-      <text x="32" y="116">Pull request</text><text x="32" y="200">Push to main</text>
-      <text x="268" y="105">Test PR merge</text><text x="268" y="189">Test main commit</text>
-      <text x="572" y="105">Report check on PR</text><text x="572" y="189">Deploy tested commit</text>
-    </g>
-    <g font-size="14">
-      <text x="268" y="126">Containerized suite</text><text x="268" y="210">Same suite</text>
-      <text x="572" y="126">No production job</text><text x="572" y="210">Self-hosted production runner</text>
-    </g>
+    <text x="20" y="449" font-size="15" fill="#405a70">Both runners report status and logs back to GitHub Actions.</text>
   </g>
 </svg>

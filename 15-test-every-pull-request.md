@@ -98,13 +98,35 @@ From the repository root, run `chmod +x scripts/test-ci.sh`, then
 expected tests and pass without a manual reset. Commit the script with its
 executable permission. This is the command GitHub will run too.
 
+## Where does each job run?
+
+When you push a branch from your development LXC and open a PR on GitHub,
+your code is on GitHub, but your tests haven't run just because you did a
+`git push`. **GitHub Actions coordinates the work. A runner executes it.**
+The `runs-on` line in each job decides where its checkout and shell commands run.
+
+[![The development LXC pushes a branch to GitHub. Actions assigns tests to a temporary cloud VM. Only a passing main run can assign a deployment to the runner installed inside the production LXC. Both runners report results to GitHub.](assets/15-pr-to-production.svg)](assets/15-pr-to-production.svg)
+
+- **Test on GitHub's machine** (`runs-on: ubuntu-latest`). GitHub provides
+  a fresh Ubuntu VM for the job. It checks out the code, builds your test
+  image and runs the suite there. You read the result and logs on GitHub.
+  The VM is discarded afterwards. You don't install a runner on development
+  and the tests don't need a connection to your live game.
+- **Deploy on your machine** (`runs-on: self-hosted`). This is the runner
+  service you installed **inside the production LXC** in
+  [Assignment 13](13-automate-your-deployment.md), not another VM. It connects
+  out to GitHub to receive jobs. After the `main` commit passes its tests,
+  this runner checks out that same commit and runs Docker Compose locally.
+  The live game stays on the LXC after the job ends.
+
+There is no image transfer or SSH connection from the cloud runner to
+production. What passes between the jobs is **a result**, not a container.
+A green PR ends at the check. Merging triggers a new run on `main`, and only
+that tested revision can be deployed. GitHub documents the two runner types:
+[GitHub-hosted](https://docs.github.com/en/actions/concepts/runners/github-hosted-runners)
+and [self-hosted](https://docs.github.com/en/actions/concepts/runners/self-hosted-runners).
+
 ## Connect the suite to your existing workflow
-
-The CI test job runs on a fresh **GitHub-hosted runner**.
-The self-hosted runner from [Assignment 13](13-automate-your-deployment.md)
-is your actual production server. A PR must never send a job there.
-
-[![A pull request runs tests on GitHub only. A push to main tests the merged commit on GitHub and can then deploy that commit on production.](assets/15-pr-to-production.svg)](assets/15-pr-to-production.svg)
 
 Adapt **the existing** `.github/workflows/deploy.yml` on your work branch.
 Do not leave the old workflow deploying every push independently of the new
