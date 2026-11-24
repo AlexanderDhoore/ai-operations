@@ -222,8 +222,16 @@ Commit and push to the work branch. GitHub updates the open PR automatically.
 
 Open the failed test step. Find the **test name, expected outcome and actual
 outcome**. If the log only shows a Docker build error, you haven't seen the
-assertion yet. Your development agent can also help interpret the failed
-step using the GitHub CLI from 13. It does not need production SSH.
+assertion yet. Your development agent can also read these logs with the
+GitHub CLI from 13. On your work branch, list its PR runs:
+
+```bash
+gh run list --event pull_request --branch "$(git branch --show-current)" --limit 5
+```
+
+Take the ID of the failed run and use `gh run view RUN_ID --log-failed`.
+This reads the Actions log directly, without production SSH or extra
+permissions to read PR check annotations.
 
 **Can you still click Merge?** A red check reports a problem. A *required*
 check can also stop a merge. Where your plan supports it, open **Settings →
