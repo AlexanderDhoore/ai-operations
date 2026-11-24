@@ -7,10 +7,32 @@ that your game was running. Would it still be green if a player action changed
 the wrong person's state? Probably. This time you will make the **whole backend**
 easier to change and build a test suite that tells you when its behavior changes.
 
-Work on a branch on **development** with your coding agent. A push to `main`
-already deploys the game. Leave the production server and its data alone.
-Keep your language and framework. You do not need a new container setup or an
-Actions workflow for this assignment.
+## Start on a Git branch
+
+Open **your game repository on your development server** in VS Code. The
+server is where you work. A **Git branch** is where Git records your new
+commits without moving `main`. That matters because pushing to `main` already
+deploys your game.
+
+In the game repository's terminal, run `git status`. If you have uncommitted
+work, review it with your agent before switching branches. From a clean
+working tree, run:
+
+```bash
+git switch main
+git pull --ff-only
+git switch -c assignment-14-backend-tests
+git branch --show-current
+```
+
+This updates your local `main`, then `git switch -c` creates a branch from
+that commit and switches to it. The last command should print
+`assignment-14-backend-tests`. When resuming the assignment, use
+`git switch assignment-14-backend-tests` without `-c` to return to the
+existing branch. None of these commands pushes or deploys anything.
+
+Leave production and its data alone. Keep your language and framework. You
+do not need a new container setup or an Actions workflow for this assignment.
 
 ## Understand the test pyramid
 
