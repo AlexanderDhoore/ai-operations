@@ -220,10 +220,16 @@ change the implementation so its result no longer matches that expectation.
 For example, change how a boundary value is handled. Leave the test alone.
 Commit and push to the work branch. GitHub updates the open PR automatically.
 
-Open the failed test step. Find the **test name, expected outcome and actual
-outcome**. If the log only shows a Docker build error, you haven't seen the
-assertion yet. Your development agent can also read these logs with the
-GitHub CLI from 13. On your work branch, list its PR runs:
+Open **Backend tests → Run the containerized suite**. In the example below,
+checkout passed, the test step failed and the deploy job was skipped.
+
+<a href="assets/15-pr-test-failure.png"><img src="assets/screenshots/15-pr-test-failure.png" alt="Pull request run 5: Backend tests is red, deploy is skipped and the expanded test step shows the start of the Docker build log." width="800"></a>
+
+The red icon tells you **which step** failed, not **why**. Scroll past the
+build output and find the **test name, expected outcome and actual outcome**.
+In this run, the test expected `'hi'` but received `' hi '`: the backend
+had stopped trimming chat input. Look for the equivalent evidence in your run.
+Your development agent can also read the log. On your work branch, list its PR runs:
 
 ```bash
 gh run list --event pull_request --branch "$(git branch --show-current)" --limit 5
@@ -265,4 +271,10 @@ Before merging, check that the latest PR run is green and your diff contains
 only the changes you intend to release. Merge your game PR. Open **Actions**
 and find the new **push** run on `main`, not the earlier PR run. Compare the
 run's commit with the latest commit on `main`. In the job graph, follow
-**Backend tests → deploy**. Open your public URL and verify the game works.
+**Backend tests → deploy**.
+
+<a href="assets/15-main-tested-and-deployed.png"><img src="assets/screenshots/15-main-tested-and-deployed.png" alt="Successful push run on main for commit 695f837. In the job graph, Backend tests passed before deploy ran and passed." width="800"></a>
+
+Notice the `main` badge beside the commit and the line connecting the two
+green jobs. Unlike the earlier green PR, **this run deployed the game**.
+Open your public URL and verify the game works.
