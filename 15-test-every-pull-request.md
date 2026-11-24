@@ -278,3 +278,7 @@ run's commit with the latest commit on `main`. In the job graph, follow
 Notice the `main` badge beside the commit and the line connecting the two
 green jobs. Unlike the earlier green PR, **this run deployed the game**.
 Open your public URL and verify the game works.
+
+This is the final assignment. Keep the PR, its test logs and the main run
+handy for your project demonstration: together they show which fault your
+suite caught, how you fixed it and which version reached your players.

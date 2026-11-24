@@ -14,8 +14,9 @@ and a short interruption while containers are replaced is fine.
 
 **Continuous deployment (CD)** automatically deploys changes. **Continuous
 integration (CI)** checks changes through tasks such as building and testing.
-This assignment introduces deployment. Later, we will add tests and pull-request
-requirements so bad changes do not go straight into production.
+Here you automate deployment first. In [Assignment 14](14-test-your-backend.md)
+you will write the backend tests. In [Assignment 15](15-test-every-pull-request.md)
+you will run them on pull requests and require a passing test job before deployment.
 
 A **workflow** is a YAML file in `.github/workflows/`. An event, such as a push,
 triggers it. It contains **jobs**, each made of **steps**. A **runner** is the
@@ -306,5 +307,6 @@ You should not need to SSH into production to deploy it.
 With your agent, document the workflow, required secret names and storage
 choice in your project. Update the project memory. Be able to explain where the
 job runs, where its configuration comes from and how you know the new version is
-live. We now deploy automatically, but do not yet test automatically. That is
-the next improvement.
+live. A successful deployment tells you that the game started. In Assignment
+14 you will check something different: does the running backend actually do
+what it promises its players?

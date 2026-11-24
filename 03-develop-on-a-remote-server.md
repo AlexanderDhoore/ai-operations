@@ -33,9 +33,9 @@ SSH to open a workspace on that same server. See the
 SSH can do.
 
 For this first connection, the campus **devbit** Wi-Fi lets your laptop reach
-your server at its assigned IP address. The teacher will remove this temporary
-access later. You will log in as `root`, the Linux administrator, so think
-before running commands.
+your server at its assigned IP address. That campus address is not how you
+will connect from home. You will log in as `root`, the Linux administrator,
+so think before running commands.
 
 Connect your laptop to the **devbit** Wi-Fi network. The teacher will send you
 your server's IP address and unique root password privately through Teams.
@@ -67,11 +67,10 @@ between campus, home, and other networks.
 
 In this assignment, you will add both your server and laptop to **your own**
 tailnet. That lets you reach the server from other networks without opening
-SSH to the public internet. Once this works, the teacher can remove the
-special devbit Wi-Fi access to the student servers without cutting off your
-access. Tailscale is already installed on your assigned server. Create your
-own account. The email shown in these example screenshots belongs to the
-teacher's demonstration account, not to the class.
+SSH to the public internet. Use the Tailscale name on campus or at home so
+you do not have to switch addresses. Tailscale is already installed on your
+assigned server. Create your own account. The email shown in these example
+screenshots belongs to the teacher's demonstration account, not to the class.
 
 In the **server's** SSH terminal, run the following to connect it to your
 tailnet and enable [Tailscale SSH](https://tailscale.com/docs/features/tailscale-ssh)
