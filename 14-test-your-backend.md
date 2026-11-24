@@ -3,9 +3,10 @@
 <img src="assets/moods/14-test-bench.svg" alt="A stack of modules under a magnifying glass" align="right" width="112">
 
 In [Assignment 13](13-automate-your-deployment.md), a green deployment told you
-that your game was running. Would it still be green if a player action changed
-the wrong person's state? Probably. This time you will make the **whole backend**
-easier to change and build a test suite that tells you when its behavior changes.
+that your game was running. It did not tell you whether a player action
+changed the right person's state. In this assignment you will map your
+**whole backend**, protect its existing behavior with tests and refactor it
+into modules. Then you will use that suite to make a change to your own game.
 
 ## Start on a Git branch
 
@@ -31,8 +32,8 @@ that commit and switches to it. The last command should print
 `git switch assignment-14-backend-tests` without `-c` to return to the
 existing branch. None of these commands pushes or deploys anything.
 
-Leave production and its data alone. Keep your language and framework. You
-do not need a new container setup or an Actions workflow for this assignment.
+Keep your language and framework. All work stays on development, with
+separate test data. No new containers or Actions workflow are needed.
 
 ## Understand the test pyramid
 
@@ -75,8 +76,8 @@ right result. It still tells you nothing about what the browser displays.
 page as a player would and assert something visible. Does a rejected action
 leave the screen in the right state and explain what happened? This can catch
 a frontend that treats an error response as success even when every backend
-test passes. Browser automation is optional for this course. It is useful for checking
-the complete interaction, not for repeating every boundary case in the UI.
+test passes. You will test the backend through its API in this assignment.
+Automating the browser interaction is optional.
 
 The [test pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)
 is wide at the base because lots of small tests can cover variations cheaply.
@@ -116,22 +117,13 @@ useful boundaries in **your** game, first map what the backend does today:
 > mixed together and propose module boundaries. Point out ambiguous behavior
 > for me to decide. Do not change files yet.
 
-Compare the inventory with your game. Include the less visible operations,
-such as chat and game tools where present. Decide what callers **should** be
-able to rely on. Do not let the current implementation, or the agent that
-wrote it, become the only authority on the expected result.
+Review the inventory yourself. Distinguish what the frontend calls from what
+the backend calls internally, such as tools made available to the model.
+Decide what each caller **should** be able to rely on. An unexpected result
+in today's code is something to discuss, not automatically something to
+preserve in a test.
 
-Before moving code, capture important existing behavior with API tests on
-development. Give them their own backend instance and test state. This gives
-you an outside view that should keep passing while the internals change.
-
-Now use your map to refactor in small steps. Separate one responsibility,
-run the tests that protect its existing behavior, then move on. Keep
-boundaries that already work. A module might be a Python package, a
-JavaScript module or a set of related classes. Your backend can still run
-as a single application.
-
-## Test each module and its collaborations
+## Protect existing behavior before refactoring
 
 A **test runner** is the program you start to find and run your tests. You
 write the checks, called *assertions*, that say what should happen. If a check
@@ -148,11 +140,28 @@ tool for your backend. Here are three options:
 | Python | [unittest](https://docs.python.org/3/library/unittest.html) comes with Python. Write test methods in a `TestCase` class. | `python -m unittest discover` |
 | Node.js | The built-in [node:test](https://nodejs.org/api/test.html) runner can run JavaScript tests without an extra package. | `node --test` |
 
-Use the naming convention for your runner so it can find your files. On your
-first run, check that the test you just wrote actually appears in the results.
+With your agent, turn an important operation from your inventory into an API
+test. Start a separate backend instance on a free local port with known test
+data. Send a request or message and check the outcome you agreed on. Run it
+against the **unchanged** backend and make sure the runner lists the test by
+name when you use its detailed output.
 
-For **each backend module**, write unit tests through its interface. A useful test reads like three short
-statements: **given** a known starting state, **when** I perform this action,
+Capture the other behaviors you most need to preserve before moving code.
+This is your starting suite, not the final API coverage. These tests use the
+client's interface, so they should still pass when you reorganize the
+implementation behind it.
+
+## Test each module and its collaborations
+
+Use your map to refactor one responsibility at a time. Keep boundaries that
+already work. A module might be a Python package, a JavaScript module or a
+set of related classes. Your backend can still run as a single application.
+After each change, rerun the starting suite to check that callers still see
+the same behavior.
+
+For **each backend module**, write unit tests through its interface. A useful
+test reads like three short statements: **given** a known starting state,
+**when** I perform this action,
 **then** I expect this observable result. Cover ordinary behavior and relevant
 boundaries or rejections. For a rejection, what must remain unchanged?
 
@@ -161,11 +170,6 @@ over an assertion that three private helpers ran in a particular order. That
 way the test still protects you after the next refactor. Google’s
 [note on testing behavior](https://testing.googleblog.com/2013/08/testing-on-toilet-test-behavior-not.html)
 illustrates this distinction.
-
-Look for interactions that unit tests miss. Where two real modules must agree
-on a format, a state transition or an error, exercise them together in a focused
-integration test. There is no benefit in duplicating every unit case at this
-level. Choose a mistake that could survive both modules' unit tests.
 
 ### When should you replace a dependency?
 
@@ -204,20 +208,22 @@ still waste a request. Python's [Mock](https://docs.python.org/3/library/unittes
 can serve either role. Use the equivalent in your own language.
 
 Neither test proves that the real client can talk to the school cluster.
-That is a different question for a system test with the real service.
+Likewise, replacing one of your own modules with a stub tells you nothing
+about whether the two real modules agree. Where they share a data format,
+state transition or error that could be misunderstood, add an integration
+test that exercises them together. You do not need to repeat every unit case.
 
 ## Test the complete public API
 
-Return to your inventory. Cover **every public operation** through the actual
-backend protocol, whether that means HTTP routes, WebSocket messages or another
-interface. Do not call the handler directly and count it as a network test.
+Return to your inventory and extend the starting suite to cover **every
+public operation**. Use the same HTTP routes, WebSocket messages or other
+protocol your frontend uses. Calling a handler directly skips this boundary.
 Assert what the client receives **and** what the operation promises to change.
 A successful status or an open socket alone proves little.
 
 For shared behavior, use separate clients where that distinction matters. Read
 the state through the API after an action, or check which client received the
-event and what it contained. Exercise relevant failure paths too. Compare the
-tests with your inventory to spot operations that nobody has tested.
+event and what it contained. Exercise relevant failure paths too.
 
 **Real software does not require production data.** A fresh instance of your
 usual database, seeded with test records, is a real database. Never point
@@ -233,15 +239,11 @@ logic. Document what is real, what is substituted and why.
 
 ## Optional: test through the browser
 
-An API test starts on the server side of the screen. It can prove that the
-backend returns the right result, but it cannot tell you whether clicking a
-button sends the right request or whether the page displays the reply. A
-**browser test** opens your actual frontend, performs an action as a player
-would and checks what appears on screen. **For this course, browser automation
-is optional.** For a production web application, we strongly recommend
-automating the interactions users rely on most. Start with a task that would
-leave users unable to use the application if it broke, even if every API test
-still passed.
+Your API tests now act as clients, but none of them clicks a button. A
+browser test closes that gap: it drives the real frontend and checks what
+the player sees. **Browser automation is optional for this course.** For a
+production web application, we strongly recommend it for critical user
+interactions that could break even with a green backend suite.
 
 To try it, pick one interaction from your own game that you normally check
 by hand. Write down the starting state, what the player does and what they
@@ -256,12 +258,10 @@ should see afterwards. Then ask your agent to automate those steps:
    than sleeping for a fixed time. A successful click or HTTP response is
    not enough if the player still sees the old state.
 
-[Playwright](https://github.com/microsoft/playwright) is an open-source tool that can
-drive a real browser locally, even without a desktop window. Its
+[Playwright](https://github.com/microsoft/playwright) is an open-source tool
+that can drive a real browser locally, even without a desktop window. Its
 [testing guide](https://playwright.dev/docs/best-practices) shows how to find
-controls and use assertions that retry while the page updates. Keep the many
-variations of each game rule in your faster backend tests. Use the browser
-where seeing the result is part of the promise.
+controls and use assertions that retry while the page updates.
 
 ## Make a change and leave the suite green
 
@@ -279,8 +279,8 @@ working code and passing tests, not a broken commit for the next assignment.
 
 <a href="assets/14-pytest-green.png"><img src="assets/screenshots/14-pytest-green.png" alt="Terminal on the development server running .venv-llm/bin/python -m pytest -q tests and reporting 44 passed in 28.26s" width="785"></a>
 
-The instructor's game finished with `44 passed`. Your test count will differ.
-What matters is that your suite passes again from a clean test state.
+The instructor's game finished with `44 passed`. Your game will have its own
+set of tests.
 
 ## Explain your architecture
 
@@ -304,8 +304,8 @@ relevant errors. Link to the tests that verify those contracts. Include the
 local test command, any prerequisites and how to select live checks. Explain
 how the frontend works even if you do not automate its tests.
 
-Review the diff and the diagram against the code with your agent. Commit the
-reviewed work to your project branch and update project memory.
+Review the diff and check the diagram against the code with your agent.
+Update project memory and commit the reviewed work to your project branch.
 
 At the oral defense, use your diagram to explain **how your backend fits
 together and how you know it works**. Describe what the main modules are
