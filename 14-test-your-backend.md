@@ -12,29 +12,59 @@ already deploys the game. Leave the production server and its data alone.
 Keep your language and framework. You do not need a new container setup or an
 Actions workflow for this assignment.
 
-## Choose what each test should prove
+## Understand the test pyramid
 
 ![Four levels of the test pyramid, from calling one module directly to using a real browser](assets/14-test-pyramid.svg)
 
-Suppose a player sees the wrong state in the browser. The backend might have
-calculated the wrong result, sent the right result to the wrong client, or sent
-the right message to a frontend that never displayed it. Those are different
-mistakes. You do not need to start a browser to find all three.
+Suppose your backend is meant to reject an action and leave the game state
+unchanged. You could open a browser and try every invalid input by hand. But
+if the state changes, where is the mistake? Did the rule allow the action?
+Did another module ignore the rejection? Or did the screen change even though
+the server rejected the request? Each layer of the pyramid lets you ask a
+different question about the same behavior.
 
-| Test | Where you enter the application | What you can learn |
-| --- | --- | --- |
-| Unit | Call one module through its own interface, without a server, network or external database. | Does it return, change or reject what its contract promises? Many cases can run quickly. |
-| Integration | Exercise collaborating modules using their real implementations. | Do they agree on the meaning of the data they exchange? Does a write produce what the reader expects? |
-| API | Send requests or messages to a running test backend, as a client would. | Do routing, rules and state together produce the promised response and effect? No browser needed. |
-| Browser | Interact with the real frontend and observe what a user sees. | Does the control send the action and display the result correctly? **Optional** for this assignment. |
+**Unit tests: does this module make the right decision?** A unit is a piece of
+code with one responsibility and an interface you can call. It need not be
+one function or one class. In a unit test, call that interface directly with
+a known input and assert the result you expect. For a rule with a limit, try
+inputs below, at and above the limit. You can run all three cases without
+starting the game, opening a database or calling an LLM. That makes these
+tests fast, and a failure points you to a specific decision. It does not tell
+you whether the rest of the backend uses that decision correctly.
+
+**Integration tests: do the parts work together?** Now exercise the real
+modules on both sides of an internal interface. For instance, call the code
+that handles an action, let it consult the real rule, and read back the state
+afterwards. The rule might correctly return a rejection while its caller
+writes the proposed state anyway. Neither module's isolated tests necessarily
+catch that disagreement. No HTTP server or browser is needed to test that
+interaction. If the interaction you care about is with a database, use a
+disposable test database so the real read and write code runs.
+
+**API tests: does the running backend keep its promise to a client?** Start a
+test instance and use the same public protocol as your frontend. Send an HTTP
+request or a WebSocket message and inspect the reply or event. For a rejected
+action, also read back the state through the API. A rejection message alone
+does not prove that nothing changed. This crosses boundaries a direct module
+call skips: the backend must decode the message, route it and deliver the
+right result. It still tells you nothing about what the browser displays.
+
+**Browser tests: does the user see the promised behavior?** Drive the real
+page as a player would and assert something visible. Does a rejected action
+leave the screen in the right state and explain what happened? This can catch
+a frontend that treats an error response as success even when every backend
+test passes. Browser automation is optional here. It is useful for checking
+the complete interaction, not for repeating every boundary case in the UI.
 
 The [test pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)
-is a guide, not a required ratio. Put many cases close to the module that owns
-the decision. Add broader tests for mistakes you cannot see there. Broader tests
-usually need more setup, and a failure has more possible causes. Teams use
-different names for these layers. An API test that runs the whole backend is
-also a system test, even if it substitutes a predictable answer for an external
-service. Say what actually ran.
+is wide at the base because lots of small tests can cover variations cheaply.
+Higher up, more parts have to be started, coordinated and reset, and there
+are more places to look when a test fails. Use fewer broad tests to cover
+risks that the narrow ones miss. **The width is not a quota, and the names
+are not universal.** An API test can be a *system test* of the whole backend.
+“API” tells you where the test enters, not whether the database or LLM is
+real. When explaining your suite, say what you called, what actually ran and
+what failure the test would catch.
 
 ## Map the backend before moving code
 
