@@ -75,7 +75,7 @@ right result. It still tells you nothing about what the browser displays.
 page as a player would and assert something visible. Does a rejected action
 leave the screen in the right state and explain what happened? This can catch
 a frontend that treats an error response as success even when every backend
-test passes. Browser automation is optional here. It is useful for checking
+test passes. Browser automation is optional for this course. It is useful for checking
 the complete interaction, not for repeating every boundary case in the UI.
 
 The [test pyramid](https://martinfowler.com/articles/practical-test-pyramid.html)
@@ -203,7 +203,11 @@ An API test starts on the server side of the screen. It can prove that the
 backend returns the right result, but it cannot tell you whether clicking a
 button sends the right request or whether the page displays the reply. A
 **browser test** opens your actual frontend, performs an action as a player
-would and checks what appears on screen. Automating this layer is optional.
+would and checks what appears on screen. **For this course, browser automation
+is optional.** For a production web application, we strongly recommend
+automating the interactions users rely on most. Start with a task that would
+leave users unable to use the application if it broke, even if every API test
+still passed.
 
 To try it, pick one interaction from your own game that you normally check
 by hand. Write down the starting state, what the player does and what they
