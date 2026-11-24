@@ -243,6 +243,11 @@ give the command a nonzero exit code. Run it twice: both runs should pass
 without manual resets or reliance on a previous test's data. Finish with
 working code and passing tests, not a broken commit for the next assignment.
 
+<a href="assets/14-pytest-green.png"><img src="assets/screenshots/14-pytest-green.png" alt="Terminal on the development server running .venv-llm/bin/python -m pytest -q tests and reporting 44 passed in 28.26s" width="785"></a>
+
+The instructor's game finished with `44 passed`. Your test count will differ.
+What matters is that your suite passes again from a clean test state.
+
 ## Explain your architecture
 
 <a href="assets/14-example-backend.svg"><img src="assets/14-example-backend.svg" alt="Simple example: the instructor's browser game sends chat requests to a backend with separate modules for chat, sessions, tools and documents" align="right" width="340"></a>
