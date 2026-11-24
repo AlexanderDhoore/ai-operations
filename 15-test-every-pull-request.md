@@ -253,7 +253,3 @@ only the changes you intend to release. Merge your game PR. Open **Actions**
 and find the new **push** run on `main`, not the earlier PR run. Compare the
 run's commit with the latest commit on `main`. In the job graph, follow
 **Backend tests → deploy**. Open your public URL and verify the game works.
-
-Leave a comment on the merged PR linking to that main run. Someone reviewing
-your project can now follow both decisions: which check informed your merge,
-and which check allowed that exact revision onto production?
