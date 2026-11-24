@@ -197,6 +197,34 @@ behavior, not an exact generated sentence. Keep live checks separately
 selectable so a cluster outage does not prevent you from testing your own
 logic. Document what is real, what is substituted and why.
 
+## Optional: test through the browser
+
+An API test starts on the server side of the screen. It can prove that the
+backend returns the right result, but it cannot tell you whether clicking a
+button sends the right request or whether the page displays the reply. A
+**browser test** opens your actual frontend, performs an action as a player
+would and checks what appears on screen. Automating this layer is optional.
+
+To try it, pick one interaction from your own game that you normally check
+by hand. Write down the starting state, what the player does and what they
+should see afterwards. Then ask your agent to automate those steps:
+
+1. Start your local test game with known test data and open it in a fresh
+   browser session. Use your development test URL, not the public game.
+2. Perform the interaction through the page. Find a control by its visible
+   label or its role and name rather than by a CSS class that might change
+   when you restyle it.
+3. Assert the visible outcome you predicted. Wait for that outcome rather
+   than sleeping for a fixed time. A successful click or HTTP response is
+   not enough if the player still sees the old state.
+
+[Playwright](https://github.com/microsoft/playwright) is an open-source tool that can
+drive a real browser locally, even without a desktop window. Its
+[testing guide](https://playwright.dev/docs/best-practices) shows how to find
+controls and use assertions that retry while the page updates. Keep the many
+variations of each game rule in your faster backend tests. Use the browser
+where seeing the result is part of the promise.
+
 ## Make a change and leave the suite green
 
 Pick one useful change to your own application. Agree on its intended effect
@@ -234,10 +262,3 @@ responsible for and how they work together. Use an example from your test
 suite to explain what you checked at the module level and what you verified
 through the API. The focus is on your design and testing choices, not on
 remembering implementation details.
-
-**Optional browser automation:** To cover a risk that remains on the frontend,
-use a real browser to drive a user interaction and check the visible result.
-The open-source [Playwright](https://github.com/microsoft/playwright) library
-can run locally. Its [testing guide](https://playwright.dev/docs/best-practices)
-shows how to select controls as a user would and keep browser sessions isolated.
-You do not need to repeat the whole API suite through the UI.
