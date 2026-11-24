@@ -90,7 +90,25 @@ what failure the test would catch.
 
 ## Map the backend before moving code
 
-Start with a conversation, not a rewrite:
+Your goal is to **refactor your backend into modules you can test separately**.
+Refactoring means changing how the code is organized while keeping the behavior
+its callers rely on. A module groups code that has one clear responsibility and
+offers an interface: the functions or methods other code can call without
+knowing how the module does its work.
+
+Think back to the rejected action in the pyramid. If the rule that decides
+whether to accept an action is buried in a request handler, you may have to
+start the server just to try the rule with a different input. Give that
+decision its own interface and both the handler and a unit test can call it.
+The unit test can now check the decision directly. An API test still checks
+that the running backend acts on it. That is the benefit you are looking for,
+not a larger number of files.
+
+![A client calls the public API. Inside one backend, modules call each other through internal interfaces.](assets/14-backend-boundaries.svg)
+
+The diagram shows the distinction between the interface your frontend uses
+and those inside the backend. The letters are not a layout to copy. To find
+useful boundaries in **your** game, first map what the backend does today:
 
 > Inspect our backend and the frontend code that calls it. List our public
 > operations, who calls them and what each is supposed to do. Show me where
@@ -107,15 +125,11 @@ Before moving code, capture important existing behavior with API tests on
 development. Give them their own backend instance and test state. This gives
 you an outside view that should keep passing while the internals change.
 
-![A client calls the public API. Inside one backend, modules call each other through internal interfaces.](assets/14-backend-boundaries.svg)
-
-Now refactor in small steps. Give each module a responsibility you can name
-and an interface another module can use without knowing its internals. If
-testing a rule requires constructing an HTTP request and connecting to the
-model server, can you separate the decision from how the request arrived?
-Keep boundaries that already work. A module might be a Python package, a
-JavaScript module, or a set of related classes. One deployable backend is fine.
-The letters in the diagram are not a directory layout to copy.
+Now use your map to refactor in small steps. Separate one responsibility,
+run the tests that protect its existing behavior, then move on. Keep
+boundaries that already work. A module might be a Python package, a
+JavaScript module or a set of related classes. Your backend can still run
+as a single application.
 
 ## Test each module and its collaborations
 
