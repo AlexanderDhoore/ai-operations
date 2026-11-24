@@ -133,8 +133,25 @@ as a single application.
 
 ## Test each module and its collaborations
 
-Choose a test runner that fits your existing code. For **each backend module**,
-write unit tests through its interface. A useful test reads like three short
+A **test runner** is the program you start to find and run your tests. You
+write the checks, called *assertions*, that say what should happen. If a check
+fails, the runner tells you which test failed and where. This is different
+from the GitHub Actions runner in Assignment 13: that runner executes a job
+on a machine. A test runner can run right here in your development terminal.
+
+If your project already has a test command, use it. Otherwise, choose **one**
+tool for your backend. Here are three options:
+
+| Backend | Test runner | Command from the project root |
+| --- | --- | --- |
+| Python | [pytest](https://docs.pytest.org/en/stable/how-to/usage.html) lets you write test functions with ordinary `assert` statements. Install it in your development environment. | `python -m pytest` |
+| Python | [unittest](https://docs.python.org/3/library/unittest.html) comes with Python. Write test methods in a `TestCase` class. | `python -m unittest discover` |
+| Node.js | The built-in [node:test](https://nodejs.org/api/test.html) runner can run JavaScript tests without an extra package. | `node --test` |
+
+Use the naming convention for your runner so it can find your files. On your
+first run, check that the test you just wrote actually appears in the results.
+
+For **each backend module**, write unit tests through its interface. A useful test reads like three short
 statements: **given** a known starting state, **when** I perform this action,
 **then** I expect this observable result. Cover ordinary behavior and relevant
 boundaries or rejections. For a rejection, what must remain unchanged?
