@@ -1,10 +1,12 @@
-# 15 — Test every pull request
+# 15 — Continuous integration: test every pull request
 
 <img src="assets/moods/15-checked-branch.svg" alt="A Git branch with a passing check" align="right" width="112">
 
-Your game already has two useful commands: one tests the backend on development,
-and one deploys the game on production. Right now, nothing connects them. You
-can forget to run the first and still trigger the second by pushing to `main`.
+In this assignment you will set up **continuous integration (CI)** for your
+game. You will use GitHub Actions to run your tests from Assignment 14 on
+every pull request, so you can see whether a change works before you merge
+it. You will then connect those tests to your deployment from Assignment 13:
+only a passing commit on `main` should reach your players.
 
 ## What does CI/CD mean for your game?
 
