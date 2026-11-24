@@ -66,8 +66,11 @@ You don't need a second copy of the game running under Compose.
 
 A separate `Dockerfile.test` is a simple option. Reuse your application's
 build steps where useful. If you already use a [multi-stage Dockerfile](https://docs.docker.com/build/building/multi-stage/),
-a named test stage works too. Keep the production build from 12 selecting the
-production image. For the single-container option, a small executable script
+a named test stage works too. Build that stage explicitly with
+`docker build --target test -t game-tests .`. Without a target, Docker
+builds the **last stage**. Keep production last or select its target in
+your deployment Compose file, so production starts the game, not the tests.
+For the single-container option, a small executable script
 named `scripts/test-ci.sh` could look like this:
 
 ```sh
@@ -198,8 +201,10 @@ Review workflow changes before pushing: they decide what can run on your LXC.
 
 Review and commit your changes, then run `git push -u origin assignment-15-ci`.
 On GitHub, open **Pull requests → New pull request**. Choose `main` as the
-base and your work branch as the compare branch. Check the diff and create
-the PR. **Leave it open.**
+base and your work branch as the compare branch. If assignment 14 isn't
+on `main` yet, the diff will also include its refactor and tests. That is
+expected: this PR will integrate both. Review the diff and create the PR.
+**Leave it open.**
 
 Open the PR's **Checks** tab, choose **Backend tests** and expand **Run the
 containerized suite**. Find the test summary you saw locally. In the Actions
