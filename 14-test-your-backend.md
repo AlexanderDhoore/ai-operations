@@ -226,10 +226,14 @@ local test command, any prerequisites and how to select live checks. Explain
 how the frontend works even if you do not automate its tests.
 
 Review the diff and the diagram against the code with your agent. Commit the
-reviewed work to your project branch and update project memory. At the oral
-defense, be ready to open any module or API operation and answer: **What does
-it promise? Which test would catch a broken promise? What could still go wrong
-even with that test passing?**
+reviewed work to your project branch and update project memory.
+
+At the oral defense, use your diagram to explain **how your backend fits
+together and how you know it works**. Describe what the main modules are
+responsible for and how they work together. Use an example from your test
+suite to explain what you checked at the module level and what you verified
+through the API. The focus is on your design and testing choices, not on
+remembering implementation details.
 
 **Optional browser automation:** To cover a risk that remains on the frontend,
 use a real browser to drive a user interaction and check the visible result.
