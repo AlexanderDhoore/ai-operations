@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 244" role="img" aria-labelledby="title desc">
+  <title id="title">One suite, two decisions</title>
+  <desc id="desc">On a pull request, hosted tests report whether the proposed change passes. Production does not run. After merge, a push to main tests the merged revision on GitHub. Only a passing result sends the deployment job to the production runner.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#476171"/></marker></defs>
+  <rect width="820" height="244" fill="white"/>
+  <g font-family="system-ui, sans-serif" fill="#16324a">
+    <text x="20" y="32" font-size="22" font-weight="700">One suite, two decisions</text>
+    <g font-size="15" fill="#425a68">
+      <text x="20" y="65">GitHub event</text><text x="256" y="65">GitHub-hosted runner</text><text x="560" y="65">Outcome</text>
+    </g>
+    <g stroke="#476171" stroke-width="2" fill="none" marker-end="url(#arrow)">
+      <path d="M198 110H245"/><path d="M198 194H245"/><path d="M460 110H549"/><path d="M460 194H549"/>
+    </g>
+    <text x="472" y="185" font-size="13">if green</text>
+    <g>
+      <rect x="20" y="82" width="178" height="56" rx="6" fill="#eee8f6"/>
+      <rect x="20" y="166" width="178" height="56" rx="6" fill="#eee8f6"/>
+      <rect x="256" y="82" width="204" height="56" rx="6" fill="#b3ccef"/>
+      <rect x="256" y="166" width="204" height="56" rx="6" fill="#b3ccef"/>
+      <rect x="560" y="82" width="240" height="56" rx="6" fill="#f6df8d"/>
+      <rect x="560" y="166" width="240" height="56" rx="6" fill="#a3d9d6"/>
+    </g>
+    <g font-size="16" font-weight="700">
+      <text x="32" y="116">Pull request</text><text x="32" y="200">Push to main</text>
+      <text x="268" y="105">Test PR merge</text><text x="268" y="189">Test main commit</text>
+      <text x="572" y="105">Report check on PR</text><text x="572" y="189">Deploy tested commit</text>
+    </g>
+    <g font-size="14">
+      <text x="268" y="126">Containerized suite</text><text x="268" y="210">Same suite</text>
+      <text x="572" y="126">No production job</text><text x="572" y="210">Self-hosted production runner</text>
+    </g>
+  </g>
+</svg>

@@ -64,6 +64,7 @@ understand what you built?**
 - [12 — Deploy your game](12-deploy-your-game.md)
 - [13 — Automate your deployment](13-automate-your-deployment.md)
 - [14 — Test your backend](14-test-your-backend.md)
+- [15 — Test every pull request](15-test-every-pull-request.md)
 
 Later assignments will appear here when their requirements are introduced in
 class.
