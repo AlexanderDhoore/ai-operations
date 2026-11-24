@@ -63,6 +63,7 @@ understand what you built?**
 - [11 — Give your assistant document lookup](11-let-your-game-assistant-look-up-documents.md)
 - [12 — Deploy your game](12-deploy-your-game.md)
 - [13 — Automate your deployment](13-automate-your-deployment.md)
+- [14 — Test your backend](14-test-your-backend.md)
 
 Later assignments will appear here when their requirements are introduced in
 class.

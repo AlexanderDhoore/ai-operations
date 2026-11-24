@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 294" role="img" aria-labelledby="title desc">
+  <title id="title">Public and internal backend interfaces</title>
+  <desc id="desc">A client calls the public API. Inside the backend, module B calls modules A and C through their interfaces. These are modules in one backend, not separate services.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 10 5 0 10Z" fill="#476171"/></marker></defs>
+  <rect width="820" height="294" fill="white"/>
+  <g font-family="system-ui, sans-serif" fill="#16324a">
+    <text x="20" y="31" font-size="22" font-weight="700">Where does each test enter your backend?</text>
+    <rect x="183" y="53" width="622" height="207" rx="9" fill="#f7fafc" stroke="#8ba2b0"/>
+    <text x="199" y="78" font-size="15" font-weight="700">One backend</text>
+    <g stroke="#476171" stroke-width="2" fill="none" marker-end="url(#arrow)">
+      <path d="M131 153H204"/><path d="M342 153H385"/><path d="M529 153 588 111"/><path d="M529 153 588 211"/>
+    </g>
+    <rect x="19" y="129" width="112" height="49" rx="6" fill="#eee8f6"/>
+    <rect x="207" y="122" width="135" height="64" rx="6" fill="#f6df8d"/>
+    <rect x="389" y="122" width="140" height="64" rx="6" fill="#a3d9d6"/>
+    <rect x="591" y="82" width="194" height="57" rx="6" fill="#b3ccef"/>
+    <rect x="591" y="181" width="194" height="57" rx="6" fill="#b3ccef"/>
+    <g text-anchor="middle" font-size="17" font-weight="700">
+      <text x="75" y="159">Client</text><text x="275" y="149">Public API</text><text x="459" y="149">Module B</text>
+      <text x="688" y="106">Module A</text><text x="688" y="204">Module C</text>
+    </g>
+    <g text-anchor="middle" font-size="14">
+      <text x="275" y="170">client contract</text><text x="459" y="170">calls A and C</text>
+      <text x="688" y="126">internal interface</text><text x="688" y="225">internal interface</text>
+    </g>
+    <text x="19" y="284" font-size="15" fill="#425a68">API tests enter from the client. Unit tests call a module directly. Draw your own module boundaries.</text>
+  </g>
+</svg>

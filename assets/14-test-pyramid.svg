@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 324" role="img" aria-labelledby="title desc">
+  <title id="title">Four scopes for testing your application</title>
+  <desc id="desc">The widest layer tests modules in isolation. Each narrower layer includes more real parts. Browser tests are optional.</desc>
+  <rect width="820" height="324" fill="white"/>
+  <g font-family="system-ui, sans-serif" fill="#16324a">
+    <text x="22" y="33" font-size="22" font-weight="700">The test pyramid for a browser application</text>
+    <g stroke="white" stroke-width="3">
+      <path d="M183 52 224 111H142Z" fill="#fbd4ac"/>
+      <path d="M142 111H224L264 169H102Z" fill="#f6df8d"/>
+      <path d="M102 169H264L303 226H63Z" fill="#a3d9d6"/>
+      <path d="M63 226H303L344 285H22Z" fill="#b3ccef"/>
+    </g>
+    <g font-size="18" font-weight="700" text-anchor="middle">
+      <text x="183" y="100">UI</text><text x="183" y="149">API</text>
+      <text x="183" y="205">Integration</text><text x="183" y="262">Unit</text>
+    </g>
+    <g fill="none" stroke="#93a5af" stroke-dasharray="3 5">
+      <path d="M220 92H361 M253 143H361 M294 199H361 M332 255H361"/>
+    </g>
+    <g x="369" font-size="16">
+      <text x="369" y="88" font-weight="700">Real browser</text><text x="369" y="108">Use the interface and check what the user sees.</text>
+      <text x="369" y="141" font-weight="700">Running backend</text><text x="369" y="161">Send a request or message and verify its effect.</text>
+      <text x="369" y="198" font-weight="700">Real modules together</text><text x="369" y="218">Check that collaborating modules agree on a contract.</text>
+      <text x="369" y="254" font-weight="700">One module in isolation</text><text x="369" y="274">Call its interface and check the result or error.</text>
+    </g>
+    <text x="22" y="312" font-size="15" fill="#425a68">Wider means typically more tests, not a required ratio.</text>
+  </g>
+</svg>
