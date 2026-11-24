@@ -5,8 +5,9 @@
 In [Assignment 13](13-automate-your-deployment.md), a green deployment told you
 that your game was running. It did not tell you whether a player action
 changed the right person's state. In this assignment you will map your
-**whole backend**, protect its existing behavior with tests and refactor it
-into modules. Then you will use that suite to make a change to your own game.
+**whole backend** and refactor it into modules. You will test each module
+first, then check how the modules work together, and finally test the running
+backend as a client. You will use that suite to make a change to your own game.
 
 ## Start on a Git branch
 
@@ -123,7 +124,13 @@ Decide what each caller **should** be able to rely on. An unexpected result
 in today's code is something to discuss, not automatically something to
 preserve in a test.
 
-## Protect existing behavior before refactoring
+## Start with unit tests
+
+Pick one responsibility from your map, ideally a decision your backend can
+make from its inputs alone. If it is buried in a request handler, extract
+it into a function or module and have the handler call it. If it already
+has a clear interface, leave it where it is. Your first test will call that
+code directly. You do not need to start a server.
 
 A **test runner** is the program you start to find and run your tests. You
 write the checks, called *assertions*, that say what should happen. If a check
@@ -140,30 +147,15 @@ tool for your backend. Here are three options:
 | Python | [unittest](https://docs.python.org/3/library/unittest.html) comes with Python. Write test methods in a `TestCase` class. | `python -m unittest discover` |
 | Node.js | The built-in [node:test](https://nodejs.org/api/test.html) runner can run JavaScript tests without an extra package. | `node --test` |
 
-With your agent, turn an important operation from your inventory into an API
-test. Start a separate backend instance on a free local port with known test
-data. Send a request or message and check the outcome you agreed on. Run it
-against the **unchanged** backend and make sure the runner lists the test by
-name when you use its detailed output.
+Write a test for the decision you picked: **given** this starting state,
+**when** I call the module with this input, **then** I expect this result.
+Run it and check that the runner actually found your test. Add a boundary
+case or a rejection. For a rejection, what must remain unchanged?
 
-Capture the other behaviors you most need to preserve before moving code.
-This is your starting suite, not the final API coverage. These tests use the
-client's interface, so they should still pass when you reorganize the
-implementation behind it.
-
-## Test each module and its collaborations
-
-Use your map to refactor one responsibility at a time. Keep boundaries that
-already work. A module might be a Python package, a JavaScript module or a
-set of related classes. Your backend can still run as a single application.
-After each change, rerun the starting suite to check that callers still see
-the same behavior.
-
-For **each backend module**, write unit tests through its interface. A useful
-test reads like three short statements: **given** a known starting state,
-**when** I perform this action,
-**then** I expect this observable result. Cover ordinary behavior and relevant
-boundaries or rejections. For a rejection, what must remain unchanged?
+Repeat for **each backend module**, extracting one responsibility at a time
+and rerunning the tests as you go. Keep boundaries that already work. A
+module might be a Python package, a JavaScript module or a set of related
+classes. They can all remain part of one application.
 
 Name tests after the promise they check. Prefer an assertion about the result
 over an assertion that three private helpers ran in a particular order. That
@@ -207,28 +199,41 @@ player sees the right message, contacting the model for blank input would
 still waste a request. Python's [Mock](https://docs.python.org/3/library/unittest.mock.html)
 can serve either role. Use the equivalent in your own language.
 
-Neither test proves that the real client can talk to the school cluster.
-Likewise, replacing one of your own modules with a stub tells you nothing
-about whether the two real modules agree. Where they share a data format,
-state transition or error that could be misunderstood, add an integration
-test that exercises them together. You do not need to repeat every unit case.
+## Test how modules work together
+
+A stub can show how one module reacts to an answer. It cannot tell you
+whether the real module on the other side gives that answer. Pick an
+interaction from your map where a misunderstanding would matter. For
+example, if one module rejects an action, does its caller leave the state
+alone? Write an integration test that runs both real modules and checks the
+outcome. Cover other important interactions without repeating every unit case.
 
 ## Test the complete public API
 
-Return to your inventory and extend the starting suite to cover **every
-public operation**. Use the same HTTP routes, WebSocket messages or other
-protocol your frontend uses. Calling a handler directly skips this boundary.
+So far, your tests have called backend code directly. Now start the actual
+backend and test it from the outside. Use its existing API, not a second API
+built for the tests.
+
+Have your test runner manage the server's lifetime. Put the setup and
+cleanup in one shared helper (often called a *fixture*):
+
+1. Prepare isolated test state. If the game uses a database, create a
+   disposable test database and seed it with known records. For an in-memory
+   game, a fresh instance may be enough. Never point tests at production.
+2. Start the backend on development, bound to `127.0.0.1` on a free port.
+   Pass its address to the test client. Wait for it to accept requests, with
+   a timeout that fails the test setup if the server never becomes ready.
+3. Give each test a known starting state. When the suite finishes, stop the
+   test server and remove its temporary data, even if an assertion failed.
+
+Use your inventory to cover **every public operation** through the same
+HTTP routes, WebSocket messages or other protocol your frontend uses.
 Assert what the client receives **and** what the operation promises to change.
 A successful status or an open socket alone proves little.
 
 For shared behavior, use separate clients where that distinction matters. Read
 the state through the API after an action, or check which client received the
 event and what it contained. Exercise relevant failure paths too.
-
-**Real software does not require production data.** A fresh instance of your
-usual database, seeded with test records, is a real database. Never point
-tests at the production database, game URL or saved files. Give tests a known
-starting state and clean up after them, including after failure.
 
 At this level you may use the real school inference service when the question
 is whether your backend actually works with it. Use test inputs and supply the
@@ -271,8 +276,8 @@ effect. If an older test fails, decide whether the agreement really changed
 or the code is wrong. Do not weaken an assertion just to make it pass.
 
 Provide **one documented command** that runs the routine unit, integration
-and API tests on development. It should prepare the isolated test backend,
-wait until it is ready, run the checks and clean up. A failed assertion must
+and API tests on development, including the API suite's setup and cleanup.
+A failed assertion must
 give the command a nonzero exit code. Run it twice: both runs should pass
 without manual resets or reliance on a previous test's data. Finish with
 working code and passing tests, not a broken commit for the next assignment.
