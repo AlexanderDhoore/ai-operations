@@ -6,9 +6,25 @@ Your game already has two useful commands: one tests the backend on development,
 and one deploys the game on production. Right now, nothing connects them. You
 can forget to run the first and still trigger the second by pushing to `main`.
 
-In this assignment you will see the result of your tests **before** deciding
-whether to merge a change. Then you will make production deployment depend on
-the tests passing for the commit that will actually go live.
+## What does CI/CD mean for your game?
+
+**Continuous integration (CI)** means bringing changes into the shared codebase
+frequently and checking automatically that they work together. In your game,
+a **pull request (PR)** proposes merging your branch into `main`. Each time
+you update that PR, GitHub will run your backend tests against the proposed
+merge. You get feedback while you can still change the code. A green PR does
+not change the game your players see.
+
+**Continuous deployment (CD)** takes the next step: changes that reach
+`main` and pass its checks go to production without a separate release
+decision. In Assignment 13 a push to `main` already deployed your game.
+Now the merged commit must pass the tests first. If they fail, players keep
+using the previous version.
+
+You may also see CD used for **continuous delivery**. With delivery, the
+tested version is ready to release, but the team chooses when to release it.
+Here CD means *deployment*: after a successful check on `main`, nobody needs
+to click a deploy button.
 
 ## Start with your passing suite
 
@@ -82,9 +98,7 @@ executable permission. This is the command GitHub will run too.
 
 ## Connect the suite to your existing workflow
 
-A **pull request (PR)** proposes merging a branch into another branch.
-**Continuous integration (CI)** tests that proposed combination while you
-can still change it. Here the test job uses a fresh **GitHub-hosted runner**.
+The CI test job runs on a fresh **GitHub-hosted runner**.
 The self-hosted runner from [Assignment 13](13-automate-your-deployment.md)
 is your actual production server. A PR must never send a job there.
 
