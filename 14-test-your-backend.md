@@ -162,15 +162,49 @@ way the test still protects you after the next refactor. Google’s
 [note on testing behavior](https://testing.googleblog.com/2013/08/testing-on-toilet-test-behavior-not.html)
 illustrates this distinction.
 
-Keep unit tests quick and independent. For instance, pass a small stand-in for
-an LLM client that returns a chosen reply or raises a timeout. You can then
-exercise your application's handling of both outcomes without a key or a
-network call. Do not replace the application logic you are trying to verify.
-
 Look for interactions that unit tests miss. Where two real modules must agree
 on a format, a state transition or an error, exercise them together in a focused
 integration test. There is no benefit in duplicating every unit case at this
 level. Choose a mistake that could survive both modules' unit tests.
+
+### When should you replace a dependency?
+
+How would you test what your chat tells a player when the model times out?
+Waiting for the school cluster to fail is hardly a repeatable test. Instead,
+keep your chat code real and pass it a **test double** in place of the
+function that contacts the model. In the running game you pass the real
+function. In a test you choose what happens when the chat calls it.
+
+```python
+from unittest.mock import Mock
+
+def answer(message, ask_model):
+    if not message.strip():
+        return "Enter a message."
+    try:
+        return ask_model(message)
+    except TimeoutError:
+        return "Please try again."
+
+def test_timeout_gives_the_player_a_retry_message():
+    slow_model = Mock(side_effect=TimeoutError())
+    assert answer("How do I play?", slow_model) == "Please try again."
+
+def test_blank_message_never_reaches_the_model():
+    model = Mock()
+    assert answer(" ", model) == "Enter a message."
+    model.assert_not_called()
+```
+
+The first double acts as a **stub**: it supplies a chosen outcome, here a
+timeout, and the test checks the result of the real `answer` function. The
+second acts as a **mock**: the test also checks an interaction. Even if the
+player sees the right message, contacting the model for blank input would
+still waste a request. Python's [Mock](https://docs.python.org/3/library/unittest.mock.html)
+can serve either role. Use the equivalent in your own language.
+
+Neither test proves that the real client can talk to the school cluster.
+That is a different question for a system test with the real service.
 
 ## Test the complete public API
 
